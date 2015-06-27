@@ -198,7 +198,6 @@
 			children = (
 				993F6A0F1B3EE1DD00CAF0D7 /* AppDelegate.h */,
 				993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */,
-				7ECC236F1B3EEFBB0049B47B /* Onboarding */,
 				993F6A561B3EE8BE00CAF0D7 /* Frameworks */,
 				993F6A4A1B3EE54C00CAF0D7 /* Models */,
 				993F6A461B3EE50E00CAF0D7 /* Controllers */,
@@ -240,6 +239,7 @@
 		993F6A461B3EE50E00CAF0D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7ECC236F1B3EEFBB0049B47B /* Onboarding */,
 				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
 				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
 				993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */,

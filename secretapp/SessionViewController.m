@@ -9,8 +9,10 @@
 #import "SessionViewController.h"
 
 @interface SessionViewController ()
+@property PFUser *currentUser;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
+@property (weak, nonatomic) IBOutlet UIImageView *sessionImage;
 @end
 
 @implementation SessionViewController
@@ -29,6 +31,18 @@
                                          green:0.157
                                          blue:0.157
                                          alpha:1];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self checkCurrentUser];
+}
+
+- (void)checkCurrentUser {
+    if ([PFUser currentUser] != nil) {
+        self.currentUser = [PFUser currentUser];
+        UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        [self presentViewController:viewController animated:NO completion:NULL];
+    }
 }
 
 -(IBAction)unwindSelection:(UIStoryboardSegue *)segue {
