@@ -201,25 +201,47 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-G3-tzB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3HD-yk-HYC"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="xfD-Ju-Bpo">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="vLT-kE-eo7">
+                                            <connections>
+                                                <segue destination="MNC-RY-X5j" kind="unwind" unwindAction="unwindSelection:" id="0BW-JC-dlY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wnI-Ai-Ce0" firstAttribute="trailing" secondItem="uo7-0d-3a6" secondAttribute="trailing" id="1Rk-OO-DCx"/>
                             <constraint firstItem="sFC-z1-8XO" firstAttribute="centerX" secondItem="uo7-0d-3a6" secondAttribute="centerX" id="IDg-hb-XMJ"/>
+                            <constraint firstItem="gV0-G3-tzB" firstAttribute="top" secondItem="0kq-ed-QG1" secondAttribute="topMargin" id="M12-YO-Gvg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gV0-G3-tzB" secondAttribute="trailing" constant="-16" id="UdV-cE-ccO"/>
                             <constraint firstItem="uo7-0d-3a6" firstAttribute="top" secondItem="wnI-Ai-Ce0" secondAttribute="bottom" constant="40" id="aj2-pv-ifD"/>
                             <constraint firstItem="sFC-z1-8XO" firstAttribute="top" secondItem="uo7-0d-3a6" secondAttribute="bottom" constant="96" id="lAw-5n-78U"/>
+                            <constraint firstItem="gV0-G3-tzB" firstAttribute="leading" secondItem="0kq-ed-QG1" secondAttribute="leadingMargin" constant="-16" id="sZn-el-dtg"/>
                             <constraint firstItem="uo7-0d-3a6" firstAttribute="leading" secondItem="wnI-Ai-Ce0" secondAttribute="leading" id="vbd-fp-F4I"/>
                             <constraint firstItem="wnI-Ai-Ce0" firstAttribute="centerX" secondItem="0kq-ed-QG1" secondAttribute="centerX" id="wFs-u8-QWb"/>
                             <constraint firstItem="wnI-Ai-Ce0" firstAttribute="top" secondItem="y4Y-NE-O1j" secondAttribute="bottom" constant="86" id="yRS-v6-zVY"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="loginButton" destination="sFC-z1-8XO" id="Inf-Cn-0wY"/>
+                        <outlet property="loginNav" destination="gV0-G3-tzB" id="d5W-eG-Aeb"/>
                         <outlet property="passwordTextField" destination="uo7-0d-3a6" id="yOI-tS-kKa"/>
                         <outlet property="usernameTextField" destination="wnI-Ai-Ce0" id="tl3-Fd-tqd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZz-TB-7uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="MNC-RY-X5j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-733" y="-548"/>
         </scene>
@@ -257,15 +279,33 @@
                                     <action selector="onSignupPressed:" destination="nL1-AX-ruh" eventType="touchUpInside" id="YNj-DN-ZT9"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wb4-5d-2j8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eZu-Pf-HPu"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="hrg-Yh-Ypi">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="mrM-sx-auF">
+                                            <connections>
+                                                <segue destination="lYC-QN-S8k" kind="unwind" unwindAction="unwindSelection:" id="uFm-Sy-wdH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Y5x-yg-w5B" firstAttribute="centerX" secondItem="9cL-zn-sVU" secondAttribute="centerX" id="1jd-Oq-c8Y"/>
                             <constraint firstItem="xpJ-Cb-qEf" firstAttribute="leading" secondItem="9cL-zn-sVU" secondAttribute="leading" id="KBZ-el-JUm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wb4-5d-2j8" secondAttribute="trailing" constant="-16" id="O1U-B8-l63"/>
                             <constraint firstItem="9cL-zn-sVU" firstAttribute="centerX" secondItem="K2y-dY-OEw" secondAttribute="centerX" id="PpJ-nE-Lei"/>
                             <constraint firstItem="9cL-zn-sVU" firstAttribute="trailing" secondItem="xpJ-Cb-qEf" secondAttribute="trailing" id="V35-8d-e3T"/>
                             <constraint firstItem="Y5x-yg-w5B" firstAttribute="top" secondItem="9cL-zn-sVU" secondAttribute="bottom" constant="49" id="cIa-Il-bVn"/>
                             <constraint firstItem="Tuh-BL-MwF" firstAttribute="top" secondItem="Y5x-yg-w5B" secondAttribute="bottom" constant="175" id="d8A-bd-x2t"/>
+                            <constraint firstItem="Wb4-5d-2j8" firstAttribute="top" secondItem="K2y-dY-OEw" secondAttribute="topMargin" id="mOA-C5-r6n"/>
+                            <constraint firstItem="Wb4-5d-2j8" firstAttribute="leading" secondItem="K2y-dY-OEw" secondAttribute="leadingMargin" constant="-16" id="ncd-WR-3LF"/>
                             <constraint firstItem="9cL-zn-sVU" firstAttribute="top" secondItem="xpJ-Cb-qEf" secondAttribute="bottom" constant="40" id="v40-rl-7PY"/>
                         </constraints>
                     </view>
@@ -273,9 +313,11 @@
                         <outlet property="emailTextField" destination="xpJ-Cb-qEf" id="eJi-WJ-ndU"/>
                         <outlet property="passwordTextField" destination="9cL-zn-sVU" id="D1l-R3-0Bi"/>
                         <outlet property="signupButton" destination="Y5x-yg-w5B" id="Thi-Xx-rhE"/>
+                        <outlet property="signupNav" destination="Wb4-5d-2j8" id="MI7-HT-1Kf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7V-iT-rYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lYC-QN-S8k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-733" y="108"/>
         </scene>
@@ -400,7 +442,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="first" width="1150" height="1105"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
