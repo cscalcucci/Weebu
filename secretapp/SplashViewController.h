@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
 
 
@@ -21,6 +20,5 @@
 @property UIImageView *secondShape;
 @property UIImageView *thirdShape;
 
-@property CLLocation *testLocation;
 
 @end

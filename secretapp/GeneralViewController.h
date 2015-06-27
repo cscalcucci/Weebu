@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
+#import "LocationService.h"
 
 @interface GeneralViewController : UIViewController
 
 @property UIButton *addEmotionButton;
+@property CLLocation *userLocation;
 
 @end
 

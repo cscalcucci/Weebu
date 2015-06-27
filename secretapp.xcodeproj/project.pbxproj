@@ -167,14 +167,10 @@
 		7ECC236F1B3EEFBB0049B47B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
-				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
-				7ECC23691B3EEF950049B47B /* LoginViewController.h */,
-				7ECC236A1B3EEF950049B47B /* LoginViewController.m */,
-				7ECC23661B3EEF7F0049B47B /* SessionViewController.h */,
-				7ECC23671B3EEF7F0049B47B /* SessionViewController.m */,
-				7ECC23961B3EF8260049B47B /* SignupViewController.h */,
-				7ECC23971B3EF8260049B47B /* SignupViewController.m */,
+				993F6A6F1B3F612100CAF0D7 /* Splash */,
+				993F6A6E1B3F611A00CAF0D7 /* Login */,
+				993F6A6D1B3F610900CAF0D7 /* Session */,
+				993F6A6C1B3F610200CAF0D7 /* Signup */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -285,8 +281,7 @@
 				7ECC239D1B3F146B0049B47B /* Event.m */,
 				993F6A571B3EEF5300CAF0D7 /* FoursquareAPI.h */,
 				993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */,
-				993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */,
-				993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */,
+				993F6A711B3F613800CAF0D7 /* Custom colors */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -315,13 +310,10 @@
 		993F6A661B3F0A2800CAF0D7 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */,
-				993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */,
-				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
-				993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */,
+				993F6A6B1B3F60F800CAF0D7 /* Tab Bar */,
+				993F6A6A1B3F5FF500CAF0D7 /* Map View */,
 				7ECC23A21B3F1C270049B47B /* List View */,
-				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
-				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
+				993F6A691B3F5FEC00CAF0D7 /* Map View */,
 				993F6A3C1B3EE2D600CAF0D7 /* ProfileViewController.h */,
 				993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */,
 			);
@@ -335,6 +327,78 @@
 				993F6A401B3EE3AC00CAF0D7 /* AddEmotionViewController.m */,
 			);
 			name = Emotion;
+			sourceTree = "<group>";
+		};
+		993F6A691B3F5FEC00CAF0D7 /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
+				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
+			);
+			name = "Map View";
+			sourceTree = "<group>";
+		};
+		993F6A6A1B3F5FF500CAF0D7 /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
+				993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */,
+			);
+			name = "Map View";
+			sourceTree = "<group>";
+		};
+		993F6A6B1B3F60F800CAF0D7 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */,
+				993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		993F6A6C1B3F610200CAF0D7 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC23961B3EF8260049B47B /* SignupViewController.h */,
+				7ECC23971B3EF8260049B47B /* SignupViewController.m */,
+			);
+			name = Signup;
+			sourceTree = "<group>";
+		};
+		993F6A6D1B3F610900CAF0D7 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC23661B3EEF7F0049B47B /* SessionViewController.h */,
+				7ECC23671B3EEF7F0049B47B /* SessionViewController.m */,
+			);
+			name = Session;
+			sourceTree = "<group>";
+		};
+		993F6A6E1B3F611A00CAF0D7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC23691B3EEF950049B47B /* LoginViewController.h */,
+				7ECC236A1B3EEF950049B47B /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		993F6A6F1B3F612100CAF0D7 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
+				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
+			);
+			name = Splash;
+			sourceTree = "<group>";
+		};
+		993F6A711B3F613800CAF0D7 /* Custom colors */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */,
+				993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */,
+			);
+			name = "Custom colors";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
