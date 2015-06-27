@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+#import "Emotion.h"
+#import "Event.h"
+#import "LocationService.h"
+
 @interface AddEmotionViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedEmotionLabel;
 @property UIButton *cancelButton;
+@property NSArray *emotions;
+@property long selectedTag;
 
 @end

@@ -21,6 +21,44 @@
     self.cancelButton = [self createButtonWithTitle:@"cancel" chooseColor:[UIColor redColor] andPosition:50];
     [self.cancelButton addTarget:self action:@selector(onCancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
+    //Array with emotion objects
+
+    self.emotions = [[NSArray alloc]init];
+    PFQuery *emotionsQuery = [PFQuery queryWithClassName:@"Emotion"];
+    [emotionsQuery orderByDescending:@"createdAt"];
+    [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
+        if (!error) {
+            NSLog(@"%lu", emotions.count);
+            self.emotions = emotions;
+        }
+    }];
+}
+
+
+
+#pragma mark - Add emotion buttons test
+
+- (IBAction)onSelectEmotionPressed:(UIButton *)sender {
+    NSLog(@"%li", sender.tag);
+    self.selectedTag = sender.tag;
+    
+    if (sender.tag == 0) {
+        self.selectedEmotionLabel.text = @"Happy";
+    } else if (sender.tag == 1) {
+        self.selectedEmotionLabel.text = @"Sad";
+    }
+}
+
+- (IBAction)onAddEmotionPressed:(id)sender {
+    NSLog(@"add emotion button pressed");
+    Event *event = [Event objectWithClassName:@"Event"];
+    if ([self.selectedEmotionLabel.text  isEqual: @"Happy"]) {
+        event.location.longitude = [LocationService sharedInstance].currentLocation.coordinate.longitude;
+        event.location.latitude = [LocationService sharedInstance].currentLocation.coordinate.latitude;
+        event.createdBy = [PFUser currentUser];
+        event.emotionObject = self.emotions[self.selectedTag];
+        [event saveInBackground];
+    }
 }
 
 #pragma mark - Cancel button
@@ -42,25 +80,7 @@
 - (void)onCancelButtonPressed {
     NSLog(@"pressed");
     [self dismissViewControllerAnimated:YES completion:NULL];
-    
-}
 
-#pragma mark - Add emotion buttons test
-
-- (IBAction)onSelectEmotionPressed:(UIButton *)sender {
-    NSLog(@"%li", sender.tag);
-    if (sender.tag == 1) {
-        self.selectedEmotionLabel.text = @"Happy";
-    } else if (sender.tag == 2) {
-        self.selectedEmotionLabel.text = @"Sad";
-
-    }
-}
-
-- (IBAction)onAddEmotionPressed:(id)sender {
-    NSLog(@"add emotion button pressed");
-
-    
 }
 
 
