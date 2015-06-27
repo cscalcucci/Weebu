@@ -134,7 +134,7 @@
         <scene sceneID="Bkz-CK-S8O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jbQ-Ta-JEX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="General" image="happy" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="General" image="deathSD" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUJ-uo-InB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -153,7 +153,7 @@
         <scene sceneID="4Tw-vK-IdC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nVd-mj-hhZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="List" image="deathSD" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tWR-XF-Dvt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -172,7 +172,7 @@
         <scene sceneID="qGY-EA-K7c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Af-P1-sJH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="first" id="erX-4V-6A7"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="deathSD" id="erX-4V-6A7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Isx-MA-mJA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -213,7 +213,7 @@
         <scene sceneID="0A3-aw-GMc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qka-4f-Ndm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="second" id="brN-Ta-f1I"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="deathSD" id="brN-Ta-f1I"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RJx-FR-EZx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -230,9 +230,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="happy" width="182" height="182"/>
-        <image name="second" width="30" height="30"/>
+        <image name="deathSD" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ddk-CO-uTG"/>

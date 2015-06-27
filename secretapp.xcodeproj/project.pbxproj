@@ -25,7 +25,7 @@
 		993F6A541B3EE87B00CAF0D7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A521B3EE87B00CAF0D7 /* Fabric.framework */; };
 		993F6A551B3EE87B00CAF0D7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */; };
 		993F6A591B3EEF5300CAF0D7 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */; };
-		993F6A5C1B3EEF9300CAF0D7 /* SharedLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A5B1B3EEF9300CAF0D7 /* SharedLocation.m */; };
+		993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A641B3EFA9900CAF0D7 /* LocationService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,8 @@
 		993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		993F6A571B3EEF5300CAF0D7 /* FoursquareAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareAPI.h; sourceTree = "<group>"; };
 		993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
-		993F6A5A1B3EEF9300CAF0D7 /* SharedLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedLocation.h; sourceTree = "<group>"; };
-		993F6A5B1B3EEF9300CAF0D7 /* SharedLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedLocation.m; sourceTree = "<group>"; };
+		993F6A631B3EFA9900CAF0D7 /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		993F6A641B3EFA9900CAF0D7 /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,10 +180,10 @@
 		993F6A4A1B3EE54C00CAF0D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				993F6A631B3EFA9900CAF0D7 /* LocationService.h */,
+				993F6A641B3EFA9900CAF0D7 /* LocationService.m */,
 				993F6A571B3EEF5300CAF0D7 /* FoursquareAPI.h */,
 				993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */,
-				993F6A5A1B3EEF9300CAF0D7 /* SharedLocation.h */,
-				993F6A5B1B3EEF9300CAF0D7 /* SharedLocation.m */,
 				993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */,
 				993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */,
 			);
@@ -298,14 +298,14 @@
 /* Begin PBXShellScriptBuildPhase section */
 		993F6A511B3EE86A00CAF0D7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run a160530d149b318e6fe3b34e823398daf99192e5 80be5f908fb97d15dd768902dc6b7d0e11e6796fdc1a62bcba9750d4df566135";
 		};
@@ -317,13 +317,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				993F6A411B3EE3AC00CAF0D7 /* AddEmotionViewController.m in Sources */,
-				993F6A5C1B3EEF9300CAF0D7 /* SharedLocation.m in Sources */,
 				993F6A591B3EEF5300CAF0D7 /* FoursquareAPI.m in Sources */,
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
 				993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */,
 				993F6A3B1B3EE2CB00CAF0D7 /* ListViewController.m in Sources */,
 				993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */,
 				993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */,
+				993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */,
 				993F6A3E1B3EE2D600CAF0D7 /* ProfileViewController.m in Sources */,
 				993F6A171B3EE1DD00CAF0D7 /* GeneralViewController.m in Sources */,
 				993F6A441B3EE46C00CAF0D7 /* TabBarViewController.m in Sources */,
@@ -525,6 +525,7 @@
 				993F6A301B3EE1DD00CAF0D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		993F6A311B3EE1DD00CAF0D7 /* Build configuration list for PBXNativeTarget "secretappTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +534,7 @@
 				993F6A331B3EE1DD00CAF0D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

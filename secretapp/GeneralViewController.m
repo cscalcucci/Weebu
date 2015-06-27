@@ -21,6 +21,12 @@
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object  change:(NSDictionary *)change context:(void *)context {
+    if([keyPath isEqualToString:@"currentLocation"]) {
+        NSLog(@"something");
+    }
+}
+
 #pragma mark - Floating button
 
 - (UIButton *)createButtonWithTitle:(NSString *)title chooseColor:(UIColor *)color andPosition:(int)position {
