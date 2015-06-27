@@ -11,6 +11,7 @@
 #import "Event.h"
 
 @interface ListViewController ()
+@property PFUser *currentUser;
 @property NSArray *events;
 @end
 
@@ -21,6 +22,13 @@
 
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+
+    Emotion *emotion1 = [[Emotion alloc]init];
+    emotion1.name = @"Happy";
+    Event *event1 = [[Event alloc]init];
+    event1.emotionObject = emotion1;
+    event1.createdBy = self.currentUser;
+    self.events = [[NSArray alloc]initWithObjects:event1, nil];
 }
 
 #pragma mark - Floating button
