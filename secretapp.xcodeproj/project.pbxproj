@@ -22,6 +22,8 @@
 		993F6A441B3EE46C00CAF0D7 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */; };
 		993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */; };
 		993F6A501B3EE5DA00CAF0D7 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */; };
+		993F6A541B3EE87B00CAF0D7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A521B3EE87B00CAF0D7 /* Fabric.framework */; };
+		993F6A551B3EE87B00CAF0D7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColors.h"; sourceTree = "<group>"; };
 		993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
+		993F6A521B3EE87B00CAF0D7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993F6A551B3EE87B00CAF0D7 /* Crashlytics.framework in Frameworks */,
+				993F6A541B3EE87B00CAF0D7 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +113,7 @@
 				993F6A0F1B3EE1DD00CAF0D7 /* AppDelegate.h */,
 				993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */,
 				993F6A341B3EE26900CAF0D7 /* Main.storyboard */,
+				993F6A561B3EE8BE00CAF0D7 /* Frameworks */,
 				993F6A4A1B3EE54C00CAF0D7 /* Models */,
 				993F6A461B3EE50E00CAF0D7 /* Controllers */,
 				993F6A1B1B3EE1DD00CAF0D7 /* Images.xcassets */,
@@ -146,6 +153,8 @@
 		993F6A461B3EE50E00CAF0D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
+				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
 				993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */,
 				993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */,
 				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
@@ -165,12 +174,19 @@
 		993F6A4A1B3EE54C00CAF0D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
-				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
 				993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */,
 				993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		993F6A561B3EE8BE00CAF0D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A521B3EE87B00CAF0D7 /* Fabric.framework */,
+				993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +199,7 @@
 				993F6A041B3EE1DD00CAF0D7 /* Sources */,
 				993F6A051B3EE1DD00CAF0D7 /* Frameworks */,
 				993F6A061B3EE1DD00CAF0D7 /* Resources */,
+				993F6A511B3EE86A00CAF0D7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -267,6 +284,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		993F6A511B3EE86A00CAF0D7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run a160530d149b318e6fe3b34e823398daf99192e5 80be5f908fb97d15dd768902dc6b7d0e11e6796fdc1a62bcba9750d4df566135";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		993F6A041B3EE1DD00CAF0D7 /* Sources */ = {
@@ -403,6 +436,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/secretapp",
+				);
 				INFOPLIST_FILE = secretapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,6 +450,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/secretapp",
+				);
 				INFOPLIST_FILE = secretapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

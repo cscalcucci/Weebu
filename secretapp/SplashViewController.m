@@ -3,7 +3,7 @@
 //  TheWalls
 //
 //  Created by John McClelland on 6/14/15.
-//  Copyright (c) 2015 machine^n. All rights reserved.
+//  Copyright (c) 2015 bjc. All rights reserved.
 //
 
 #import "SplashViewController.h"
@@ -12,15 +12,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.firstShape =  [self createObjectWithImage:[UIImage imageNamed:@"shape1"] andPositions:-85 :0 :65 :65];
-    self.secondShape = [self createObjectWithImage:[UIImage imageNamed:@"shape2"] andPositions:0 :0 :65 :65];
-    self.thirdShape =  [self createObjectWithImage:[UIImage imageNamed:@"shape3"] andPositions:85 :0 :65 :65];
+    self.firstShape =  [self createObjectWithImage:[UIImage imageNamed:@"happy"] andPositions:-85 :0 :65 :65];
+    self.secondShape = [self createObjectWithImage:[UIImage imageNamed:@"sad"] andPositions:0 :0 :65 :65];
+    self.thirdShape =  [self createObjectWithImage:[UIImage imageNamed:@"silly"] andPositions:85 :0 :65 :65];
     [self performSelector:@selector(rotateImageView:) withObject:self.firstShape afterDelay:0];
     [self performSelector:@selector(rotateImageView:) withObject:self.secondShape afterDelay:0.2];
     [self performSelector:@selector(expandImageView:) withObject:self.thirdShape afterDelay:0.4];
-
+    [self performSelector:@selector(checkUserThenSegue) withObject:nil afterDelay:2.0];
 
 }
+
+- (void)checkUserThenSegue {
+//    if ([PFUser currentUser] == nil) {
+        [self performSegueWithIdentifier:@"SplashToTab" sender:self];
+//    } else {
+//        self.currentUser = [PFUser currentUser];
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PrimaryView" bundle:[NSBundle mainBundle]];
+//        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+//        [self presentViewController:viewController animated:NO completion:NULL];
+//    }
+}
+
 
 - (UIImageView *)createObjectWithImage:(UIImage *)image andPositions:(int)x :(int)y :(int)w :(int)h {
     double centerx = self.view.center.x;
@@ -50,6 +62,10 @@
                              shape.transform = CGAffineTransformMakeScale(1, 1);
                          }];
                      }];
+}
+
+- (void)segue {
+
 }
 
 @end
