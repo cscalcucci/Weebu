@@ -15,7 +15,7 @@
     static LocationService *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[self alloc]init];
+        instance = [self new];
     });
     return instance;
 }
@@ -23,10 +23,10 @@
 - (id)init {
     self = [super init];
     if(self != nil) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        self.locationManager.distanceFilter = 100; // meters
-        self.locationManager.delegate = self;
+        self.locationManager = [CLLocationManager new];
+        [self.locationManager setDelegate:self];
+        [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        [self.locationManager startUpdatingLocation];
     }
     return self;
 }
@@ -43,10 +43,23 @@
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray*)locations {
-    CLLocation *location = [locations lastObject];
-    NSLog(@"Latitude %+.6f, Longitude %+.6f\n",
-          location.coordinate.latitude,
-          location.coordinate.longitude);
-    self.currentLocation = location;
+    for (CLLocation *location in locations) {
+        NSLog(@"%@", location);
+        if (location.verticalAccuracy < 1000 && location.horizontalAccuracy < 1000) {
+            [self reverseGeoCode:locations.firstObject];
+            [self.locationManager stopUpdatingLocation];
+            self.currentLocation = location;
+        }
+    }
 }
+
+-(void)reverseGeoCode:(CLLocation *)location {
+    CLGeocoder *geoCoder = [CLGeocoder new];
+    [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = placemarks.firstObject;
+        self.currentLocation = placemark.location;
+        //Setting shared location variable
+    }];
+}
+
 @end
