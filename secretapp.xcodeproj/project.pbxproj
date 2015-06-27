@@ -158,6 +158,8 @@
 		7ECC236F1B3EEFBB0049B47B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
+				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
 				7ECC23691B3EEF950049B47B /* LoginViewController.h */,
 				7ECC236A1B3EEF950049B47B /* LoginViewController.m */,
 				7ECC23661B3EEF7F0049B47B /* SessionViewController.h */,
@@ -246,20 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				7ECC236F1B3EEFBB0049B47B /* Onboarding */,
-				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
-				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
-				993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */,
-				993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */,
-				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
-				993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */,
-				993F6A391B3EE2CB00CAF0D7 /* ListViewController.h */,
-				993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */,
-				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
-				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
-				993F6A3C1B3EE2D600CAF0D7 /* ProfileViewController.h */,
-				993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */,
-				993F6A3F1B3EE3AC00CAF0D7 /* AddEmotionViewController.h */,
-				993F6A401B3EE3AC00CAF0D7 /* AddEmotionViewController.m */,
+				993F6A661B3F0A2800CAF0D7 /* Tabs */,
+				993F6A681B3F0A4200CAF0D7 /* Emotion */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +286,32 @@
 				993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		993F6A661B3F0A2800CAF0D7 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */,
+				993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */,
+				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
+				993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */,
+				993F6A391B3EE2CB00CAF0D7 /* ListViewController.h */,
+				993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */,
+				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
+				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
+				993F6A3C1B3EE2D600CAF0D7 /* ProfileViewController.h */,
+				993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		993F6A681B3F0A4200CAF0D7 /* Emotion */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A3F1B3EE3AC00CAF0D7 /* AddEmotionViewController.h */,
+				993F6A401B3EE3AC00CAF0D7 /* AddEmotionViewController.m */,
+			);
+			name = Emotion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

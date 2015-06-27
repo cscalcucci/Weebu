@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface AddEmotionViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *selectedEmotionLabel;
 @property UIButton *cancelButton;
 
 @end
