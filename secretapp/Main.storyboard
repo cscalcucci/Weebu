@@ -247,6 +247,7 @@
                         <outlet property="loginNav" destination="gV0-G3-tzB" id="d5W-eG-Aeb"/>
                         <outlet property="passwordTextField" destination="uo7-0d-3a6" id="yOI-tS-kKa"/>
                         <outlet property="usernameTextField" destination="wnI-Ai-Ce0" id="tl3-Fd-tqd"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginSegue" id="31I-rH-YSq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZz-TB-7uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -333,6 +334,7 @@
                         <outlet property="passwordTextField" destination="9cL-zn-sVU" id="D1l-R3-0Bi"/>
                         <outlet property="signupButton" destination="Y5x-yg-w5B" id="Thi-Xx-rhE"/>
                         <outlet property="signupNav" destination="Wb4-5d-2j8" id="MI7-HT-1Kf"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="signupSegue" id="z8b-H7-jZL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7V-iT-rYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -359,7 +361,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="0.0" y="-202"/>
         </scene>
         <!--General-->
         <scene sceneID="Bkz-CK-S8O">
@@ -465,6 +467,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="z8b-H7-jZL"/>
         <segue reference="ddk-CO-uTG"/>
     </inferredMetricsTieBreakers>
 </document>

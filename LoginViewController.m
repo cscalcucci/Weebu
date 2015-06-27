@@ -60,9 +60,7 @@
 -(void)userLogIn {
     [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
         if (!error) {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PrimaryView" bundle:[NSBundle mainBundle]];
-            UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"RootViewController"];
-            [self presentViewController:viewController animated:NO completion:NULL];
+            [self performSegueWithIdentifier:@"loginSegue" sender:self];
         } else {
             [self showAlert:@"Login error" param2:error];
         }
