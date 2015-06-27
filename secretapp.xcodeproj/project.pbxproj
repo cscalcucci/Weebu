@@ -10,11 +10,18 @@
 		993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A0D1B3EE1DD00CAF0D7 /* main.m */; };
 		993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */; };
 		993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A121B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld */; };
-		993F6A171B3EE1DD00CAF0D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A161B3EE1DD00CAF0D7 /* ViewController.m */; };
-		993F6A1A1B3EE1DD00CAF0D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993F6A181B3EE1DD00CAF0D7 /* Main.storyboard */; };
+		993F6A171B3EE1DD00CAF0D7 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */; };
 		993F6A1C1B3EE1DD00CAF0D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 993F6A1B1B3EE1DD00CAF0D7 /* Images.xcassets */; };
 		993F6A1F1B3EE1DD00CAF0D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F6A1D1B3EE1DD00CAF0D7 /* LaunchScreen.xib */; };
 		993F6A2B1B3EE1DD00CAF0D7 /* secretappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A2A1B3EE1DD00CAF0D7 /* secretappTests.m */; };
+		993F6A351B3EE26900CAF0D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993F6A341B3EE26900CAF0D7 /* Main.storyboard */; };
+		993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */; };
+		993F6A3B1B3EE2CB00CAF0D7 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */; };
+		993F6A3E1B3EE2D600CAF0D7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */; };
+		993F6A411B3EE3AC00CAF0D7 /* AddEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A401B3EE3AC00CAF0D7 /* AddEmotionViewController.m */; };
+		993F6A441B3EE46C00CAF0D7 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */; };
+		993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */; };
+		993F6A501B3EE5DA00CAF0D7 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +41,28 @@
 		993F6A0F1B3EE1DD00CAF0D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		993F6A131B3EE1DD00CAF0D7 /* secretapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = secretapp.xcdatamodel; sourceTree = "<group>"; };
-		993F6A151B3EE1DD00CAF0D7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		993F6A161B3EE1DD00CAF0D7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		993F6A191B3EE1DD00CAF0D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
+		993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
 		993F6A1B1B3EE1DD00CAF0D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		993F6A1E1B3EE1DD00CAF0D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		993F6A241B3EE1DD00CAF0D7 /* secretappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = secretappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F6A291B3EE1DD00CAF0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		993F6A2A1B3EE1DD00CAF0D7 /* secretappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = secretappTests.m; sourceTree = "<group>"; };
+		993F6A341B3EE26900CAF0D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		993F6A391B3EE2CB00CAF0D7 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		993F6A3C1B3EE2D600CAF0D7 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		993F6A3F1B3EE3AC00CAF0D7 /* AddEmotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEmotionViewController.h; sourceTree = "<group>"; };
+		993F6A401B3EE3AC00CAF0D7 /* AddEmotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmotionViewController.m; sourceTree = "<group>"; };
+		993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColors.h"; sourceTree = "<group>"; };
+		993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +106,9 @@
 			children = (
 				993F6A0F1B3EE1DD00CAF0D7 /* AppDelegate.h */,
 				993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */,
-				993F6A151B3EE1DD00CAF0D7 /* ViewController.h */,
-				993F6A161B3EE1DD00CAF0D7 /* ViewController.m */,
-				993F6A181B3EE1DD00CAF0D7 /* Main.storyboard */,
+				993F6A341B3EE26900CAF0D7 /* Main.storyboard */,
+				993F6A4A1B3EE54C00CAF0D7 /* Models */,
+				993F6A461B3EE50E00CAF0D7 /* Controllers */,
 				993F6A1B1B3EE1DD00CAF0D7 /* Images.xcassets */,
 				993F6A1D1B3EE1DD00CAF0D7 /* LaunchScreen.xib */,
 				993F6A121B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld */,
@@ -120,6 +141,36 @@
 				993F6A291B3EE1DD00CAF0D7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		993F6A461B3EE50E00CAF0D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */,
+				993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */,
+				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
+				993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */,
+				993F6A391B3EE2CB00CAF0D7 /* ListViewController.h */,
+				993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */,
+				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
+				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
+				993F6A3C1B3EE2D600CAF0D7 /* ProfileViewController.h */,
+				993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */,
+				993F6A3F1B3EE3AC00CAF0D7 /* AddEmotionViewController.h */,
+				993F6A401B3EE3AC00CAF0D7 /* AddEmotionViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		993F6A4A1B3EE54C00CAF0D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
+				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
+				993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */,
+				993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				993F6A1A1B3EE1DD00CAF0D7 /* Main.storyboard in Resources */,
+				993F6A351B3EE26900CAF0D7 /* Main.storyboard in Resources */,
 				993F6A1F1B3EE1DD00CAF0D7 /* LaunchScreen.xib in Resources */,
 				993F6A1C1B3EE1DD00CAF0D7 /* Images.xcassets in Resources */,
 			);
@@ -222,9 +273,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993F6A411B3EE3AC00CAF0D7 /* AddEmotionViewController.m in Sources */,
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
 				993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */,
-				993F6A171B3EE1DD00CAF0D7 /* ViewController.m in Sources */,
+				993F6A3B1B3EE2CB00CAF0D7 /* ListViewController.m in Sources */,
+				993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */,
+				993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */,
+				993F6A3E1B3EE2D600CAF0D7 /* ProfileViewController.m in Sources */,
+				993F6A171B3EE1DD00CAF0D7 /* GeneralViewController.m in Sources */,
+				993F6A441B3EE46C00CAF0D7 /* TabBarViewController.m in Sources */,
+				993F6A501B3EE5DA00CAF0D7 /* UIColor+CustomColors.m in Sources */,
 				993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,14 +306,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		993F6A181B3EE1DD00CAF0D7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				993F6A191B3EE1DD00CAF0D7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		993F6A1D1B3EE1DD00CAF0D7 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
