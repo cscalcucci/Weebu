@@ -15,7 +15,6 @@
 		7ECC23791B3EF5830049B47B /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23731B3EF5830049B47B /* ParseFacebookUtils.framework */; };
 		7ECC237A1B3EF5830049B47B /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23741B3EF5830049B47B /* ParseFacebookUtilsV4.framework */; };
 		7ECC237B1B3EF5830049B47B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23751B3EF5830049B47B /* ParseUI.framework */; };
-		7ECC237E1B3EF6390049B47B /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC237D1B3EF6390049B47B /* SigninViewController.m */; };
 		7ECC23801B3EF67A0049B47B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC237F1B3EF67A0049B47B /* AudioToolbox.framework */; };
 		7ECC23821B3EF6830049B47B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23811B3EF6830049B47B /* CFNetwork.framework */; };
 		7ECC23841B3EF68C0049B47B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23831B3EF68C0049B47B /* CoreGraphics.framework */; };
@@ -27,6 +26,7 @@
 		7ECC23901B3EF6C40049B47B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC238F1B3EF6C40049B47B /* SystemConfiguration.framework */; };
 		7ECC23921B3EF6D10049B47B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23911B3EF6D10049B47B /* libz.dylib */; };
 		7ECC23941B3EF6DD0049B47B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23931B3EF6DD0049B47B /* libsqlite3.dylib */; };
+		7ECC23981B3EF8260049B47B /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23971B3EF8260049B47B /* SignupViewController.m */; };
 		993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A0D1B3EE1DD00CAF0D7 /* main.m */; };
 		993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */; };
 		993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A121B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld */; };
@@ -67,8 +67,6 @@
 		7ECC23731B3EF5830049B47B /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		7ECC23741B3EF5830049B47B /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		7ECC23751B3EF5830049B47B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
-		7ECC237C1B3EF6390049B47B /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
-		7ECC237D1B3EF6390049B47B /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		7ECC237F1B3EF67A0049B47B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7ECC23811B3EF6830049B47B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7ECC23831B3EF68C0049B47B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +78,8 @@
 		7ECC238F1B3EF6C40049B47B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7ECC23911B3EF6D10049B47B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7ECC23931B3EF6DD0049B47B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		7ECC23961B3EF8260049B47B /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = ../SignupViewController.h; sourceTree = "<group>"; };
+		7ECC23971B3EF8260049B47B /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = ../SignupViewController.m; sourceTree = "<group>"; };
 		993F6A081B3EE1DD00CAF0D7 /* secretapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = secretapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F6A0C1B3EE1DD00CAF0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		993F6A0D1B3EE1DD00CAF0D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 				7ECC236A1B3EEF950049B47B /* LoginViewController.m */,
 				7ECC23661B3EEF7F0049B47B /* SessionViewController.h */,
 				7ECC23671B3EEF7F0049B47B /* SessionViewController.m */,
-				7ECC237C1B3EF6390049B47B /* SigninViewController.h */,
-				7ECC237D1B3EF6390049B47B /* SigninViewController.m */,
+				7ECC23961B3EF8260049B47B /* SignupViewController.h */,
+				7ECC23971B3EF8260049B47B /* SignupViewController.m */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -387,14 +387,14 @@
 /* Begin PBXShellScriptBuildPhase section */
 		993F6A511B3EE86A00CAF0D7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run a160530d149b318e6fe3b34e823398daf99192e5 80be5f908fb97d15dd768902dc6b7d0e11e6796fdc1a62bcba9750d4df566135";
 		};
@@ -405,7 +405,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ECC237E1B3EF6390049B47B /* SigninViewController.m in Sources */,
 				993F6A411B3EE3AC00CAF0D7 /* AddEmotionViewController.m in Sources */,
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
 				7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */,
@@ -418,6 +417,7 @@
 				993F6A171B3EE1DD00CAF0D7 /* GeneralViewController.m in Sources */,
 				993F6A441B3EE46C00CAF0D7 /* TabBarViewController.m in Sources */,
 				993F6A501B3EE5DA00CAF0D7 /* UIColor+CustomColors.m in Sources */,
+				7ECC23981B3EF8260049B47B /* SignupViewController.m in Sources */,
 				993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -145,6 +145,10 @@
                             <constraint firstItem="mfK-xi-sx4" firstAttribute="centerX" secondItem="0qO-q3-ucp" secondAttribute="centerX" id="tX3-wP-gjn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="mfK-xi-sx4" id="frw-Z8-y20"/>
+                        <outlet property="signupButton" destination="0qO-q3-ucp" id="EXI-dt-3Nx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alD-q3-L84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,10 +167,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFC-z1-8XO">
-                                <rect key="frame" x="277" y="302" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="281" y="302" width="38" height="30"/>
+                                <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onLoginTapped:" destination="Ix4-Cl-rDG" eventType="touchUpInside" id="MzP-JF-5x1"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-Ai-Ce0">
                                 <rect key="frame" x="252" y="106" width="97" height="30"/>
@@ -193,15 +200,20 @@
                             <constraint firstItem="wnI-Ai-Ce0" firstAttribute="top" secondItem="y4Y-NE-O1j" secondAttribute="bottom" constant="86" id="yRS-v6-zVY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="sFC-z1-8XO" id="Inf-Cn-0wY"/>
+                        <outlet property="passwordTextField" destination="uo7-0d-3a6" id="yOI-tS-kKa"/>
+                        <outlet property="usernameTextField" destination="wnI-Ai-Ce0" id="tl3-Fd-tqd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZz-TB-7uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-733" y="-548"/>
         </scene>
-        <!--Signin View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="b2S-Nq-ZuI">
             <objects>
-                <viewController id="nL1-AX-ruh" customClass="SigninViewController" sceneMemberID="viewController">
+                <viewController id="nL1-AX-ruh" customClass="SignupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6cQ-eP-nzd"/>
                         <viewControllerLayoutGuide type="bottom" id="Tuh-BL-MwF"/>
@@ -224,10 +236,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5x-yg-w5B">
-                                <rect key="frame" x="277" y="395" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="276" y="395" width="49" height="30"/>
+                                <state key="normal" title="Signup">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSignupPressed:" destination="nL1-AX-ruh" eventType="touchUpInside" id="YNj-DN-ZT9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,6 +256,11 @@
                             <constraint firstItem="9cL-zn-sVU" firstAttribute="top" secondItem="xpJ-Cb-qEf" secondAttribute="bottom" constant="40" id="v40-rl-7PY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="xpJ-Cb-qEf" id="eJi-WJ-ndU"/>
+                        <outlet property="passwordTextField" destination="9cL-zn-sVU" id="D1l-R3-0Bi"/>
+                        <outlet property="signupButton" destination="Y5x-yg-w5B" id="Thi-Xx-rhE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7V-iT-rYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

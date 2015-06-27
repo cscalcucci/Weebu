@@ -1,5 +1,5 @@
 //
-//  SigninViewController.h
+//  SignupViewController.h
 //  secretapp
 //
 //  Created by Bryon Finke on 6/27/15.
@@ -10,6 +10,6 @@
 #import <Parse/Parse.h>
 #import "UIColor+CustomColors.h"
 
-@interface SigninViewController : UIViewController
+@interface SignupViewController : UIViewController
 
 @end

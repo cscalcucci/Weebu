@@ -1,5 +1,5 @@
 //
-//  SigninViewController.m
+//  SignupViewController.m
 //  secretapp
 //
 //  Created by Bryon Finke on 6/27/15.
@@ -9,9 +9,9 @@
 #import "SignupViewController.h"
 
 @interface SignupViewController ()
-@property PFUser *currentUser;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property PFUser *currentUser;
 @property (weak, nonatomic) IBOutlet UINavigationBar *signupNav;
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
 @end
@@ -82,3 +82,4 @@
 }
 
 @end
+
