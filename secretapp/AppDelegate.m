@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -16,6 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Initialize Parse.
+    [Parse setApplicationId:@"cAotKmItTR54ZfnYsziYIgMkS4PxowgRLcuoujT3"
+                  clientKey:@"9iVYYy2yxga3GkKpBgWDYL5J7V79fZxQTljIFVVV"];
+
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     [Fabric with:@[CrashlyticsKit]];
 
