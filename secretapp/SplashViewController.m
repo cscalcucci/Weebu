@@ -32,16 +32,14 @@
 
 
 - (void)checkUserThenSegue {
-//    if ([PFUser currentUser] == nil) {
-        [self performSegueWithIdentifier:@"SplashToTab" sender:self];
-//    } else {
-//        self.currentUser = [PFUser currentUser];
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PrimaryView" bundle:[NSBundle mainBundle]];
-//        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-//        [self presentViewController:viewController animated:NO completion:NULL];
-//    }
+    if ([PFUser currentUser] != nil) {
+        self.currentUser = [PFUser currentUser];
+        UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        [self presentViewController:viewController animated:NO completion:NULL];
+    } else {
+        [self performSegueWithIdentifier:@"SplashToSession" sender:self];
+    }
 }
-
 
 - (UIImageView *)createObjectWithImage:(UIImage *)image andPositions:(int)x :(int)y :(int)w :(int)h {
     double centerx = self.view.center.x;

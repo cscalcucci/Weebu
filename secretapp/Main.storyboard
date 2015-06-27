@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OfU-aj-df2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -187,10 +187,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="OfU-aj-df2" kind="showDetail" identifier="SplashToSession" id="gE1-0S-huu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wi-a1-vLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3063" y="0.0"/>
+            <point key="canvasLocation" x="-2126" y="0.0"/>
         </scene>
         <!--Session View Controller-->
         <scene sceneID="hwV-u2-hWz">
@@ -232,26 +235,19 @@
                                     <segue destination="nL1-AX-ruh" kind="show" id="mwL-BU-oak"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-iw-77Z">
-                                <rect key="frame" x="227" y="257" width="146" height="86"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0qO-q3-ucp" firstAttribute="top" secondItem="mfK-xi-sx4" secondAttribute="bottom" id="4lJ-41-OIP"/>
                             <constraint firstItem="0qO-q3-ucp" firstAttribute="leading" secondItem="JRk-u7-39u" secondAttribute="leadingMargin" constant="-16" id="9QF-Gf-8Vv"/>
-                            <constraint firstItem="4LM-iw-77Z" firstAttribute="top" secondItem="mWQ-f7-JFi" secondAttribute="bottom" constant="237" id="F05-qF-hAS"/>
-                            <constraint firstItem="mfK-xi-sx4" firstAttribute="top" secondItem="4LM-iw-77Z" secondAttribute="bottom" constant="189" id="Z7a-Je-WWz"/>
                             <constraint firstItem="ZqV-5q-tZr" firstAttribute="top" secondItem="0qO-q3-ucp" secondAttribute="bottom" id="Zt4-th-xRc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0qO-q3-ucp" secondAttribute="trailing" constant="-16" id="byh-kp-2GN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mfK-xi-sx4" secondAttribute="trailing" constant="-16" id="iV6-T3-QvJ"/>
                             <constraint firstItem="mfK-xi-sx4" firstAttribute="leading" secondItem="JRk-u7-39u" secondAttribute="leadingMargin" constant="-16" id="nLK-lk-Diz"/>
-                            <constraint firstAttribute="centerX" secondItem="4LM-iw-77Z" secondAttribute="centerX" id="qLI-4T-KPf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="mfK-xi-sx4" id="frw-Z8-y20"/>
-                        <outlet property="sessionImage" destination="4LM-iw-77Z" id="55T-qS-VLP"/>
                         <outlet property="signupButton" destination="0qO-q3-ucp" id="EXI-dt-3Nx"/>
                     </connections>
                 </viewController>
