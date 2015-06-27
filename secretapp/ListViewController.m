@@ -7,9 +7,11 @@
 //
 
 #import "ListViewController.h"
+#import "Emotion.h"
+#import "Event.h"
 
 @interface ListViewController ()
-
+@property NSArray *events;
 @end
 
 @implementation ListViewController
@@ -19,8 +21,6 @@
 
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-
-
 }
 
 #pragma mark - Floating button
@@ -45,6 +45,20 @@
     NSLog(@"pressed");
     [self performSegueWithIdentifier:@"ListToAdd" sender:self];
     
+}
+
+#pragma mark - Segue
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.events.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    Event *event = [self.events objectAtIndex:indexPath.row];
+    cell.textLabel.text = [event.emotionObject objectForKey:@"name"];
+
+    return cell;
 }
 
 @end
