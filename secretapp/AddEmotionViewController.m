@@ -45,4 +45,25 @@
     
 }
 
+#pragma mark - Add emotion buttons test
+
+- (IBAction)onSelectEmotionPressed:(UIButton *)sender {
+    NSLog(@"%li", sender.tag);
+    if (sender.tag == 1) {
+        self.selectedEmotionLabel.text = @"Happy";
+    } else if (sender.tag == 2) {
+        self.selectedEmotionLabel.text = @"Sad";
+
+    }
+}
+
+- (IBAction)onAddEmotionPressed:(id)sender {
+    NSLog(@"add emotion button pressed");
+
+    
+}
+
+
+
+
 @end

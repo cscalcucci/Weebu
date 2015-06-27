@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController : UIViewController
+#import "LocationService.h"
+
+@interface MapViewController : UIViewController <CLLocationManagerDelegate>
 
 @property UIButton *addEmotionButton;
+@property CLLocation *testLocation;
 
 @end

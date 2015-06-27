@@ -20,7 +20,11 @@
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.testLocation = [LocationService sharedInstance].currentLocation;
+    NSLog(@"%@", self.testLocation);
 }
 
 #pragma mark - Floating button

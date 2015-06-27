@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
+#import "LocationService.h"
 
 @interface SplashViewController : UIViewController
 @property UIImageView *firstShape;
 @property UIImageView *secondShape;
 @property UIImageView *thirdShape;
 
-
+@property CLLocation *testLocation;
 
 @end

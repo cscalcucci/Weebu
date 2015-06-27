@@ -22,7 +22,14 @@
     [self performSelector:@selector(rotateImageView:) withObject:self.secondShape afterDelay:0.2];
     [self performSelector:@selector(expandImageView:) withObject:self.thirdShape afterDelay:0.4];
     [self performSelector:@selector(checkUserThenSegue) withObject:nil afterDelay:2.0];
+
+    //Find location;
+    [[LocationService sharedInstance] startUpdatingLocation];
+    [[LocationService sharedInstance] locationManager];
+    [[LocationService sharedInstance] addObserver:self forKeyPath:@"currentLocation" options:NSKeyValueObservingOptionNew context:nil];
+
 }
+
 
 - (void)checkUserThenSegue {
 //    if ([PFUser currentUser] == nil) {
