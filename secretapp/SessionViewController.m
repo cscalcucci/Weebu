@@ -20,14 +20,14 @@
 
     self.view.backgroundColor = [UIColor paperColor];
     self.loginButton.backgroundColor = [UIColor
-                                        colorWithRed:0.518
-                                        green:0.894
-                                        blue:0.345
+                                        colorWithRed:0.235
+                                        green:0.235
+                                        blue:0.235
                                         alpha:1];
     self.signupButton.backgroundColor = [UIColor
-                                         colorWithRed:0.890
-                                         green:0.376
-                                         blue:0.494
+                                         colorWithRed:0.157
+                                         green:0.157
+                                         blue:0.157
                                          alpha:1];
 }
 
