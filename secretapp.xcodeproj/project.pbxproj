@@ -29,6 +29,7 @@
 		7ECC23981B3EF8260049B47B /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23971B3EF8260049B47B /* SignupViewController.m */; };
 		7ECC239B1B3F137C0049B47B /* Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239A1B3F137C0049B47B /* Emotion.m */; };
 		7ECC239E1B3F146B0049B47B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239D1B3F146B0049B47B /* Event.m */; };
+		7ECC23A11B3F1C1E0049B47B /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */; };
 		993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A0D1B3EE1DD00CAF0D7 /* main.m */; };
 		993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */; };
 		993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A121B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld */; };
@@ -88,6 +89,8 @@
 		7ECC239A1B3F137C0049B47B /* Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emotion.m; sourceTree = "<group>"; };
 		7ECC239C1B3F146B0049B47B /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		7ECC239D1B3F146B0049B47B /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		7ECC239F1B3F1C1E0049B47B /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		993F6A081B3EE1DD00CAF0D7 /* secretapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = secretapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F6A0C1B3EE1DD00CAF0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		993F6A0D1B3EE1DD00CAF0D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -187,6 +190,17 @@
 				7ECC23751B3EF5830049B47B /* ParseUI.framework */,
 			);
 			name = Parse;
+			sourceTree = "<group>";
+		};
+		7ECC23A21B3F1C270049B47B /* List View */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A391B3EE2CB00CAF0D7 /* ListViewController.h */,
+				993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */,
+				7ECC239F1B3F1C1E0049B47B /* EventTableViewCell.h */,
+				7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */,
+			);
+			name = "List View";
 			sourceTree = "<group>";
 		};
 		993F69FF1B3EE1DD00CAF0D7 = {
@@ -305,8 +319,7 @@
 				993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */,
 				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
 				993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */,
-				993F6A391B3EE2CB00CAF0D7 /* ListViewController.h */,
-				993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */,
+				7ECC23A21B3F1C270049B47B /* List View */,
 				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
 				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
 				993F6A3C1B3EE2D600CAF0D7 /* ProfileViewController.h */,
@@ -446,6 +459,7 @@
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
 				7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */,
 				993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */,
+				7ECC23A11B3F1C1E0049B47B /* EventTableViewCell.m in Sources */,
 				7ECC239B1B3F137C0049B47B /* Emotion.m in Sources */,
 				993F6A3B1B3EE2CB00CAF0D7 /* ListViewController.m in Sources */,
 				993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */,

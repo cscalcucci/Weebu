@@ -9,10 +9,13 @@
 #import "ListViewController.h"
 #import "Emotion.h"
 #import "Event.h"
+#import "EventTableViewCell.h"
 
 @interface ListViewController ()
 @property PFUser *currentUser;
 @property NSArray *events;
+@property NSArray *emotions;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation ListViewController
@@ -23,12 +26,21 @@
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
-    Emotion *emotion1 = [[Emotion alloc]init];
-    emotion1.name = @"Happy";
-    Event *event1 = [[Event alloc]init];
-    event1.emotionObject = emotion1;
-    event1.createdBy = self.currentUser;
-    self.events = [[NSArray alloc]initWithObjects:event1, nil];
+    self.emotions = [[NSArray alloc]init];
+    PFQuery *emotionsQuery = [PFQuery queryWithClassName:@"Emotion"];
+    [emotionsQuery orderByDescending:@"createdAt"];
+    [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
+        if (!error) {
+            NSLog(@"%lu", emotions.count);
+            self.emotions = emotions;
+            Event *event1 = [[Event alloc]init];
+            event1.emotionObject = self.emotions[0];
+            event1.createdBy = self.currentUser;
+            NSLog(@"%@", event1);
+            self.events = [[NSArray alloc]initWithObjects:event1, nil];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark - Floating button
@@ -62,9 +74,10 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     Event *event = [self.events objectAtIndex:indexPath.row];
     cell.textLabel.text = [event.emotionObject objectForKey:@"name"];
+    cell.emotionImageView.file = [event.emotionObject objectForKey:@"imageFile"];
 
     return cell;
 }

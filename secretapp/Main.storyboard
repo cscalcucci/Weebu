@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OfU-aj-df2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OfU-aj-df2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -127,12 +127,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" id="jvG-BO-wds">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" id="jvG-BO-wds" customClass="EventTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jvG-BO-wds" id="spp-hV-EIB">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p1N-wO-YMM" customClass="PFImageView">
+                                                    <rect key="frame" x="474" y="0.0" width="84" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="84" id="qsh-1I-KLB"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="p1N-wO-YMM" secondAttribute="trailing" constant="34" id="63n-1l-f5O"/>
+                                                <constraint firstItem="p1N-wO-YMM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="-8" id="Bfh-zT-Zdz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="p1N-wO-YMM" secondAttribute="bottom" constant="-8" id="C53-09-gNs"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="emotionImageView" destination="p1N-wO-YMM" id="lWR-gR-4BB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -145,6 +161,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hpc-PH-sVB"/>
                     <connections>
+                        <outlet property="tableView" destination="mrb-VQ-x15" id="cHg-jz-oDt"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="ListToAdd" id="Vyz-lu-Pmj"/>
                     </connections>
                 </viewController>
@@ -560,7 +577,7 @@
         <image name="sad" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vyz-lu-Pmj"/>
         <segue reference="z8b-H7-jZL"/>
+        <segue reference="Vyz-lu-Pmj"/>
     </inferredMetricsTieBreakers>
 </document>
