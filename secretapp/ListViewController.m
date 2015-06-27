@@ -7,6 +7,8 @@
 //
 
 #import "ListViewController.h"
+#import "Emotion.h"
+#import "Event.h"
 
 @interface ListViewController ()
 @property NSArray *events;
@@ -53,9 +55,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-     *character = [self.ultimateCharacters objectAtIndex:indexPath.row];
-    cell.textLabel.text = character.actor;
-    cell.detailTextLabel.text = character.character;
+    Event *event = [self.events objectAtIndex:indexPath.row];
+    cell.textLabel.text = [event.emotionObject objectForKey:@"name"];
 
     return cell;
 }
