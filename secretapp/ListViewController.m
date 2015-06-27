@@ -15,7 +15,6 @@
 @property PFUser *currentUser;
 @property NSArray *events;
 @property NSArray *emotions;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation ListViewController
@@ -27,6 +26,8 @@
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
     self.emotions = [[NSArray alloc]init];
+    self.events = [NSArray new];
+/*
     PFQuery *emotionsQuery = [PFQuery queryWithClassName:@"Emotion"];
     [emotionsQuery orderByDescending:@"createdAt"];
     [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
@@ -36,11 +37,24 @@
             Event *event1 = [[Event alloc]init];
             event1.emotionObject = self.emotions[0];
             event1.createdBy = self.currentUser;
+
             NSLog(@"%@", event1);
             self.events = [[NSArray alloc]initWithObjects:event1, nil];
             [self.tableView reloadData];
         }
     }];
+*/
+    PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventsQuery orderByDescending:@"createdAt"];
+    [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
+        if (!error) {
+            NSLog(@"%lu", events.count);
+            NSLog(@"%@", events.firstObject);
+
+            self.events = events;
+        }
+    }];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Floating button
@@ -67,13 +81,13 @@
     
 }
 
-#pragma mark - Segue
+#pragma mark - Tableview
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.events.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(EventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     Event *event = [self.events objectAtIndex:indexPath.row];
     cell.textLabel.text = [event.emotionObject objectForKey:@"name"];

@@ -12,4 +12,6 @@
 
 @interface SessionViewController : UIViewController
 
+@property UIImageView *sessionImage;
+
 @end

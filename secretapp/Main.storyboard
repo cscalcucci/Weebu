@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OfU-aj-df2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OfU-aj-df2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -123,31 +123,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-VQ-x15">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-VQ-x15">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" id="jvG-BO-wds" customClass="EventTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" rowHeight="61" id="jvG-BO-wds" customClass="EventTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jvG-BO-wds" id="spp-hV-EIB">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p1N-wO-YMM" customClass="PFImageView">
-                                                    <rect key="frame" x="474" y="0.0" width="84" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="84" id="qsh-1I-KLB"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="p1N-wO-YMM" secondAttribute="trailing" constant="34" id="63n-1l-f5O"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="p1N-wO-YMM" secondAttribute="trailing" constant="508" id="63n-1l-f5O"/>
                                                 <constraint firstItem="p1N-wO-YMM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="-8" id="Bfh-zT-Zdz"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="p1N-wO-YMM" secondAttribute="bottom" constant="-8" id="C53-09-gNs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="emotionImageView" destination="p1N-wO-YMM" id="lWR-gR-4BB"/>
+                                            <outlet property="emotionImageView" destination="p1N-wO-YMM" id="bGe-da-kAG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -161,7 +161,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hpc-PH-sVB"/>
                     <connections>
-                        <outlet property="tableView" destination="mrb-VQ-x15" id="cHg-jz-oDt"/>
+                        <outlet property="tableView" destination="mrb-VQ-x15" id="ylW-re-gEx"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="ListToAdd" id="Vyz-lu-Pmj"/>
                     </connections>
                 </viewController>
@@ -204,10 +204,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="OfU-aj-df2" kind="showDetail" identifier="SplashToSession" id="gE1-0S-huu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wi-a1-vLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3063" y="0.0"/>
+            <point key="canvasLocation" x="-2126" y="0.0"/>
         </scene>
         <!--Session View Controller-->
         <scene sceneID="hwV-u2-hWz">
@@ -249,26 +252,19 @@
                                     <segue destination="nL1-AX-ruh" kind="show" id="mwL-BU-oak"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-iw-77Z">
-                                <rect key="frame" x="227" y="257" width="146" height="86"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0qO-q3-ucp" firstAttribute="top" secondItem="mfK-xi-sx4" secondAttribute="bottom" id="4lJ-41-OIP"/>
                             <constraint firstItem="0qO-q3-ucp" firstAttribute="leading" secondItem="JRk-u7-39u" secondAttribute="leadingMargin" constant="-16" id="9QF-Gf-8Vv"/>
-                            <constraint firstItem="4LM-iw-77Z" firstAttribute="top" secondItem="mWQ-f7-JFi" secondAttribute="bottom" constant="237" id="F05-qF-hAS"/>
-                            <constraint firstItem="mfK-xi-sx4" firstAttribute="top" secondItem="4LM-iw-77Z" secondAttribute="bottom" constant="189" id="Z7a-Je-WWz"/>
                             <constraint firstItem="ZqV-5q-tZr" firstAttribute="top" secondItem="0qO-q3-ucp" secondAttribute="bottom" id="Zt4-th-xRc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0qO-q3-ucp" secondAttribute="trailing" constant="-16" id="byh-kp-2GN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mfK-xi-sx4" secondAttribute="trailing" constant="-16" id="iV6-T3-QvJ"/>
                             <constraint firstItem="mfK-xi-sx4" firstAttribute="leading" secondItem="JRk-u7-39u" secondAttribute="leadingMargin" constant="-16" id="nLK-lk-Diz"/>
-                            <constraint firstAttribute="centerX" secondItem="4LM-iw-77Z" secondAttribute="centerX" id="qLI-4T-KPf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="mfK-xi-sx4" id="frw-Z8-y20"/>
-                        <outlet property="sessionImage" destination="4LM-iw-77Z" id="55T-qS-VLP"/>
                         <outlet property="signupButton" destination="0qO-q3-ucp" id="EXI-dt-3Nx"/>
                     </connections>
                 </viewController>

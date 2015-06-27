@@ -12,13 +12,14 @@
 @property PFUser *currentUser;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
-@property (weak, nonatomic) IBOutlet UIImageView *sessionImage;
 @end
 
 @implementation SessionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.sessionImage= [self createObjectWithImage:[UIImage imageNamed:@"happy"] andPositions:0 :0 :65 :65];
 
     self.loginButton.backgroundColor = [UIColor
                                         colorWithRed:0.235
@@ -42,6 +43,16 @@
         UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         [self presentViewController:viewController animated:NO completion:NULL];
     }
+}
+
+- (UIImageView *)createObjectWithImage:(UIImage *)image andPositions:(int)x :(int)y :(int)w :(int)h {
+    double centerx = self.view.center.x;
+    double centery = self.view.center.y;
+    UIImageView *object = [[UIImageView alloc]initWithFrame:CGRectMake(centerx + x, centery + y, w, h)];
+    object.center = CGPointMake(centerx + x, centery + y);
+    object.image = image;
+    [self.view addSubview:object];
+    return object;
 }
 
 -(IBAction)unwindSelection:(UIStoryboardSegue *)segue {

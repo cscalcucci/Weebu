@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <Parse/Parse.h>
+
 
 #import "LocationService.h"
 
 @interface SplashViewController : UIViewController
+
+@property PFUser *currentUser;
+
 @property UIImageView *firstShape;
 @property UIImageView *secondShape;
 @property UIImageView *thirdShape;
