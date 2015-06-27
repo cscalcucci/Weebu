@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface AppDelegate ()
 
@@ -21,6 +22,7 @@
     // Initialize Parse.
     [Parse setApplicationId:@"g8OMlrIR3mUFDNp6MagSp6bfwcJhpmRJurIc0Jxi"
                   clientKey:@"vexMo5jYbBNXDu4g72Wp4hGsTg8DsW6At61Iheyk"];
+    [PFImageView class];
 
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
