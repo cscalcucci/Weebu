@@ -44,6 +44,8 @@
 		993F6A501B3EE5DA00CAF0D7 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */; };
 		993F6A541B3EE87B00CAF0D7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A521B3EE87B00CAF0D7 /* Fabric.framework */; };
 		993F6A551B3EE87B00CAF0D7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */; };
+		993F6A591B3EEF5300CAF0D7 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */; };
+		993F6A5C1B3EEF9300CAF0D7 /* SharedLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A5B1B3EEF9300CAF0D7 /* SharedLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,10 @@
 		993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
 		993F6A521B3EE87B00CAF0D7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		993F6A571B3EEF5300CAF0D7 /* FoursquareAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareAPI.h; sourceTree = "<group>"; };
+		993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
+		993F6A5A1B3EEF9300CAF0D7 /* SharedLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedLocation.h; sourceTree = "<group>"; };
+		993F6A5B1B3EEF9300CAF0D7 /* SharedLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +267,10 @@
 		993F6A4A1B3EE54C00CAF0D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				993F6A571B3EEF5300CAF0D7 /* FoursquareAPI.h */,
+				993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */,
+				993F6A5A1B3EEF9300CAF0D7 /* SharedLocation.h */,
+				993F6A5B1B3EEF9300CAF0D7 /* SharedLocation.m */,
 				993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */,
 				993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */,
 			);
@@ -406,6 +416,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				993F6A411B3EE3AC00CAF0D7 /* AddEmotionViewController.m in Sources */,
+				993F6A5C1B3EEF9300CAF0D7 /* SharedLocation.m in Sources */,
+				993F6A591B3EEF5300CAF0D7 /* FoursquareAPI.m in Sources */,
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
 				7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */,
 				993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */,

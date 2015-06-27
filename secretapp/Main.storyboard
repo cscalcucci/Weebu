@@ -374,7 +374,7 @@
         <scene sceneID="Bkz-CK-S8O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jbQ-Ta-JEX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="General" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="General" image="happy" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUJ-uo-InB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

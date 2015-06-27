@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor paperColor];
     self.signupNav.topItem.title = @"Sign Up";
     self.passwordTextField.secureTextEntry = YES;
     self.emailTextField.placeholder = @"email";

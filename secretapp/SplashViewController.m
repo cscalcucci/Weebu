@@ -15,11 +15,13 @@
     self.firstShape =  [self createObjectWithImage:[UIImage imageNamed:@"happy"] andPositions:-85 :0 :65 :65];
     self.secondShape = [self createObjectWithImage:[UIImage imageNamed:@"sad"] andPositions:0 :0 :65 :65];
     self.thirdShape =  [self createObjectWithImage:[UIImage imageNamed:@"silly"] andPositions:85 :0 :65 :65];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     [self performSelector:@selector(rotateImageView:) withObject:self.firstShape afterDelay:0];
     [self performSelector:@selector(rotateImageView:) withObject:self.secondShape afterDelay:0.2];
     [self performSelector:@selector(expandImageView:) withObject:self.thirdShape afterDelay:0.4];
     [self performSelector:@selector(checkUserThenSegue) withObject:nil afterDelay:2.0];
-
 }
 
 - (void)checkUserThenSegue {
@@ -64,8 +66,8 @@
                      }];
 }
 
-- (void)segue {
-
+- (IBAction)unwindToSplash {
+    NSLog(@"Unwind");
 }
 
 @end

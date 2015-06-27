@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor paperColor];
     self.loginButton.backgroundColor = [UIColor
                                         colorWithRed:0.235
                                         green:0.235
