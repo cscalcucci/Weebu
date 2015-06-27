@@ -162,20 +162,22 @@
 			name = Onboarding;
 			sourceTree = "<group>";
 		};
+		7ECC23951B3EF7150049B47B /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC23701B3EF5830049B47B /* Bolts.framework */,
+				7ECC23711B3EF5830049B47B /* Parse.framework */,
+				7ECC23721B3EF5830049B47B /* ParseCrashReporting.framework */,
+				7ECC23731B3EF5830049B47B /* ParseFacebookUtils.framework */,
+				7ECC23741B3EF5830049B47B /* ParseFacebookUtilsV4.framework */,
+				7ECC23751B3EF5830049B47B /* ParseUI.framework */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
 		993F69FF1B3EE1DD00CAF0D7 = {
 			isa = PBXGroup;
 			children = (
-				7ECC23931B3EF6DD0049B47B /* libsqlite3.dylib */,
-				7ECC23911B3EF6D10049B47B /* libz.dylib */,
-				7ECC238F1B3EF6C40049B47B /* SystemConfiguration.framework */,
-				7ECC238D1B3EF6BB0049B47B /* StoreKit.framework */,
-				7ECC238B1B3EF6B40049B47B /* Security.framework */,
-				7ECC23891B3EF6A90049B47B /* QuartzCore.framework */,
-				7ECC23871B3EF69E0049B47B /* MobileCoreServices.framework */,
-				7ECC23851B3EF6950049B47B /* CoreLocation.framework */,
-				7ECC23831B3EF68C0049B47B /* CoreGraphics.framework */,
-				7ECC23811B3EF6830049B47B /* CFNetwork.framework */,
-				7ECC237F1B3EF67A0049B47B /* AudioToolbox.framework */,
 				993F6A0A1B3EE1DD00CAF0D7 /* secretapp */,
 				993F6A271B3EE1DD00CAF0D7 /* secretappTests */,
 				993F6A091B3EE1DD00CAF0D7 /* Products */,
@@ -268,12 +270,18 @@
 		993F6A561B3EE8BE00CAF0D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7ECC23701B3EF5830049B47B /* Bolts.framework */,
-				7ECC23711B3EF5830049B47B /* Parse.framework */,
-				7ECC23721B3EF5830049B47B /* ParseCrashReporting.framework */,
-				7ECC23731B3EF5830049B47B /* ParseFacebookUtils.framework */,
-				7ECC23741B3EF5830049B47B /* ParseFacebookUtilsV4.framework */,
-				7ECC23751B3EF5830049B47B /* ParseUI.framework */,
+				7ECC23931B3EF6DD0049B47B /* libsqlite3.dylib */,
+				7ECC23911B3EF6D10049B47B /* libz.dylib */,
+				7ECC238F1B3EF6C40049B47B /* SystemConfiguration.framework */,
+				7ECC238D1B3EF6BB0049B47B /* StoreKit.framework */,
+				7ECC238B1B3EF6B40049B47B /* Security.framework */,
+				7ECC23891B3EF6A90049B47B /* QuartzCore.framework */,
+				7ECC23871B3EF69E0049B47B /* MobileCoreServices.framework */,
+				7ECC23851B3EF6950049B47B /* CoreLocation.framework */,
+				7ECC23831B3EF68C0049B47B /* CoreGraphics.framework */,
+				7ECC23811B3EF6830049B47B /* CFNetwork.framework */,
+				7ECC237F1B3EF67A0049B47B /* AudioToolbox.framework */,
+				7ECC23951B3EF7150049B47B /* Parse */,
 				993F6A521B3EE87B00CAF0D7 /* Fabric.framework */,
 				993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */,
 			);
