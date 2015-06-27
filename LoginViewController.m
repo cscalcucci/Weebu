@@ -27,11 +27,11 @@
     self.usernameTextField.placeholder = @"username";
     self.passwordTextField.placeholder = @"password";
     [self.usernameTextField becomeFirstResponder];
-    [self.loginButton setHidden:YES];
+//    [self.loginButton setHidden:YES];
     self.loginButton.backgroundColor = [UIColor
-                                        colorWithRed:0.518
-                                        green:0.894
-                                        blue:0.345
+                                        colorWithRed:0.235
+                                        green:0.235
+                                        blue:0.235
                                         alpha:1];
 
 }

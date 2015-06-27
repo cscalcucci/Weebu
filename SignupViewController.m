@@ -26,12 +26,12 @@
     self.passwordTextField.secureTextEntry = YES;
     self.emailTextField.placeholder = @"email";
     self.passwordTextField.placeholder = @"password";
-    [self.signupButton setHidden:YES];
+//    [self.signupButton setHidden:YES];
     [self.emailTextField becomeFirstResponder];
     self.signupButton.backgroundColor = [UIColor
-                                         colorWithRed:0.518
-                                         green:0.894
-                                         blue:0.345
+                                         colorWithRed:0.157
+                                         green:0.157
+                                         blue:0.157
                                          alpha:1];
 }
 
