@@ -134,7 +134,7 @@
         <scene sceneID="Bkz-CK-S8O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jbQ-Ta-JEX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="General" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="General" image="happy" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUJ-uo-InB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -231,6 +231,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="happy" width="182" height="182"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -10,9 +10,11 @@
 
 @interface UIColor (CustomColors)
 
-+ (UIColor *)peonyColor;
-+ (UIColor *)hamlindigoColor;
-+ (UIColor *)limeColor;
-+ (UIColor *)paperColor;
++ (UIColor *)redEmotionColor;
++ (UIColor *)yellowEmotionColor;
++ (UIColor *)greenEmotionColor;
++ (UIColor *)blueEmotionColor;
+
++ (UIImage *)imageWithColor:(UIColor *)color;
 
 @end
