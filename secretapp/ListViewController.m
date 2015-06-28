@@ -57,6 +57,11 @@
     [self.tableView reloadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.userLocation = [LocationService sharedInstance].currentLocation;
+    NSLog(@"%@", self.userLocation);
+}
+
 #pragma mark - Floating button
 
 - (UIButton *)createButtonWithTitle:(NSString *)title chooseColor:(UIColor *)color andPosition:(int)position {

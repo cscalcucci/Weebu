@@ -10,11 +10,22 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "LocationService.h"
+#import "EmotionBubble.h"
 
 @interface GeneralViewController : UIViewController
 
 @property UIButton *addEmotionButton;
 @property CLLocation *userLocation;
+
+@property NSArray *bubbles;
+
+@property (weak, nonatomic) IBOutlet EmotionBubble *emotion0;
+@property (weak, nonatomic) IBOutlet EmotionBubble *emotion1;
+
+
+
+
+
 
 @end
 

@@ -16,10 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfN-Sa-wlk" customClass="EmotionBubble">
+                                <rect key="frame" x="115" y="169" width="25" height="25"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfR-Gn-L9b" customClass="EmotionBubble">
+                                <rect key="frame" x="115" y="278" width="25" height="25"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qke-2S-dzF"/>
                     <connections>
+                        <outlet property="emotion0" destination="QfN-Sa-wlk" id="mF9-r8-PVE"/>
+                        <outlet property="emotion1" destination="GfR-Gn-L9b" id="aRk-D3-g7f"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="GeneralToAdd" id="ky5-3i-ZYO"/>
                     </connections>
                 </viewController>
@@ -574,6 +592,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z8b-H7-jZL"/>
-        <segue reference="Vyz-lu-Pmj"/>
+        <segue reference="ky5-3i-ZYO"/>
     </inferredMetricsTieBreakers>
 </document>

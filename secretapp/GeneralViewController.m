@@ -8,10 +8,6 @@
 
 #import "GeneralViewController.h"
 
-@interface GeneralViewController ()
-
-@end
-
 @implementation GeneralViewController
 
 - (void)viewDidLoad {
@@ -20,6 +16,15 @@
     //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
 
+
+    //Add bubbles
+    self.bubbles = [[NSArray alloc]initWithObjects:self.emotion0, self.emotion1, nil];
+    for (EmotionBubble *bubble in self.bubbles) {
+        [bubble refreshBubble];
+        NSLog(@"refresh");
+    }
+    
+    //Add buttons
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -29,6 +34,17 @@
         NSLog(@"something");
     }
 }
+
+#pragma mark - Creating bubbles
+
+- (void)initializeBubbles {
+
+}
+
+
+
+
+
 
 #pragma mark - Floating button
 

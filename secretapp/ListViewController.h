@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
+#import "LocationService.h"
 
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property UIButton *addEmotionButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property CLLocation *userLocation;
 
 @end

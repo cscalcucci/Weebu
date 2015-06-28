@@ -49,6 +49,7 @@
 		993F6A551B3EE87B00CAF0D7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */; };
 		993F6A591B3EEF5300CAF0D7 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */; };
 		993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A641B3EFA9900CAF0D7 /* LocationService.m */; };
+		993F6A7B1B3F846700CAF0D7 /* EmotionBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A7A1B3F846700CAF0D7 /* EmotionBubble.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,8 @@
 		993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
 		993F6A631B3EFA9900CAF0D7 /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		993F6A641B3EFA9900CAF0D7 /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		993F6A791B3F846700CAF0D7 /* EmotionBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionBubble.h; sourceTree = "<group>"; };
+		993F6A7A1B3F846700CAF0D7 /* EmotionBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionBubble.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,8 +223,7 @@
 		993F6A0A1B3EE1DD00CAF0D7 /* secretapp */ = {
 			isa = PBXGroup;
 			children = (
-				993F6A0F1B3EE1DD00CAF0D7 /* AppDelegate.h */,
-				993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */,
+				993F6A781B3F79C200CAF0D7 /* App Delegate */,
 				993F6A561B3EE8BE00CAF0D7 /* Frameworks */,
 				993F6A4A1B3EE54C00CAF0D7 /* Models */,
 				993F6A461B3EE50E00CAF0D7 /* Controllers */,
@@ -273,15 +275,11 @@
 		993F6A4A1B3EE54C00CAF0D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				993F6A631B3EFA9900CAF0D7 /* LocationService.h */,
-				993F6A641B3EFA9900CAF0D7 /* LocationService.m */,
-				7ECC23991B3F137C0049B47B /* Emotion.h */,
-				7ECC239A1B3F137C0049B47B /* Emotion.m */,
-				7ECC239C1B3F146B0049B47B /* Event.h */,
-				7ECC239D1B3F146B0049B47B /* Event.m */,
-				993F6A571B3EEF5300CAF0D7 /* FoursquareAPI.h */,
-				993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */,
-				993F6A711B3F613800CAF0D7 /* Custom colors */,
+				993F6A731B3F797B00CAF0D7 /* LocationService */,
+				993F6A741B3F798900CAF0D7 /* Emotion Object */,
+				993F6A751B3F799000CAF0D7 /* Event Object */,
+				993F6A761B3F799800CAF0D7 /* Foursquare Object */,
+				993F6A771B3F79B500CAF0D7 /* Custom Colors */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -311,11 +309,10 @@
 			isa = PBXGroup;
 			children = (
 				993F6A6B1B3F60F800CAF0D7 /* Tab Bar */,
-				993F6A6A1B3F5FF500CAF0D7 /* Map View */,
+				993F6A7C1B3F847600CAF0D7 /* General View */,
 				7ECC23A21B3F1C270049B47B /* List View */,
 				993F6A691B3F5FEC00CAF0D7 /* Map View */,
-				993F6A3C1B3EE2D600CAF0D7 /* ProfileViewController.h */,
-				993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */,
+				993F6A721B3F6CF600CAF0D7 /* Profile View */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -334,15 +331,6 @@
 			children = (
 				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
 				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
-			);
-			name = "Map View";
-			sourceTree = "<group>";
-		};
-		993F6A6A1B3F5FF500CAF0D7 /* Map View */ = {
-			isa = PBXGroup;
-			children = (
-				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
-				993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */,
 			);
 			name = "Map View";
 			sourceTree = "<group>";
@@ -392,13 +380,78 @@
 			name = Splash;
 			sourceTree = "<group>";
 		};
-		993F6A711B3F613800CAF0D7 /* Custom colors */ = {
+		993F6A721B3F6CF600CAF0D7 /* Profile View */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A3C1B3EE2D600CAF0D7 /* ProfileViewController.h */,
+				993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */,
+			);
+			name = "Profile View";
+			sourceTree = "<group>";
+		};
+		993F6A731B3F797B00CAF0D7 /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A631B3EFA9900CAF0D7 /* LocationService.h */,
+				993F6A641B3EFA9900CAF0D7 /* LocationService.m */,
+			);
+			name = LocationService;
+			sourceTree = "<group>";
+		};
+		993F6A741B3F798900CAF0D7 /* Emotion Object */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC23991B3F137C0049B47B /* Emotion.h */,
+				7ECC239A1B3F137C0049B47B /* Emotion.m */,
+			);
+			name = "Emotion Object";
+			sourceTree = "<group>";
+		};
+		993F6A751B3F799000CAF0D7 /* Event Object */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC239C1B3F146B0049B47B /* Event.h */,
+				7ECC239D1B3F146B0049B47B /* Event.m */,
+			);
+			name = "Event Object";
+			sourceTree = "<group>";
+		};
+		993F6A761B3F799800CAF0D7 /* Foursquare Object */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A571B3EEF5300CAF0D7 /* FoursquareAPI.h */,
+				993F6A581B3EEF5300CAF0D7 /* FoursquareAPI.m */,
+			);
+			name = "Foursquare Object";
+			sourceTree = "<group>";
+		};
+		993F6A771B3F79B500CAF0D7 /* Custom Colors */ = {
 			isa = PBXGroup;
 			children = (
 				993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */,
 				993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */,
 			);
-			name = "Custom colors";
+			name = "Custom Colors";
+			sourceTree = "<group>";
+		};
+		993F6A781B3F79C200CAF0D7 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A0F1B3EE1DD00CAF0D7 /* AppDelegate.h */,
+				993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		993F6A7C1B3F847600CAF0D7 /* General View */ = {
+			isa = PBXGroup;
+			children = (
+				993F6A791B3F846700CAF0D7 /* EmotionBubble.h */,
+				993F6A7A1B3F846700CAF0D7 /* EmotionBubble.m */,
+				993F6A151B3EE1DD00CAF0D7 /* GeneralViewController.h */,
+				993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */,
+			);
+			name = "General View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,6 +582,7 @@
 				993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */,
 				7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */,
 				993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */,
+				993F6A7B1B3F846700CAF0D7 /* EmotionBubble.m in Sources */,
 				993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */,
 				993F6A3E1B3EE2D600CAF0D7 /* ProfileViewController.m in Sources */,
 				7ECC239E1B3F146B0049B47B /* Event.m in Sources */,

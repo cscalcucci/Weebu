@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 #import "LocationService.h"
+#import "UIColor+CustomColors.h"
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property UIButton *addEmotionButton;
-@property CLLocation *testLocation;
+@property UIButton *centerMap;
+
+@property CLLocation *userLocation;
+@property MKMapView *mapView;
+@property NSInteger locationCallAmt;
+
 
 @end
