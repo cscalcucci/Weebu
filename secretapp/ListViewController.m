@@ -29,6 +29,7 @@
     self.events = [NSArray new];
 
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
@@ -51,15 +52,15 @@
 }
 
 -(EventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     Event *event = [self.events objectAtIndex:indexPath.row];
-    PFObject *emotion = [PFObject objectWithClassName:@"Emotion"];
-    emotion = event.emotionObject;
-    [emotion fetchIfNeededInBackgroundWithBlock:^(PFObject *emotion, NSError *error) {
-        cell.emotionName.text = emotion[@"name"];
-//        cell.emotionImageView.file = emotion[@"imageFile"];
-        cell.emotionImageView.image = [UIImage imageNamed:@"happy"];
-    }];
+
+    Emotion *emotion = event.emotionObject;
+    cell.emotionName.text = emotion.name;
+    cell.emotionImageView.file = emotion.imageFile;
+    [cell.emotionImageView loadInBackground];
+
     return cell;
 }
 
