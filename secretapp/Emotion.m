@@ -15,6 +15,7 @@
 @dynamic imageFile;
 @dynamic pleasantValue;
 @dynamic activatedValue;
+@dynamic imageString;
 
 + (void)load {
     [self registerSubclass];

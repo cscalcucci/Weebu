@@ -19,5 +19,6 @@
 @property PFFile *imageFile;
 @property NSNumber *pleasantValue;
 @property NSNumber *activatedValue;
+@property NSString *imageString;
 
 @end
