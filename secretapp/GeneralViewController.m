@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.emotionLabel.text = @"TESTING";
+
 
 }
 
@@ -42,6 +42,8 @@
     //Add button
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view bringSubviewToFront:self.emotionLabel];
+    [self.view bringSubviewToFront:self.emotionImageView];
 }
 
 #pragma mark - Emotion Calculation
@@ -102,7 +104,7 @@
         NSLog(@"EMOTION: %@", self.emotion);
         NSLog(@"EMOTION name: %@", self.emotion.name);
         self.emotionImageView.file = self.emotion.imageFile;
-//        self.emotionLabel.text = self.emotion.name;
+        self.emotionLabel.text = self.emotion.name;
     }];
 }
 
