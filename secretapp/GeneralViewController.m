@@ -15,12 +15,8 @@
 
     //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
-}
+    NSLog(@"%@", self.userLocation);
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object  change:(NSDictionary *)change context:(void *)context {
-    if([keyPath isEqualToString:@"currentLocation"]) {
-        NSLog(@"something");
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,6 +35,7 @@
         int a = arc4random_uniform(self.view.frame.size.width);
         int b = arc4random_uniform(self.view.frame.size.height);
         int c = arc4random_uniform(100);
+
         EmotionBubble *bubble = [[EmotionBubble alloc] initWithFrame:CGRectMake(a, b, c, c)];
         [bubble setupBubble];
         [bubble bubbleSetup:@"emotion" andInt:i];

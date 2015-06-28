@@ -39,33 +39,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFL-S8-PcT">
-                                <rect key="frame" x="199" y="68" width="90" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="4lT-uS-Y7u"/>
-                                    <constraint firstAttribute="height" constant="90" id="yJr-1w-bUA"/>
-                                </constraints>
-                                <state key="normal" image="sad">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSelectEmotionPressed:" destination="qUT-Vp-n3A" eventType="touchUpInside" id="15T-13-ylz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueT-2q-Dct">
-                                <rect key="frame" x="61" y="68" width="90" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="LAe-bn-6cE"/>
-                                    <constraint firstAttribute="width" constant="90" id="lc9-Tn-Yma"/>
-                                </constraints>
-                                <state key="normal" image="happy">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSelectEmotionPressed:" destination="qUT-Vp-n3A" eventType="touchUpInside" id="tqD-tW-6Gg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bo-T9-cJQ">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bo-T9-cJQ">
                                 <rect key="frame" x="93" y="253" width="165" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -80,7 +54,7 @@
                                     <action selector="onAddEmotionPressed:" destination="qUT-Vp-n3A" eventType="touchUpInside" id="wjH-LX-6zI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZ2-qR-UNn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZ2-qR-UNn">
                                 <rect key="frame" x="61" y="198" width="228" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="DHP-Sh-vMc"/>
@@ -93,13 +67,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ueT-2q-Dct" firstAttribute="leading" secondItem="XYD-Lr-JzL" secondAttribute="leadingMargin" constant="45" id="33C-oO-REi"/>
                             <constraint firstItem="hZ2-qR-UNn" firstAttribute="leading" secondItem="XYD-Lr-JzL" secondAttribute="leadingMargin" constant="45" id="Pfm-WQ-ULq"/>
-                            <constraint firstItem="aFL-S8-PcT" firstAttribute="leading" secondItem="ueT-2q-Dct" secondAttribute="trailing" constant="48" id="TKJ-Hg-RTs"/>
                             <constraint firstItem="7Bo-T9-cJQ" firstAttribute="top" secondItem="hZ2-qR-UNn" secondAttribute="bottom" constant="24" id="fMa-zu-A86"/>
-                            <constraint firstItem="ueT-2q-Dct" firstAttribute="top" secondItem="63a-tZ-OdH" secondAttribute="bottom" constant="48" id="ieo-Rz-Dd1"/>
-                            <constraint firstItem="hZ2-qR-UNn" firstAttribute="top" secondItem="ueT-2q-Dct" secondAttribute="bottom" constant="40" id="kdT-r9-VS1"/>
-                            <constraint firstItem="aFL-S8-PcT" firstAttribute="top" secondItem="63a-tZ-OdH" secondAttribute="bottom" constant="48" id="nJC-Q9-7vH"/>
                             <constraint firstItem="7Bo-T9-cJQ" firstAttribute="leading" secondItem="XYD-Lr-JzL" secondAttribute="leadingMargin" constant="77" id="yyS-eI-Flz"/>
                         </constraints>
                     </view>
@@ -569,8 +538,6 @@
     </scenes>
     <resources>
         <image name="deathSD" width="35" height="35"/>
-        <image name="happy" width="182" height="182"/>
-        <image name="sad" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z8b-H7-jZL"/>

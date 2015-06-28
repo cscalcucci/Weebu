@@ -88,6 +88,8 @@
 }
 
 -(void)didTapCenterMapButton:(id)sender{
+    [[LocationService sharedInstance] startUpdatingLocation];
+    self.userLocation = [LocationService sharedInstance].currentLocation;
     CLLocationCoordinate2D location = self.userLocation.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location, 10000, 10000);
     [self.mapView setRegion:region animated:YES];
