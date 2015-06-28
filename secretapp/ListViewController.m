@@ -56,11 +56,10 @@
     PFObject *emotion = [PFObject objectWithClassName:@"Emotion"];
     emotion = event.emotionObject;
     [emotion fetchIfNeededInBackgroundWithBlock:^(PFObject *emotion, NSError *error) {
-        cell.textLabel.text = emotion[@"name"];
+        cell.emotionName.text = emotion[@"name"];
+//        cell.emotionImageView.file = emotion[@"imageFile"];
+        cell.emotionImageView.image = [UIImage imageNamed:@"happy"];
     }];
-//    NSLog(@"emotion: %@", [emotion objectForKey:@"name"]);
-//    cell.emotionImageView.file = [event.emotionObject objectForKey:@"imageFile"];
-
     return cell;
 }
 

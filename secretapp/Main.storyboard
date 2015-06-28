@@ -102,21 +102,34 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jvG-BO-wds" id="spp-hV-EIB">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p1N-wO-YMM" customClass="PFImageView">
-                                                    <rect key="frame" x="8" y="0.0" width="84" height="60"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="emotion name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXt-M2-rFM">
+                                                    <rect key="frame" x="14" y="19" width="110" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="84" id="pGi-B6-Koa"/>
+                                                        <constraint firstAttribute="height" constant="21" id="iG0-Ud-rEI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p1N-wO-YMM" customClass="PFImageView">
+                                                    <rect key="frame" x="212" y="10" width="38" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="38" id="42d-9b-JbA"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="p1N-wO-YMM" firstAttribute="leading" secondItem="spp-hV-EIB" secondAttribute="leadingMargin" id="FnC-as-3EN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="p1N-wO-YMM" secondAttribute="bottom" constant="-8" id="iWz-JU-0R0"/>
-                                                <constraint firstItem="p1N-wO-YMM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="-8" id="wvj-Z7-Ilf"/>
+                                                <constraint firstItem="uXt-M2-rFM" firstAttribute="leading" secondItem="spp-hV-EIB" secondAttribute="leadingMargin" constant="6" id="OHu-L9-grm"/>
+                                                <constraint firstItem="uXt-M2-rFM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="11" id="VC9-VY-bw8"/>
+                                                <constraint firstItem="p1N-wO-YMM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="2" id="Y4t-EV-ehq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="uXt-M2-rFM" secondAttribute="bottom" constant="12" id="ZVp-58-eAS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="p1N-wO-YMM" secondAttribute="bottom" constant="2" id="arM-PH-ScZ"/>
+                                                <constraint firstItem="p1N-wO-YMM" firstAttribute="leading" secondItem="uXt-M2-rFM" secondAttribute="trailing" constant="88" id="g1O-oC-q3C"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="emotionImageView" destination="p1N-wO-YMM" id="bGe-da-kAG"/>
+                                            <outlet property="emotionName" destination="uXt-M2-rFM" id="Qjr-VL-ng9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
