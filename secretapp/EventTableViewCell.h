@@ -13,5 +13,6 @@
 @interface EventTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet PFImageView *emotionImageView;
+@property (weak, nonatomic) IBOutlet UILabel *emotionName;
 
 @end
