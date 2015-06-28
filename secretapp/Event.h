@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Emotion.h"
+#import <Parse/PFObject+Subclass.h>
+
 
 @interface Event : PFObject<PFSubclassing>
 
 + (NSString *)parseClassName;
 
 @property PFUser *createdBy;
-@property PFObject *emotionObject;
+@property Emotion *emotionObject;
 @property PFGeoPoint *location;
 
 @end

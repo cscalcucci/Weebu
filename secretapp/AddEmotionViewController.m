@@ -18,7 +18,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.cancelButton = [self createButtonWithTitle:@"cancel" chooseColor:[UIColor redColor] andPosition:50];
+    //Setup container
+    self.containerView.hidden = YES;
+    self.containerHidden = YES;
+
+
+
+    self.addEmotion = [self createButtonWithTitle:@"addEmotion" chooseColor:[UIColor greenColor] andPosition:3];
+    [self.addEmotion addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+
+    self.addVenue = [self createButtonWithTitle:@"add venue" chooseColor:[UIColor blueEmotionColor] andPosition:2];
+    [self.addVenue addTarget:self action:@selector(onSelectVenueButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+
+    self.cancelButton = [self createButtonWithTitle:@"cancel" chooseColor:[UIColor redEmotionColor] andPosition:1];
     [self.cancelButton addTarget:self action:@selector(onCancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
     //Array with emotion objects
@@ -39,8 +51,8 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 100)];
     int x = 0;
     CGRect frame;
-    for (int i = 0; i <= 19; i++) {
 
+    for (int i = 0; i <= 19; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         if (i == 0) {
             frame = CGRectMake(10, 10, 80, 80);
@@ -52,7 +64,7 @@
         [button setTitle:[NSString stringWithFormat:@"Button %d", i] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"emotion%i",i]] forState:UIControlStateNormal];
         [button setTag:i];
-        [button setBackgroundColor:[UIColor greenColor]];
+        [button setBackgroundColor:[UIColor greenEmotionColor]];
                 [button addTarget:self action:@selector(onSelectEmotionPressed:) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:button];
 
@@ -61,14 +73,11 @@
         }
     }
     scrollView.contentSize = CGSizeMake(x, scrollView.frame.size.height);
-    scrollView.backgroundColor = [UIColor redColor];
+    scrollView.backgroundColor = [UIColor redEmotionColor];
     [self.view addSubview:scrollView];
-
 }
 
-
-
-#pragma mark - Add emotion buttons test
+#pragma mark - Button actions
 
 - (IBAction)onSelectEmotionPressed:(UIButton *)sender {
     NSLog(@"%li", sender.tag);
@@ -77,7 +86,7 @@
     self.selectedEmotionLabel.text = emotion.name;
 }
 
-- (IBAction)onAddEmotionPressed:(id)sender {
+- (void)onAddEmotionButtonPressed {
     NSLog(@"add emotion button pressed");
     Event *event = [Event objectWithClassName:@"Event"];
         event.location = [PFGeoPoint geoPointWithLocation:[LocationService sharedInstance].currentLocation];
@@ -87,13 +96,18 @@
         [self performSelector:@selector(onCancelButtonPressed)];
 }
 
-#pragma mark - Cancel button
+- (void)onSelectVenueButtonPressed {
+    self.containerView.hidden = !self.containerView.hidden;
+    self.containerHidden = self.containerView.hidden;
+
+
+}
+
+#pragma mark - Full screen width buttons
 
 - (UIButton *)createButtonWithTitle:(NSString *)title chooseColor:(UIColor *)color andPosition:(int)position {
     int diameter = 65;
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, diameter, diameter)];
-    button.center = CGPointMake(self.view.frame.size.width - position, self.view.frame.size.height - 100);
-    button.layer.cornerRadius = button.bounds.size.width / 2;
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - (diameter * position), self.view.frame.size.width, diameter)];
     button.backgroundColor = color;
     button.layer.borderColor = button.titleLabel.textColor.CGColor;
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

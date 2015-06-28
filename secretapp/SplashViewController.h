@@ -20,5 +20,4 @@
 @property UIImageView *secondShape;
 @property UIImageView *thirdShape;
 
-
 @end
