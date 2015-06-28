@@ -11,6 +11,7 @@
 #import "Event.h"
 
 #include <math.h>
+#import <ParseUI/ParseUI.h>
 
 @interface GeneralViewController ()
 @property PFUser *currentUser;
@@ -19,6 +20,8 @@
 @property NSNumber *pleasantValue;
 @property NSNumber *activatedValue;
 @property Emotion *emotion;
+@property (weak, nonatomic) IBOutlet PFImageView *emotionImageView;
+@property (weak, nonatomic) IBOutlet UILabel *emotionLabel;
 @end
 
 @implementation GeneralViewController
@@ -80,20 +83,25 @@
 
 - (void)findEmotion {
     NSLog(@"finding emotion");
-    NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
+    __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
     PFQuery *emotionsQuery = [PFQuery queryWithClassName:@"Emotion"];
     [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
         for (Emotion *emotion in emotions) {
             NSNumber *x1 = emotion.pleasantValue;
             NSNumber *y1 = emotion.activatedValue;
             NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
-            NSLog(@"newDistance: %@", newDistance);
-            if (newDistance < distance) {
-                NSLog(@"new emotion found");
+            NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
+            if ([newDistance floatValue] < [distance floatValue]) {
+                NSLog(@"ASSIGN");
                 self.emotion = emotion;
+                distance = newDistance;
             }
+            NSLog(@"Distance: %f", [distance floatValue]);
         }
         NSLog(@"EMOTION: %@", self.emotion);
+        NSLog(@"EMOTION name: %@", self.emotion.name);
+        self.emotionImageView.file = self.emotion.imageFile;
+        self.emotionLabel.text = self.emotion.name;
     }];
 }
 
