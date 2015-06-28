@@ -21,6 +21,7 @@
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
+    [self letThereBeMKAnnotation];
 
     self.centerMap = [self createCenterMapButton];
     [self.centerMap addTarget:self action:@selector(didTapCenterMapButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -42,6 +43,55 @@
         [self.mapView setRegion:region animated:YES];
     }
     self.locationCallAmt++;
+}
+
+#pragma mark - Map stuff
+
+- (void)letThereBeMKAnnotation {
+    PFQuery *query = [Event query];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 50;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *pictures, NSError *error) {
+        if (!error) {
+        }
+        self.annotationArray = [[NSMutableArray alloc] init];
+        self.objectArray = [[NSArray alloc]initWithArray:pictures];
+        for (int i; i < self.objectArray.count; i++) {
+            Event *event = self.objectArray[i];
+            [event setObject:[NSString stringWithFormat:@"%i", i] forKey:@"indexPath" ];
+            MKPointAnnotation *annotation = [MKPointAnnotation new];
+            annotation.coordinate = CLLocationCoordinate2DMake(event.location.latitude, event.location.longitude);
+            [self.annotationArray addObject:annotation];
+            [self.mapView addAnnotation:annotation];
+        }
+    }];
+}
+
+-(void)reverseGeoCode:(CLLocation *)location {
+    CLGeocoder *geoCoder = [CLGeocoder new];
+    [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = placemarks.firstObject;
+        self.userLocation = placemark.location;
+    }];
+}
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if ([annotation isEqual:self.mapView.userLocation]) {
+        return nil;
+    }
+    MKAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
+    int randomNumber = arc4random_uniform(3)+1;
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"emotion%i",randomNumber]];
+
+    CGSize scaleSize = CGSizeMake(24.0, 24.0);
+    UIGraphicsBeginImageContextWithOptions(scaleSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, scaleSize.width, scaleSize.height)];
+    UIImage * resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    pin.image = resizedImage;
+    pin.canShowCallout =  NO;
+    pin.userInteractionEnabled = YES;
+    return pin;
 }
 
 #pragma mark - Buttons
