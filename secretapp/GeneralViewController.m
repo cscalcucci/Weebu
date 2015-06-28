@@ -13,14 +13,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //Find location;
-    self.userLocation = [LocationService sharedInstance].currentLocation;
-    NSLog(@"%@", self.userLocation);
+
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self initializeBubbles];
+
+    //Find location;
+    self.userLocation = [LocationService sharedInstance].currentLocation;
+    NSLog(@"%@", self.userLocation);
 
     //Add button
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];

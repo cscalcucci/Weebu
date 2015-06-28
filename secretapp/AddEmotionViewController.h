@@ -12,12 +12,21 @@
 #import "Emotion.h"
 #import "Event.h"
 #import "LocationService.h"
+#import "FoursquareAPI.h"
+#import "UIColor+CustomColors.h"
 
 @interface AddEmotionViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedEmotionLabel;
 @property UIButton *cancelButton;
+@property UIButton *addVenue;
+@property UIButton *addEmotion;
 @property NSArray *emotions;
 @property long selectedTag;
+
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property FoursquareAPI *selectedVenue;
+@property BOOL containerHidden;
+
 
 @end
