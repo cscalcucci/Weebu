@@ -55,7 +55,6 @@
 
     EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     Event *event = [self.events objectAtIndex:indexPath.row];
-
     Emotion *emotion = event.emotionObject;
     cell.emotionName.text = emotion.name;
     cell.emotionImageView.file = emotion.imageFile;
