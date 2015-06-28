@@ -57,8 +57,8 @@
     Event *event = [self.events objectAtIndex:indexPath.row];
     Emotion *emotion = event.emotionObject;
     cell.emotionName.text = emotion.name;
-    cell.emotionImageView.file = emotion.imageFile;
-    [cell.emotionImageView loadInBackground];
+    NSString *imageString = emotion.imageString;
+    cell.emotionImageView.image = [UIImage imageNamed:imageString];
 
     return cell;
 }
