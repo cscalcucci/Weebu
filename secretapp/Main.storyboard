@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -103,16 +103,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p1N-wO-YMM" customClass="PFImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="60"/>
+                                                    <rect key="frame" x="8" y="0.0" width="84" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="84" id="qsh-1I-KLB"/>
+                                                        <constraint firstAttribute="width" constant="84" id="pGi-B6-Koa"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="p1N-wO-YMM" secondAttribute="trailing" constant="508" id="63n-1l-f5O"/>
-                                                <constraint firstItem="p1N-wO-YMM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="-8" id="Bfh-zT-Zdz"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="p1N-wO-YMM" secondAttribute="bottom" constant="-8" id="C53-09-gNs"/>
+                                                <constraint firstItem="p1N-wO-YMM" firstAttribute="leading" secondItem="spp-hV-EIB" secondAttribute="leadingMargin" id="FnC-as-3EN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="p1N-wO-YMM" secondAttribute="bottom" constant="-8" id="iWz-JU-0R0"/>
+                                                <constraint firstItem="p1N-wO-YMM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="-8" id="wvj-Z7-Ilf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -541,6 +541,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z8b-H7-jZL"/>
-        <segue reference="ky5-3i-ZYO"/>
+        <segue reference="Vyz-lu-Pmj"/>
     </inferredMetricsTieBreakers>
 </document>

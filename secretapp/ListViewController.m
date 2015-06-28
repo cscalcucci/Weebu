@@ -27,39 +27,41 @@
 
     self.emotions = [[NSArray alloc]init];
     self.events = [NSArray new];
-/*
-    PFQuery *emotionsQuery = [PFQuery queryWithClassName:@"Emotion"];
-    [emotionsQuery orderByDescending:@"createdAt"];
-    [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
-        if (!error) {
-            NSLog(@"%lu", emotions.count);
-            self.emotions = emotions;
-            Event *event1 = [[Event alloc]init];
-            event1.emotionObject = self.emotions[0];
-            event1.createdBy = self.currentUser;
 
-            NSLog(@"%@", event1);
-            self.events = [[NSArray alloc]initWithObjects:event1, nil];
-            [self.tableView reloadData];
-        }
-    }];
-*/
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
-            NSLog(@"%lu", events.count);
+            NSLog(@"total events: %lu", events.count);
             NSLog(@"%@", events.firstObject);
-
             self.events = events;
+            [self.tableView reloadData];
         }
     }];
-    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     self.userLocation = [LocationService sharedInstance].currentLocation;
-    NSLog(@"%@", self.userLocation);
+}
+
+#pragma mark - Tableview
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.events.count;
+}
+
+-(EventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    Event *event = [self.events objectAtIndex:indexPath.row];
+    PFObject *emotion = [PFObject objectWithClassName:@"Emotion"];
+    emotion = event.emotionObject;
+    [emotion fetchIfNeededInBackgroundWithBlock:^(PFObject *emotion, NSError *error) {
+        cell.textLabel.text = emotion[@"name"];
+    }];
+//    NSLog(@"emotion: %@", [emotion objectForKey:@"name"]);
+//    cell.emotionImageView.file = [event.emotionObject objectForKey:@"imageFile"];
+
+    return cell;
 }
 
 #pragma mark - Floating button
@@ -83,22 +85,7 @@
 - (void)onAddEmotionButtonPressed {
     NSLog(@"pressed");
     [self performSegueWithIdentifier:@"ListToAdd" sender:self];
-    
-}
 
-#pragma mark - Tableview
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.events.count;
-}
-
--(EventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    Event *event = [self.events objectAtIndex:indexPath.row];
-    cell.textLabel.text = [event.emotionObject objectForKey:@"name"];
-    cell.emotionImageView.file = [event.emotionObject objectForKey:@"imageFile"];
-
-    return cell;
 }
 
 @end
