@@ -10,10 +10,15 @@
 #import "Emotion.h"
 #import "Event.h"
 
+#include <math.h>
+
 @interface GeneralViewController ()
 @property PFUser *currentUser;
 @property NSArray *events;
 @property NSArray *emotions;
+@property NSNumber *pleasantValue;
+@property NSNumber *activatedValue;
+@property Emotion *emotion;
 @end
 
 @implementation GeneralViewController
@@ -21,13 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //Find location;
-    self.userLocation = [LocationService sharedInstance].currentLocation;
-    NSLog(@"%@", self.userLocation);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self calculateEmotion];
+    [self loadEvents];
 
     //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
@@ -40,16 +42,58 @@
 
 #pragma mark - Emotion Calculation
 
-- (void)calculateEmotion {
+- (void)loadEvents {
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
-            NSLog(@"total events: %lu", events.count);
-            NSLog(@"%@", events.firstObject);
             self.events = events;
-
+            [self calculatValues];
         }
+    }];
+}
+
+- (void)calculatValues {
+    int count = 0;
+    NSNumber *pleasantSum = 0;
+    NSNumber *activatedSum = 0;
+    for (Event *event in self.events) {
+        Emotion *emotion = event.emotionObject;
+        NSLog(@"pleaseValue: %@", emotion.pleasantValue);
+//        int pleasantValue = [[emotion.pleasantValue] intValue];
+        pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [emotion.pleasantValue floatValue])];
+//        int activatedValue = [[emotion.activatedValue] intValue];
+//        activatedSum = activatedSum + emotion.activatedValue;
+        activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [emotion.activatedValue floatValue])];
+        count = count + 1;
+    }
+    NSLog(@"pleasantSum: %f", [pleasantSum floatValue]);
+    NSLog(@"activatedSum: %f", [activatedSum floatValue]);
+    self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
+    self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
+    NSLog(@"count: %i", count);
+    NSLog(@"pleasntValue: %f", [self.pleasantValue floatValue]);
+    NSLog(@"activatedValue: %f", [self.activatedValue floatValue]);
+    [self findEmotion];
+}
+
+- (void)findEmotion {
+    NSLog(@"finding emotion");
+    NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
+    PFQuery *emotionsQuery = [PFQuery queryWithClassName:@"Emotion"];
+    [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
+        for (Emotion *emotion in emotions) {
+            NSNumber *x1 = emotion.pleasantValue;
+            NSNumber *y1 = emotion.activatedValue;
+            NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
+            NSLog(@"newDistance: %@", newDistance);
+            if (newDistance < distance) {
+                NSLog(@"new emotion found");
+                self.emotion = emotion;
+            }
+        }
+        NSLog(@"EMOTION: %@", self.emotion);
     }];
 }
 
