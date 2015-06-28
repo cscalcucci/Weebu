@@ -7,6 +7,14 @@
 //
 
 #import "GeneralViewController.h"
+#import "Emotion.h"
+#import "Event.h"
+
+@interface GeneralViewController ()
+@property PFUser *currentUser;
+@property NSArray *events;
+@property NSArray *emotions;
+@end
 
 @implementation GeneralViewController
 
@@ -16,34 +24,29 @@
     //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
     NSLog(@"%@", self.userLocation);
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self initializeBubbles];
+    [self calculateEmotion];
 
     //Add button
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 
-#pragma mark - Creating bubbles
+#pragma mark - Emotion Calculation
 
-- (void)initializeBubbles {
-    self.bubbles = [NSMutableArray new];
-    for (int i = 0; i < 20; i++) {
-        int a = arc4random_uniform(self.view.frame.size.width);
-        int b = arc4random_uniform(self.view.frame.size.height);
-        int c = arc4random_uniform(100);
+- (void)calculateEmotion {
+    PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventsQuery orderByDescending:@"createdAt"];
+    [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
+        if (!error) {
+            NSLog(@"total events: %lu", events.count);
+            NSLog(@"%@", events.firstObject);
+            self.events = events;
 
-        EmotionBubble *bubble = [[EmotionBubble alloc] initWithFrame:CGRectMake(a, b, c, c)];
-        [bubble setupBubble];
-        [bubble bubbleSetup:@"emotion" andInt:i];
-        [bubble setTintColor:[UIColor redColor]];
-        [self.bubbles addObject:bubble];
-        [self.view addSubview:bubble];
-        NSLog(@"%i", i);
-    }
+        }
+    }];
 }
 
 #pragma mark - Floating button
