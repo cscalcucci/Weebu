@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.emotionLabel.text = @"TESTING";
 
 }
 
@@ -101,7 +102,7 @@
         NSLog(@"EMOTION: %@", self.emotion);
         NSLog(@"EMOTION name: %@", self.emotion.name);
         self.emotionImageView.file = self.emotion.imageFile;
-        self.emotionLabel.text = self.emotion.name;
+//        self.emotionLabel.text = self.emotion.name;
     }];
 }
 
