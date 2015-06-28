@@ -18,10 +18,17 @@
 
 
     //Add bubbles
-    self.bubbles = [[NSArray alloc]initWithObjects:self.emotion0, self.emotion1, nil];
-    for (EmotionBubble *bubble in self.bubbles) {
-        [bubble refreshBubble];
-        NSLog(@"refresh");
+    self.bubbles = [NSMutableArray new];
+    for (int i = 0; i < 20; i++) {
+        int a = arc4random_uniform(200);
+        int b = arc4random_uniform(500);
+        EmotionBubble *bubble = [[EmotionBubble alloc] initWithFrame:CGRectMake(a, b, 50, 50)];
+//        bubble.backgroundColor = [UIColor grayColor];
+        [bubble setupBubble];
+        [bubble bubbleSetup:@"emotion" andInt:i];
+        [self.bubbles addObject:bubble];
+        [self.view addSubview:bubble];
+        NSLog(@"%i", i);
     }
     
     //Add buttons

@@ -21,7 +21,8 @@
 @property BOOL isSelected;
 @property int emotionInt;
 
-- (void)refreshBubble;
+- (void)setupBubble;
+- (void) bubbleSetup:(NSString *)name andInt:(int)number;
 
 
 @end

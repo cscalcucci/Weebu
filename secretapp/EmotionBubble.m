@@ -15,14 +15,12 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    [self refreshBubble];
+    [self setupBubble];
     return self;
 }
 
-- (void)refreshBubble {
+- (void)setupBubble {
     self.userInteractionEnabled = YES;
-    self.emotionInt = arc4random_uniform(2);
-    [self bubbleSetup:@"emotion%i"];
     [self programmaticGestureInitializations];
 }
 
@@ -43,22 +41,18 @@
 
 - (IBAction)handleTap:(UITapGestureRecognizer *)recognizer {
     NSLog(@"tapped!");
-    if (self.isSelected == NO) {
-        [self bubbleSetup:@"emotion%i"];
-    } else if (self.isSelected == YES) {
-        [self bubbleSetup:@"emotion%i"];
-    }
     self.isSelected = !self.isSelected;
 }
 
-- (void) bubbleSetup:(NSString *)name {
-    UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:name, self.emotionInt]];
+- (void) bubbleSetup:(NSString *)name andInt:(int)number {
+    UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@%i", name, number]];
     CGSize imgSize = self.frame.size;
-    UIGraphicsBeginImageContext(imgSize);
+
+    UIGraphicsBeginImageContextWithOptions(imgSize, NO, 0.0);
     [img drawInRect:CGRectMake(0, 0, imgSize.width, imgSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage * resizedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    self.backgroundColor = [UIColor colorWithPatternImage:newImage];
+    self.backgroundColor = [UIColor colorWithPatternImage:resizedImage];
 }
 
 @end

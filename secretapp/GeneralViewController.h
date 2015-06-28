@@ -17,10 +17,10 @@
 @property UIButton *addEmotionButton;
 @property CLLocation *userLocation;
 
-@property NSArray *bubbles;
+@property NSMutableArray *bubbles;
 
-@property (weak, nonatomic) IBOutlet EmotionBubble *emotion0;
-@property (weak, nonatomic) IBOutlet EmotionBubble *emotion1;
+//@property (weak, nonatomic) IBOutlet EmotionBubble *emotion0;
+//@property (weak, nonatomic) IBOutlet EmotionBubble *emotion1;
 
 
 
