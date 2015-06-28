@@ -16,10 +16,37 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZQa-TV-Wbe" customClass="PFImageView">
+                                <rect key="frame" x="132" y="80" width="336" height="330"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="330" id="rTJ-5z-DgY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Mc-L6w">
+                                <rect key="frame" x="279" y="432" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="DmS-UH-IKo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="g9O-Mc-L6w" secondAttribute="bottom" constant="98" id="ELb-MD-j80"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g9O-Mc-L6w" secondAttribute="trailing" constant="263" id="LgP-w8-GLw"/>
+                            <constraint firstItem="g9O-Mc-L6w" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="263" id="SLt-cs-mRS"/>
+                            <constraint firstItem="ZQa-TV-Wbe" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="116" id="aTi-XC-wmq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZQa-TV-Wbe" secondAttribute="trailing" constant="116" id="k86-Tl-hB2"/>
+                            <constraint firstItem="ZQa-TV-Wbe" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="16" id="rzO-J3-1Ov"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qke-2S-dzF"/>
                     <connections>
+                        <outlet property="emotionImageView" destination="ZQa-TV-Wbe" id="dxM-gh-70p"/>
+                        <outlet property="emotionLabel" destination="g9O-Mc-L6w" id="vui-CI-MRn"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="GeneralToAdd" id="ky5-3i-ZYO"/>
                     </connections>
                 </viewController>
@@ -591,6 +618,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z8b-H7-jZL"/>
-        <segue reference="Vyz-lu-Pmj"/>
+        <segue reference="ky5-3i-ZYO"/>
     </inferredMetricsTieBreakers>
 </document>
