@@ -7,9 +7,6 @@
 //
 
 #import "EmotionBubble.h"
-@interface EmotionBubble () /*<ViewControllerDelegate>*/
-
-@end
 
 @implementation EmotionBubble
 

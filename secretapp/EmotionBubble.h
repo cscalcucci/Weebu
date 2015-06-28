@@ -10,19 +10,19 @@
 
 @class EmotionBubble;
 
-@protocol DieLabelDelegate <NSObject>
+@protocol BubbleDelegate <NSObject>
 
 
 @end
 
-@interface EmotionBubble : UILabel
+@interface EmotionBubble : UIView
 
-@property (nonatomic, assign) id <DieLabelDelegate> delegate;
+@property (nonatomic, assign) id <BubbleDelegate> delegate;
 @property BOOL isSelected;
 @property int emotionInt;
 
 - (void)setupBubble;
-- (void) bubbleSetup:(NSString *)name andInt:(int)number;
+- (void)bubbleSetup:(NSString *)name andInt:(int)number;
 
 
 @end

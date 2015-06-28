@@ -15,25 +15,6 @@
 
     //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
-
-
-    //Add bubbles
-    self.bubbles = [NSMutableArray new];
-    for (int i = 0; i < 20; i++) {
-        int a = arc4random_uniform(200);
-        int b = arc4random_uniform(500);
-        EmotionBubble *bubble = [[EmotionBubble alloc] initWithFrame:CGRectMake(a, b, 50, 50)];
-//        bubble.backgroundColor = [UIColor grayColor];
-        [bubble setupBubble];
-        [bubble bubbleSetup:@"emotion" andInt:i];
-        [self.bubbles addObject:bubble];
-        [self.view addSubview:bubble];
-        NSLog(@"%i", i);
-    }
-    
-    //Add buttons
-    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
-    [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object  change:(NSDictionary *)change context:(void *)context {
@@ -42,16 +23,31 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self initializeBubbles];
+
+    //Add button
+    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
+    [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+}
+
 #pragma mark - Creating bubbles
 
 - (void)initializeBubbles {
-
+    self.bubbles = [NSMutableArray new];
+    for (int i = 0; i < 20; i++) {
+        int a = arc4random_uniform(self.view.frame.size.width);
+        int b = arc4random_uniform(self.view.frame.size.height);
+        int c = arc4random_uniform(100);
+        EmotionBubble *bubble = [[EmotionBubble alloc] initWithFrame:CGRectMake(a, b, c, c)];
+        [bubble setupBubble];
+        [bubble bubbleSetup:@"emotion" andInt:i];
+        [bubble setTintColor:[UIColor redColor]];
+        [self.bubbles addObject:bubble];
+        [self.view addSubview:bubble];
+        NSLog(@"%i", i);
+    }
 }
-
-
-
-
-
 
 #pragma mark - Floating button
 

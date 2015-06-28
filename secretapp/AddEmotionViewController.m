@@ -53,8 +53,7 @@
     NSLog(@"add emotion button pressed");
     Event *event = [Event objectWithClassName:@"Event"];
     if ([self.selectedEmotionLabel.text  isEqual: @"Happy"]) {
-        event.location.longitude = [LocationService sharedInstance].currentLocation.coordinate.longitude;
-        event.location.latitude = [LocationService sharedInstance].currentLocation.coordinate.latitude;
+        event.location = [PFGeoPoint geoPointWithLocation:[LocationService sharedInstance].currentLocation];
         event.createdBy = [PFUser currentUser];
         event.emotionObject = self.emotions[self.selectedTag];
         [event saveInBackground];
