@@ -10,6 +10,8 @@
 
 @interface AddEmotionViewController ()
 
+@property UIImageView *imageView;
+
 @end
 
 @implementation AddEmotionViewController
@@ -32,6 +34,12 @@
 
     self.cancelButton = [self createButtonWithTitle:@"cancel" chooseColor:[UIColor redEmotionColor] andPosition:1];
     [self.cancelButton addTarget:self action:@selector(onCancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 150, self.view.frame.size.width - 75, self.view.frame.size.width - 75)];
+    self.imageView.center = self.view.center;
+    self.imageView.image = [UIImage imageNamed:@"emotion0"];
+    [self.view addSubview:self.imageView];
+
 
     //Array with emotion objects
     self.emotions = [[NSArray alloc]init];
@@ -84,6 +92,7 @@
     self.selectedTag = sender.tag;
     Emotion *emotion = [self.emotions objectAtIndex:self.selectedTag];
     self.selectedEmotionLabel.text = emotion.name;
+    self.imageView.image = [UIImage imageNamed:emotion.imageString];
 }
 
 - (void)onAddEmotionButtonPressed {
