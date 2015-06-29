@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property CLLocation *userLocation;
 @property UIRefreshControl *refreshControl;
--(void) refreshMyTableView;
+-(void)refreshMyTableView:(UIControlEvents *) event;
 
 @end
