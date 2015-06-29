@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <TwitterKit/TwitterKit.h>
+
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

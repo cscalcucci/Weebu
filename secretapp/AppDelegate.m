@@ -27,7 +27,10 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
-    [Fabric with:@[CrashlyticsKit]];
+    [Fabric with:@[CrashlyticsKit, TwitterKit]];
+
+    [PFTwitterUtils initializeWithConsumerKey:@"JByFce6QZmj8ODqpTxk46GJyP"
+                               consumerSecret:@"z0ry2rgdPLaIxf79fZl0BGl515DYRXAUqio2Gvsibhw4F8PdxA"];
 
     return YES;
 }

@@ -262,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wi-a1-vLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2126" y="0.0"/>
+            <point key="canvasLocation" x="-293" y="-2382"/>
         </scene>
         <!--Session View Controller-->
         <scene sceneID="hwV-u2-hWz">
@@ -275,54 +275,70 @@
                     <view key="view" contentMode="scaleToFill" id="JRk-u7-39u">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-xi-sx4">
-                                <rect key="frame" x="0.0" y="532" width="600" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="mgc-Gs-crB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Ix4-Cl-rDG" kind="show" id="bAh-QF-Zc5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qO-q3-ucp">
-                                <rect key="frame" x="0.0" y="561" width="600" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="9LE-Ux-0c9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="nL1-AX-ruh" kind="show" id="mwL-BU-oak"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="0qO-q3-ucp" firstAttribute="top" secondItem="mfK-xi-sx4" secondAttribute="bottom" id="4lJ-41-OIP"/>
-                            <constraint firstItem="0qO-q3-ucp" firstAttribute="leading" secondItem="JRk-u7-39u" secondAttribute="leadingMargin" constant="-16" id="9QF-Gf-8Vv"/>
-                            <constraint firstItem="ZqV-5q-tZr" firstAttribute="top" secondItem="0qO-q3-ucp" secondAttribute="bottom" id="Zt4-th-xRc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0qO-q3-ucp" secondAttribute="trailing" constant="-16" id="byh-kp-2GN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mfK-xi-sx4" secondAttribute="trailing" constant="-16" id="iV6-T3-QvJ"/>
-                            <constraint firstItem="mfK-xi-sx4" firstAttribute="leading" secondItem="JRk-u7-39u" secondAttribute="leadingMargin" constant="-16" id="nLK-lk-Diz"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="mfK-xi-sx4" id="frw-Z8-y20"/>
-                        <outlet property="signupButton" destination="0qO-q3-ucp" id="EXI-dt-3Nx"/>
+                        <segue destination="Ix4-Cl-rDG" kind="show" identifier="SessionToLogin" id="aWl-Jv-ys4"/>
+                        <segue destination="nL1-AX-ruh" kind="show" identifier="SessionToSignup" id="2ym-sO-w2l"/>
+                        <segue destination="BdM-xw-mXr" kind="show" identifier="SessionToTwitter" id="ftG-FO-fyb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alD-q3-L84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1452" y="0.0"/>
+            <point key="canvasLocation" x="-285" y="-1640"/>
+        </scene>
+        <!--Twitter Info View Controller-->
+        <scene sceneID="GxX-CZ-tvb">
+            <objects>
+                <viewController id="BdM-xw-mXr" customClass="TwitterInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uRY-dX-9nd"/>
+                        <viewControllerLayoutGuide type="bottom" id="X0i-D6-bUc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cwg-4V-9BQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gdr-iN-Vck">
+                                <rect key="frame" x="0.0" y="57" width="600" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="ghl-WE-0Ka"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wQU-7a-FJV">
+                                <rect key="frame" x="0.0" y="95" width="600" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="gsX-Ng-Vno"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yPQ-OW-Vb1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QGC-59-1U6"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="95U-RA-lRF">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="9Yn-rP-jHd"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wQU-7a-FJV" firstAttribute="top" secondItem="gdr-iN-Vck" secondAttribute="bottom" id="s86-io-O6X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="show" id="p9v-IF-eIb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zaf-7m-mqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="367" y="-789"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="FZU-vB-QdU">
@@ -410,7 +426,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZz-TB-7uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="MNC-RY-X5j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-733" y="-548"/>
+            <point key="canvasLocation" x="-293" y="-780"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="b2S-Nq-ZuI">
@@ -497,7 +513,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7V-iT-rYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lYC-QN-S8k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-733" y="108"/>
+            <point key="canvasLocation" x="-1005" y="-780"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -518,7 +534,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="-202"/>
+            <point key="canvasLocation" x="-305" y="26"/>
         </scene>
         <!--General-->
         <scene sceneID="Bkz-CK-S8O">
@@ -668,7 +684,7 @@
         <image name="deathSD" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="p9v-IF-eIb"/>
         <segue reference="ky5-3i-ZYO"/>
-        <segue reference="z8b-H7-jZL"/>
     </inferredMetricsTieBreakers>
 </document>
