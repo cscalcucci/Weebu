@@ -36,9 +36,6 @@
 
     [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.05];
 
-
-
-
 }
 
 #pragma mark - Emotion Calculation
