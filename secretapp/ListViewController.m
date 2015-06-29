@@ -60,10 +60,10 @@
     cell.emotionName.text = emotion.name;
     NSString *imageString = emotion.imageString;
     cell.emotionImageView.image = [UIImage imageNamed:imageString];
+    [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
     cell.timeAgo.text = [self relativeDate:event.createdAt];
     PFUser *user = event.createdBy;
     cell.user_name_here_filler.text = [NSString stringWithFormat:@"%@", user.email];
-
     return cell;
 }
 

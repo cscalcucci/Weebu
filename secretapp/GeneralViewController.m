@@ -7,21 +7,10 @@
 //
 
 #import "GeneralViewController.h"
-#import "Emotion.h"
-#import "Event.h"
 
-#include <math.h>
-#import <ParseUI/ParseUI.h>
 
 @interface GeneralViewController ()
-@property PFUser *currentUser;
-@property NSArray *events;
-@property NSArray *emotions;
-@property NSNumber *pleasantValue;
-@property NSNumber *activatedValue;
-@property Emotion *emotion;
-@property (weak, nonatomic) IBOutlet PFImageView *emotionImageView;
-@property (weak, nonatomic) IBOutlet UILabel *emotionLabel;
+
 @end
 
 @implementation GeneralViewController
@@ -33,6 +22,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self loadEvents];
 
+//    [self.emotionLabel setFont:[UIFont fontNamesForFamilyName:@"Brandon Grotesque"]];
+
     //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
     NSLog(@"%@", self.userLocation);
@@ -42,6 +33,12 @@
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view bringSubviewToFront:self.emotionLabel];
     [self.view bringSubviewToFront:self.emotionImageView];
+
+    [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.1];
+
+
+
+
 }
 
 #pragma mark - Emotion Calculation
@@ -129,6 +126,21 @@
     NSLog(@"pressed");
     [self performSegueWithIdentifier:@"GeneralToAdd" sender:self];
     
+}
+
+#pragma mark - Animations
+
+- (void)expandImageView:(UIImageView *)shape {
+    [UIView animateWithDuration:2.0
+                          delay:2.0f
+                        options:UIViewAnimationOptionRepeat | UIViewAnimationCurveEaseInOut | UIViewAnimationOptionAutoreverse
+                     animations:^{
+                         shape.transform = CGAffineTransformMakeScale(1.05, 1.05);
+                     } completion:^(BOOL finished) {
+                         [UIView animateWithDuration:2.0 animations:^{
+                             shape.transform = CGAffineTransformMakeScale(1, 1);
+                         }];
+                     }];
 }
 
 @end
