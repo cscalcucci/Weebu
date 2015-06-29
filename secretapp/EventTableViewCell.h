@@ -18,5 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeAgo;
 @property (weak, nonatomic) IBOutlet UILabel *user_name_here_filler;
 
+- (void)expandImageView:(UIImageView *)shape andActivatedValue:(Emotion *)emotion;
+
 
 @end

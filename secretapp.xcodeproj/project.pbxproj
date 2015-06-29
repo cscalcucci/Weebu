@@ -51,6 +51,18 @@
 		993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A641B3EFA9900CAF0D7 /* LocationService.m */; };
 		993F6A7B1B3F846700CAF0D7 /* EmotionBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A7A1B3F846700CAF0D7 /* EmotionBubble.m */; };
 		993F6A7F1B4068F900CAF0D7 /* AddEmotionContainerViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A7E1B4068F900CAF0D7 /* AddEmotionContainerViewViewController.m */; };
+		993F6B0F1B40D5E100CAF0D7 /* Brandon Grotesque Black Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B031B40D5E100CAF0D7 /* Brandon Grotesque Black Italic.ttf */; };
+		993F6B101B40D5E100CAF0D7 /* Brandon Grotesque Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B041B40D5E100CAF0D7 /* Brandon Grotesque Black.ttf */; };
+		993F6B111B40D5E100CAF0D7 /* Brandon Grotesque Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B051B40D5E100CAF0D7 /* Brandon Grotesque Bold Italic.ttf */; };
+		993F6B121B40D5E100CAF0D7 /* Brandon Grotesque Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B061B40D5E100CAF0D7 /* Brandon Grotesque Bold.ttf */; };
+		993F6B131B40D5E100CAF0D7 /* Brandon Grotesque Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B071B40D5E100CAF0D7 /* Brandon Grotesque Italic.ttf */; };
+		993F6B141B40D5E100CAF0D7 /* Brandon Grotesque Light Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B081B40D5E100CAF0D7 /* Brandon Grotesque Light Italic.ttf */; };
+		993F6B151B40D5E100CAF0D7 /* Brandon Grotesque Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B091B40D5E100CAF0D7 /* Brandon Grotesque Light.ttf */; };
+		993F6B161B40D5E100CAF0D7 /* Brandon Grotesque Medium Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B0A1B40D5E100CAF0D7 /* Brandon Grotesque Medium Italic.ttf */; };
+		993F6B171B40D5E100CAF0D7 /* Brandon Grotesque Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B0B1B40D5E100CAF0D7 /* Brandon Grotesque Medium.ttf */; };
+		993F6B181B40D5E100CAF0D7 /* Brandon Grotesque Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B0C1B40D5E100CAF0D7 /* Brandon Grotesque Regular.ttf */; };
+		993F6B191B40D5E100CAF0D7 /* Brandon Grotesque Thin Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B0D1B40D5E100CAF0D7 /* Brandon Grotesque Thin Italic.ttf */; };
+		993F6B1A1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B0E1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +143,18 @@
 		993F6A7A1B3F846700CAF0D7 /* EmotionBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionBubble.m; sourceTree = "<group>"; };
 		993F6A7D1B4068F900CAF0D7 /* AddEmotionContainerViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEmotionContainerViewViewController.h; sourceTree = "<group>"; };
 		993F6A7E1B4068F900CAF0D7 /* AddEmotionContainerViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmotionContainerViewViewController.m; sourceTree = "<group>"; };
+		993F6B031B40D5E100CAF0D7 /* Brandon Grotesque Black Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Black Italic.ttf"; sourceTree = "<group>"; };
+		993F6B041B40D5E100CAF0D7 /* Brandon Grotesque Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Black.ttf"; sourceTree = "<group>"; };
+		993F6B051B40D5E100CAF0D7 /* Brandon Grotesque Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Bold Italic.ttf"; sourceTree = "<group>"; };
+		993F6B061B40D5E100CAF0D7 /* Brandon Grotesque Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Bold.ttf"; sourceTree = "<group>"; };
+		993F6B071B40D5E100CAF0D7 /* Brandon Grotesque Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Italic.ttf"; sourceTree = "<group>"; };
+		993F6B081B40D5E100CAF0D7 /* Brandon Grotesque Light Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Light Italic.ttf"; sourceTree = "<group>"; };
+		993F6B091B40D5E100CAF0D7 /* Brandon Grotesque Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Light.ttf"; sourceTree = "<group>"; };
+		993F6B0A1B40D5E100CAF0D7 /* Brandon Grotesque Medium Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Medium Italic.ttf"; sourceTree = "<group>"; };
+		993F6B0B1B40D5E100CAF0D7 /* Brandon Grotesque Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Medium.ttf"; sourceTree = "<group>"; };
+		993F6B0C1B40D5E100CAF0D7 /* Brandon Grotesque Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Regular.ttf"; sourceTree = "<group>"; };
+		993F6B0D1B40D5E100CAF0D7 /* Brandon Grotesque Thin Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Thin Italic.ttf"; sourceTree = "<group>"; };
+		993F6B0E1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +268,7 @@
 			children = (
 				993F6A0C1B3EE1DD00CAF0D7 /* Info.plist */,
 				993F6A0D1B3EE1DD00CAF0D7 /* main.m */,
+				993F6B1B1B40D5E900CAF0D7 /* Brandon Grotesque Font */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -459,6 +484,25 @@
 			name = "General View";
 			sourceTree = "<group>";
 		};
+		993F6B1B1B40D5E900CAF0D7 /* Brandon Grotesque Font */ = {
+			isa = PBXGroup;
+			children = (
+				993F6B031B40D5E100CAF0D7 /* Brandon Grotesque Black Italic.ttf */,
+				993F6B041B40D5E100CAF0D7 /* Brandon Grotesque Black.ttf */,
+				993F6B051B40D5E100CAF0D7 /* Brandon Grotesque Bold Italic.ttf */,
+				993F6B061B40D5E100CAF0D7 /* Brandon Grotesque Bold.ttf */,
+				993F6B071B40D5E100CAF0D7 /* Brandon Grotesque Italic.ttf */,
+				993F6B081B40D5E100CAF0D7 /* Brandon Grotesque Light Italic.ttf */,
+				993F6B091B40D5E100CAF0D7 /* Brandon Grotesque Light.ttf */,
+				993F6B0A1B40D5E100CAF0D7 /* Brandon Grotesque Medium Italic.ttf */,
+				993F6B0B1B40D5E100CAF0D7 /* Brandon Grotesque Medium.ttf */,
+				993F6B0C1B40D5E100CAF0D7 /* Brandon Grotesque Regular.ttf */,
+				993F6B0D1B40D5E100CAF0D7 /* Brandon Grotesque Thin Italic.ttf */,
+				993F6B0E1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf */,
+			);
+			name = "Brandon Grotesque Font";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -540,7 +584,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993F6B101B40D5E100CAF0D7 /* Brandon Grotesque Black.ttf in Resources */,
+				993F6B131B40D5E100CAF0D7 /* Brandon Grotesque Italic.ttf in Resources */,
+				993F6B111B40D5E100CAF0D7 /* Brandon Grotesque Bold Italic.ttf in Resources */,
+				993F6B0F1B40D5E100CAF0D7 /* Brandon Grotesque Black Italic.ttf in Resources */,
+				993F6B171B40D5E100CAF0D7 /* Brandon Grotesque Medium.ttf in Resources */,
+				993F6B141B40D5E100CAF0D7 /* Brandon Grotesque Light Italic.ttf in Resources */,
 				993F6A351B3EE26900CAF0D7 /* Main.storyboard in Resources */,
+				993F6B161B40D5E100CAF0D7 /* Brandon Grotesque Medium Italic.ttf in Resources */,
+				993F6B1A1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf in Resources */,
+				993F6B151B40D5E100CAF0D7 /* Brandon Grotesque Light.ttf in Resources */,
+				993F6B121B40D5E100CAF0D7 /* Brandon Grotesque Bold.ttf in Resources */,
+				993F6B181B40D5E100CAF0D7 /* Brandon Grotesque Regular.ttf in Resources */,
+				993F6B191B40D5E100CAF0D7 /* Brandon Grotesque Thin Italic.ttf in Resources */,
 				993F6A1F1B3EE1DD00CAF0D7 /* LaunchScreen.xib in Resources */,
 				993F6A1C1B3EE1DD00CAF0D7 /* Images.xcassets in Resources */,
 			);
