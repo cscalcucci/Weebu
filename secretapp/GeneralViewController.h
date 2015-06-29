@@ -12,6 +12,7 @@
 #include <math.h>
 
 #import "LocationService.h"
+#import "SettingsService.h"
 #import "EmotionBubble.h"
 #import "Emotion.h"
 #import "Event.h"
