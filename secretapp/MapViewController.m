@@ -28,10 +28,13 @@
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
+
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     self.userLocation = [LocationService sharedInstance].currentLocation;
+    [[LocationService sharedInstance] startUpdatingLocation];
     NSLog(@"%@", self.userLocation);
 }
 
