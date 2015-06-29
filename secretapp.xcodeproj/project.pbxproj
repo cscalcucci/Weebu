@@ -235,8 +235,8 @@
 			children = (
 				99605BF31B41C51200238EC8 /* Twitter Info */,
 				993F6A6F1B3F612100CAF0D7 /* Splash */,
-				993F6A6E1B3F611A00CAF0D7 /* Login */,
 				993F6A6D1B3F610900CAF0D7 /* Session */,
+				993F6A6E1B3F611A00CAF0D7 /* Login */,
 				993F6A6C1B3F610200CAF0D7 /* Signup */,
 			);
 			name = Onboarding;

@@ -27,11 +27,7 @@
     self.passwordTextField.placeholder = @"password";
 //    [self.signupButton setHidden:YES];
     [self.emailTextField becomeFirstResponder];
-    self.signupButton.backgroundColor = [UIColor
-                                         colorWithRed:0.157
-                                         green:0.157
-                                         blue:0.157
-                                         alpha:1];
+    self.signupButton.backgroundColor = [UIColor redEmotionColor];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

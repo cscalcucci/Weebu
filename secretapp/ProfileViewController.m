@@ -17,11 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:150];
+    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor greenEmotionColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
-    self.logoutButton = [self createButtonWithTitle:@"logout" chooseColor:[UIColor redColor] andPosition:50];
+    self.logoutButton = [self createButtonWithTitle:@"logout" chooseColor:[UIColor redEmotionColor] andPosition:150];
     [self.logoutButton addTarget:self action:@selector(userLogout) forControlEvents:UIControlEventTouchUpInside];
+
+    self.shareButton = [self createButtonWithTitle:@"share" chooseColor:[UIColor blueEmotionColor] andPosition:250];
+    [self.shareButton addTarget:self action:@selector(shareOnTwitter) forControlEvents:UIControlEventTouchUpInside];
 
 
 }
@@ -48,6 +51,24 @@
     NSLog(@"pressed");
     [PFUser logOutInBackground];
     [self performSegueWithIdentifier:@"UnwindToSplash" sender:self];
+}
+
+#pragma mark - Twitter share placeholder
+
+- (void)shareOnTwitter {
+    TWTRComposer *composer = [[TWTRComposer alloc] init];
+
+    [composer setText:@"just setting up my weebu"];
+    [composer setImage:[UIImage imageNamed:@"happy"]];
+
+    [composer showWithCompletion:^(TWTRComposerResult result) {
+        if (result == TWTRComposerResultCancelled) {
+            NSLog(@"Tweet composition cancelled");
+        }
+        else {
+            NSLog(@"Sending Tweet!");
+        }
+    }];
 }
 
 
