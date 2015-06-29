@@ -46,24 +46,10 @@
     for (CLLocation *location in locations) {
         NSLog(@"%@", location);
         if (location.verticalAccuracy < 1000 && location.horizontalAccuracy < 1000) {
-//            [self reverseGeoCode:locations.firstObject];
             [self.locationManager stopUpdatingLocation];
             self.currentLocation = location;
-            [self.delegate locationServiceDelegate:self.currentLocation];
         }
     }
 }
-
-
-
-//
-//-(void)reverseGeoCode:(CLLocation *)location {
-//    CLGeocoder *geoCoder = [CLGeocoder new];
-//    [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-//        CLPlacemark *placemark = placemarks.firstObject;
-//        self.currentLocation = placemark.location;
-//        //Setting shared location variable
-//    }];
-//}
 
 @end

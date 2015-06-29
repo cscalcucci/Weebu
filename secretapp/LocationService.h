@@ -10,19 +10,12 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@protocol LocationServiceDelegate <NSObject>
-
-- (void)locationServiceDelegate:(CLLocation *)location;
-
-@end
-
 @interface LocationService : NSObject <CLLocationManagerDelegate>
 
 +(LocationService *) sharedInstance;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
-@property (nonatomic, assign) id <LocationServiceDelegate> delegate;
 
 - (void)startUpdatingLocation;
 
