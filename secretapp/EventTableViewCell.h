@@ -15,4 +15,8 @@
 @property (weak, nonatomic) IBOutlet PFImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *emotionName;
 
+@property (weak, nonatomic) IBOutlet UILabel *timeAgo;
+@property (weak, nonatomic) IBOutlet UILabel *user_name_here_filler;
+
+
 @end

@@ -102,6 +102,7 @@
         NSLog(@"EMOTION: %@", self.emotion);
         NSLog(@"EMOTION name: %@", self.emotion.name);
         self.emotionImageView.file = self.emotion.imageFile;
+        [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
     }];
 }

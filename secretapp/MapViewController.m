@@ -10,6 +10,9 @@
 
 @interface MapViewController ()
 
+@property Event *event;
+@property Emotion *emotion;
+
 @end
 
 @implementation MapViewController
@@ -52,6 +55,7 @@
 
 - (void)letThereBeMKAnnotation {
     PFQuery *query = [Event query];
+    [query includeKey:@"emotionObject"];
     [query orderByDescending:@"createdAt"];
     query.limit = 50;
     [query findObjectsInBackgroundWithBlock:^(NSArray *pictures, NSError *error) {
@@ -60,10 +64,13 @@
         self.annotationArray = [[NSMutableArray alloc] init];
         self.objectArray = [[NSArray alloc]initWithArray:pictures];
         for (int i; i < self.objectArray.count; i++) {
-            Event *event = self.objectArray[i];
-            [event setObject:[NSString stringWithFormat:@"%i", i] forKey:@"indexPath" ];
+            self.event = self.objectArray[i];
+            self.emotion = self.event.emotionObject;
+            NSLog(@"%@", self.emotion.imageString);
+
+            [self.event setObject:[NSString stringWithFormat:@"%i", i] forKey:@"indexPath" ];
             MKPointAnnotation *annotation = [MKPointAnnotation new];
-            annotation.coordinate = CLLocationCoordinate2DMake(event.location.latitude, event.location.longitude);
+            annotation.coordinate = CLLocationCoordinate2DMake(self.event.location.latitude, self.event.location.longitude);
             [self.annotationArray addObject:annotation];
             [self.mapView addAnnotation:annotation];
         }
@@ -83,8 +90,8 @@
         return nil;
     }
     MKAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
-    int randomNumber = arc4random_uniform(3)+1;
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"emotion%i",randomNumber]];
+    NSString *imageString = self.emotion.imageString;
+    UIImage *image = [UIImage imageNamed:imageString];
 
     CGSize scaleSize = CGSizeMake(24.0, 24.0);
     UIGraphicsBeginImageContextWithOptions(scaleSize, NO, 0.0);
