@@ -28,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,6 +40,8 @@
     //Add button
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view bringSubviewToFront:self.emotionLabel];
+    [self.view bringSubviewToFront:self.emotionImageView];
 }
 
 #pragma mark - Emotion Calculation
