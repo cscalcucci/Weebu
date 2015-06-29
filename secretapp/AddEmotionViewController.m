@@ -22,9 +22,6 @@
 
     //Setup container
     self.containerView.hidden = YES;
-    self.containerHidden = YES;
-
-
 
     self.addEmotion = [self createButtonWithTitle:@"addEmotion" chooseColor:[UIColor greenColor] andPosition:3];
     [self.addEmotion addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -85,6 +82,14 @@
     [self.view addSubview:scrollView];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [[LocationService sharedInstance] startUpdatingLocation];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    //Add code to stop updating location
+}
+
 #pragma mark - Button actions
 
 - (IBAction)onSelectEmotionPressed:(UIButton *)sender {
@@ -107,9 +112,9 @@
 
 - (void)onSelectVenueButtonPressed {
     self.containerView.hidden = !self.containerView.hidden;
-    self.containerHidden = self.containerView.hidden;
-
-
+    if (self.containerView.hidden == NO) {
+        [self.view bringSubviewToFront:self.containerView];
+    }
 }
 
 #pragma mark - Full screen width buttons

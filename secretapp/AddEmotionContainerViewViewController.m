@@ -12,7 +12,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -26,7 +25,7 @@
 - (void)retrieveFoursquareResults {
     [FoursquareAPI retrieveFoursquareResults:self.venueUrlCall completion:^(NSArray *array) {
         self.foursquareResults = array;
-        NSLog(@"%@", array);
+        NSLog(@"Started call and got %@", array);
         for (FoursquareAPI *item in self.foursquareResults) {
             NSLog(@"%@", item.venueName);
         }

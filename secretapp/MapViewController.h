@@ -27,8 +27,12 @@
 @property NSInteger locationCallAmt;
 @property NSInteger indexPath;
 
-@property NSArray *objectArray;
+@property NSArray *eventsArray;
+@property NSMutableArray *emotionsArray;
 @property NSMutableArray *annotationArray;
+
+@property NSNumber *pleasantValue;
+@property NSNumber *activatedValue;
 
 
 @end

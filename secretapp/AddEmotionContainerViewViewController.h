@@ -11,6 +11,8 @@
 
 #import "LocationService.h"
 #import "FoursquareAPI.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface AddEmotionContainerViewViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

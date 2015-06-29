@@ -26,7 +26,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property FoursquareAPI *selectedVenue;
-@property BOOL containerHidden;
 
 
 @end
