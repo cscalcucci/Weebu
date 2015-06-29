@@ -24,8 +24,12 @@
 @property NSArray *emotions;
 @property long selectedTag;
 
+@property (weak, nonatomic) IBOutlet UIView *nameView;
+
+@property FoursquareAPI *selectedItem;
+@property BOOL didSelectVenue;
+
 @property (weak, nonatomic) IBOutlet UIView *containerView;
-@property FoursquareAPI *selectedVenue;
 
 
 @end

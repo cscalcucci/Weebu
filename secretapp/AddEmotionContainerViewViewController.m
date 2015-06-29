@@ -51,7 +51,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"selectedLocation" object:[self.foursquareResults objectAtIndex:indexPath.row]];
     self.userLocation = [self.foursquareResults objectAtIndex:indexPath.row];
-//    [self performSegueWithIdentifier:@"UnwindToEmotion" sender:self];
 }
 
 @end

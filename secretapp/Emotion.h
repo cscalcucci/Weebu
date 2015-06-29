@@ -20,5 +20,7 @@
 @property NSNumber *pleasantValue;
 @property NSNumber *activatedValue;
 @property NSString *imageString;
+//@property float latitude;
+//@property float longitude;
 
 @end
