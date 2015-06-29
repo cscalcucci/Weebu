@@ -17,8 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
+    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:150];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+
+    self.logoutButton = [self createButtonWithTitle:@"logout" chooseColor:[UIColor redColor] andPosition:50];
+    [self.logoutButton addTarget:self action:@selector(userLogout) forControlEvents:UIControlEventTouchUpInside];
+
+
 }
 
 #pragma mark - Floating button
@@ -36,6 +41,15 @@
     [self.view addSubview:button];
     return button;
 }
+
+#pragma mark - Logout button
+
+- (void)userLogout {
+    NSLog(@"pressed");
+    [PFUser logOutInBackground];
+    [self performSegueWithIdentifier:@"UnwindToSplash" sender:self];
+}
+
 
 #pragma mark - Segue
 

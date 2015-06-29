@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface ProfileViewController : UIViewController
 
 @property UIButton *addEmotionButton;
+@property UIButton *logoutButton;
 
 @end

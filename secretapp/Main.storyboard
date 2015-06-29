@@ -630,9 +630,11 @@
                     <navigationItem key="navigationItem" id="n8s-cx-Y2R"/>
                     <connections>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="ProfileToAdd" id="ddk-CO-uTG"/>
+                        <segue destination="sK0-9A-oG9" kind="unwind" identifier="UnwindToSplash" unwindAction="unwindToSplash:" id="ikt-GB-S0n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Io-PX-Ez0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sK0-9A-oG9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="670" y="1654"/>
         </scene>
@@ -705,6 +707,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p9v-IF-eIb"/>
-        <segue reference="ky5-3i-ZYO"/>
+        <segue reference="ddk-CO-uTG"/>
     </inferredMetricsTieBreakers>
 </document>
