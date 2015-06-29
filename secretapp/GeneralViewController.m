@@ -10,13 +10,17 @@
 
 
 @interface GeneralViewController ()
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 @end
 
 @implementation GeneralViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.settingsButton.title = @"";
+    UIImage* image3 = [UIImage imageNamed:@"settings"];
+    [self.settingsButton setBackgroundImage:image3 forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

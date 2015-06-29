@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,7 +26,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZQa-TV-Wbe" customClass="PFImageView">
@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="width" constant="200" id="qqf-3Y-CNh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Mc-L6w">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Mc-L6w">
                                 <rect key="frame" x="132" y="399" width="336" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="40u-db-b90"/>
@@ -55,10 +55,17 @@
                             <constraint firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="uHU-KS-a4a"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Qke-2S-dzF"/>
+                    <navigationItem key="navigationItem" id="Qke-2S-dzF">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="axE-1a-VCg">
+                            <connections>
+                                <segue destination="lbd-rs-xql" kind="presentation" id="3Gh-N8-NrJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emotionImageView" destination="ZQa-TV-Wbe" id="dxM-gh-70p"/>
                         <outlet property="emotionLabel" destination="g9O-Mc-L6w" id="vui-CI-MRn"/>
+                        <outlet property="settingsButton" destination="axE-1a-VCg" id="88I-Ye-EMS"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="GeneralToAdd" id="ky5-3i-ZYO"/>
                     </connections>
                 </viewController>
@@ -66,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="-1316" y="1654"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="8ml-3J-SgX">
             <objects>
-                <viewController id="lbd-rs-xql" sceneMemberID="viewController">
+                <viewController id="lbd-rs-xql" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QJF-ei-Lze"/>
                         <viewControllerLayoutGuide type="bottom" id="big-8N-GKK"/>
@@ -77,8 +84,26 @@
                     <view key="view" contentMode="scaleToFill" id="5Wo-o1-2ot">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ezn-xY-Vd0">
+                                <rect key="frame" x="0.0" y="165" width="600" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lbd-rs-xql" id="Ajg-eX-61g"/>
+                                    <outlet property="delegate" destination="lbd-rs-xql" id="Kte-VR-mtr"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ezn-xY-Vd0" secondAttribute="trailing" constant="-16" id="2c6-P4-JMU"/>
+                            <constraint firstItem="big-8N-GKK" firstAttribute="top" secondItem="Ezn-xY-Vd0" secondAttribute="bottom" constant="273" id="Nzt-9x-1de"/>
+                            <constraint firstItem="Ezn-xY-Vd0" firstAttribute="leading" secondItem="5Wo-o1-2ot" secondAttribute="leadingMargin" constant="-16" id="joH-jI-jzA"/>
+                            <constraint firstItem="Ezn-xY-Vd0" firstAttribute="top" secondItem="QJF-ei-Lze" secondAttribute="bottom" constant="145" id="nzK-1Q-ezY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="radiusPicker" destination="Ezn-xY-Vd0" id="vkG-Kv-d5S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ln7-kD-eg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -558,11 +583,10 @@
         <!--General-->
         <scene sceneID="Bkz-CK-S8O">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jbQ-Ta-JEX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jbQ-Ta-JEX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="General" image="deathSD" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUJ-uo-InB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kUJ-uo-InB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
