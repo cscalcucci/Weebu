@@ -64,7 +64,7 @@
     PFQuery *query = [Event query];
     [query includeKey:@"emotionObject"];
     [query orderByDescending:@"createdAt"];
-    query.limit = 50;
+//    query.limit = 50;
     [query findObjectsInBackgroundWithBlock:^(NSArray *pictures, NSError *error) {
         if (!error) {
         }

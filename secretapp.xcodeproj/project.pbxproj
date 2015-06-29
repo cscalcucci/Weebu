@@ -11,6 +11,11 @@
 		66941ECB1B41987800193D46 /* FBClusteringManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EC51B41987800193D46 /* FBClusteringManager.m */; };
 		66941ECC1B41987800193D46 /* FBQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EC71B41987800193D46 /* FBQuadTree.m */; };
 		66941ECD1B41987800193D46 /* FBQuadTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EC91B41987800193D46 /* FBQuadTreeNode.m */; };
+		66941EEA1B41D2DB00193D46 /* JFMinimalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE11B41D2DB00193D46 /* JFMinimalNotification.m */; };
+		66941EEB1B41D2DB00193D46 /* JFMinimalNotificationArt.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE31B41D2DB00193D46 /* JFMinimalNotificationArt.m */; };
+		66941EEC1B41D2DB00193D46 /* NSInvocation+Constructors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE51B41D2DB00193D46 /* NSInvocation+Constructors.m */; };
+		66941EED1B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE71B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m */; };
+		66941EEE1B41D2DB00193D46 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE91B41D2DB00193D46 /* UIView+Round.m */; };
 		7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23671B3EEF7F0049B47B /* SessionViewController.m */; };
 		7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC236A1B3EEF950049B47B /* LoginViewController.m */; };
 		7ECC23761B3EF5830049B47B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23701B3EF5830049B47B /* Bolts.framework */; };
@@ -97,6 +102,16 @@
 		66941EC71B41987800193D46 /* FBQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBQuadTree.m; sourceTree = "<group>"; };
 		66941EC81B41987800193D46 /* FBQuadTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBQuadTreeNode.h; sourceTree = "<group>"; };
 		66941EC91B41987800193D46 /* FBQuadTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBQuadTreeNode.m; sourceTree = "<group>"; };
+		66941EE01B41D2DB00193D46 /* JFMinimalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFMinimalNotification.h; sourceTree = "<group>"; };
+		66941EE11B41D2DB00193D46 /* JFMinimalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFMinimalNotification.m; sourceTree = "<group>"; };
+		66941EE21B41D2DB00193D46 /* JFMinimalNotificationArt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFMinimalNotificationArt.h; sourceTree = "<group>"; };
+		66941EE31B41D2DB00193D46 /* JFMinimalNotificationArt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFMinimalNotificationArt.m; sourceTree = "<group>"; };
+		66941EE41B41D2DB00193D46 /* NSInvocation+Constructors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Constructors.h"; sourceTree = "<group>"; };
+		66941EE51B41D2DB00193D46 /* NSInvocation+Constructors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Constructors.m"; sourceTree = "<group>"; };
+		66941EE61B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JFMinimalNotificationColors.h"; sourceTree = "<group>"; };
+		66941EE71B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JFMinimalNotificationColors.m"; sourceTree = "<group>"; };
+		66941EE81B41D2DB00193D46 /* UIView+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Round.h"; sourceTree = "<group>"; };
+		66941EE91B41D2DB00193D46 /* UIView+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Round.m"; sourceTree = "<group>"; };
 		7ECC23661B3EEF7F0049B47B /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		7ECC23671B3EEF7F0049B47B /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
 		7ECC23691B3EEF950049B47B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
@@ -230,13 +245,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66941EDD1B41C8B500193D46 /* MinimalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				66941EE01B41D2DB00193D46 /* JFMinimalNotification.h */,
+				66941EE11B41D2DB00193D46 /* JFMinimalNotification.m */,
+				66941EE21B41D2DB00193D46 /* JFMinimalNotificationArt.h */,
+				66941EE31B41D2DB00193D46 /* JFMinimalNotificationArt.m */,
+				66941EE41B41D2DB00193D46 /* NSInvocation+Constructors.h */,
+				66941EE51B41D2DB00193D46 /* NSInvocation+Constructors.m */,
+				66941EE61B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.h */,
+				66941EE71B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m */,
+				66941EE81B41D2DB00193D46 /* UIView+Round.h */,
+				66941EE91B41D2DB00193D46 /* UIView+Round.m */,
+			);
+			name = MinimalNotification;
+			sourceTree = "<group>";
+		};
+		66941EDE1B41C8C900193D46 /* QuadTreeSDK */ = {
+			isa = PBXGroup;
+			children = (
+				66941EC11B41987800193D46 /* FBAnnotationCluster.h */,
+				66941EC21B41987800193D46 /* FBAnnotationCluster.m */,
+				66941EC31B41987800193D46 /* FBAnnotationClustering.h */,
+				66941EC41B41987800193D46 /* FBClusteringManager.h */,
+				66941EC51B41987800193D46 /* FBClusteringManager.m */,
+				66941EC61B41987800193D46 /* FBQuadTree.h */,
+				66941EC71B41987800193D46 /* FBQuadTree.m */,
+				66941EC81B41987800193D46 /* FBQuadTreeNode.h */,
+				66941EC91B41987800193D46 /* FBQuadTreeNode.m */,
+			);
+			name = QuadTreeSDK;
+			sourceTree = "<group>";
+		};
+		66941EDF1B41C8D700193D46 /* SDKs */ = {
+			isa = PBXGroup;
+			children = (
+				66941EDD1B41C8B500193D46 /* MinimalNotification */,
+				66941EDE1B41C8C900193D46 /* QuadTreeSDK */,
+			);
+			name = SDKs;
+			sourceTree = "<group>";
+		};
 		7ECC236F1B3EEFBB0049B47B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				99605BF31B41C51200238EC8 /* Twitter Info */,
 				993F6A6F1B3F612100CAF0D7 /* Splash */,
-				993F6A6E1B3F611A00CAF0D7 /* Login */,
 				993F6A6D1B3F610900CAF0D7 /* Session */,
+				993F6A6E1B3F611A00CAF0D7 /* Login */,
 				993F6A6C1B3F610200CAF0D7 /* Signup */,
 			);
 			name = Onboarding;
@@ -298,6 +355,7 @@
 		993F6A0A1B3EE1DD00CAF0D7 /* secretapp */ = {
 			isa = PBXGroup;
 			children = (
+				66941EDF1B41C8D700193D46 /* SDKs */,
 				993F6A781B3F79C200CAF0D7 /* App Delegate */,
 				993F6A561B3EE8BE00CAF0D7 /* Frameworks */,
 				993F6A4A1B3EE54C00CAF0D7 /* Models */,
@@ -411,15 +469,6 @@
 		993F6A691B3F5FEC00CAF0D7 /* Map View */ = {
 			isa = PBXGroup;
 			children = (
-				66941EC11B41987800193D46 /* FBAnnotationCluster.h */,
-				66941EC21B41987800193D46 /* FBAnnotationCluster.m */,
-				66941EC31B41987800193D46 /* FBAnnotationClustering.h */,
-				66941EC41B41987800193D46 /* FBClusteringManager.h */,
-				66941EC51B41987800193D46 /* FBClusteringManager.m */,
-				66941EC61B41987800193D46 /* FBQuadTree.h */,
-				66941EC71B41987800193D46 /* FBQuadTree.m */,
-				66941EC81B41987800193D46 /* FBQuadTreeNode.h */,
-				66941EC91B41987800193D46 /* FBQuadTreeNode.m */,
 				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
 				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
 			);
@@ -705,8 +754,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66941EED1B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m in Sources */,
+				66941EEA1B41D2DB00193D46 /* JFMinimalNotification.m in Sources */,
 				993F6A411B3EE3AC00CAF0D7 /* AddEmotionViewController.m in Sources */,
+				66941EEE1B41D2DB00193D46 /* UIView+Round.m in Sources */,
 				993F6A591B3EEF5300CAF0D7 /* FoursquareAPI.m in Sources */,
+				66941EEB1B41D2DB00193D46 /* JFMinimalNotificationArt.m in Sources */,
 				99605BF21B41C50E00238EC8 /* TwitterInfoViewController.m in Sources */,
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
 				7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */,
@@ -722,6 +775,7 @@
 				993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */,
 				7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */,
 				993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */,
+				66941EEC1B41D2DB00193D46 /* NSInvocation+Constructors.m in Sources */,
 				993F6A7B1B3F846700CAF0D7 /* EmotionBubble.m in Sources */,
 				993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */,
 				993F6A3E1B3EE2D600CAF0D7 /* ProfileViewController.m in Sources */,

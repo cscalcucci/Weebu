@@ -7,10 +7,19 @@
 //
 
 #import "AddEmotionViewController.h"
+#import "JFMinimalNotification.h"
 
-@interface AddEmotionViewController ()
+
+@interface AddEmotionViewController () <JFMinimalNotificationDelegate>
 
 @property UIImageView *imageView;
+@property (nonatomic, strong) JFMinimalNotification* minimalNotification;
+@property UIImage *selectedImage;
+@property NSString *notificationTitle;
+@property NSString *notificationMessage;
+@property NSString *notificationType;
+@property Emotion *selectedEmotion;
+
 
 @end
 
@@ -52,13 +61,16 @@
     [emotionsQuery orderByAscending:@"createdAt"];
     [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
         if (!error) {
-            NSLog(@"%lu", emotions.count);
+            NSLog(@"%lu", (unsigned long)emotions.count);
             for (Emotion *emotion in emotions) {
                 NSLog(@"%@", emotion.name);
             }
             self.emotions = emotions;
         }
     }];
+
+    //Setup MinimalNotification
+    self.minimalNotification.delegate = self;
 
     //Create carousel
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 100)];
@@ -116,7 +128,7 @@
 #pragma mark - Button actions
 
 - (IBAction)onSelectEmotionPressed:(UIButton *)sender {
-    NSLog(@"%li", sender.tag);
+    NSLog(@"%li", (long)sender.tag);
     self.selectedTag = sender.tag;
     Emotion *emotion = [self.emotions objectAtIndex:self.selectedTag];
     self.addEmotion.titleLabel.text = @"Emote";
@@ -131,17 +143,84 @@
 - (void)onAddEmotionButtonPressed {
     NSLog(@"add emotion button pressed");
     Event *event = [Event objectWithClassName:@"Event"];
+
+        self.selectedEmotion = self.emotions[self.selectedTag];
+        self.selectedImage = [UIImage imageNamed:self.selectedEmotion.imageString];
+
         event.createdBy = [PFUser currentUser];
         event.emotionObject = self.emotions[self.selectedTag];
         event.venueName = self.selectedItem.venueName;
+
         if (self.didSelectVenue) {
             PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:self.selectedItem.latitude longitude:self.selectedItem.longitude];
                 event.location = geoPoint;
         } else {
             event.location = [PFGeoPoint geoPointWithLocation:[LocationService sharedInstance].currentLocation];
         }
-        [event saveInBackground];
-        [self performSelector:@selector(onCancelButtonPressed)];
+
+        [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                int chance = (arc4random_uniform(5));
+                if (chance == 3) {
+                    self.notificationType = [[NSString alloc] initWithFormat:@"chance"];
+                } else {
+                    self.notificationType = [[NSString alloc] initWithFormat:@"success"];
+                }
+                NSLog(@"Success");
+            } else {
+                self.notificationType = [[NSString alloc] initWithFormat:@"error"];
+                [self reloadInputViews];
+                NSLog(@"Error");
+            }
+
+            [self displayNotification];
+        }];
+}
+
+-(void)displayNotification {
+    [self setNotificationForType];
+
+    self.minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError title:self.notificationTitle subTitle:self.notificationMessage dismissalDelay:1.5 touchHandler:^{
+        [self.minimalNotification dismiss];
+    }];
+
+    [self.view addSubview:self.minimalNotification];
+
+
+    if ([self.notificationType isEqualToString:@"success"]) {
+
+        [self.minimalNotification setStyle:JFMinimalNotificationStyleSuccess animated:YES];
+        [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:self.selectedImage] animated:YES];
+        [self performSelector:@selector(onCancelButtonPressed) withObject:self afterDelay:2.0];
+
+    } else if ([self.notificationType isEqualToString:@"error"]) {
+        [self.minimalNotification setStyle:JFMinimalNotificationStyleError animated:YES];
+        [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"deathSD"]] animated:YES];
+    } else {
+        [self.minimalNotification setStyle:JFMinimalNotificationStyleWarning animated:YES];
+    }
+
+    UIFont* titleFont = [UIFont fontWithName:@"STHeitiK-Light" size:22];
+    [self.minimalNotification setTitleFont:titleFont];
+    UIFont* subTitleFont = [UIFont fontWithName:@"STHeitiK-Light" size:16];
+    [self.minimalNotification setSubTitleFont:subTitleFont];
+
+    [self.minimalNotification show];
+}
+
+-(void)setNotificationForType {
+    if ([self.notificationType isEqualToString:@"chance"]) {
+        self.notificationTitle = [NSString stringWithFormat:@"Watch out!"];
+        self.notificationMessage = [NSString stringWithFormat:@"We believe you MIGHT be %@!, but we're onto you!", self.selectedEmotion.name];
+
+    } else if ([self.notificationType isEqualToString:@"success"]) {
+        self.notificationTitle = [NSString stringWithFormat:@"Huzzah!"];
+        self.notificationMessage = [NSString stringWithFormat:@"You are now %@!", self.selectedEmotion.name];
+
+    } else if ([self.notificationType isEqualToString:@"error"]) {
+        self.notificationTitle = [NSString stringWithFormat:@"Oh No!"];
+        self.notificationMessage = [NSString stringWithFormat:@"You must not be very %@! Try uploading again.", self.selectedEmotion.name];
+    }
 }
 
 - (void)onSelectVenueButtonPressed {

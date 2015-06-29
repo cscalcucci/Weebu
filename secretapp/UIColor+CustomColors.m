@@ -14,6 +14,11 @@
     return [UIColor colorWithRed:208/255.0 green:2/255.0 blue:27/255.0 alpha:100];
 }
 
++ (UIColor *)orangeEmotionColor {
+    return [UIColor colorWithRed:245/255.0 green:166/255.0 blue:35/255.0 alpha:100];
+
+}
+
 + (UIColor *)yellowEmotionColor {
     return [UIColor colorWithRed:248/255.0 green:231/255.0 blue:28/255.0 alpha:100];
 }

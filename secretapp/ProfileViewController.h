@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <TwitterKit/TwitterKit.h>
+
+#import "UIColor+CustomColors.h"
 
 @interface ProfileViewController : UIViewController
 
 @property UIButton *addEmotionButton;
+@property UIButton *logoutButton;
+@property UIButton *shareButton;
+
 
 @end
