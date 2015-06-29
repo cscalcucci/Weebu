@@ -12,12 +12,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.venueUrlCall = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&oauth_token=N5Z3YJNLEWD4KIBIOB1C22YOPTPSJSL3NAEXVUMYGJC35FMP&v=20150617", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude]];
-    self.foursquareResults = [NSArray new];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     self.userLocation = [LocationService sharedInstance].currentLocation;
+    self.venueUrlCall = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&oauth_token=N5Z3YJNLEWD4KIBIOB1C22YOPTPSJSL3NAEXVUMYGJC35FMP&v=20150617", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude]];
+    self.foursquareResults = [NSArray new];
     [self retrieveFoursquareResults];
     NSLog(@"%@", self.userLocation);
 }
@@ -50,6 +51,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"selectedLocation" object:[self.foursquareResults objectAtIndex:indexPath.row]];
+    self.userLocation = [self.foursquareResults objectAtIndex:indexPath.row];
+//    [self performSegueWithIdentifier:@"UnwindToEmotion" sender:self];
 }
 
 @end

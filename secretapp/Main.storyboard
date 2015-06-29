@@ -655,9 +655,11 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="tableView" destination="42B-vw-ic4" id="90w-y1-4qG"/>
+                        <segue destination="5Nc-nH-XTW" kind="unwind" identifier="UnwindToEmotion" unwindAction="unwindToEmotion:" id="lm5-93-jmq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fo-oG-toT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5Nc-nH-XTW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="688" y="2997"/>
         </scene>
