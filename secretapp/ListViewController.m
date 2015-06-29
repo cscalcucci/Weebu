@@ -60,12 +60,12 @@
 #pragma mark - Tableview
 
 -(void)refreshMyTableView:(UIControlEvents *) event {
-    NSLog(@"REFRESHING");
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing the TableView"];
-    NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
-    [formattedDate setDateFormat:@"MMM d, h:mm a"];
-    NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+//    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing the TableView"];
+//    NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+//    [formattedDate setDateFormat:@"MMM d, h:mm a"];
+//    NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+//    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+    [self.tableView reloadData];
 
     [self.refreshControl endRefreshing];
 }
