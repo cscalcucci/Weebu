@@ -106,45 +106,45 @@
     //    NSLog(@"%ld year, %ld month, %ld day, %ld hour, %ld minute, %ld second", components.year, components.month, components.day, components.hour, components.minute, (long)components.second);
     if (components.year > 0) {
         if (components.year == 1) {
-            return [NSString stringWithFormat:@"%ld year ago", (long)components.year];
+            return [NSString stringWithFormat:@"%ld year", (long)components.year];
         } else {
-            return [NSString stringWithFormat:@"%ld years ago", (long)components.year];
+            return [NSString stringWithFormat:@"%ld years", (long)components.year];
         }
     } else if (components.month > 0) {
         if (components.month == 1) {
-            return [NSString stringWithFormat:@"%ld month ago", (long)components.month];
+            return [NSString stringWithFormat:@"%ld month", (long)components.month];
         } else {
-            return [NSString stringWithFormat:@"%ld months ago", (long)components.month];
+            return [NSString stringWithFormat:@"%ld months", (long)components.month];
         }
     } else if (components.weekOfYear > 0) {
         if (components.weekOfYear == 1) {
-            return [NSString stringWithFormat:@"%ld week ago", (long)components.weekOfYear];
+            return [NSString stringWithFormat:@"%ld wk", (long)components.weekOfYear];
         } else {
-            return [NSString stringWithFormat:@"%ld weeks ago", (long)components.weekOfYear];
+            return [NSString stringWithFormat:@"%ld wks", (long)components.weekOfYear];
         }
     } else if (components.day > 0) {
         if (components.day == 1) {
-            return [NSString stringWithFormat:@"%ld day ago", (long)components.day];
+            return [NSString stringWithFormat:@"%ld day", (long)components.day];
         } else {
-            return [NSString stringWithFormat:@"%ld days ago", (long)components.day];
+            return [NSString stringWithFormat:@"%ld days", (long)components.day];
         }
     } else if (components.hour > 0) {
         if (components.hour == 1) {
-            return [NSString stringWithFormat:@"%ld hour ago", (long)components.hour];
+            return [NSString stringWithFormat:@"%ld hr", (long)components.hour];
         } else {
-            return [NSString stringWithFormat:@"%ld hours ago", (long)components.hour];
+            return [NSString stringWithFormat:@"%ld hrs", (long)components.hour];
         }
     } else if (components.minute > 0) {
         if (components.year == 1) {
-            return [NSString stringWithFormat:@"%ld minute ago", (long)components.minute];
+            return [NSString stringWithFormat:@"%ld min", (long)components.minute];
         } else {
-            return [NSString stringWithFormat:@"%ld minutes ago", (long)components.minute];
+            return [NSString stringWithFormat:@"%ld mins", (long)components.minute];
         }
     } else if (components.second > 0) {
         if (components.second == 1) {
-            return [NSString stringWithFormat:@"%ld second ago", (long)components.second];
+            return [NSString stringWithFormat:@"%ld sec", (long)components.second];
         } else {
-            return [NSString stringWithFormat:@"%ld seconds ago", (long)components.second];
+            return [NSString stringWithFormat:@"%ld secs", (long)components.second];
         }
     } else {
         return [NSString stringWithFormat:@"Time Traveller"];
