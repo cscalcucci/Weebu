@@ -47,7 +47,7 @@
                                                       longitude:self.userLocation.coordinate.longitude];
     
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
-    [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:5.0];
+    [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:[[SettingsService sharedInstance].radius floatValue]];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {

@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "LocationService.h"
+#import "SettingsService.h"
 
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

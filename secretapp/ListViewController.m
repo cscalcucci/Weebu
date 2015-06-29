@@ -31,7 +31,9 @@
 
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+}
 
+- (void)viewDidAppear:(BOOL)animated {
     self.emotions = [[NSArray alloc]init];
     self.events = [NSArray new];
 
@@ -41,7 +43,7 @@
                                                       longitude:self.userLocation.coordinate.longitude];
 
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
-    [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:5.0];
+    [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles: [[SettingsService sharedInstance].radius floatValue]];
     [eventsQuery includeKey:@"createdBy"];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
@@ -55,19 +57,15 @@
     }];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    self.userLocation = [LocationService sharedInstance].currentLocation;
-}
-
 #pragma mark - Tableview
 
 -(void)refreshMyTableView:(UIControlEvents *) event {
-    NSLog(@"REFRESHING");
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing the TableView"];
-    NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
-    [formattedDate setDateFormat:@"MMM d, h:mm a"];
-    NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+//    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing the TableView"];
+//    NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+//    [formattedDate setDateFormat:@"MMM d, h:mm a"];
+//    NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+//    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+    [self.tableView reloadData];
 
     [self.refreshControl endRefreshing];
 }

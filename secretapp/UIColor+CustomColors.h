@@ -11,6 +11,7 @@
 @interface UIColor (CustomColors)
 
 + (UIColor *)redEmotionColor;
++ (UIColor *)orangeEmotionColor;
 + (UIColor *)yellowEmotionColor;
 + (UIColor *)greenEmotionColor;
 + (UIColor *)blueEmotionColor;
