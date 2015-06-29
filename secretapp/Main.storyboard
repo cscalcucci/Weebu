@@ -12,6 +12,9 @@
         <mutableArray key="Brandon Grotesque Medium Italic.ttf">
             <string>BrandonGrotesque-MediumItalic</string>
         </mutableArray>
+        <mutableArray key="Brandon Grotesque Regular.ttf">
+            <string>BrandonGrotesque-Regular</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--General View Controller-->
@@ -122,11 +125,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-VQ-x15">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-VQ-x15">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" rowHeight="80" id="jvG-BO-wds" customClass="EventTableViewCell">
@@ -152,17 +155,17 @@
                                                         <constraint firstAttribute="width" constant="152" id="bEl-Sw-Aam"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-MediumItalic" family="BrandonGrotesque-MediumItalic" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeAgo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bg9-Md-982">
-                                                    <rect key="frame" x="234" y="29" width="77" height="21"/>
+                                                    <rect key="frame" x="257" y="29" width="77" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="2oo-XD-ml4"/>
                                                         <constraint firstAttribute="width" constant="77" id="uuA-yn-IFU"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="14"/>
+                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p1N-wO-YMM" customClass="PFImageView">
@@ -178,7 +181,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="p1N-wO-YMM" secondAttribute="bottom" constant="-4" id="G3a-yX-O76"/>
                                                 <constraint firstItem="uXt-M2-rFM" firstAttribute="leading" secondItem="p1N-wO-YMM" secondAttribute="trailing" constant="10" id="JpT-u4-vdA"/>
                                                 <constraint firstItem="p1N-wO-YMM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="-3" id="LfS-7k-KWP"/>
-                                                <constraint firstItem="bg9-Md-982" firstAttribute="leading" secondItem="p1N-wO-YMM" secondAttribute="trailing" constant="156" id="S0x-SB-2NP"/>
+                                                <constraint firstItem="bg9-Md-982" firstAttribute="leading" secondItem="p1N-wO-YMM" secondAttribute="trailing" constant="179" id="S0x-SB-2NP"/>
                                                 <constraint firstItem="BxG-DJ-CPa" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="33" id="ckG-7L-aMd"/>
                                                 <constraint firstItem="BxG-DJ-CPa" firstAttribute="leading" secondItem="p1N-wO-YMM" secondAttribute="trailing" constant="10" id="rvk-7T-vSW"/>
                                                 <constraint firstItem="uXt-M2-rFM" firstAttribute="top" secondItem="spp-hV-EIB" secondAttribute="topMargin" constant="12" id="twb-Sl-dTc"/>
@@ -199,8 +202,16 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mrb-VQ-x15" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-16" id="RF0-YH-F0x"/>
+                            <constraint firstItem="mrb-VQ-x15" firstAttribute="bottom" secondItem="QS5-Rx-YEW" secondAttribute="bottomMargin" id="Vtn-Op-s6K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mrb-VQ-x15" secondAttribute="trailing" constant="-16" id="brv-uQ-BCy"/>
+                            <constraint firstItem="mrb-VQ-x15" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="wUT-Dk-rsu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hpc-PH-sVB"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="800"/>
                     <connections>
                         <outlet property="tableView" destination="mrb-VQ-x15" id="ylW-re-gEx"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="ListToAdd" id="Vyz-lu-Pmj"/>
@@ -208,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-658" y="1648"/>
+            <point key="canvasLocation" x="-630" y="1754"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="Irk-MP-Waf">
@@ -492,7 +503,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarController" id="49e-Tb-3d3" customClass="TabBarViewController" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -512,9 +523,10 @@
         <!--General-->
         <scene sceneID="Bkz-CK-S8O">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jbQ-Ta-JEX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jbQ-Ta-JEX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="General" image="deathSD" id="acW-dT-cKf"/>
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUJ-uo-InB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -553,6 +565,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Af-P1-sJH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="deathSD" id="erX-4V-6A7"/>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Isx-MA-mJA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -594,6 +607,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qka-4f-Ndm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="deathSD" id="brN-Ta-f1I"/>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RJx-FR-EZx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -652,7 +666,7 @@
         <image name="deathSD" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ky5-3i-ZYO"/>
         <segue reference="z8b-H7-jZL"/>
-        <segue reference="Vyz-lu-Pmj"/>
     </inferredMetricsTieBreakers>
 </document>

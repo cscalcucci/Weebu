@@ -34,7 +34,7 @@
     [self.view bringSubviewToFront:self.emotionLabel];
     [self.view bringSubviewToFront:self.emotionImageView];
 
-    [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.1];
+    [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.05];
 
 
 
