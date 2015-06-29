@@ -41,7 +41,13 @@
 #pragma mark - Emotion Calculation
 
 - (void)loadEvents {
+    self.userLocation = [LocationService sharedInstance].currentLocation;
+    NSLog(@"user location for feed: %@", self.userLocation);
+    PFGeoPoint *userGeoPoint = [PFGeoPoint geoPointWithLatitude:self.userLocation.coordinate.latitude
+                                                      longitude:self.userLocation.coordinate.longitude];
+    
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:5.0];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {

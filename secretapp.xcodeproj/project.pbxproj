@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66941ECA1B41987800193D46 /* FBAnnotationCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EC21B41987800193D46 /* FBAnnotationCluster.m */; };
+		66941ECB1B41987800193D46 /* FBClusteringManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EC51B41987800193D46 /* FBClusteringManager.m */; };
+		66941ECC1B41987800193D46 /* FBQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EC71B41987800193D46 /* FBQuadTree.m */; };
+		66941ECD1B41987800193D46 /* FBQuadTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EC91B41987800193D46 /* FBQuadTreeNode.m */; };
 		7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23671B3EEF7F0049B47B /* SessionViewController.m */; };
 		7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC236A1B3EEF950049B47B /* LoginViewController.m */; };
 		7ECC23761B3EF5830049B47B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23701B3EF5830049B47B /* Bolts.framework */; };
@@ -82,6 +86,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66941EC11B41987800193D46 /* FBAnnotationCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAnnotationCluster.h; sourceTree = "<group>"; };
+		66941EC21B41987800193D46 /* FBAnnotationCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBAnnotationCluster.m; sourceTree = "<group>"; };
+		66941EC31B41987800193D46 /* FBAnnotationClustering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAnnotationClustering.h; sourceTree = "<group>"; };
+		66941EC41B41987800193D46 /* FBClusteringManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBClusteringManager.h; sourceTree = "<group>"; };
+		66941EC51B41987800193D46 /* FBClusteringManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBClusteringManager.m; sourceTree = "<group>"; };
+		66941EC61B41987800193D46 /* FBQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBQuadTree.h; sourceTree = "<group>"; };
+		66941EC71B41987800193D46 /* FBQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBQuadTree.m; sourceTree = "<group>"; };
+		66941EC81B41987800193D46 /* FBQuadTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBQuadTreeNode.h; sourceTree = "<group>"; };
+		66941EC91B41987800193D46 /* FBQuadTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBQuadTreeNode.m; sourceTree = "<group>"; };
 		7ECC23661B3EEF7F0049B47B /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		7ECC23671B3EEF7F0049B47B /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
 		7ECC23691B3EEF950049B47B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
@@ -382,6 +395,15 @@
 		993F6A691B3F5FEC00CAF0D7 /* Map View */ = {
 			isa = PBXGroup;
 			children = (
+				66941EC11B41987800193D46 /* FBAnnotationCluster.h */,
+				66941EC21B41987800193D46 /* FBAnnotationCluster.m */,
+				66941EC31B41987800193D46 /* FBAnnotationClustering.h */,
+				66941EC41B41987800193D46 /* FBClusteringManager.h */,
+				66941EC51B41987800193D46 /* FBClusteringManager.m */,
+				66941EC61B41987800193D46 /* FBQuadTree.h */,
+				66941EC71B41987800193D46 /* FBQuadTree.m */,
+				66941EC81B41987800193D46 /* FBQuadTreeNode.h */,
+				66941EC91B41987800193D46 /* FBQuadTreeNode.m */,
 				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
 				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
 			);
@@ -670,17 +692,21 @@
 				99605BF21B41C50E00238EC8 /* TwitterInfoViewController.m in Sources */,
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
 				7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */,
+				66941ECD1B41987800193D46 /* FBQuadTreeNode.m in Sources */,
 				993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */,
 				7ECC23A11B3F1C1E0049B47B /* EventTableViewCell.m in Sources */,
 				7ECC239B1B3F137C0049B47B /* Emotion.m in Sources */,
 				993F6A7F1B4068F900CAF0D7 /* AddEmotionContainerViewViewController.m in Sources */,
+				66941ECB1B41987800193D46 /* FBClusteringManager.m in Sources */,
 				993F6A3B1B3EE2CB00CAF0D7 /* ListViewController.m in Sources */,
+				66941ECC1B41987800193D46 /* FBQuadTree.m in Sources */,
 				993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */,
 				7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */,
 				993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */,
 				993F6A7B1B3F846700CAF0D7 /* EmotionBubble.m in Sources */,
 				993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */,
 				993F6A3E1B3EE2D600CAF0D7 /* ProfileViewController.m in Sources */,
+				66941ECA1B41987800193D46 /* FBAnnotationCluster.m in Sources */,
 				7ECC239E1B3F146B0049B47B /* Event.m in Sources */,
 				993F6A171B3EE1DD00CAF0D7 /* GeneralViewController.m in Sources */,
 				993F6A441B3EE46C00CAF0D7 /* TabBarViewController.m in Sources */,

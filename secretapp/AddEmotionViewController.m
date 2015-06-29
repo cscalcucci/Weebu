@@ -20,11 +20,16 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(updateLocation:) name:@"selectedLocation"
+     object:nil];
+
+
     //Setup container
     self.containerView.hidden = YES;
-    self.containerHidden = YES;
-
-
+    self.nameView.hidden = YES;
+    self.didSelectVenue = NO;
 
     self.addEmotion = [self createButtonWithTitle:@"addEmotion" chooseColor:[UIColor greenColor] andPosition:3];
     [self.addEmotion addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -85,31 +90,65 @@
     [self.view addSubview:scrollView];
 }
 
+
+-(void)updateLocation:(NSNotification *)notification {
+    if ([notification.object isKindOfClass:[FoursquareAPI class]]) {
+        FoursquareAPI *item = [notification object];
+        self.selectedItem = [FoursquareAPI new];
+        self.selectedItem = item;
+        self.addVenue.titleLabel.text = item.venueName;
+        self.containerView.hidden = YES;
+        self.didSelectVenue = YES;
+    } else {
+        NSLog(@"Error Transferring Location Data");
+    }
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    [[LocationService sharedInstance] startUpdatingLocation];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    //Add code to stop updating location
+}
+
 #pragma mark - Button actions
 
 - (IBAction)onSelectEmotionPressed:(UIButton *)sender {
     NSLog(@"%li", sender.tag);
     self.selectedTag = sender.tag;
     Emotion *emotion = [self.emotions objectAtIndex:self.selectedTag];
+    self.addEmotion.titleLabel.text = @"Emote";
     self.selectedEmotionLabel.text = emotion.name;
+//    self.selectedEmotionLabel.center = self.nameView.center;
+    self.selectedEmotionLabel.hidden = NO;
+    self.nameView.hidden = NO;
+
     self.imageView.image = [UIImage imageNamed:emotion.imageString];
 }
 
 - (void)onAddEmotionButtonPressed {
     NSLog(@"add emotion button pressed");
     Event *event = [Event objectWithClassName:@"Event"];
-        event.location = [PFGeoPoint geoPointWithLocation:[LocationService sharedInstance].currentLocation];
         event.createdBy = [PFUser currentUser];
         event.emotionObject = self.emotions[self.selectedTag];
+        event.venueName = self.selectedItem.venueName;
+        if (self.didSelectVenue) {
+            PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:self.selectedItem.latitude longitude:self.selectedItem.longitude];
+                event.location = geoPoint;
+        } else {
+            event.location = [PFGeoPoint geoPointWithLocation:[LocationService sharedInstance].currentLocation];
+        }
         [event saveInBackground];
         [self performSelector:@selector(onCancelButtonPressed)];
 }
 
 - (void)onSelectVenueButtonPressed {
     self.containerView.hidden = !self.containerView.hidden;
-    self.containerHidden = self.containerView.hidden;
-
-
+    if (self.containerView.hidden == NO) {
+        [self.view bringSubviewToFront:self.containerView];
+    }
 }
 
 #pragma mark - Full screen width buttons

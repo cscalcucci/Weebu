@@ -19,5 +19,7 @@
 @property PFUser *createdBy;
 @property Emotion *emotionObject;
 @property PFGeoPoint *location;
+@property NSString *venueName;
+
 
 @end

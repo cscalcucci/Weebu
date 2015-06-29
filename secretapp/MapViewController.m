@@ -7,11 +7,18 @@
 //
 
 #import "MapViewController.h"
+#import "FBClusteringManager.h"
+#import "FBAnnotationCluster.h"
+#import "FBAnnotationClustering.h"
+#import "FBQuadTree.h"
+
 
 @interface MapViewController ()
 
 @property Event *event;
 @property Emotion *emotion;
+@property FBClusteringManager *clusteringManager;
+
 
 @end
 
@@ -62,19 +69,76 @@
         if (!error) {
         }
         self.annotationArray = [[NSMutableArray alloc] init];
-        self.objectArray = [[NSArray alloc]initWithArray:pictures];
-        for (int i; i < self.objectArray.count; i++) {
-            self.event = self.objectArray[i];
-            self.emotion = self.event.emotionObject;
-            NSLog(@"%@", self.emotion.imageString);
+        self.emotionsArray = [[NSMutableArray alloc] init];
 
+        self.eventsArray = [[NSArray alloc]initWithArray:pictures];
+        for (int i; i < self.eventsArray.count; i++) {
+            self.event = self.eventsArray[i];
+            self.emotion = self.event.emotionObject;
+            [self.emotionsArray addObject:self.emotion];
             [self.event setObject:[NSString stringWithFormat:@"%i", i] forKey:@"indexPath" ];
             MKPointAnnotation *annotation = [MKPointAnnotation new];
             annotation.coordinate = CLLocationCoordinate2DMake(self.event.location.latitude, self.event.location.longitude);
             [self.annotationArray addObject:annotation];
-            [self.mapView addAnnotation:annotation];
+//            [self.mapView addAnnotation:annotation];
         }
+        self.clusteringManager = [[FBClusteringManager alloc] initWithAnnotations:self.annotationArray];
+
+
     }];
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        double scale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
+
+        NSArray *annotations = [self.clusteringManager clusteredAnnotationsWithinMapRect:mapView.visibleMapRect withZoomScale:scale];
+        [self.clusteringManager displayAnnotations:annotations onMapView:mapView];
+    }];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    if ([annotation isEqual:self.mapView.userLocation]) {
+        return nil;
+    }
+
+    MKAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
+
+    UIImage *image;
+    UIImage *resizedImage;
+    if ([annotation isKindOfClass:[FBAnnotationCluster class]]) {
+
+        NSString *imageString = [self calculateValues];
+        image = [UIImage imageNamed:imageString];
+        resizedImage = [self resizeView:image withSize:@"big"];
+    } else {
+        NSString *imageString = self.emotion.imageString;
+        image = [UIImage imageNamed:imageString];
+        resizedImage = [self resizeView:image withSize:@"small"];
+
+    }
+    pin.image = resizedImage;
+    pin.canShowCallout =  NO;
+    pin.userInteractionEnabled = YES;
+    return pin;
+}
+
+-(UIImage *)resizeView:(UIImage *)image withSize:(NSString *)size {
+    CGSize scaleSize;
+
+    if ([size isEqualToString:@"big"]) {
+        scaleSize = CGSizeMake(50.0, 50.0);
+    } else {
+        scaleSize = CGSizeMake(24.0, 24.0);
+    }
+
+    UIGraphicsBeginImageContextWithOptions(scaleSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, scaleSize.width, scaleSize.height)];
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resizedImage;
 }
 
 -(void)reverseGeoCode:(CLLocation *)location {
@@ -85,24 +149,24 @@
     }];
 }
 
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    if ([annotation isEqual:self.mapView.userLocation]) {
-        return nil;
-    }
-    MKAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
-    NSString *imageString = self.emotion.imageString;
-    UIImage *image = [UIImage imageNamed:imageString];
-
-    CGSize scaleSize = CGSizeMake(24.0, 24.0);
-    UIGraphicsBeginImageContextWithOptions(scaleSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, scaleSize.width, scaleSize.height)];
-    UIImage * resizedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    pin.image = resizedImage;
-    pin.canShowCallout =  NO;
-    pin.userInteractionEnabled = YES;
-    return pin;
-}
+//-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//    if ([annotation isEqual:self.mapView.userLocation]) {
+//        return nil;
+//    }
+//    MKAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
+//    NSString *imageString = self.emotion.imageString;
+//    UIImage *image = [UIImage imageNamed:imageString];
+//
+//    CGSize scaleSize = CGSizeMake(24.0, 24.0);
+//    UIGraphicsBeginImageContextWithOptions(scaleSize, NO, 0.0);
+//    [image drawInRect:CGRectMake(0, 0, scaleSize.width, scaleSize.height)];
+//    UIImage * resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    pin.image = resizedImage;
+//    pin.canShowCallout =  NO;
+//    pin.userInteractionEnabled = YES;
+//    return pin;
+//}
 
 #pragma mark - Buttons
 
@@ -154,5 +218,53 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location, 10000, 10000);
     [self.mapView setRegion:region animated:YES];
 }
+
+#pragma mark - Cluster Annotation View Helpers
+- (NSString *)calculateValues {
+    int count = 0;
+    NSNumber *pleasantSum = 0;
+    NSNumber *activatedSum = 0;
+    for (Event *event in self.eventsArray) {
+        Emotion *emotion = event.emotionObject;
+        NSLog(@"pleaseValue: %@", emotion.pleasantValue);
+        //        int pleasantValue = [[emotion.pleasantValue] intValue];
+        pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [emotion.pleasantValue floatValue])];
+        //        int activatedValue = [[emotion.activatedValue] intValue];
+        //        activatedSum = activatedSum + emotion.activatedValue;
+        activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [emotion.activatedValue floatValue])];
+        count = count + 1;
+    }
+    NSLog(@"pleasantSum: %f", [pleasantSum floatValue]);
+    NSLog(@"activatedSum: %f", [activatedSum floatValue]);
+    self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
+    self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
+    NSLog(@"count: %i", count);
+    NSLog(@"pleasntValue: %f", [self.pleasantValue floatValue]);
+    NSLog(@"activatedValue: %f", [self.activatedValue floatValue]);
+    NSString *emotionString = [NSString stringWithString:[self findEmotion]];
+    return emotionString;
+}
+
+- (NSString*)findEmotion {
+    NSLog(@"finding emotion");
+    __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
+    for (Emotion *emotion in self.emotionsArray) {
+        NSNumber *x1 = emotion.pleasantValue;
+        NSNumber *y1 = emotion.activatedValue;
+        NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
+        NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
+        if ([newDistance floatValue] < [distance floatValue]) {
+            NSLog(@"ASSIGN");
+            self.emotion = emotion;
+            distance = newDistance;
+        }
+        NSLog(@"Distance: %f", [distance floatValue]);
+    }
+    NSLog(@"EMOTION: %@", self.emotion);
+    NSLog(@"EMOTION name: %@", self.emotion.name);
+    return self.emotion.imageString;
+}
+
+
 
 @end

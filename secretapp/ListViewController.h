@@ -16,7 +16,7 @@
 @property UIButton *addEmotionButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property CLLocation *userLocation;
-
-
+@property UIRefreshControl *refreshControl;
+-(void)refreshMyTableView:(UIControlEvents *) event;
 
 @end

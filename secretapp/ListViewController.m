@@ -22,13 +22,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"pull to Refresh"];
+    [self.refreshControl addTarget:self action:@selector(refreshMyTableView:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+//    self.refreshControl = self.refreshControl;
+
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
     self.emotions = [[NSArray alloc]init];
     self.events = [NSArray new];
 
+    self.userLocation = [LocationService sharedInstance].currentLocation;
+    NSLog(@"user location for feed: %@", self.userLocation);
+    PFGeoPoint *userGeoPoint = [PFGeoPoint geoPointWithLatitude:self.userLocation.coordinate.latitude
+                                                      longitude:self.userLocation.coordinate.longitude];
+
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:5.0];
     [eventsQuery includeKey:@"createdBy"];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
@@ -48,6 +61,37 @@
 
 #pragma mark - Tableview
 
+-(void)refreshMyTableView:(UIControlEvents *) event {
+    NSLog(@"REFRESHING");
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing the TableView"];
+    NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+    [formattedDate setDateFormat:@"MMM d, h:mm a"];
+    NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+
+    [self.refreshControl endRefreshing];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.events) {
+//        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        return 1;
+    } else {
+        // Display a message when the table is empty
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+
+        messageLabel.text = @"No data is currently available. Please pull down to refresh.";
+        messageLabel.textColor = [UIColor blackColor];
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+        [messageLabel sizeToFit];
+        self.tableView.backgroundView = messageLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    return 0;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.events.count;
 }
@@ -66,6 +110,7 @@
     cell.user_name_here_filler.text = [NSString stringWithFormat:@"%@", user.email];
     return cell;
 }
+
 
 #pragma mark - Floating button
 
