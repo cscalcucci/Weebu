@@ -26,19 +26,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self loadEvents];
 
-//    [self.emotionLabel setFont:[UIFont fontNamesForFamilyName:@"Brandon Grotesque"]];
-
-    //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
 
-    //Add button
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view bringSubviewToFront:self.emotionLabel];
     [self.view bringSubviewToFront:self.emotionImageView];
 
     [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.05];
-
 }
 
 #pragma mark - Emotion Calculation
@@ -67,12 +62,11 @@
     int count = 0;
     NSNumber *pleasantSum = 0;
     NSNumber *activatedSum = 0;
+    NSLog(@"EVENTS COUNT: %lu", self.events.count);
+    NSLog(@"RADIUS: %@", [SettingsService sharedInstance].radius);
     for (Event *event in self.events) {
         Emotion *emotion = event.emotionObject;
-//        int pleasantValue = [[emotion.pleasantValue] intValue];
         pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [emotion.pleasantValue floatValue])];
-//        int activatedValue = [[emotion.activatedValue] intValue];
-//        activatedSum = activatedSum + emotion.activatedValue;
         activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [emotion.activatedValue floatValue])];
         count = count + 1;
     }
@@ -80,9 +74,6 @@
     NSLog(@"activatedSum: %f", [activatedSum floatValue]);
     self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
     self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
-    NSLog(@"count: %i", count);
-    NSLog(@"pleasntValue: %f", [self.pleasantValue floatValue]);
-    NSLog(@"activatedValue: %f", [self.activatedValue floatValue]);
     [self findEmotion];
 }
 
@@ -102,10 +93,7 @@
                 self.emotion = emotion;
                 distance = newDistance;
             }
-            NSLog(@"Distance: %f", [distance floatValue]);
         }
-        NSLog(@"EMOTION: %@", self.emotion);
-        NSLog(@"EMOTION name: %@", self.emotion.name);
         self.emotionImageView.file = self.emotion.imageFile;
         [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
@@ -133,7 +121,6 @@
 - (void)onAddEmotionButtonPressed {
     NSLog(@"pressed");
     [self performSegueWithIdentifier:@"GeneralToAdd" sender:self];
-    
 }
 
 #pragma mark - Animations
