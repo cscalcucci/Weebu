@@ -30,7 +30,6 @@
 
     //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
-    NSLog(@"%@", self.userLocation);
 
     //Add button
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
@@ -52,6 +51,8 @@
     
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
     [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:[[SettingsService sharedInstance].radius floatValue]];
+    NSDate *date = [[NSDate date] dateByAddingTimeInterval:-24*60*60];
+    [eventsQuery whereKey:@"createdAt" greaterThan:date];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
@@ -68,7 +69,6 @@
     NSNumber *activatedSum = 0;
     for (Event *event in self.events) {
         Emotion *emotion = event.emotionObject;
-        NSLog(@"pleaseValue: %@", emotion.pleasantValue);
 //        int pleasantValue = [[emotion.pleasantValue] intValue];
         pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [emotion.pleasantValue floatValue])];
 //        int activatedValue = [[emotion.activatedValue] intValue];
@@ -95,6 +95,7 @@
             NSNumber *x1 = emotion.pleasantValue;
             NSNumber *y1 = emotion.activatedValue;
             NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
+            NSLog(@"%@ %@/%@", emotion.name, emotion.pleasantValue, emotion.activatedValue);
             NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
             if ([newDistance floatValue] < [distance floatValue]) {
                 NSLog(@"ASSIGN");
