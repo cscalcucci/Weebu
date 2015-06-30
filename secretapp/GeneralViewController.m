@@ -76,13 +76,13 @@
         activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [emotion.activatedValue floatValue])];
         count = count + 1;
     }
-    NSLog(@"pleasantSum: %f", [pleasantSum floatValue]);
-    NSLog(@"activatedSum: %f", [activatedSum floatValue]);
+//    NSLog(@"pleasantSum: %f", [pleasantSum floatValue]);
+//    NSLog(@"activatedSum: %f", [activatedSum floatValue]);
     self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
     self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
     NSLog(@"count: %i", count);
-    NSLog(@"pleasntValue: %f", [self.pleasantValue floatValue]);
-    NSLog(@"activatedValue: %f", [self.activatedValue floatValue]);
+//    NSLog(@"pleasntValue: %f", [self.pleasantValue floatValue]);
+//    NSLog(@"activatedValue: %f", [self.activatedValue floatValue]);
     [self findEmotion];
 }
 
@@ -95,17 +95,17 @@
             NSNumber *x1 = emotion.pleasantValue;
             NSNumber *y1 = emotion.activatedValue;
             NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
-            NSLog(@"%@ %@/%@", emotion.name, emotion.pleasantValue, emotion.activatedValue);
-            NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
+//            NSLog(@"%@ %@/%@", emotion.name, emotion.pleasantValue, emotion.activatedValue);
+//            NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
             if ([newDistance floatValue] < [distance floatValue]) {
-                NSLog(@"ASSIGN");
+//                NSLog(@"ASSIGN");
                 self.emotion = emotion;
                 distance = newDistance;
             }
-            NSLog(@"Distance: %f", [distance floatValue]);
+//            NSLog(@"Distance: %f", [distance floatValue]);
         }
-        NSLog(@"EMOTION: %@", self.emotion);
-        NSLog(@"EMOTION name: %@", self.emotion.name);
+//        NSLog(@"EMOTION: %@", self.emotion);
+//        NSLog(@"EMOTION name: %@", self.emotion.name);
         self.emotionImageView.file = self.emotion.imageFile;
         [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
