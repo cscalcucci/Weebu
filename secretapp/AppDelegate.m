@@ -7,12 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
-#import <ParseUI/ParseUI.h>
-
-@interface AppDelegate ()
-
-@end
+#define MIXPANEL_TOKEN @"c3a89fa6c67f8697f6a79896c8a0798c"
 
 @implementation AppDelegate
 
@@ -31,6 +26,11 @@
 
     [PFTwitterUtils initializeWithConsumerKey:@"JByFce6QZmj8ODqpTxk46GJyP"
                                consumerSecret:@"z0ry2rgdPLaIxf79fZl0BGl515DYRXAUqio2Gvsibhw4F8PdxA"];
+
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+
+
+    
 
     return YES;
 }

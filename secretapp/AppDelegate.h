@@ -11,8 +11,10 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <TwitterKit/TwitterKit.h>
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
-
+#import "Mixpanel.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
