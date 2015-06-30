@@ -94,17 +94,18 @@
         [scrollView addSubview:button];
 
         //Rainbow color
-        if (i == 1 | i == 6 | i == 11 | i == 16) {
-            [button setTintColor:[UIColor redEmotionColor]];
-        } else if (i == 2 | i == 7 | i == 12 | i == 17) {
-            [button setTintColor:[UIColor orangeEmotionColor]];
-        } else if (i == 3 | i == 8 | i == 13 | i == 18) {
-            [button setTintColor:[UIColor yellowEmotionColor]];
-        } else if (i == 4 | i == 9 | i == 14 | i == 19) {
-            [button setTintColor:[UIColor greenEmotionColor]];
-        } else if (i == 5 | i == 10 | i == 15) {
-            [button setTintColor:[UIColor blueEmotionColor]];
-        }
+//        if (i == 1 | i == 6 | i == 11 | i == 16) {
+//            [button setTintColor:[UIColor redEmotionColor]];
+//        } else if (i == 2 | i == 7 | i == 12 | i == 17) {
+//            [button setTintColor:[UIColor orangeEmotionColor]];
+//        } else if (i == 3 | i == 8 | i == 13 | i == 18) {
+//            [button setTintColor:[UIColor yellowEmotionColor]];
+//        } else if (i == 4 | i == 9 | i == 14 | i == 19) {
+//            [button setTintColor:[UIColor greenEmotionColor]];
+//        } else if (i == 5 | i == 10 | i == 15) {
+//            [button setTintColor:[UIColor blueEmotionColor]];
+//        }
+        [button setTintColor:[UIColor blackColor]];
 
         if (i == 19) {
             x = CGRectGetMaxX(button.frame);
@@ -203,7 +204,6 @@
     }];
 
     [self.view addSubview:self.minimalNotification];
-
 
     if ([self.notificationType isEqualToString:@"success"]) {
 
