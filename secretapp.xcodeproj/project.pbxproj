@@ -335,8 +335,6 @@
 		993F69FF1B3EE1DD00CAF0D7 = {
 			isa = PBXGroup;
 			children = (
-				99605BEE1B41B7CD00238EC8 /* Social.framework */,
-				99605BEC1B41B7C600238EC8 /* Accounts.framework */,
 				993F6A0A1B3EE1DD00CAF0D7 /* secretapp */,
 				993F6A271B3EE1DD00CAF0D7 /* secretappTests */,
 				993F6A091B3EE1DD00CAF0D7 /* Products */,
@@ -421,6 +419,8 @@
 		993F6A561B3EE8BE00CAF0D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99605BEE1B41B7CD00238EC8 /* Social.framework */,
+				99605BEC1B41B7C600238EC8 /* Accounts.framework */,
 				7ECC23931B3EF6DD0049B47B /* libsqlite3.dylib */,
 				7ECC23911B3EF6D10049B47B /* libz.dylib */,
 				7ECC238F1B3EF6C40049B47B /* SystemConfiguration.framework */,
