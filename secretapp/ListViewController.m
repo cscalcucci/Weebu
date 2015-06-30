@@ -15,6 +15,7 @@
 @property PFUser *currentUser;
 @property NSArray *events;
 @property NSArray *emotions;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 @end
 
 @implementation ListViewController
@@ -29,6 +30,9 @@
 
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    self.settingsButton.title = @"";
+    UIImage *image = [UIImage imageNamed:@"settings"];
+    self.settingsButton.image = image;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
