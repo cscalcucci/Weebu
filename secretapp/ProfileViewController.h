@@ -9,14 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import <TwitterKit/TwitterKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
+#import "LocationService.h"
 #import "UIColor+CustomColors.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 
 @property UIButton *addEmotionButton;
 @property UIButton *logoutButton;
 @property UIButton *shareButton;
+@property UILabel *username;
+@property UIVisualEffectView *blueEffectView;
 
+@property MKMapView *mapView;
+@property CLLocation *userLocation;
+
+
+@property UIImageView *currentMood;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
