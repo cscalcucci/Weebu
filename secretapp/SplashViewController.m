@@ -15,6 +15,11 @@
     self.firstShape =  [self createObjectWithImage:[UIImage imageNamed:@"happy"] andPositions:-85 :0 :65 :65];
     self.secondShape = [self createObjectWithImage:[UIImage imageNamed:@"sad"] andPositions:0 :0 :65 :65];
     self.thirdShape =  [self createObjectWithImage:[UIImage imageNamed:@"silly"] andPositions:85 :0 :65 :65];
+
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel createAlias:[NSString stringWithFormat:@"%@", [PFUser currentUser].username]
+            forDistinctID:mixpanel.distinctId];
+    NSLog(@"PFUser %@ is %@ in Mixpanel", [NSString stringWithFormat:@"%@", [PFUser currentUser].username], mixpanel.distinctId);
 }
 
 - (void)viewDidAppear:(BOOL)animated {

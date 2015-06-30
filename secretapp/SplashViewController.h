@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-
 #import "LocationService.h"
+#import "Mixpanel.h"
 
 @interface SplashViewController : UIViewController
 

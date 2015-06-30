@@ -14,6 +14,7 @@
 #import "LocationService.h"
 #import "FoursquareAPI.h"
 #import "UIColor+CustomColors.h"
+#import "Mixpanel.h"
 
 @interface AddEmotionViewController : UIViewController
 

@@ -89,16 +89,29 @@
         [button setTitle:[NSString stringWithFormat:@"Button %d", i] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"emotion%i",i]] forState:UIControlStateNormal];
         [button setTag:i];
-        [button setBackgroundColor:[UIColor greenEmotionColor]];
-                [button addTarget:self action:@selector(onSelectEmotionPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundColor:[UIColor whiteColor]];
+        [button addTarget:self action:@selector(onSelectEmotionPressed:) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:button];
+
+        //Rainbow color
+        if (i == 1 | i == 6 | i == 11 | i == 16) {
+            [button setTintColor:[UIColor redEmotionColor]];
+        } else if (i == 2 | i == 7 | i == 12 | i == 17) {
+            [button setTintColor:[UIColor orangeEmotionColor]];
+        } else if (i == 3 | i == 8 | i == 13 | i == 18) {
+            [button setTintColor:[UIColor yellowEmotionColor]];
+        } else if (i == 4 | i == 9 | i == 14 | i == 19) {
+            [button setTintColor:[UIColor greenEmotionColor]];
+        } else if (i == 5 | i == 10 | i == 15) {
+            [button setTintColor:[UIColor blueEmotionColor]];
+        }
 
         if (i == 19) {
             x = CGRectGetMaxX(button.frame);
         }
     }
     scrollView.contentSize = CGSizeMake(x, scrollView.frame.size.height);
-    scrollView.backgroundColor = [UIColor redEmotionColor];
+    scrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:scrollView];
 }
 
@@ -119,6 +132,9 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [[LocationService sharedInstance] startUpdatingLocation];
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+
+    [mixpanel timeEvent:@"Add emotion"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -175,6 +191,8 @@
 
             [self displayNotification];
         }];
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Add emotion"];
 }
 
 -(void)displayNotification {
@@ -246,6 +264,9 @@
 
 - (void)onCancelButtonPressed {
     NSLog(@"pressed");
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Add emotion"];
+
     [self dismissViewControllerAnimated:YES completion:NULL];
 
 }
