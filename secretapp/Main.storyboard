@@ -56,7 +56,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qke-2S-dzF">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="axE-1a-VCg">
+                        <barButtonItem key="leftBarButtonItem" title="i" id="axE-1a-VCg">
                             <connections>
                                 <segue destination="lbd-rs-xql" kind="presentation" id="3Gh-N8-NrJ"/>
                             </connections>
@@ -755,7 +755,7 @@
         <image name="deathSD" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ky5-3i-ZYO"/>
         <segue reference="p9v-IF-eIb"/>
-        <segue reference="ddk-CO-uTG"/>
     </inferredMetricsTieBreakers>
 </document>

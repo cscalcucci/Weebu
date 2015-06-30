@@ -19,8 +19,13 @@
     [super viewDidLoad];
 
     self.settingsButton.title = @"";
-    UIImage* image3 = [UIImage imageNamed:@"settings"];
-    [self.settingsButton setBackgroundImage:image3 forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    UIImage *image = [UIImage imageNamed:@"settings"];
+    self.settingsButton.image = image;
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+//    [button setImage:image forState:UIControlStateNormal];
+//    UIBarButtonItem *showEditButtonItem = [[UIBarButtonItem alloc] initWithCustomView:showEditButton];
+//    [self.settingsButton setBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,7 +52,7 @@
     
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
     [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:[[SettingsService sharedInstance].radius floatValue]];
-    NSDate *date = [[NSDate date] dateByAddingTimeInterval:-24*60*60];
+    NSDate *date = [[NSDate date] dateByAddingTimeInterval:-4*60*60];
     [eventsQuery whereKey:@"createdAt" greaterThan:date];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
