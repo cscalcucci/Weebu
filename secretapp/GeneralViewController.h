@@ -16,6 +16,7 @@
 #import "EmotionBubble.h"
 #import "Emotion.h"
 #import "Event.h"
+#import "UIColor+CustomColors.h"
 
 @interface GeneralViewController : UIViewController
 
@@ -31,6 +32,7 @@
 
 @property (weak, nonatomic) IBOutlet PFImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *emotionLabel;
+@property UIImageView *colorWheel;
 
 @end
 

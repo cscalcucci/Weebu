@@ -24,9 +24,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self rotatingColorWheel];
     [self loadEvents];
-
-//    [self.emotionLabel setFont:[UIFont fontNamesForFamilyName:@"Brandon Grotesque"]];
 
     //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
@@ -39,6 +38,7 @@
     [self.view bringSubviewToFront:self.emotionImageView];
 
     [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.05];
+    [self performSelector:@selector(rotateImageView:) withObject:self.colorWheel afterDelay:0];
 
 }
 
@@ -111,7 +111,7 @@
     }];
 }
 
-#pragma mark - Floating button
+#pragma mark - Buttons & Views
 
 - (UIButton *)createButtonWithTitle:(NSString *)title chooseColor:(UIColor *)color andPosition:(int)position {
     int diameter = 65;
@@ -126,6 +126,35 @@
     [self.view addSubview:button];
     return button;
 }
+
+//create color from emotion
+- (UIColor*)createColorFromEmotion:(Emotion *)emotion {
+    float a = emotion.pleasantValue.floatValue;
+    UIColor *color = [UIColor clearColor];
+    if (0 < a <= 0.25) {
+        color = [UIColor blueEmotionColor];
+    }
+    if (0.25 < a <= 0.5) {
+        color = [UIColor greenEmotionColor];
+    }
+    if (0.5 < a <= 0.75) {
+        color = [UIColor orangeEmotionColor];
+    }
+    if (0.75 < a <= 1.0) {
+        color = [UIColor redEmotionColor];
+    }
+    return color;
+}
+
+- (void)rotatingColorWheel {
+    self.colorWheel = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1000, 1000)];
+    self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];
+    self.colorWheel.center = CGPointMake(self.view.frame.size.width  / 2,
+                                        self.view.frame.size.height / 2);
+    self.colorWheel.alpha = 0.75;
+    [self.view addSubview:self.colorWheel];
+}
+
 
 #pragma mark - Segue
 
@@ -148,6 +177,42 @@
                              shape.transform = CGAffineTransformMakeScale(1, 1);
                          }];
                      }];
+}
+
+- (UIImage *)imageNamed:(NSString *) name withTintColor: (UIColor *) tintColor {
+
+    UIImage *baseImage = [UIImage imageNamed:name];
+
+    CGRect drawRect = CGRectMake(0, 0, baseImage.size.width, baseImage.size.height);
+
+    UIGraphicsBeginImageContextWithOptions(baseImage.size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    CGContextTranslateCTM(context, 0, baseImage.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+
+    // draw original image
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGContextDrawImage(context, drawRect, baseImage.CGImage);
+
+    // draw color atop
+    CGContextSetFillColorWithColor(context, tintColor.CGColor);
+    CGContextSetBlendMode(context, kCGBlendModeSourceAtop);
+    CGContextFillRect(context, drawRect);
+
+    UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return tintedImage;
+}
+
+- (void)rotateImageView:(UIImageView *)shape {
+    CABasicAnimation *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    fullRotation.fromValue = [NSNumber numberWithFloat:0];
+    fullRotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
+    fullRotation.duration = 10;
+    fullRotation.repeatCount = 10;
+    [shape.layer addAnimation:fullRotation forKey:@"360"];
 }
 
 @end
