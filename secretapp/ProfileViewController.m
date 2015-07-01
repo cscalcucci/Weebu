@@ -8,10 +8,6 @@
 
 #import "ProfileViewController.h"
 
-@interface ProfileViewController ()
-
-@end
-
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
@@ -35,13 +31,6 @@
     self.blueEffectView.frame = self.view.bounds;
     [self.view addSubview:self.blueEffectView];
 
-    //Current mood
-    self.currentMood = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-    self.currentMood.center = CGPointMake((self.view.frame.size.width  / 3) - 50, 150);
-    self.currentMood.image = [UIImage imageNamed:@"emotion0"];
-    self.currentMood.layer.cornerRadius = 100 / 2;
-    self.currentMood.backgroundColor = [UIColor redEmotionColor];
-    [self.view addSubview:self.currentMood];
 
     //Username
     self.username = [[UILabel alloc]initWithFrame:CGRectMake(200, 125, 100, 50)];
@@ -79,17 +68,29 @@
     PFGeoPoint *userGeoPoint = [PFGeoPoint geoPointWithLatitude:self.userLocation.coordinate.latitude
                                                       longitude:self.userLocation.coordinate.longitude];
 
+    //Pulling only events for current user
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
     [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles: [[SettingsService sharedInstance].radius floatValue]];
+    [eventsQuery whereKey:@"createdBy" equalTo:[PFUser currentUser]];
     [eventsQuery includeKey:@"createdBy"];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
             NSLog(@"total events: %lu", events.count);
-            NSLog(@"%@", events.firstObject);
             self.events = events;
             [self.tableView reloadData];
+
+            //Current mood setting image to the lastest status update - should probably change it to mood in the last 24 hours
+            Event *event = self.events.firstObject;
+            Emotion *emotion = event.emotionObject;
+            NSString *imageString = emotion.imageString;
+            self.currentMood = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+            self.currentMood.center = CGPointMake((self.view.frame.size.width  / 3) - 50, 150);
+            self.currentMood.image = [UIImage imageNamed:imageString];
+            self.currentMood.layer.cornerRadius = 100 / 2;
+            self.currentMood.backgroundColor = [UIColor redEmotionColor];
+            [self.view addSubview:self.currentMood];
         }
     }];
 }

@@ -39,7 +39,6 @@
 		7ECC23981B3EF8260049B47B /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23971B3EF8260049B47B /* SignupViewController.m */; };
 		7ECC239B1B3F137C0049B47B /* Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239A1B3F137C0049B47B /* Emotion.m */; };
 		7ECC239E1B3F146B0049B47B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239D1B3F146B0049B47B /* Event.m */; };
-		7ECC23A11B3F1C1E0049B47B /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */; };
 		7ECC23A51B41BE7C0049B47B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */; };
 		7ECC23A91B41C2530049B47B /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A81B41C2530049B47B /* SettingsService.m */; };
 		993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A0D1B3EE1DD00CAF0D7 /* main.m */; };
@@ -299,8 +298,6 @@
 		7ECC239A1B3F137C0049B47B /* Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emotion.m; sourceTree = "<group>"; };
 		7ECC239C1B3F146B0049B47B /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		7ECC239D1B3F146B0049B47B /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		7ECC239F1B3F1C1E0049B47B /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
-		7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		7ECC23A31B41BE7C0049B47B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7ECC23A71B41C2530049B47B /* SettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
@@ -743,7 +740,6 @@
 			children = (
 				7ECC236F1B3EEFBB0049B47B /* Onboarding */,
 				993F6A661B3F0A2800CAF0D7 /* Tabs */,
-				99DE2D701B44242D00C3B902 /* PrimaryEventTableViewCell */,
 				993F6A681B3F0A4200CAF0D7 /* Emotion */,
 			);
 			name = Controllers;
@@ -795,6 +791,7 @@
 		993F6A661B3F0A2800CAF0D7 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				99DE2D711B44338D00C3B902 /* Standard TableViewCell */,
 				993F6A6B1B3F60F800CAF0D7 /* Tab Bar */,
 				993F6A7C1B3F847600CAF0D7 /* General View */,
 				7ECC23A21B3F1C270049B47B /* List View */,
@@ -1143,16 +1140,14 @@
 			name = Uservoice;
 			sourceTree = "<group>";
 		};
-		99DE2D701B44242D00C3B902 /* PrimaryEventTableViewCell */ = {
+		99DE2D711B44338D00C3B902 /* Standard TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				7ECC239F1B3F1C1E0049B47B /* EventTableViewCell.h */,
-				7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */,
 				99DE2D6B1B44242600C3B902 /* StandardEventTableViewCell.h */,
 				99DE2D6C1B44242600C3B902 /* StandardEventTableViewCell.m */,
 				99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */,
 			);
-			name = PrimaryEventTableViewCell;
+			name = "Standard TableViewCell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1379,7 +1374,6 @@
 				99DE2CB51B42205C00C3B902 /* MPObjectSelector.m in Sources */,
 				99DE2CA71B42205C00C3B902 /* MPEventBinding.m in Sources */,
 				99DE2CCD1B42205C00C3B902 /* MPSwizzler.m in Sources */,
-				7ECC23A11B3F1C1E0049B47B /* EventTableViewCell.m in Sources */,
 				99DE2C871B42205C00C3B902 /* MPABTestDesignerTweakResponseMessage.m in Sources */,
 				99DE2CE71B42205C00C3B902 /* NSData+MPBase64.m in Sources */,
 				7ECC239B1B3F137C0049B47B /* Emotion.m in Sources */,

@@ -53,7 +53,6 @@
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
             NSLog(@"total events: %lu", events.count);
-            NSLog(@"%@", events.firstObject);
             self.events = events;
             [self.tableView reloadData];
         }
