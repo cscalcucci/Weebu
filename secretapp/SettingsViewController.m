@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *radiusPicker;
 @property NSArray *pickerDisplay;
 @property NSArray *pickerData;
+@property (weak, nonatomic) IBOutlet UILabel *displayLabel;
 @end
 
 @implementation SettingsViewController
@@ -20,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.displayLabel.text = @"unassigned";
     self.pickerDisplay = @[@"1 mile", @"2 miles", @"5 miles"];
     self.pickerData = @[@1, @2, @5];
 //    [self.radiusPicker selectRow:2 inComponent:1 animated:YES];
@@ -38,8 +40,10 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [SettingsService sharedInstance].radius = [NSNumber numberWithInt:[self.pickerData objectAtIndex:row]];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+
+    self.displayLabel.text = [self.pickerDisplay objectAtIndex:row];
+//    [SettingsService sharedInstance].radius = [NSNumber numberWithInt:[self.pickerData objectAtIndex:row]];
+//    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

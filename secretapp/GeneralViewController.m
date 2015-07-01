@@ -21,11 +21,6 @@
     self.settingsButton.title = @"";
     UIImage *image = [UIImage imageNamed:@"settings"];
     self.settingsButton.image = image;
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    button.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-//    [button setImage:image forState:UIControlStateNormal];
-//    UIBarButtonItem *showEditButtonItem = [[UIBarButtonItem alloc] initWithCustomView:showEditButton];
-//    [self.settingsButton setBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
