@@ -15,7 +15,6 @@
 #import "LocationService.h"
 #import "SettingsService.h"
 #import "Event.h"
-#import "EventTableViewCell.h"
 #import "StandardEventTableViewCell.h"
 #import "UIColor+CustomColors.h"
 
@@ -29,6 +28,9 @@
 @property UIVisualEffectView *blueEffectView;
 @property UIImageView *currentMood;
 
+@property NSNumber *pleasantValue;
+@property NSNumber *activatedValue;
+@property Emotion *emotion;
 
 @property MKMapView *mapView;
 @property CLLocation *userLocation;
@@ -37,6 +39,7 @@
 
 @property NSArray *events;
 @property NSArray *emotions;
+@property NSMutableArray *recentEvents;
 @property PFUser *currentUser;
 @property UIRefreshControl *refreshControl;
 
