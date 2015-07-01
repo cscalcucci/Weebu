@@ -8,6 +8,10 @@
 
 #import "ProfileViewController.h"
 
+@interface ProfileViewController ()
+
+@end
+
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
@@ -53,6 +57,36 @@
 
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.emotions = [[NSArray alloc]init];
+    self.events = [NSArray new];
+
+    self.userLocation = [LocationService sharedInstance].currentLocation;
+    NSLog(@"user location for feed: %@", self.userLocation);
+    PFGeoPoint *userGeoPoint = [PFGeoPoint geoPointWithLatitude:self.userLocation.coordinate.latitude
+                                                      longitude:self.userLocation.coordinate.longitude];
+
+    PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles: [[SettingsService sharedInstance].radius floatValue]];
+    [eventsQuery includeKey:@"createdBy"];
+    [eventsQuery includeKey:@"emotionObject"];
+    [eventsQuery orderByDescending:@"createdAt"];
+    [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
+        if (!error) {
+            NSLog(@"total events: %lu", events.count);
+            NSLog(@"%@", events.firstObject);
+            self.events = events;
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+-(void)refreshMyTableView:(UIControlEvents *) event {
+    [self.tableView reloadData];
+
+    [self.refreshControl endRefreshing];
+}
+
 #pragma mark - Floating button
 
 - (UIButton *)createButtonWithTitle:(NSString *)title chooseColor:(UIColor *)color andPosition:(int)position {
@@ -95,13 +129,24 @@
     }];
 }
 
+#pragma mark - Tableviews
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.events.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
-    cell.textLabel.text = @"works";
+- (EventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
+    Event *event = [self.events objectAtIndex:indexPath.row];
+    Emotion *emotion = event.emotionObject;
+    cell.textLabel.text = emotion.name;
+//    cell.emotionName.text = emotion.name;
+//    NSString *imageString = emotion.imageString;
+//    cell.emotionImageView.image = [UIImage imageNamed:imageString];
+//    [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
+//    cell.timeAgo.text = [self relativeDate:event.createdAt];
+//    PFUser *user = event.createdBy;
+//    cell.user_name_here_filler.text = [NSString stringWithFormat:@"%@", user.email];
     return cell;
 }
 
@@ -111,6 +156,65 @@
     NSLog(@"pressed");
     [self performSegueWithIdentifier:@"ProfileToAdd" sender:self];
     
+}
+
+#pragma mark - Utility Methods
+
+- (NSString *)relativeDate:(NSDate *)dateCreated {
+    NSCalendarUnit units = NSCalendarUnitSecond |
+    NSCalendarUnitMinute | NSCalendarUnitHour |
+    NSCalendarUnitDay | NSCalendarUnitWeekOfYear |
+    NSCalendarUnitMonth | NSCalendarUnitYear;
+    // if `date` is before "now" (i.e. in the past) then the components will be positive
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:units
+                                                                   fromDate:dateCreated
+                                                                     toDate:[NSDate date]
+                                                                    options:0];
+    if (components.year > 0) {
+        if (components.year == 1) {
+            return [NSString stringWithFormat:@"%ldyr", (long)components.year];
+        } else {
+            return [NSString stringWithFormat:@"%ldyrs", (long)components.year];
+        }
+    } else if (components.month > 0) {
+        if (components.month == 1) {
+            return [NSString stringWithFormat:@"%ldmo", (long)components.month];
+        } else {
+            return [NSString stringWithFormat:@"%ldmo", (long)components.month];
+        }
+    } else if (components.weekOfYear > 0) {
+        if (components.weekOfYear == 1) {
+            return [NSString stringWithFormat:@"%ldwk", (long)components.weekOfYear];
+        } else {
+            return [NSString stringWithFormat:@"%ldwks", (long)components.weekOfYear];
+        }
+    } else if (components.day > 0) {
+        if (components.day == 1) {
+            return [NSString stringWithFormat:@"%ldd", (long)components.day];
+        } else {
+            return [NSString stringWithFormat:@"%ldd", (long)components.day];
+        }
+    } else if (components.hour > 0) {
+        if (components.hour == 1) {
+            return [NSString stringWithFormat:@"%ldhr", (long)components.hour];
+        } else {
+            return [NSString stringWithFormat:@"%ldhrs", (long)components.hour];
+        }
+    } else if (components.minute > 0) {
+        if (components.year == 1) {
+            return [NSString stringWithFormat:@"%ldm", (long)components.minute];
+        } else {
+            return [NSString stringWithFormat:@"%ldm", (long)components.minute];
+        }
+    } else if (components.second > 0) {
+        if (components.second == 1) {
+            return [NSString stringWithFormat:@"%ldsec", (long)components.second];
+        } else {
+            return [NSString stringWithFormat:@"%ldsec", (long)components.second];
+        }
+    } else {
+        return [NSString stringWithFormat:@"Time Traveller"];
+    }
 }
 
 @end
