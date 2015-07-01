@@ -548,7 +548,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FlI-dy-PTg">
-                                <rect key="frame" x="0.0" y="264" width="600" height="336"/>
+                                <rect key="frame" x="0.0" y="340" width="600" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" rowHeight="80" id="WdB-Z7-8LM" customClass="StandardEventTableViewCell">
@@ -568,7 +568,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="FlI-dy-PTg" secondAttribute="trailing" constant="-16" id="acq-ib-sai"/>
                             <constraint firstItem="FlI-dy-PTg" firstAttribute="bottom" secondItem="jlC-7e-lYa" secondAttribute="bottomMargin" id="bK6-yJ-JR3"/>
-                            <constraint firstItem="FlI-dy-PTg" firstAttribute="top" secondItem="Sdr-VM-YKt" secondAttribute="bottom" constant="200" id="k5E-TI-W2t"/>
+                            <constraint firstItem="FlI-dy-PTg" firstAttribute="top" secondItem="Sdr-VM-YKt" secondAttribute="bottom" constant="276" id="k5E-TI-W2t"/>
                             <constraint firstItem="FlI-dy-PTg" firstAttribute="leading" secondItem="jlC-7e-lYa" secondAttribute="leadingMargin" constant="-16" id="xhB-0G-riV"/>
                         </constraints>
                     </view>

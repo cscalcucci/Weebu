@@ -15,7 +15,7 @@
 
     //Map
     self.userLocation = [LocationService sharedInstance].currentLocation;
-    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height / 2)];
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 250)];
     self.mapView.showsPointsOfInterest = NO;
     self.mapView.showsBuildings = NO;
     CLLocationCoordinate2D location = [self.userLocation coordinate];
@@ -31,35 +31,42 @@
     self.blueEffectView.frame = self.view.bounds;
     [self.view addSubview:self.blueEffectView];
 
+    //Add blank view to put buttons on
+    UIView *blankBar = [[UIView alloc]initWithFrame:CGRectMake(0, 280, self.view.frame.size.width, 60)];
+    blankBar.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:blankBar];
+
+
+
+
 
     //Username
-    self.username = [[UILabel alloc]initWithFrame:CGRectMake(200, 125, 100, 50)];
-    self.username.backgroundColor = [UIColor yellowEmotionColor];
+    self.username = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 25)];
+    self.username.center = CGPointMake(self.view.frame.size.width / 2, 225);
     self.username.text = [PFUser currentUser].username;
+    self.username.textAlignment = NSTextAlignmentCenter;
+    self.username.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
     [self.view addSubview:self.username];
 
-    //Current mood label
-    self.currentMoodLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 200, 100, 50)];
-    self.currentMoodLabel.backgroundColor = [UIColor yellowEmotionColor];
-    self.currentMoodLabel.text = @"current mood";
-    [self.view addSubview:self.currentMoodLabel];
+
 
     //bringing tableview in front of map
     [self.view bringSubviewToFront:self.tableView];
 
     //buttons
-    self.logoutButton = [self createButtonWithTitle:@"logout" chooseColor:[UIColor redEmotionColor] andPosition:50];
+    self.logoutButton = [self createButtonWithTitle:@"logout" chooseColor:[UIColor redEmotionColor] andPosition:-100];
     [self.logoutButton addTarget:self action:@selector(userLogout) forControlEvents:UIControlEventTouchUpInside];
 
-    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor greenEmotionColor] andPosition:125];
+    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor greenEmotionColor] andPosition:0];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
-    self.shareButton = [self createButtonWithTitle:@"share" chooseColor:[UIColor blueEmotionColor] andPosition:200];
+    self.shareButton = [self createButtonWithTitle:@"share" chooseColor:[UIColor blueEmotionColor] andPosition:100];
     [self.shareButton addTarget:self action:@selector(shareOnTwitter) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [self resetStatus];
     self.emotions = [[NSArray alloc]init];
     self.events = [NSArray new];
 
@@ -86,11 +93,20 @@
             Emotion *emotion = event.emotionObject;
             NSString *imageString = emotion.imageString;
             self.currentMood = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-            self.currentMood.center = CGPointMake((self.view.frame.size.width  / 3) - 50, 150);
+            self.currentMood.center = CGPointMake(self.view.frame.size.width / 2, 150);
             self.currentMood.image = [UIImage imageNamed:imageString];
             self.currentMood.layer.cornerRadius = 100 / 2;
             self.currentMood.backgroundColor = [UIColor redEmotionColor];
             [self.view addSubview:self.currentMood];
+
+            //Current mood label
+            self.currentMoodLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 25)];
+            self.currentMoodLabel.center = CGPointMake(self.view.frame.size.width / 2, 250);
+            self.currentMoodLabel.text = emotion.name;
+            self.currentMoodLabel.textAlignment = NSTextAlignmentCenter;
+            self.currentMoodLabel.font = [UIFont fontWithName:@"BrandonGrotesque-MediumItalic" size:17];
+            [self.view addSubview:self.currentMoodLabel];
+
         }
     }];
 }
@@ -101,11 +117,16 @@
     [self.refreshControl endRefreshing];
 }
 
+-(void)resetStatus {
+    self.currentMood.image = nil;
+    self.currentMoodLabel.text = nil;
+}
+
 #pragma mark - Floating button
 
 - (UIButton *)createButtonWithTitle:(NSString *)title chooseColor:(UIColor *)color andPosition:(int)position {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 65, 35)];
-    button.center = CGPointMake(self.view.frame.size.width - position, self.view.frame.origin.y + 100);
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 65, 60)];
+    button.center = CGPointMake(self.view.center.x - position, self.view.frame.origin.y + 310);
     button.layer.cornerRadius = 7.5;
     button.backgroundColor = color;
     button.layer.borderColor = button.titleLabel.textColor.CGColor;
