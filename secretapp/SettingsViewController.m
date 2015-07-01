@@ -7,20 +7,13 @@
 //
 
 #import "SettingsViewController.h"
-#import "SettingsService.h"
-
-@interface SettingsViewController ()
-@property (weak, nonatomic) IBOutlet UIPickerView *radiusPicker;
-@property NSArray *pickerDisplay;
-@property NSArray *pickerData;
-@property (weak, nonatomic) IBOutlet UILabel *displayLabel;
-@end
 
 @implementation SettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.displayLabel.hidden = YES;
     self.displayLabel.text = @"unassigned";
     self.pickerDisplay = @[@"1 mile", @"2 miles", @"5 miles"];
     self.pickerData = @[@1, @2, @5];
@@ -40,10 +33,15 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-
-//    self.displayLabel.text = [self.pickerDisplay objectAtIndex:row];
+    self.displayLabel.hidden = NO;
+    self.displayLabel.text = [self.pickerDisplay objectAtIndex:row];
 //    [SettingsService sharedInstance].radius = [NSNumber numberWithInt:[self.pickerData objectAtIndex:row]];
-//    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+- (IBAction)onFeedbackForum:(id)sender {
+    [UserVoice presentUserVoiceInterfaceForParentViewController:self];
+}
+
 
 @end
