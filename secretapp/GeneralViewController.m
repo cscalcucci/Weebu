@@ -19,26 +19,27 @@
     [super viewDidLoad];
 
     self.settingsButton.title = @"";
-    UIImage* image3 = [UIImage imageNamed:@"settings"];
-    [self.settingsButton setBackgroundImage:image3 forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    UIImage *image = [UIImage imageNamed:@"settings"];
+    self.settingsButton.image = image;
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+//    [button setImage:image forState:UIControlStateNormal];
+//    UIBarButtonItem *showEditButtonItem = [[UIBarButtonItem alloc] initWithCustomView:showEditButton];
+//    [self.settingsButton setBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self rotatingColorWheel];
     [self loadEvents];
 
-    //Find location;
     self.userLocation = [LocationService sharedInstance].currentLocation;
 
-    //Add button
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view bringSubviewToFront:self.emotionLabel];
     [self.view bringSubviewToFront:self.emotionImageView];
 
     [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.05];
-    [self performSelector:@selector(rotateImageView:) withObject:self.colorWheel afterDelay:0];
-
 }
 
 #pragma mark - Emotion Calculation
@@ -51,7 +52,7 @@
     
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
     [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:[[SettingsService sharedInstance].radius floatValue]];
-    NSDate *date = [[NSDate date] dateByAddingTimeInterval:-24*60*60];
+    NSDate *date = [[NSDate date] dateByAddingTimeInterval:-4*60*60];
     [eventsQuery whereKey:@"createdAt" greaterThan:date];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
@@ -67,12 +68,11 @@
     int count = 0;
     NSNumber *pleasantSum = 0;
     NSNumber *activatedSum = 0;
+    NSLog(@"EVENTS COUNT: %lu", self.events.count);
+    NSLog(@"RADIUS: %@", [SettingsService sharedInstance].radius);
     for (Event *event in self.events) {
         Emotion *emotion = event.emotionObject;
-//        int pleasantValue = [[emotion.pleasantValue] intValue];
         pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [emotion.pleasantValue floatValue])];
-//        int activatedValue = [[emotion.activatedValue] intValue];
-//        activatedSum = activatedSum + emotion.activatedValue;
         activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [emotion.activatedValue floatValue])];
         count = count + 1;
     }
@@ -101,11 +101,12 @@
 //                NSLog(@"ASSIGN");
                 self.emotion = emotion;
                 distance = newDistance;
+                NSLog(@"Distance: %f", [distance floatValue]);
+
             }
-//            NSLog(@"Distance: %f", [distance floatValue]);
-        }
 //        NSLog(@"EMOTION: %@", self.emotion);
 //        NSLog(@"EMOTION name: %@", self.emotion.name);
+        }
         self.emotionImageView.file = self.emotion.imageFile;
         [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
@@ -162,7 +163,6 @@
 - (void)onAddEmotionButtonPressed {
     NSLog(@"pressed");
     [self performSegueWithIdentifier:@"GeneralToAdd" sender:self];
-    
 }
 
 #pragma mark - Animations
