@@ -9,7 +9,8 @@
 #import "ListViewController.h"
 #import "Emotion.h"
 #import "Event.h"
-#import "EventTableViewCell.h"
+//#import "EventTableViewCell.h"
+#import "StandardEventTableViewCell.h"
 
 @interface ListViewController ()
 @property PFUser *currentUser;
@@ -90,9 +91,10 @@
     return self.events.count;
 }
 
--(EventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(StandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    NSArray *objects=[[NSBundle mainBundle]loadNibNamed:@"StandardEventTableViewCell" owner:self options:nil];
+    StandardEventTableViewCell *cell =[objects objectAtIndex:0];
     Event *event = [self.events objectAtIndex:indexPath.row];
     Emotion *emotion = event.emotionObject;
     cell.emotionName.text = emotion.name;

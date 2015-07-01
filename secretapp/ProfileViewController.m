@@ -135,18 +135,18 @@
     return self.events.count;
 }
 
-- (EventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
+- (StandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *objects=[[NSBundle mainBundle]loadNibNamed:@"StandardEventTableViewCell" owner:self options:nil];
+    StandardEventTableViewCell *cell =[objects objectAtIndex:0];
     Event *event = [self.events objectAtIndex:indexPath.row];
     Emotion *emotion = event.emotionObject;
-    cell.textLabel.text = emotion.name;
-//    cell.emotionName.text = emotion.name;
-//    NSString *imageString = emotion.imageString;
-//    cell.emotionImageView.image = [UIImage imageNamed:imageString];
-//    [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
-//    cell.timeAgo.text = [self relativeDate:event.createdAt];
-//    PFUser *user = event.createdBy;
-//    cell.user_name_here_filler.text = [NSString stringWithFormat:@"%@", user.email];
+    cell.emotionName.text = emotion.name;
+    NSString *imageString = emotion.imageString;
+    cell.emotionImageView.image = [UIImage imageNamed:imageString];
+    [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
+    cell.timeAgo.text = [self relativeDate:event.createdAt];
+    PFUser *user = event.createdBy;
+    cell.user_name_here_filler.text = [NSString stringWithFormat:@"%@", user.email];
     return cell;
 }
 

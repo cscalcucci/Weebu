@@ -16,6 +16,7 @@
 #import "SettingsService.h"
 #import "Event.h"
 #import "EventTableViewCell.h"
+#import "StandardEventTableViewCell.h"
 #import "UIColor+CustomColors.h"
 
 @interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
