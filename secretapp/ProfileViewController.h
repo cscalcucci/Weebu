@@ -28,6 +28,9 @@
 @property UIVisualEffectView *blueEffectView;
 @property UIImageView *currentMood;
 
+@property NSNumber *pleasantValue;
+@property NSNumber *activatedValue;
+@property Emotion *emotion;
 
 @property MKMapView *mapView;
 @property CLLocation *userLocation;
@@ -36,6 +39,7 @@
 
 @property NSArray *events;
 @property NSArray *emotions;
+@property NSMutableArray *recentEvents;
 @property PFUser *currentUser;
 @property UIRefreshControl *refreshControl;
 

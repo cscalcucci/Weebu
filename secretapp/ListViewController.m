@@ -108,7 +108,7 @@
     PFGeoPoint *parseUserLocation = [PFGeoPoint geoPointWithLocation:self.userLocation];
     NSString *distanceLabel = [NSString new];
     double distance = [parseUserLocation distanceInKilometersTo:event.location];
-    if (distance < 0.1) {
+    if (distance < 0.09) {
         distanceLabel = [NSString stringWithFormat:@"%im", (int)(distance * 1000)];
         NSLog(@"%@", distanceLabel);
     } else if (distance < 1.0) {

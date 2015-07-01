@@ -87,25 +87,9 @@
             NSLog(@"total events: %lu", events.count);
             self.events = events;
             [self.tableView reloadData];
-
+            [self calculatValues];
             //Current mood setting image to the lastest status update - should probably change it to mood in the last 24 hours
-            Event *event = self.events.firstObject;
-            Emotion *emotion = event.emotionObject;
-            NSString *imageString = emotion.imageString;
-            self.currentMood = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-            self.currentMood.center = CGPointMake(self.view.frame.size.width / 2, 150);
-            self.currentMood.image = [UIImage imageNamed:imageString];
-            self.currentMood.layer.cornerRadius = 100 / 2;
-            self.currentMood.backgroundColor = [UIColor whiteColor];
-            [self.view addSubview:self.currentMood];
 
-            //Current mood label
-            self.currentMoodLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 25)];
-            self.currentMoodLabel.center = CGPointMake(self.view.frame.size.width / 2, 250);
-            self.currentMoodLabel.text = emotion.name;
-            self.currentMoodLabel.textAlignment = NSTextAlignmentCenter;
-            self.currentMoodLabel.font = [UIFont fontWithName:@"BrandonGrotesque-MediumItalic" size:17];
-            [self.view addSubview:self.currentMoodLabel];
 
         }
     }];
@@ -206,6 +190,86 @@
 
     return cell;
 }
+
+#pragma mark - Das Algorithm
+- (void)calculatValues {
+    //Date for 24 hours
+    NSDate *date = [[NSDate date] dateByAddingTimeInterval:-24*60*60];
+    self.recentEvents = [NSMutableArray new];
+    int count = 0;
+    NSNumber *pleasantSum = 0;
+    NSNumber *activatedSum = 0;
+
+    NSLog(@"EVENTS COUNT: %lu", self.events.count);
+    NSLog(@"RADIUS: %@", [SettingsService sharedInstance].radius);
+
+    //Only add recent events
+    for (Event *event in self.events) {
+        if (event.createdAt > date) {
+            [self.recentEvents addObject:event];
+        }
+    }
+
+    for (Event *event in self.recentEvents) {
+        Emotion *emotion = event.emotionObject;
+        pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [emotion.pleasantValue floatValue])];
+        activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [emotion.activatedValue floatValue])];
+        count = count + 1;
+    }
+
+    NSLog(@"pleasantSum: %f", [pleasantSum floatValue]);
+    NSLog(@"activatedSum: %f", [activatedSum floatValue]);
+    self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
+    self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
+    NSLog(@"count: %i", count);
+    NSLog(@"pleasntValue: %f", [self.pleasantValue floatValue]);
+    NSLog(@"activatedValue: %f", [self.activatedValue floatValue]);
+    [self findEmotion];
+}
+
+- (void)findEmotion {
+    NSLog(@"finding emotion");
+    __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
+    PFQuery *emotionsQuery = [PFQuery queryWithClassName:@"Emotion"];
+    [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
+        for (Emotion *emotion in emotions) {
+            NSNumber *x1 = emotion.pleasantValue;
+            NSNumber *y1 = emotion.activatedValue;
+            NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
+            NSLog(@"%@ %@/%@", emotion.name, emotion.pleasantValue, emotion.activatedValue);
+            NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
+            if ([newDistance floatValue] < [distance floatValue]) {
+                NSLog(@"ASSIGN");
+                self.emotion = emotion;
+                distance = newDistance;
+                NSLog(@"Distance: %f", [distance floatValue]);
+            }
+            NSLog(@"EMOTION: %@", self.emotion);
+            NSLog(@"EMOTION name: %@", self.emotion.name);
+        }
+
+        //Current mood imageview
+        self.currentMood = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+        self.currentMood.center = CGPointMake(self.view.frame.size.width / 2, 150);
+        self.currentMood.image = [UIImage imageNamed:self.emotion.imageString];
+        self.currentMood.layer.cornerRadius = 100 / 2;
+        self.currentMood.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:self.currentMood];
+
+        //Current mood label
+        self.currentMoodLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 25)];
+        self.currentMoodLabel.center = CGPointMake(self.view.frame.size.width / 2, 250);
+        self.currentMoodLabel.text = self.emotion.name;
+        self.currentMoodLabel.textAlignment = NSTextAlignmentCenter;
+        self.currentMoodLabel.font = [UIFont fontWithName:@"BrandonGrotesque-MediumItalic" size:17];
+        [self.view addSubview:self.currentMoodLabel];
+
+//        [self.emotionImageView loadInBackground];
+//        self.emotionLabel.text = self.emotion.name;
+    }];
+}
+
+
 
 #pragma mark - Segue
 

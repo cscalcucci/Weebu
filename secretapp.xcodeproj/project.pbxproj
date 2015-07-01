@@ -237,6 +237,7 @@
 		99DE2D691B43820300C3B902 /* uv_idea@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D5E1B43820300C3B902 /* uv_idea@2x.png */; };
 		99DE2D6E1B44242600C3B902 /* StandardEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D6C1B44242600C3B902 /* StandardEventTableViewCell.m */; };
 		99DE2D6F1B44242600C3B902 /* StandardEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */; };
+		99DE2D741B44665400C3B902 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D731B44665400C3B902 /* SettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -535,6 +536,8 @@
 		99DE2D6B1B44242600C3B902 /* StandardEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardEventTableViewCell.h; sourceTree = "<group>"; };
 		99DE2D6C1B44242600C3B902 /* StandardEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardEventTableViewCell.m; sourceTree = "<group>"; };
 		99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardEventTableViewCell.xib; sourceTree = "<group>"; };
+		99DE2D721B44665400C3B902 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		99DE2D731B44665400C3B902 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -668,6 +671,8 @@
 			children = (
 				7ECC23A31B41BE7C0049B47B /* SettingsViewController.h */,
 				7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */,
+				99DE2D721B44665400C3B902 /* SettingsTableViewController.h */,
+				99DE2D731B44665400C3B902 /* SettingsTableViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1333,6 +1338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99DE2D741B44665400C3B902 /* SettingsTableViewController.m in Sources */,
 				99DE2CC91B42205C00C3B902 /* MPSurveyQuestion.m in Sources */,
 				66941EED1B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m in Sources */,
 				66941EEA1B41D2DB00193D46 /* JFMinimalNotification.m in Sources */,
