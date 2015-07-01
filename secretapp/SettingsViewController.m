@@ -41,7 +41,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
 
-    self.displayLabel.text = [self.pickerDisplay objectAtIndex:row];
+//    self.displayLabel.text = [self.pickerDisplay objectAtIndex:row];
 //    [SettingsService sharedInstance].radius = [NSNumber numberWithInt:[self.pickerData objectAtIndex:row]];
 //    [self dismissViewControllerAnimated:YES completion:NULL];
 }
