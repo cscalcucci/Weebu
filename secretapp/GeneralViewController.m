@@ -23,11 +23,11 @@
     self.settingsButton.image = image;
 
     [self rotatingColorWheel];
-    [self rotateImageView:self.colorWheel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self loadEvents];
+    [self rotateImageView:self.colorWheel];
 
     self.userLocation = [LocationService sharedInstance].currentLocation;
 

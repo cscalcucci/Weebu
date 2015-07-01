@@ -21,6 +21,7 @@
 @property UIButton *logoutButton;
 @property UIButton *shareButton;
 @property UILabel *username;
+@property UILabel *currentMoodLabel;
 @property UIVisualEffectView *blueEffectView;
 
 @property MKMapView *mapView;
