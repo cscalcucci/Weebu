@@ -11,6 +11,7 @@
 #import "FBAnnotationCluster.h"
 #import "FBAnnotationClustering.h"
 #import "FBQuadTree.h"
+#import "SingleAnnotation.h"
 
 
 @interface MapViewController ()
@@ -77,8 +78,9 @@
             self.emotion = self.event.emotionObject;
             [self.emotionsArray addObject:self.emotion];
             [self.event setObject:[NSString stringWithFormat:@"%i", i] forKey:@"indexPath" ];
-            MKPointAnnotation *annotation = [MKPointAnnotation new];
+            SingleAnnotation *annotation = [SingleAnnotation new];
             annotation.coordinate = CLLocationCoordinate2DMake(self.event.location.latitude, self.event.location.longitude);
+            annotation.emotion = self.emotion.imageString;
             [self.annotationArray addObject:annotation];
 //            [self.mapView addAnnotation:annotation];
         }
@@ -94,6 +96,7 @@
         double scale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
 
         NSArray *annotations = [self.clusteringManager clusteredAnnotationsWithinMapRect:mapView.visibleMapRect withZoomScale:scale];
+
         [self.clusteringManager displayAnnotations:annotations onMapView:mapView];
     }];
 }
@@ -108,13 +111,16 @@
 
     UIImage *image;
     UIImage *resizedImage;
+
     if ([annotation isKindOfClass:[FBAnnotationCluster class]]) {
 
         NSString *imageString = [self calculateValues];
         image = [UIImage imageNamed:imageString];
         resizedImage = [self resizeView:image withSize:@"big"];
-    } else {
-        NSString *imageString = self.emotion.imageString;
+
+    } else if ([annotation isKindOfClass:[SingleAnnotation class]]) {
+
+        NSString *imageString = ((SingleAnnotation*)annotation).emotion;
         image = [UIImage imageNamed:imageString];
         resizedImage = [self resizeView:image withSize:@"small"];
 
@@ -148,25 +154,6 @@
         self.userLocation = placemark.location;
     }];
 }
-
-//-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-//    if ([annotation isEqual:self.mapView.userLocation]) {
-//        return nil;
-//    }
-//    MKAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
-//    NSString *imageString = self.emotion.imageString;
-//    UIImage *image = [UIImage imageNamed:imageString];
-//
-//    CGSize scaleSize = CGSizeMake(24.0, 24.0);
-//    UIGraphicsBeginImageContextWithOptions(scaleSize, NO, 0.0);
-//    [image drawInRect:CGRectMake(0, 0, scaleSize.width, scaleSize.height)];
-//    UIImage * resizedImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    pin.image = resizedImage;
-//    pin.canShowCallout =  NO;
-//    pin.userInteractionEnabled = YES;
-//    return pin;
-//}
 
 #pragma mark - Buttons
 

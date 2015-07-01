@@ -16,6 +16,7 @@
 		66941EEC1B41D2DB00193D46 /* NSInvocation+Constructors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE51B41D2DB00193D46 /* NSInvocation+Constructors.m */; };
 		66941EED1B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE71B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m */; };
 		66941EEE1B41D2DB00193D46 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE91B41D2DB00193D46 /* UIView+Round.m */; };
+		66941EF41B43034400193D46 /* SingleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EF31B43034400193D46 /* SingleAnnotation.m */; };
 		7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23671B3EEF7F0049B47B /* SessionViewController.m */; };
 		7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC236A1B3EEF950049B47B /* LoginViewController.m */; };
 		7ECC23761B3EF5830049B47B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23701B3EF5830049B47B /* Bolts.framework */; };
@@ -259,6 +260,8 @@
 		66941EE71B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JFMinimalNotificationColors.m"; sourceTree = "<group>"; };
 		66941EE81B41D2DB00193D46 /* UIView+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Round.h"; sourceTree = "<group>"; };
 		66941EE91B41D2DB00193D46 /* UIView+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Round.m"; sourceTree = "<group>"; };
+		66941EF21B43034400193D46 /* SingleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleAnnotation.h; sourceTree = "<group>"; };
+		66941EF31B43034400193D46 /* SingleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleAnnotation.m; sourceTree = "<group>"; };
 		7ECC23661B3EEF7F0049B47B /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		7ECC23671B3EEF7F0049B47B /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
 		7ECC23691B3EEF950049B47B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
@@ -761,6 +764,8 @@
 			children = (
 				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
 				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
+				66941EF21B43034400193D46 /* SingleAnnotation.h */,
+				66941EF31B43034400193D46 /* SingleAnnotation.m */,
 			);
 			name = "Map View";
 			sourceTree = "<group>";
@@ -1285,6 +1290,7 @@
 				993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */,
 				99DE2CCF1B42205C00C3B902 /* MPTweak.m in Sources */,
 				7ECC23A51B41BE7C0049B47B /* SettingsViewController.m in Sources */,
+				66941EF41B43034400193D46 /* SingleAnnotation.m in Sources */,
 				99DE2CC11B42205C00C3B902 /* MPSequenceGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

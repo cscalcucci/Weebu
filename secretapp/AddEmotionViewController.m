@@ -175,6 +175,7 @@
             event.location = [PFGeoPoint geoPointWithLocation:[LocationService sharedInstance].currentLocation];
         }
 
+
         [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 int chance = (arc4random_uniform(5));
@@ -199,7 +200,7 @@
 -(void)displayNotification {
     [self setNotificationForType];
 
-    self.minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError title:self.notificationTitle subTitle:self.notificationMessage dismissalDelay:1.5 touchHandler:^{
+    self.minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError title:self.notificationTitle subTitle:self.notificationMessage dismissalDelay:2.5 touchHandler:^{
         [self.minimalNotification dismiss];
     }];
 
@@ -216,6 +217,7 @@
         [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"deathSD"]] animated:YES];
     } else {
         [self.minimalNotification setStyle:JFMinimalNotificationStyleWarning animated:YES];
+        [self performSelector:@selector(onCancelButtonPressed) withObject:self afterDelay:2.0];
     }
 
     UIFont* titleFont = [UIFont fontWithName:@"STHeitiK-Light" size:22];
