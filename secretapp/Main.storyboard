@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -56,7 +56,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qke-2S-dzF">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="axE-1a-VCg">
+                        <barButtonItem key="leftBarButtonItem" title="i" id="axE-1a-VCg">
                             <connections>
                                 <segue destination="lbd-rs-xql" kind="presentation" id="3Gh-N8-NrJ"/>
                             </connections>
@@ -92,16 +92,25 @@
                                     <outlet property="delegate" destination="lbd-rs-xql" id="Kte-VR-mtr"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykN-4b-mIc">
+                                <rect key="frame" x="279" y="77" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Ezn-xY-Vd0" secondAttribute="trailing" constant="-16" id="2c6-P4-JMU"/>
+                            <constraint firstItem="ykN-4b-mIc" firstAttribute="top" secondItem="QJF-ei-Lze" secondAttribute="bottom" constant="57" id="Lma-7K-fIZ"/>
                             <constraint firstItem="big-8N-GKK" firstAttribute="top" secondItem="Ezn-xY-Vd0" secondAttribute="bottom" constant="273" id="Nzt-9x-1de"/>
+                            <constraint firstItem="ykN-4b-mIc" firstAttribute="centerX" secondItem="Ezn-xY-Vd0" secondAttribute="centerX" id="VOv-pb-yRt"/>
                             <constraint firstItem="Ezn-xY-Vd0" firstAttribute="leading" secondItem="5Wo-o1-2ot" secondAttribute="leadingMargin" constant="-16" id="joH-jI-jzA"/>
                             <constraint firstItem="Ezn-xY-Vd0" firstAttribute="top" secondItem="QJF-ei-Lze" secondAttribute="bottom" constant="145" id="nzK-1Q-ezY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="displayLabel" destination="ykN-4b-mIc" id="rR2-e2-ffW"/>
                         <outlet property="radiusPicker" destination="Ezn-xY-Vd0" id="vkG-Kv-d5S"/>
                     </connections>
                 </viewController>
@@ -253,10 +262,13 @@
                             <constraint firstItem="mrb-VQ-x15" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="wUT-Dk-rsu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Hpc-PH-sVB"/>
+                    <navigationItem key="navigationItem" id="Hpc-PH-sVB">
+                        <barButtonItem key="leftBarButtonItem" title="i" id="rDY-tt-hO1"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="800"/>
                     <connections>
+                        <outlet property="settingsButton" destination="rDY-tt-hO1" id="fAD-xC-XC0"/>
                         <outlet property="tableView" destination="mrb-VQ-x15" id="ylW-re-gEx"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="ListToAdd" id="Vyz-lu-Pmj"/>
                     </connections>
@@ -755,7 +767,7 @@
         <image name="deathSD" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Vyz-lu-Pmj"/>
         <segue reference="p9v-IF-eIb"/>
-        <segue reference="ddk-CO-uTG"/>
     </inferredMetricsTieBreakers>
 </document>

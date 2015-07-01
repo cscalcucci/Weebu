@@ -213,7 +213,6 @@
     NSNumber *activatedSum = 0;
     for (Event *event in self.eventsArray) {
         Emotion *emotion = event.emotionObject;
-        NSLog(@"pleaseValue: %@", emotion.pleasantValue);
         //        int pleasantValue = [[emotion.pleasantValue] intValue];
         pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [emotion.pleasantValue floatValue])];
         //        int activatedValue = [[emotion.activatedValue] intValue];
@@ -221,13 +220,8 @@
         activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [emotion.activatedValue floatValue])];
         count = count + 1;
     }
-    NSLog(@"pleasantSum: %f", [pleasantSum floatValue]);
-    NSLog(@"activatedSum: %f", [activatedSum floatValue]);
     self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
     self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
-    NSLog(@"count: %i", count);
-    NSLog(@"pleasntValue: %f", [self.pleasantValue floatValue]);
-    NSLog(@"activatedValue: %f", [self.activatedValue floatValue]);
     NSString *emotionString = [NSString stringWithString:[self findEmotion]];
     return emotionString;
 }
@@ -247,8 +241,6 @@
         }
         NSLog(@"Distance: %f", [distance floatValue]);
     }
-    NSLog(@"EMOTION: %@", self.emotion);
-    NSLog(@"EMOTION name: %@", self.emotion.name);
     return self.emotion.imageString;
 }
 
