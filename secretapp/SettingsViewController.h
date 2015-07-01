@@ -10,7 +10,7 @@
 #import "SettingsService.h"
 #import "UserVoice.h"
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *radiusPicker;
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;

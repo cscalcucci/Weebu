@@ -48,77 +48,16 @@
                             <constraint firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="uHU-KS-a4a"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Qke-2S-dzF">
-                        <barButtonItem key="leftBarButtonItem" title="i" id="axE-1a-VCg">
-                            <connections>
-                                <segue destination="lbd-rs-xql" kind="presentation" id="3Gh-N8-NrJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Qke-2S-dzF"/>
                     <connections>
                         <outlet property="emotionImageView" destination="ZQa-TV-Wbe" id="dxM-gh-70p"/>
                         <outlet property="emotionLabel" destination="g9O-Mc-L6w" id="vui-CI-MRn"/>
-                        <outlet property="settingsButton" destination="axE-1a-VCg" id="88I-Ye-EMS"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="GeneralToAdd" id="ky5-3i-ZYO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1316" y="1654"/>
-        </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="8ml-3J-SgX">
-            <objects>
-                <viewController id="lbd-rs-xql" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QJF-ei-Lze"/>
-                        <viewControllerLayoutGuide type="bottom" id="big-8N-GKK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5Wo-o1-2ot">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ezn-xY-Vd0">
-                                <rect key="frame" x="0.0" y="165" width="600" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="lbd-rs-xql" id="Ajg-eX-61g"/>
-                                    <outlet property="delegate" destination="lbd-rs-xql" id="Kte-VR-mtr"/>
-                                </connections>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykN-4b-mIc">
-                                <rect key="frame" x="279" y="77" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wh7-Bt-3XW">
-                                <rect key="frame" x="197" y="442" width="181" height="30"/>
-                                <state key="normal" title="Feedback and forum">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onFeedbackForum:" destination="lbd-rs-xql" eventType="touchUpInside" id="qko-gR-BNq"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ezn-xY-Vd0" secondAttribute="trailing" constant="-16" id="2c6-P4-JMU"/>
-                            <constraint firstItem="ykN-4b-mIc" firstAttribute="top" secondItem="QJF-ei-Lze" secondAttribute="bottom" constant="57" id="Lma-7K-fIZ"/>
-                            <constraint firstItem="big-8N-GKK" firstAttribute="top" secondItem="Ezn-xY-Vd0" secondAttribute="bottom" constant="273" id="Nzt-9x-1de"/>
-                            <constraint firstItem="ykN-4b-mIc" firstAttribute="centerX" secondItem="Ezn-xY-Vd0" secondAttribute="centerX" id="VOv-pb-yRt"/>
-                            <constraint firstItem="Ezn-xY-Vd0" firstAttribute="leading" secondItem="5Wo-o1-2ot" secondAttribute="leadingMargin" constant="-16" id="joH-jI-jzA"/>
-                            <constraint firstItem="Ezn-xY-Vd0" firstAttribute="top" secondItem="QJF-ei-Lze" secondAttribute="bottom" constant="145" id="nzK-1Q-ezY"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="displayLabel" destination="ykN-4b-mIc" id="rR2-e2-ffW"/>
-                        <outlet property="radiusPicker" destination="Ezn-xY-Vd0" id="vkG-Kv-d5S"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ln7-kD-eg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1505" y="2486"/>
         </scene>
         <!--Add Emotion View Controller-->
         <scene sceneID="0O1-fK-1Ca">
@@ -169,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0U-Lf-RLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="3233"/>
+            <point key="canvasLocation" x="42" y="3239"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -287,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alD-q3-L84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-285" y="-1640"/>
+            <point key="canvasLocation" x="-293" y="-1608"/>
         </scene>
         <!--Twitter Info View Controller-->
         <scene sceneID="GxX-CZ-tvb">
@@ -706,7 +645,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fo-oG-toT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5Nc-nH-XTW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="688" y="2997"/>
+            <point key="canvasLocation" x="794" y="2997"/>
         </scene>
     </scenes>
     <resources>
