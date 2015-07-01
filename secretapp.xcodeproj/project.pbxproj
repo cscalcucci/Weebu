@@ -43,7 +43,6 @@
 		7ECC23981B3EF8260049B47B /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23971B3EF8260049B47B /* SignupViewController.m */; };
 		7ECC239B1B3F137C0049B47B /* Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239A1B3F137C0049B47B /* Emotion.m */; };
 		7ECC239E1B3F146B0049B47B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239D1B3F146B0049B47B /* Event.m */; };
-		7ECC23A11B3F1C1E0049B47B /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */; };
 		7ECC23A51B41BE7C0049B47B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */; };
 		7ECC23A91B41C2530049B47B /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A81B41C2530049B47B /* SettingsService.m */; };
 		993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A0D1B3EE1DD00CAF0D7 /* main.m */; };
@@ -240,6 +239,9 @@
 		99DE2D671B43820300C3B902 /* uv_heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D5C1B43820300C3B902 /* uv_heart@2x.png */; };
 		99DE2D681B43820300C3B902 /* uv_idea.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D5D1B43820300C3B902 /* uv_idea.png */; };
 		99DE2D691B43820300C3B902 /* uv_idea@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D5E1B43820300C3B902 /* uv_idea@2x.png */; };
+		99DE2D6E1B44242600C3B902 /* StandardEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D6C1B44242600C3B902 /* StandardEventTableViewCell.m */; };
+		99DE2D6F1B44242600C3B902 /* StandardEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */; };
+		99DE2D741B44665400C3B902 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D731B44665400C3B902 /* SettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,8 +364,6 @@
 		7ECC239A1B3F137C0049B47B /* Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emotion.m; sourceTree = "<group>"; };
 		7ECC239C1B3F146B0049B47B /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		7ECC239D1B3F146B0049B47B /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		7ECC239F1B3F1C1E0049B47B /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
-		7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		7ECC23A31B41BE7C0049B47B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7ECC23A71B41C2530049B47B /* SettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
@@ -598,6 +598,11 @@
 		99DE2D5F1B43820300C3B902 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/UserVoice.strings; sourceTree = "<group>"; };
 		99DE2D601B43820300C3B902 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UserVoice.strings"; sourceTree = "<group>"; };
 		99DE2D611B43820300C3B902 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/UserVoice.strings"; sourceTree = "<group>"; };
+		99DE2D6B1B44242600C3B902 /* StandardEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardEventTableViewCell.h; sourceTree = "<group>"; };
+		99DE2D6C1B44242600C3B902 /* StandardEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardEventTableViewCell.m; sourceTree = "<group>"; };
+		99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardEventTableViewCell.xib; sourceTree = "<group>"; };
+		99DE2D721B44665400C3B902 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		99DE2D731B44665400C3B902 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -797,8 +802,6 @@
 			children = (
 				993F6A391B3EE2CB00CAF0D7 /* ListViewController.h */,
 				993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */,
-				7ECC239F1B3F1C1E0049B47B /* EventTableViewCell.h */,
-				7ECC23A01B3F1C1E0049B47B /* EventTableViewCell.m */,
 			);
 			name = "List View";
 			sourceTree = "<group>";
@@ -808,6 +811,8 @@
 			children = (
 				7ECC23A31B41BE7C0049B47B /* SettingsViewController.h */,
 				7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */,
+				99DE2D721B44665400C3B902 /* SettingsTableViewController.h */,
+				99DE2D731B44665400C3B902 /* SettingsTableViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -931,6 +936,7 @@
 		993F6A661B3F0A2800CAF0D7 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				99DE2D711B44338D00C3B902 /* Standard TableViewCell */,
 				993F6A6B1B3F60F800CAF0D7 /* Tab Bar */,
 				993F6A7C1B3F847600CAF0D7 /* General View */,
 				7ECC23A21B3F1C270049B47B /* List View */,
@@ -1282,6 +1288,16 @@
 			name = Uservoice;
 			sourceTree = "<group>";
 		};
+		99DE2D711B44338D00C3B902 /* Standard TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				99DE2D6B1B44242600C3B902 /* StandardEventTableViewCell.h */,
+				99DE2D6C1B44242600C3B902 /* StandardEventTableViewCell.m */,
+				99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */,
+			);
+			name = "Standard TableViewCell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1405,6 +1421,7 @@
 				99DE2D641B43820300C3B902 /* uv_article.png in Resources */,
 				99DE2D631B43820300C3B902 /* UserVoice.strings in Resources */,
 				99DE2D681B43820300C3B902 /* uv_idea.png in Resources */,
+				99DE2D6F1B44242600C3B902 /* StandardEventTableViewCell.xib in Resources */,
 				99DE2D651B43820300C3B902 /* uv_article@2x.png in Resources */,
 				993F6B0F1B40D5E100CAF0D7 /* Brandon Grotesque Black Italic.ttf in Resources */,
 				993F6B171B40D5E100CAF0D7 /* Brandon Grotesque Medium.ttf in Resources */,
@@ -1466,9 +1483,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99DE2D741B44665400C3B902 /* SettingsTableViewController.m in Sources */,
 				99DE2CC91B42205C00C3B902 /* MPSurveyQuestion.m in Sources */,
 				66941EED1B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m in Sources */,
 				66941EEA1B41D2DB00193D46 /* JFMinimalNotification.m in Sources */,
+				99DE2D6E1B44242600C3B902 /* StandardEventTableViewCell.m in Sources */,
 				993F6A411B3EE3AC00CAF0D7 /* AddEmotionViewController.m in Sources */,
 				99DE2CA31B42205C00C3B902 /* MPDesignerTrackMessage.m in Sources */,
 				99DE2C6D1B42205C00C3B902 /* Mixpanel.m in Sources */,
@@ -1506,7 +1525,6 @@
 				99DE2CB51B42205C00C3B902 /* MPObjectSelector.m in Sources */,
 				99DE2CA71B42205C00C3B902 /* MPEventBinding.m in Sources */,
 				99DE2CCD1B42205C00C3B902 /* MPSwizzler.m in Sources */,
-				7ECC23A11B3F1C1E0049B47B /* EventTableViewCell.m in Sources */,
 				99DE2C871B42205C00C3B902 /* MPABTestDesignerTweakResponseMessage.m in Sources */,
 				99DE2CE71B42205C00C3B902 /* NSData+MPBase64.m in Sources */,
 				669424211B44496000193D46 /* MapboxViewController.m in Sources */,

@@ -1,14 +1,14 @@
 //
-//  EventTableViewCell.m
+//  StandardEventTableViewCell.m
 //  secretapp
 //
-//  Created by Bryon Finke on 6/27/15.
+//  Created by John McClelland on 7/1/15.
 //  Copyright (c) 2015 bjc. All rights reserved.
 //
 
-#import "EventTableViewCell.h"
+#import "StandardEventTableViewCell.h"
 
-@implementation EventTableViewCell
+@implementation StandardEventTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
