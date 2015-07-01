@@ -11,7 +11,6 @@
 
 
 @interface AddEmotionViewController () <JFMinimalNotificationDelegate>
-
 @property UIImageView *imageView;
 @property (nonatomic, strong) JFMinimalNotification* minimalNotification;
 @property UIImage *selectedImage;
@@ -24,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UIPickerView *emotionPicker;
-
+@property (weak, nonatomic) IBOutlet UIView *venuesContainer;
 @end
 
 @implementation AddEmotionViewController
@@ -32,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.venuesContainer.hidden = YES;
 
     [[NSNotificationCenter defaultCenter]
      addObserver:self
@@ -151,7 +151,6 @@
             event.location = [PFGeoPoint geoPointWithLocation:[LocationService sharedInstance].currentLocation];
         }
 
-
         [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 int chance = (arc4random_uniform(5));
@@ -174,8 +173,8 @@
 }
 
 - (void)selectVenue {
-    self.containerView.hidden = !self.containerView.hidden;
-    if (self.containerView.hidden == NO) {
+    self.venuesContainer.hidden = !self.venuesContainer.hidden;
+    if (self.venuesContainer.hidden == NO) {
         [self.view bringSubviewToFront:self.containerView];
     }
 }

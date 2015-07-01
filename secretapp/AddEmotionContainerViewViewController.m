@@ -19,7 +19,8 @@
     self.venueUrlCall = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&oauth_token=N5Z3YJNLEWD4KIBIOB1C22YOPTPSJSL3NAEXVUMYGJC35FMP&v=20150617", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude]];
     self.foursquareResults = [NSArray new];
     [self retrieveFoursquareResults];
-    NSLog(@"%@", self.userLocation);
+    NSLog(@"Venues count: %lu", self.foursquareResults.count);
+    NSLog(@"User location: %@", self.userLocation);
 }
 
 - (void)retrieveFoursquareResults {
@@ -27,7 +28,7 @@
         self.foursquareResults = array;
         NSLog(@"Started call and got %@", array);
         for (FoursquareAPI *item in self.foursquareResults) {
-            NSLog(@"%@", item.venueName);
+            NSLog(@"VENUE NAME: %@", item.venueName);
         }
         [self.tableView reloadData];
     }];

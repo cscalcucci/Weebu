@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2A0-9M-KEb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -144,6 +144,12 @@
                                     <outlet property="delegate" destination="qUT-Vp-n3A" id="Kir-NQ-ddZ"/>
                                 </connections>
                             </pickerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJI-aZ-XWp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="621"/>
+                                <connections>
+                                    <segue destination="qEY-16-2qt" kind="embed" id="hQs-wd-Pni"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -169,6 +175,7 @@
                         <outlet property="emotionPicker" destination="9ZP-CV-A9A" id="eLZ-kp-hOP"/>
                         <outlet property="submitButton" destination="RN7-Bg-OCc" id="D8E-m3-i42"/>
                         <outlet property="venuesButton" destination="foQ-qG-kuK" id="bDH-xG-uSx"/>
+                        <outlet property="venuesContainer" destination="SJI-aZ-XWp" id="8ts-Vx-KRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0U-Lf-RLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -961,6 +968,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IJ-fA-heC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1335" y="1654"/>
+        </scene>
+        <!--Add Emotion Container View View Controller-->
+        <scene sceneID="uIP-k5-N04">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qEY-16-2qt" customClass="AddEmotionContainerViewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7IJ-lc-0c0"/>
+                        <viewControllerLayoutGuide type="bottom" id="xQq-GQ-WWP"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nfI-Iy-dvk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="621"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BVH-am-NBW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="621"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VenueCell" id="Dse-TC-fTL">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dse-TC-fTL" id="l8P-72-uAA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qEY-16-2qt" id="nzG-MH-WKT"/>
+                                    <outlet property="delegate" destination="qEY-16-2qt" id="iJV-Q8-ozN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="tableView" destination="BVH-am-NBW" id="nhZ-FZ-bjW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mfe-TZ-0zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-567" y="3142.5"/>
         </scene>
     </scenes>
     <resources>
