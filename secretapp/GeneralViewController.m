@@ -21,10 +21,13 @@
     self.settingsButton.title = @"";
     UIImage *image = [UIImage imageNamed:@"settings"];
     self.settingsButton.image = image;
+
+    [self rotatingColorWheel];
+    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self rotatingColorWheel];
     [self loadEvents];
 
     self.userLocation = [LocationService sharedInstance].currentLocation;
