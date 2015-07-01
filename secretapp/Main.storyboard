@@ -231,10 +231,10 @@
             </objects>
             <point key="canvasLocation" x="-630" y="1754"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Mapbox View Controller-->
         <scene sceneID="Irk-MP-Waf">
             <objects>
-                <viewController id="V1A-dl-eQN" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController id="V1A-dl-eQN" customClass="MapboxViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7DD-Xd-3F2"/>
                         <viewControllerLayoutGuide type="bottom" id="eKl-5T-j8b"/>
@@ -1017,6 +1017,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p9v-IF-eIb"/>
-        <segue reference="ddk-CO-uTG"/>
+        <segue reference="d06-p6-ZJe"/>
     </inferredMetricsTieBreakers>
 </document>
