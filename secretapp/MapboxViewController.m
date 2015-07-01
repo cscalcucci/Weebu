@@ -155,11 +155,14 @@
         layer.bounds = CGRectMake(0, 0, 50, 50);
 
         // change the size of the circle depending on the cluster's size
-        if ([annotation.clusteredAnnotations count] > 2) {
-            layer.bounds = CGRectMake(0, 0, 15, 15);
-        } else if ([annotation.clusteredAnnotations count] > 3) {
-            layer.bounds = CGRectMake(0, 0, 25, 25);
-        } else if ([annotation.clusteredAnnotations count] > 5) {
+        if ([annotation.clusteredAnnotations count] < 5) {
+            NSLog(@"Small");
+            layer.bounds = CGRectMake(0, 0, 5, 5);
+        } else if (([annotation.clusteredAnnotations count] > 5) && ([annotation.clusteredAnnotations count] < 10)) {
+            NSLog(@"Medium");
+            layer.bounds = CGRectMake(0, 0, 10, 10);
+        } else if (([annotation.clusteredAnnotations count] > 10)) {
+            NSLog(@"Large");
             layer.bounds = CGRectMake(0, 0, 30, 30);
         }
 
