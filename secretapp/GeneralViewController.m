@@ -22,6 +22,23 @@
     UIImage *image = [UIImage imageNamed:@"settings"];
     self.settingsButton.image = image;
 
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *tempItem = [tabBar.items objectAtIndex:0];
+    [tempItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-temp"] scaledToSize:CGSizeMake(13, 30)]];
+
+    UITabBarItem *listItem = [tabBar.items objectAtIndex:1];
+    [listItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-list"] scaledToSize:CGSizeMake(40.41, 30)]];
+
+    UITabBarItem *mapItem = [tabBar.items objectAtIndex:2];
+    [mapItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-map"] scaledToSize:CGSizeMake(34.2, 30)]];
+
+    UITabBarItem *profileItem = [tabBar.items objectAtIndex:3];
+    [profileItem setImage:[self imageWithImage:[UIImage imageNamed:@"emotion5"] scaledToSize:CGSizeMake(30, 30)]];
+
+    tabBar.tintColor = [UIColor blackColor];
+
+
+
     [self rotatingColorWheel];
 }
 
@@ -213,6 +230,15 @@
     fullRotation.duration = 10;
     fullRotation.repeatCount = 10;
     [shape.layer addAnimation:fullRotation forKey:@"360"];
+}
+
+//repeats, delegate when you have the time
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 @end

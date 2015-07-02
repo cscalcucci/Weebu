@@ -36,10 +36,6 @@
     blankBar.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:blankBar];
 
-
-
-
-
     //Username
     self.username = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 25)];
     self.username.center = CGPointMake(self.view.frame.size.width / 2, 225);

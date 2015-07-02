@@ -244,6 +244,6 @@
     return self.emotion.imageString;
 }
 
-
+//repeats, delegate when you have the time
 
 @end
