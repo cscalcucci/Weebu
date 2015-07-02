@@ -11,7 +11,11 @@
         <mutableArray key="Brandon Grotesque Bold.ttf">
             <string>BrandonGrotesque-Bold</string>
         </mutableArray>
+        <mutableArray key="Brandon Grotesque Medium.ttf">
+            <string>BrandonGrotesque-Medium</string>
+        </mutableArray>
         <mutableArray key="Brandon Grotesque Regular.ttf">
+            <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
         </mutableArray>
@@ -331,26 +335,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-Ai-Ce0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-Ai-Ce0">
                                 <rect key="frame" x="0.0" y="115" width="600" height="65"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="YNV-qy-lMp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="BrandonGrotesque-Medium" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uo7-0d-3a6">
-                                <rect key="frame" x="0.0" y="153" width="600" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uo7-0d-3a6">
+                                <rect key="frame" x="0.0" y="178" width="600" height="65"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="WV1-rh-Czk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-G3-tzB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="44P-Pk-Xfn"/>
+                                    <constraint firstAttribute="height" constant="50" id="6XX-NB-hJ0"/>
                                 </constraints>
                                 <items>
                                     <navigationItem title="Title" id="xfD-Ju-Bpo">
@@ -362,10 +370,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFC-z1-8XO">
-                                <rect key="frame" x="0.0" y="259" width="600" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFC-z1-8XO">
+                                <rect key="frame" x="0.0" y="286" width="600" height="61"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="RaZ-w8-EeE"/>
+                                    <constraint firstAttribute="height" constant="61" id="RaZ-w8-EeE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="Log In">
@@ -380,15 +388,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="wnI-Ai-Ce0" secondAttribute="trailing" constant="-16" id="DbQ-n7-mfs"/>
+                            <constraint firstItem="wnI-Ai-Ce0" firstAttribute="top" secondItem="gV0-G3-tzB" secondAttribute="bottom" constant="65" id="NYY-Ew-HAk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uo7-0d-3a6" secondAttribute="trailing" constant="-16" id="QAw-Zl-BIl"/>
-                            <constraint firstItem="uo7-0d-3a6" firstAttribute="top" secondItem="wnI-Ai-Ce0" secondAttribute="bottom" id="Wte-tX-RG9"/>
-                            <constraint firstItem="sFC-z1-8XO" firstAttribute="top" secondItem="uo7-0d-3a6" secondAttribute="bottom" constant="25" id="ZTW-0B-yad"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gV0-G3-tzB" secondAttribute="trailing" constant="-16" id="ay3-lV-t9o"/>
+                            <constraint firstItem="uo7-0d-3a6" firstAttribute="top" secondItem="wnI-Ai-Ce0" secondAttribute="bottom" constant="-2" id="Wte-tX-RG9"/>
+                            <constraint firstItem="sFC-z1-8XO" firstAttribute="top" secondItem="uo7-0d-3a6" secondAttribute="bottom" constant="43" id="ZTW-0B-yad"/>
+                            <constraint firstItem="gV0-G3-tzB" firstAttribute="trailing" secondItem="wnI-Ai-Ce0" secondAttribute="trailing" id="cdP-oh-J4g"/>
                             <constraint firstItem="uo7-0d-3a6" firstAttribute="leading" secondItem="0kq-ed-QG1" secondAttribute="leadingMargin" constant="-16" id="e9I-yh-qGJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sFC-z1-8XO" secondAttribute="trailing" constant="-16" id="erK-gM-ktg"/>
+                            <constraint firstItem="gV0-G3-tzB" firstAttribute="top" secondItem="0kq-ed-QG1" secondAttribute="top" id="ffm-yv-x7I"/>
                             <constraint firstItem="sFC-z1-8XO" firstAttribute="leading" secondItem="0kq-ed-QG1" secondAttribute="leadingMargin" constant="-16" id="lHx-gg-kkf"/>
-                            <constraint firstItem="gV0-G3-tzB" firstAttribute="top" secondItem="0kq-ed-QG1" secondAttribute="topMargin" id="oFp-3J-qad"/>
-                            <constraint firstItem="gV0-G3-tzB" firstAttribute="leading" secondItem="0kq-ed-QG1" secondAttribute="leadingMargin" constant="-16" id="wIQ-Fi-RMK"/>
+                            <constraint firstItem="gV0-G3-tzB" firstAttribute="leading" secondItem="wnI-Ai-Ce0" secondAttribute="leading" id="mik-Ne-JMP"/>
                             <constraint firstItem="wnI-Ai-Ce0" firstAttribute="leading" secondItem="0kq-ed-QG1" secondAttribute="leadingMargin" constant="-16" id="yXH-zo-fPj"/>
                         </constraints>
                     </view>
@@ -851,6 +860,6 @@
         <image name="settings" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p9v-IF-eIb"/>
+        <segue reference="31I-rH-YSq"/>
     </inferredMetricsTieBreakers>
 </document>

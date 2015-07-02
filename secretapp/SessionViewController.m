@@ -21,26 +21,15 @@
     [super viewDidLoad];
     self.sessionImage= [self createObjectWithImage:[UIImage imageNamed:@"happy"] andPositions:0 :0 :65 :65];
 
-    self.loginButton.backgroundColor = [UIColor
-                                        colorWithRed:0.235
-                                        green:0.235
-                                        blue:0.235
-                                        alpha:1];
-    self.signupButton.backgroundColor = [UIColor
-                                         colorWithRed:0.157
-                                         green:0.157
-                                         blue:0.157
-                                         alpha:1];
-
-
-
-    self.twitterButton = [self createButtonWithTitle:@"twitter" chooseColor:[UIColor blueEmotionColor] andPosition:3];
+    self.twitterButton = [self createButtonWithTitle:@"twitter" chooseColor:[UIColor twitterBlueColor] andPosition:3];
     [self.twitterButton addTarget:self action:@selector(parseTwitterLogin) forControlEvents:UIControlEventTouchUpInside];
 
-    self.loginButton = [self createButtonWithTitle:@"login" chooseColor:[UIColor greenEmotionColor] andPosition:2];
+    self.loginButton = [self createButtonWithTitle:@"login" chooseColor:[UIColor redEmotionColor] andPosition:2];
+    [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.loginButton addTarget:self action:@selector(loginSegue) forControlEvents:UIControlEventTouchUpInside];
 
-    self.signupButton = [self createButtonWithTitle:@"signup" chooseColor:[UIColor redEmotionColor] andPosition:1];
+    self.signupButton = [self createButtonWithTitle:@"signup" chooseColor:[UIColor greenEmotionColor] andPosition:1];
+    [self.signupButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.signupButton addTarget:self action:@selector(signupSegue) forControlEvents:UIControlEventTouchUpInside];
 }
 

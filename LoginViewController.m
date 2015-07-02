@@ -23,7 +23,7 @@
 
     self.loginNav.topItem.title = @"Log In";
     self.passwordTextField.secureTextEntry = YES;
-    self.usernameTextField.placeholder = @"username";
+    self.usernameTextField.placeholder = @"e-mail";
     self.passwordTextField.placeholder = @"password";
     [self.usernameTextField becomeFirstResponder];
 //    [self.loginButton setHidden:YES];
