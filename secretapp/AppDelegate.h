@@ -14,6 +14,7 @@
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 
+#import "UserVoice.h"
 #import "Mixpanel.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

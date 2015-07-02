@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsService.h"
+#import "UserVoice.h"
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UITableViewController
+
+
+//UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *radiusPicker;
+@property (weak, nonatomic) IBOutlet UILabel *displayLabel;
+
+@property NSArray *pickerDisplay;
+@property NSArray *pickerData;
 
 @end

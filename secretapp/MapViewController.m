@@ -20,7 +20,6 @@
 @property Emotion *emotion;
 @property FBClusteringManager *clusteringManager;
 
-
 @end
 
 @implementation MapViewController
@@ -40,8 +39,8 @@
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
-
-
+    //nav bar title
+    self.navigationItem.title = @"Your area";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -85,13 +84,10 @@
 //            [self.mapView addAnnotation:annotation];
         }
         self.clusteringManager = [[FBClusteringManager alloc] initWithAnnotations:self.annotationArray];
-
-
     }];
 }
 
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-{
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     [[NSOperationQueue new] addOperationWithBlock:^{
         double scale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
 
@@ -101,8 +97,7 @@
     }];
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-{
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation isEqual:self.mapView.userLocation]) {
         return nil;
     }
@@ -207,6 +202,7 @@
 }
 
 #pragma mark - Cluster Annotation View Helpers
+
 - (NSString *)calculateValues {
     int count = 0;
     NSNumber *pleasantSum = 0;
@@ -243,7 +239,5 @@
     }
     return self.emotion.imageString;
 }
-
-
 
 @end

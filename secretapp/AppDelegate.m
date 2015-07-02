@@ -27,10 +27,16 @@
     [PFTwitterUtils initializeWithConsumerKey:@"JByFce6QZmj8ODqpTxk46GJyP"
                                consumerSecret:@"z0ry2rgdPLaIxf79fZl0BGl515DYRXAUqio2Gvsibhw4F8PdxA"];
 
+
+    // Set this up once when your application launches
+    UVConfig *config = [UVConfig configWithSite:@"weebu.uservoice.com"];
+    config.showContactUs = NO;
+    config.showKnowledgeBase = NO;
+    config.forumId = 307102;
+//    [config identifyUserWithEmail:nil name:[PFUser currentUser].username guid:[PFUser currentUser].objectId];
+    [UserVoice initialize:config];
+
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
-
-
-    
 
     return YES;
 }

@@ -9,7 +9,8 @@
 #import "ListViewController.h"
 #import "Emotion.h"
 #import "Event.h"
-#import "EventTableViewCell.h"
+//#import "EventTableViewCell.h"
+#import "StandardEventTableViewCell.h"
 
 @interface ListViewController ()
 @property PFUser *currentUser;
@@ -33,6 +34,10 @@
     self.settingsButton.title = @"";
     UIImage *image = [UIImage imageNamed:@"settings"];
     self.settingsButton.image = image;
+
+    //nav bar title
+    self.navigationItem.title = @"Recent emotions";
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -52,7 +57,6 @@
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
             NSLog(@"total events: %lu", events.count);
-            NSLog(@"%@", events.firstObject);
             self.events = events;
             [self.tableView reloadData];
         }
@@ -90,9 +94,10 @@
     return self.events.count;
 }
 
--(EventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(StandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    NSArray *objects=[[NSBundle mainBundle]loadNibNamed:@"StandardEventTableViewCell" owner:self options:nil];
+    StandardEventTableViewCell *cell =[objects objectAtIndex:0];
     Event *event = [self.events objectAtIndex:indexPath.row];
     Emotion *emotion = event.emotionObject;
     cell.emotionName.text = emotion.name;
@@ -102,6 +107,22 @@
     cell.timeAgo.text = [self relativeDate:event.createdAt];
     PFUser *user = event.createdBy;
     cell.user_name_here_filler.text = [NSString stringWithFormat:@"%@", user.email];
+
+    //distance calculation
+    PFGeoPoint *parseUserLocation = [PFGeoPoint geoPointWithLocation:self.userLocation];
+    NSString *distanceLabel = [NSString new];
+    double distance = [parseUserLocation distanceInKilometersTo:event.location];
+    if (distance < 0.09) {
+        distanceLabel = [NSString stringWithFormat:@"%im", (int)(distance * 1000)];
+        NSLog(@"%@", distanceLabel);
+    } else if (distance < 1.0) {
+        distanceLabel = [NSString stringWithFormat:@"%.1fm", distance * 1000];
+        NSLog(@"%@", distanceLabel);
+    } else {
+        distanceLabel = [NSString stringWithFormat:@"%.1fmi",distance / 0.621371192];
+    }
+    cell.distanceAway.text = distanceLabel;
+
     return cell;
 }
 
@@ -175,9 +196,9 @@
         }
     } else if (components.minute > 0) {
         if (components.year == 1) {
-            return [NSString stringWithFormat:@"%ldm", (long)components.minute];
+            return [NSString stringWithFormat:@"%ldmin", (long)components.minute];
         } else {
-            return [NSString stringWithFormat:@"%ldm", (long)components.minute];
+            return [NSString stringWithFormat:@"%ldmin", (long)components.minute];
         }
     } else if (components.second > 0) {
         if (components.second == 1) {
@@ -189,5 +210,6 @@
         return [NSString stringWithFormat:@"Time Traveller"];
     }
 }
+
 
 @end

@@ -11,6 +11,8 @@
 
 @interface GeneralViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *zipLabel;
 @end
 
 @implementation GeneralViewController
@@ -18,18 +20,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.settingsButton.title = @"";
-    UIImage *image = [UIImage imageNamed:@"settings"];
-    self.settingsButton.image = image;
+    self.navigationItem.title = @"Current mood";
+
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *tempItem = [tabBar.items objectAtIndex:0];
+    [tempItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-temp"] scaledToSize:CGSizeMake(13, 30)]];
+
+    UITabBarItem *listItem = [tabBar.items objectAtIndex:1];
+    [listItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-list"] scaledToSize:CGSizeMake(40.41, 30)]];
+
+    UITabBarItem *mapItem = [tabBar.items objectAtIndex:2];
+    [mapItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-map"] scaledToSize:CGSizeMake(34.2, 30)]];
+
+    UITabBarItem *profileItem = [tabBar.items objectAtIndex:3];
+    [profileItem setImage:[self imageWithImage:[UIImage imageNamed:@"emotion4"] scaledToSize:CGSizeMake(30, 30)]];
+
+    tabBar.tintColor = [UIColor blackColor];
+
+
 
     [self rotatingColorWheel];
-    [self rotateImageView:self.colorWheel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self loadEvents];
+    [self rotateImageView:self.colorWheel];
+
+    //add imageView
+    self.emotionImageView = [[PFImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    self.emotionImageView.center = CGPointMake(self.view.center.x, self.view.center.y - 100);
+    [self.view addSubview:self.emotionImageView];
 
     self.userLocation = [LocationService sharedInstance].currentLocation;
+    self.venueUrlCall = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&oauth_token=N5Z3YJNLEWD4KIBIOB1C22YOPTPSJSL3NAEXVUMYGJC35FMP&v=20150617", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude]];
+    self.foursquareResults = [NSArray new];
+    [self retrieveFoursquareResults];
 
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -37,6 +62,22 @@
     [self.view bringSubviewToFront:self.emotionImageView];
 
     [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.05];
+}
+
+- (void)retrieveFoursquareResults {
+    self.userLocation = [LocationService sharedInstance].currentLocation;
+    NSLog(@"LOCATION 1: %@", self.userLocation);
+    [FoursquareAPI retrieveFoursquareResults:self.venueUrlCall completion:^(NSArray *array) {
+        self.foursquareResults = array;
+        NSLog(@"Started call and got %@", array);
+        NSLog(@"LOCATION 2: %@", self.userLocation);
+        for (FoursquareAPI *item in self.foursquareResults) {
+            NSLog(@"VENUE NAME: %@", item.venueName);
+        }
+        FoursquareAPI *venue = self.foursquareResults.firstObject;
+        self.cityLabel.text = [NSString stringWithFormat:@"%@, %@", venue.city, venue.state];
+        self.zipLabel.text = venue.zipcode;
+    }];
 }
 
 #pragma mark - Emotion Calculation
@@ -106,9 +147,12 @@
         }
 
         /*Note: make this imageView programmatic and center it along with the color wheel*/
-        self.emotionImageView.file = self.emotion.imageFile;
+        self.emotionImageView.file = self.emotion.imageFileWhite;
         [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
+        self.emotionLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
+
+        [self.view sendSubviewToBack:self.colorWheel];
     }];
 }
 
@@ -150,8 +194,7 @@
 - (void)rotatingColorWheel {
     self.colorWheel = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1000, 1000)];
     self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];
-    self.colorWheel.center = CGPointMake(self.view.frame.size.width  / 2,
-                                        self.view.frame.size.height / 2);
+    self.colorWheel.center = CGPointMake(self.view.center.x, self.view.center.y - 75);
     self.colorWheel.alpha = 0.75;
     [self.view addSubview:self.colorWheel];
 }
@@ -213,6 +256,15 @@
     fullRotation.duration = 10;
     fullRotation.repeatCount = 10;
     [shape.layer addAnimation:fullRotation forKey:@"360"];
+}
+
+//repeats, delegate when you have the time
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 @end

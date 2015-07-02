@@ -17,9 +17,11 @@
 
 @property NSString *name;
 @property PFFile *imageFile;
+@property PFFile *imageFileWhite;
 @property NSNumber *pleasantValue;
 @property NSNumber *activatedValue;
 @property NSString *imageString;
+@property NSString *imageStringWhite;
 //@property float latitude;
 //@property float longitude;
 
