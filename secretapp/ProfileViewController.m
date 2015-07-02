@@ -157,10 +157,9 @@
     cell.timeAgo.text = [self relativeDate:event.createdAt];
 
     //Caption
-    if (!event.caption) {
-        cell.caption.text = @" ";
+    if (event.caption) {
+        cell.caption.text = [NSString stringWithFormat:@"%@", event.caption];
     }
-    cell.caption.text = [NSString stringWithFormat:@"%@", event.caption];
 
     //distance calculation
     PFGeoPoint *parseUserLocation = [PFGeoPoint geoPointWithLocation:self.userLocation];
