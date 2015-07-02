@@ -47,6 +47,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [[LocationService sharedInstance] startUpdatingLocation];
     [self loadEvents];
     [self rotateImageView:self.colorWheel];
 
