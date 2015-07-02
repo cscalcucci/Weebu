@@ -34,6 +34,7 @@
 @property NSNumber *activatedValue;
 @property NSString *emotionImageString;
 
+
 @end
 
 @implementation MapboxViewController
@@ -85,7 +86,7 @@
                                      initWithMapView:self.mapView
                                      coordinate:self.mapView.centerCoordinate
                                      andTitle:@"Hello, world!"];
-    annotation.userInfo = @"training";
+//    annotation.userInfo = @"training";
 
 
     [self.mapView addAnnotation:annotation];
@@ -123,8 +124,11 @@
                 RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self.mapView coordinate:annoCoord andTitle:self.emotion.imageString];
 
                 switch (i) {
-                    case 0 ... 18: annotation.userInfo = @"fizz"; break;
-                    default: annotation.userInfo = @"buzz"; break;
+//                    case 0 ... 500: annotation.subtitle = @"fizz"; NSLog(@"Fizzing"); break;
+
+                    case 0 ... 500: annotation.subtitle = self.emotion.imageString; NSLog(@"Fizzing"); break;
+
+                    default: annotation.subtitle = @"buzz"; NSLog(@"Buzzing"); break;
                 }
 
 
@@ -136,7 +140,7 @@
 //                                       nil];
 //                NSString *imageString = [[NSString alloc] initWithFormat:[annotation.userInfo objectForKey:@"imageString"]];
 //                NSLog(@"Imagestring %@", imageString);
-
+                NSLog(@"%@", annotation.subtitle);
                 [self.annotationArray addObject:annotation];
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"callbackCompleted" object:nil];
@@ -147,8 +151,12 @@
 
 -(void)addAnnotations {
     NSLog(@"I got called to add annotations!");
-    NSArray *annotations = [self.annotationArray copy];
-    [self.mapView addAnnotations:annotations];
+//    NSArray *annotations = [self.annotationArray copy];
+    for (RMAnnotation *a in self.annotationArray) {
+        NSLog(@"==> %@", a.subtitle);
+        [self.mapView addAnnotation:a];
+    }
+//    [self.mapView addAnnotations:self.annotationArray];
 }
 
 
@@ -161,26 +169,13 @@
     if (annotation.isClusterAnnotation) {
         NSLog(@"I got cluster called");
 
-//        for (int i = 0; i < annotation.clusteredAnnotations.count; i++) {
-//            NSString *emotion = ((RMAnnotation*)annotation.clusteredAnnotations[i]).userInfo;
-////            NSString *emotion = annotation.userInfo;
-//            NSLog(@"Emotion Name %@", emotion);
-//        }
-//
-//        for (RMAnnotation *annotation in annotation.clusteredAnnotations) {
-//            NSString *emotion = annotation.userInfo;
-//            NSLog(@"Emotion Name %@", emotion);
-//        }
+        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
 
-//        NSString *imageString = [self calculateValuesForArray:annotation.clusteredAnnotations];
+        if ([self annotationSubTitle:annotation.clusteredAnnotations] != nil) {
 
-//        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:imageString]];
-//        if ([annotation.userInfo isEqualToString:@"fizz"]) {
-//            NSLog(@"I got called for emotion1");
-            marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion1white.png"]];
-//        }
-//        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
-
+            NSString *imageString = [self annotationSubTitle:annotation.clusteredAnnotations];
+            marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:imageString]];
+        }
 
         marker.bounds = CGRectMake(0, 0, 50, 50);
         marker.opacity = 0.75;
@@ -226,126 +221,82 @@
     } else {
         NSLog(@"I got single called");
 
-        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion1.png"]];
+        if (annotation.subtitle != nil) {
+            for (Emotion *emotion in self.emotionsArray) {
+                if (emotion.imageString == annotation.subtitle) {
+                    marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:emotion.imageString]];
+                }
+            }
+        } else {
+            marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
+        }
+
         marker.bounds = CGRectMake(0, 0, 25, 25);
-
         marker.canShowCallout = YES;
-
     }
-//    if ([annotation.userInfo isEqualToString:@"training"])
-//    {
-//        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"astronaut1.png"]];
-//    }
     return marker;
 }
 
--(UIImage *)resizeView:(UIImage *)image withSize:(NSString *)size {
-    CGSize scaleSize;
+-(NSString *)annotationSubTitle:(NSArray *)cluster {
+    NSMutableArray *average = [NSMutableArray new];
+    NSString *str;
 
-    if ([size isEqualToString:@"Large"]) {
-        scaleSize = CGSizeMake(75.0, 75.0);
-    } else if ([size isEqualToString:@"Medium"]) {
-        scaleSize = CGSizeMake(50.0, 50.0);
-    } else if ([size isEqualToString:@"Small"]) {
-        scaleSize = CGSizeMake(25.0, 25.0);
-    } else {
-        scaleSize = CGSizeMake(15.0, 15.0);
+    for (RMAnnotation *a in cluster) {
+        if (a.subtitle != nil) {
+            [average addObject:a.subtitle];
+        }
     }
 
-    UIGraphicsBeginImageContextWithOptions(scaleSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, scaleSize.width, scaleSize.height)];
-    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return resizedImage;
+    str = [self calculatValuesForArray:average];
+
+    return str;
 }
 
-- (NSString *)calculateValuesForArray:(NSArray*)array {
+
+
+
+- (NSString *)calculatValuesForArray:(NSArray *)events {
     int count = 0;
     NSNumber *pleasantSum = 0;
     NSNumber *activatedSum = 0;
-    NSString *imageString = [NSString new];
-    NSNumber *pleasantValue = [NSNumber new];
-    NSNumber *activatedValue = [NSNumber new];
+    Emotion *foundEmote;
 
+    for (NSString *imageString in events) {
+        for (Emotion *emotion in self.emotionsArray) {
+            if ([imageString isEqualToString: emotion.imageString]) {
+                foundEmote = emotion;
+            }
+        }
 
-    for (int i = 0; i < array.count; i++) {
-
-        RMAnnotation *annotation = array[i];
-
-//        NSDictionary *emotion = [[NSDictionary alloc] initWithDictionary:(NSDictionary*)annotation.userInfo];
-
-        imageString = [[NSString alloc] initWithFormat:[annotation.userInfo objectForKey:@"imageString"]];
-
-//        NSNumber *pleasantValue = [NSNumber new];
-        pleasantValue = [annotation.userInfo objectForKey:@"pleasantValue"];
-//        NSNumber *activatedValue = [NSNumber new];
-        activatedValue = [annotation.userInfo objectForKey:@"activatedValue"];
-
-//        imageString = [emotion objectForKey:@"imageString"];
-//        pleasantValue = [emotion objectForKey:@"pleasantValue"];
-//        activatedValue = [emotion objectForKey:@"activatedValue"];
-
-        pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [pleasantValue floatValue])];
-        activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [activatedValue floatValue])];
+        pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [foundEmote.pleasantValue floatValue])];
+        activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [foundEmote.activatedValue floatValue])];
         count = count + 1;
-
-        NSLog(@"Emotion Name %@", imageString);
-        NSLog(@"Emotion Pleasant %@", pleasantValue);
-        NSLog(@"Emotion Activated %@", activatedValue);
-
     }
-
     self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
     self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
-
-    NSLog(@"finding emotion");
-    __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
-
-    for (int i = 0; i < array.count; i++) {
-
-        RMAnnotation *annotation = array[i];
-
-        imageString = [[NSString alloc] initWithFormat:[annotation.userInfo objectForKey:@"imageString"]];
-
-//        NSNumber *pleasantValue = [NSNumber new];
-        pleasantValue = [annotation.userInfo objectForKey:@"pleasantValue"];
-//        NSNumber *activatedValue = [NSNumber new];
-        activatedValue = [annotation.userInfo objectForKey:@"activatedValue"];
-
-        NSNumber *x1 = pleasantValue;
-        NSNumber *y1 = activatedValue;
-
-        NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
-        NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
-        if ([newDistance floatValue] < [distance floatValue]) {
-            NSLog(@"ASSIGN");
-            self.emotionImageString = imageString;
-//            self.emotion = emotion;
-            distance = newDistance;
-        }
-        NSLog(@"Distance: %f", [distance floatValue]);
-    }
-    return self.emotionImageString;
-//    NSString *emotionString = [NSString stringWithString:[self findEmotion]];
-//    return emotionString;
+    NSString *returnString = [self findEmotion];
+    return returnString;
 }
 
 - (NSString*)findEmotion {
-    NSLog(@"finding emotion");
+
+    NSString *foundImage = @"circle.png";
+
     __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
-    for (Emotion *emotion in self.emotionsArray) {
-        NSNumber *x1 = emotion.pleasantValue;
-        NSNumber *y1 = emotion.activatedValue;
-        NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
-        NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
-        if ([newDistance floatValue] < [distance floatValue]) {
-            NSLog(@"ASSIGN");
-            self.emotion = emotion;
-            distance = newDistance;
+        for (Emotion *emotion in self.emotionsArray) {
+
+            NSNumber *x1 = emotion.pleasantValue;
+            NSNumber *y1 = emotion.activatedValue;
+            NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
+            if ([newDistance floatValue] < [distance floatValue]) {
+                NSLog(@"ASSIGN");
+                self.emotion = emotion;
+                foundImage = emotion.imageStringWhite;
+                distance = newDistance;
+            }
         }
-        NSLog(@"Distance: %f", [distance floatValue]);
-    }
-    return self.emotion.imageString;
+
+    return foundImage;
 }
 
 
