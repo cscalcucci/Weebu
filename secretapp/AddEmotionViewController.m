@@ -352,7 +352,6 @@
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Add emotion"];
 
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 -(void)moveView {

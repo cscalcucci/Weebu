@@ -33,10 +33,13 @@
     UITabBarItem *listItem = [tabBar.items objectAtIndex:1];
     [listItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-list"] scaledToSize:CGSizeMake(40.41, 30)]];
 
-    UITabBarItem *mapItem = [tabBar.items objectAtIndex:2];
+    UITabBarItem *addItem = [tabBar.items objectAtIndex:2];
+    [addItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-add"] scaledToSize:CGSizeMake(30, 30)]];
+
+    UITabBarItem *mapItem = [tabBar.items objectAtIndex:3];
     [mapItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-map"] scaledToSize:CGSizeMake(34.2, 30)]];
 
-    UITabBarItem *profileItem = [tabBar.items objectAtIndex:3];
+    UITabBarItem *profileItem = [tabBar.items objectAtIndex:4];
     [profileItem setImage:[self imageWithImage:[UIImage imageNamed:@"emotion4"] scaledToSize:CGSizeMake(30, 30)]];
 
     tabBar.tintColor = [UIColor blackColor];
@@ -69,8 +72,6 @@
     self.foursquareResults = [NSArray new];
     [self retrieveFoursquareResults];
 
-    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
-    [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view bringSubviewToFront:self.emotionLabel];
     [self.view bringSubviewToFront:self.emotionImageView];
 
