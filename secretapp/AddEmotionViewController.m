@@ -10,7 +10,8 @@
 #import "JFMinimalNotification.h"
 
 
-@interface AddEmotionViewController () <JFMinimalNotificationDelegate>
+@interface AddEmotionViewController () <JFMinimalNotificationDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
+
 @property UIImageView *imageView;
 @property (nonatomic, strong) JFMinimalNotification* minimalNotification;
 @property UIImage *selectedImage;
@@ -18,12 +19,29 @@
 @property NSString *notificationMessage;
 @property NSString *notificationType;
 @property Emotion *selectedEmotion;
-@property (weak, nonatomic) IBOutlet UIButton *submitButton;
-@property (weak, nonatomic) IBOutlet UIButton *venuesButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-@property (weak, nonatomic) IBOutlet UIImageView *emotionImageView;
-@property (weak, nonatomic) IBOutlet UIPickerView *emotionPicker;
+
+//Emotion Select View
+@property (nonatomic) UIView *emotionSelectView;
+@property (nonatomic) UIButton *selectEmotion;
+@property (nonatomic) UIButton *emotionEmotion;
+@property (nonatomic) UIScrollView *scrollView;
+@property (nonatomic) UIPickerView *emotionPicker;
+
+
+//Venue Select View
+@property (nonatomic) UIView *venueSelectView;
+@property (nonatomic) UIButton *venuesButton;
+@property (nonatomic) UIButton *confirmButton;
+@property (nonatomic) UIButton *venueEmotion;
+@property (nonatomic) UITextField *captionText;
+
+//VC-Wide Elements
+@property (nonatomic) UIButton *cancelButton;
+@property (nonatomic) UIButton *backButton;
+@property (nonatomic) UIImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UIView *venuesContainer;
+@property (nonatomic) UITapGestureRecognizer *tap;
+
 @end
 
 @implementation AddEmotionViewController
@@ -38,30 +56,111 @@
      selector:@selector(updateLocation:) name:@"selectedLocation"
      object:nil];
 
-    self.emotionImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"emotion10"]];
-
-    self.submitButton.backgroundColor = [UIColor greenColor];
-    self.cancelButton.backgroundColor = [UIColor redColor];
-    self.venuesButton.backgroundColor = [UIColor
-                                            colorWithRed:0.235
-                                            green:0.235
-                                            blue:0.235
-                                            alpha:1];
-    CGRect submitFrame = self.submitButton.frame;
-    submitFrame.size = CGSizeMake(self.view.frame.size.width, 65);
-    self.submitButton.frame = submitFrame;
-
-    self.emotions = [[NSArray alloc]init];
     PFQuery *emotionsQuery = [PFQuery queryWithClassName:@"Emotion"];
     [emotionsQuery orderByAscending:@"createdAt"];
     [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
         if (!error) {
             self.emotions = emotions;
+            [self createCarousel];
             [self.emotionPicker reloadAllComponents];
         }
     }];
 
+    self.tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+
+    [self.view addGestureRecognizer:self.tap];
+
+    //Select Venue View & Buttons
+    self.venueSelectView = [[UIView alloc] initWithFrame: CGRectMake(1000, (self.view.frame.size.height - 345), self.view.frame.size.width, 345)];
+
+    self.captionText = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 135)];
+    self.captionText.enablesReturnKeyAutomatically = YES;
+    self.captionText.placeholder = [NSString stringWithFormat:@"Enter Caption"];
+
+    self.venueEmotion = [[UIButton alloc] initWithFrame: CGRectMake(0, 135, self.view.frame.size.width, 40) ];
+    self.venueEmotion.backgroundColor = [UIColor magentaColor];
+    [self.venueEmotion setTitle:@"emotion" forState:UIControlStateNormal];
+
+
+    self.venuesButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 175, self.view.frame.size.width, 75) ];
+    self.venuesButton.backgroundColor = [UIColor blueColor];
+    [self.venuesButton setTitle:@"Add Location" forState:UIControlStateNormal];
+    [self.venuesButton addTarget:self action:@selector(onVenueButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+
+    self.confirmButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 250, self.view.frame.size.width, 95)];
+    self.confirmButton.backgroundColor = [UIColor greenColor];
+    [self.confirmButton setTitle:@"Confirm" forState:UIControlStateNormal];
+    [self.confirmButton addTarget:self action:@selector(confirmButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+
+
+    [self.view addSubview:self.venueSelectView];
+    [self.venueSelectView addSubview:self.confirmButton];
+    [self.venueSelectView addSubview:self.captionText];
+    [self.venueSelectView addSubview:self.venuesButton];
+    [self.venueSelectView addSubview:self.venueEmotion];
+    self.venueSelectView.hidden = YES;
+
+    //Select Emotion View & Buttons
+    self.emotionSelectView = [[UIView alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height - 345), self.view.frame.size.width, 345)];
+
+    self.emotionEmotion = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    self.emotionEmotion.backgroundColor = [UIColor magentaColor];
+    [self.emotionEmotion setTitle:@"emotion" forState:UIControlStateNormal];
+
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, 80)];
+    self.emotionPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, 150)];
+
+    self.selectEmotion = [[UIButton alloc] initWithFrame: CGRectMake(0, 270, self.view.frame.size.width, 75)];
+    self.selectEmotion.backgroundColor = [UIColor greenColor];
+    [self.selectEmotion setTitle:@"Select Emotion" forState:UIControlStateNormal];
+    [self.selectEmotion addTarget:self action:@selector(selectEmotionTapped:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:self.emotionSelectView];
+    [self.emotionSelectView addSubview:self.emotionPicker];
+    [self.emotionSelectView addSubview:self.emotionEmotion];
+    [self.emotionSelectView addSubview:self.selectEmotion];
+
+    [self.view bringSubviewToFront:self.emotionSelectView];
+    [self.emotionSelectView bringSubviewToFront:self.emotionPicker];
+    [self.emotionSelectView bringSubviewToFront:self.emotionEmotion];
+    [self.emotionSelectView bringSubviewToFront:self.selectEmotion];
+
+    //View Controller Buttons
+    self.cancelButton = [[UIButton alloc] initWithFrame: CGRectMake((self.view.frame.size.width - 125), 50, 125, 30)];
+    self.cancelButton.backgroundColor = [UIColor redColor];
+    [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [self.cancelButton addTarget:self action:@selector(onCancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+
+    self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(-125, 50, 125, 30)];
+    self.backButton.backgroundColor = [UIColor yellowColor];
+    [self.backButton setTitle:@"Back" forState:UIControlStateNormal];
+    [self.backButton addTarget:self action:@selector(backButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+
+
+    [self.view addSubview:self.backButton];
+    [self.view addSubview:self.cancelButton];
+//    self.backButton.hidden = YES;
+
+    //Setup Image View
+    self.emotionImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"emotion10"]];
+    float width = self.view.frame.size.width / 2;
+    float height = width;
+
+    self.emotionImageView.frame = CGRectMake((width - (width / 2)), ((self.view.frame.size.height - self.venueSelectView.frame.size.height) - (height + ((height / 2) - 30))), width, height);
+    [self.view addSubview:self.emotionImageView];
+
+
+    //Array with emotion objects
+    self.emotions = [[NSArray alloc]init];
+
+    // Setup Minimal Notifications
     self.minimalNotification.delegate = self;
+    self.emotionPicker.delegate = self;
+    self.captionText.delegate = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -72,29 +171,111 @@
     [mixpanel timeEvent:@"Add emotion"];
 }
 
-- (IBAction)onSubmitButtonPressed:(UIButton *)sender {
-    [self submitEmotion];
+-(void)dismissKeyboard {
+    [self.captionText resignFirstResponder];
 }
-- (IBAction)onVenueButtonPressed:(UIButton *)sender {
-    [self selectVenue];
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.captionText resignFirstResponder];
+    return NO;
 }
+
+-(void)updateLocation:(NSNotification *)notification {
+    if ([notification.object isKindOfClass:[FoursquareAPI class]]) {
+        NSLog(@"Did select a venue");
+        FoursquareAPI *item = [notification object];
+        self.selectedItem = [FoursquareAPI new];
+        self.selectedItem = item;
+        self.venuesButton.titleLabel.text = item.venueName;
+        self.venuesContainer.hidden = YES;
+        self.didSelectVenue = YES;
+        self.tap.enabled = YES;
+        self.captionText.hidden = NO;
+    } else {
+        NSLog(@"Error Transferring Location Data");
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    //Add code to stop updating location
+}
+
+#pragma mark - Button Taps
+
+- (IBAction)backButtonTapped:(UIButton *)sender {
+    [self moveView];
+}
+
 - (IBAction)onCancelButtonPressed:(UIButton *)sender {
     [self cancelEmotion];
 }
 
+//Buttons in Select Emotion View
+- (IBAction)selectEmotionTapped:(UIButton *)sender {
+    [self moveView];
+}
+
+//Buttons in Select Venue View
+- (IBAction)confirmButtonTapped:(UIButton *)sender {
+    [self submitEmotion];
+}
+
+- (IBAction)onVenueButtonPressed:(UIButton *)sender {
+    [self selectVenue];
+}
+
+
+
+
+#pragma mark - Emotions Carousel
+
+-(void)createCarousel {
+    int x = 0;
+    CGRect frame;
+
+    for (int i = 0; i <= 19; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        if (i == 0) {
+            frame = CGRectMake(10, 10, 60, 60);
+        } else {
+            frame = CGRectMake((i * 80) + (i * 20) + 10, 10, 60, 60);
+        }
+        button.frame = frame;
+
+        [button setTitle:[NSString stringWithFormat:@"Button %d", i] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"emotion%i",i]] forState:UIControlStateNormal];
+        [button setTag:i];
+        [button setBackgroundColor:[UIColor whiteColor]];
+        [button addTarget:self action:@selector(onSelectEmotionPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self.scrollView addSubview:button];
+
+        [button setTintColor:[UIColor blackColor]];
+
+        if (i == 19) {
+            x = CGRectGetMaxX(button.frame);
+        }
+    }
+    self.scrollView.contentSize = CGSizeMake(x, self.scrollView.frame.size.height);
+    self.scrollView.backgroundColor = [UIColor whiteColor];
+    [self.emotionSelectView addSubview:self.scrollView];
+    [self.emotionSelectView bringSubviewToFront:self.scrollView];
+
+}
+
+
+- (IBAction)onSelectEmotionPressed:(UIButton *)sender {
+    self.selectedTag = sender.tag;
+    Emotion *emotion = [self.emotions objectAtIndex:self.selectedTag];
+    [self.venueEmotion setTitle:emotion.name forState:UIControlStateNormal];
+    [self.emotionEmotion setTitle:emotion.name forState:UIControlStateNormal];
+
+    self.emotionImageView.image = [UIImage imageNamed:emotion.imageString];
+}
+
 #pragma mark - Emotions picker
 
-// SET PICKER FONT SIZE
-//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-//    UILabel* tView = (UILabel*)view;
-//    if (!tView) {
-//        tView = [[UILabel alloc] init];
-//        tView.font
-//    }
-//    return tView;
-//}
-
-- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    NSLog(@"Number of Components");
     return 1;
 }
 
@@ -113,25 +294,8 @@
     self.selectedTag = row;
 }
 
-
--(void)updateLocation:(NSNotification *)notification {
-    if ([notification.object isKindOfClass:[FoursquareAPI class]]) {
-        FoursquareAPI *item = [notification object];
-        self.selectedItem = [FoursquareAPI new];
-        self.selectedItem = item;
-        self.venuesButton.titleLabel.text = item.venueName;
-        self.containerView.hidden = YES;
-        self.didSelectVenue = YES;
-    } else {
-        NSLog(@"Error Transferring Location Data");
-    }
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-    //Add code to stop updating location
-}
-
 #pragma mark - Button actions
+
 
 - (void)submitEmotion {
     NSLog(@"add emotion button pressed");
@@ -143,6 +307,7 @@
         event.createdBy = [PFUser currentUser];
         event.emotionObject = self.emotions[self.selectedTag];
         event.venueName = self.selectedItem.venueName;
+        event.caption = self.captionText.text;
 
         if (self.didSelectVenue) {
             PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:self.selectedItem.latitude longitude:self.selectedItem.longitude];
@@ -153,12 +318,13 @@
 
         [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                int chance = (arc4random_uniform(5));
-                if (chance == 3) {
-                    self.notificationType = [[NSString alloc] initWithFormat:@"chance"];
-                } else {
+                //Removed fun little chance for alternative notification
+//                int chance = (arc4random_uniform(5));
+//                if (chance == 3) {
+//                    self.notificationType = [[NSString alloc] initWithFormat:@"chance"];
+//                } else {
                     self.notificationType = [[NSString alloc] initWithFormat:@"success"];
-                }
+//                }
                 NSLog(@"Success");
             } else {
                 self.notificationType = [[NSString alloc] initWithFormat:@"error"];
@@ -175,7 +341,9 @@
 - (void)selectVenue {
     self.venuesContainer.hidden = !self.venuesContainer.hidden;
     if (self.venuesContainer.hidden == NO) {
-        [self.view bringSubviewToFront:self.containerView];
+        [self.view bringSubviewToFront:self.venuesContainer];
+        self.tap.enabled = NO;
+        self.captionText.hidden = YES;
     }
 }
 
@@ -185,6 +353,40 @@
     [mixpanel track:@"Add emotion"];
 
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)moveView {
+    self.emotionSelectView.hidden = !self.emotionSelectView.hidden;
+    self.venueSelectView.hidden = !self.venueSelectView.hidden;
+//    self.backButton.hidden = !self.backButton.hidden;
+
+    CGRect venueFrame;
+    CGRect emotionFrame;
+    CGRect backFrame;
+
+    if (self.emotionSelectView.hidden) {
+        NSLog(@"Forward");
+        venueFrame = CGRectMake(0, (self.view.frame.size.height - 345), self.view.frame.size.width, 345);
+        emotionFrame = CGRectMake((0 - (self.view.frame.size.width)), (self.view.frame.size.height - 345), self.view.frame.size.width, 345);
+        backFrame = CGRectMake(0, 50, 125, 30);
+
+    } else {
+        NSLog(@"Backward");
+        venueFrame = CGRectMake(self.view.frame.size.width, (self.view.frame.size.height - 345), self.view.frame.size.width, 345);
+        emotionFrame = CGRectMake(0, (self.view.frame.size.height - 345), self.view.frame.size.width, 345);
+        backFrame = CGRectMake(-125, 50, 125, 30);
+
+    }
+
+    [UIView animateWithDuration:0.3f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self.venueSelectView setFrame:venueFrame];
+                         [self.emotionSelectView setFrame:emotionFrame];
+                         [self.backButton setFrame:backFrame];
+                     }
+                     completion:nil];
 }
 
 - (IBAction)unwindToEmotion:(UIStoryboardSegue *)segue {
