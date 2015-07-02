@@ -148,43 +148,84 @@
 
     if (annotation.isClusterAnnotation) {
         NSLog(@"I got cluster called");
+//        UIImage *image = [UIImage imageNamed:@"emotion16.png"];
+        marker.opacity = 0.75;
 
-        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion16.png"]];
-        layer.opacity = 0.75;
+//        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion16.png"]];
+        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
 
-        layer.bounds = CGRectMake(0, 0, 50, 50);
+
+        marker.bounds = CGRectMake(0, 0, 50, 50);
 
         // change the size of the circle depending on the cluster's size
         if ([annotation.clusteredAnnotations count] < 5) {
             NSLog(@"Small");
-            layer.bounds = CGRectMake(0, 0, 5, 5);
+            marker.bounds = CGRectMake(0, 0, 50, 50);
         } else if (([annotation.clusteredAnnotations count] > 5) && ([annotation.clusteredAnnotations count] < 10)) {
             NSLog(@"Medium");
-            layer.bounds = CGRectMake(0, 0, 10, 10);
+            marker.bounds = CGRectMake(0, 0, 75, 75);
         } else if (([annotation.clusteredAnnotations count] > 10)) {
             NSLog(@"Large");
-            layer.bounds = CGRectMake(0, 0, 30, 30);
+            marker.bounds = CGRectMake(0, 0, 100, 100);
         }
+        NSString *clusterLabelContent = [NSString stringWithFormat:@"%lu",
+                                         (unsigned long)[annotation.clusteredAnnotations count]];
 
-        [(RMMarker *)layer changeLabelUsingText:[NSString stringWithFormat:@"%lu",
-                                                 (unsigned long)[annotation.clusteredAnnotations count]]];
+        CGRect labelSize = [clusterLabelContent boundingRectWithSize:
+                            marker.label.frame.size
+                                                             options:NSStringDrawingUsesLineFragmentOrigin attributes:@{
+                                                                                                                        NSFontAttributeName:[UIFont systemFontOfSize:15] }
+                                                             context:nil];
+        [marker setTextForegroundColor:[UIColor whiteColor]];
+
+        UIFont *labelFont = [UIFont systemFontOfSize:15];
+
+        // get the layer's size
+        CGSize layerSize = marker.frame.size;
+
+        // calculate its position
+        CGPoint position = CGPointMake((layerSize.width - (labelSize.size.width + 4)) / 2,
+                                       (layerSize.height - (labelSize.size.height + 4)) / 2);
+
+        // set it all at once
+        [marker changeLabelUsingText:clusterLabelContent position:position
+                                           font:labelFont foregroundColor:[UIColor whiteColor]
+                                backgroundColor:[UIColor clearColor]];
 
     } else {
         NSLog(@"I got single called");
 
         marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion1.png"]];
+        marker.bounds = CGRectMake(0, 0, 25, 25);
+
         marker.canShowCallout = YES;
 
     }
-
-
 //    if ([annotation.userInfo isEqualToString:@"training"])
 //    {
 //        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"astronaut1.png"]];
 //    }
-
-
     return marker;
+}
+
+-(UIImage *)resizeView:(UIImage *)image withSize:(NSString *)size {
+    CGSize scaleSize;
+
+    if ([size isEqualToString:@"Large"]) {
+        scaleSize = CGSizeMake(75.0, 75.0);
+    } else if ([size isEqualToString:@"Medium"]) {
+        scaleSize = CGSizeMake(50.0, 50.0);
+    } else if ([size isEqualToString:@"Small"]) {
+        scaleSize = CGSizeMake(25.0, 25.0);
+    } else {
+        scaleSize = CGSizeMake(15.0, 15.0);
+    }
+
+    UIGraphicsBeginImageContextWithOptions(scaleSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, scaleSize.width, scaleSize.height)];
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resizedImage;
 }
 
 
