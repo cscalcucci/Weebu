@@ -23,7 +23,7 @@
 #pragma mark - Animations
 
 - (void)expandImageView:(UIImageView *)shape andActivatedValue:(Emotion *)emotion {
-    float a = 2 - (emotion.activatedValue.floatValue/1);
+    float a = 10;
     [UIView animateWithDuration:a
                           delay:a
                         options:UIViewAnimationOptionRepeat | UIViewAnimationCurveEaseInOut | UIViewAnimationOptionAutoreverse

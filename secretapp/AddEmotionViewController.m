@@ -104,7 +104,7 @@
     self.venueSelectView.hidden = YES;
 
     //Select Emotion View & Buttons
-    self.emotionSelectView = [[UIView alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height - 345), self.view.frame.size.width, 345)];
+    self.emotionSelectView = [[UIView alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height - 395), self.view.frame.size.width, 395)];
 
     self.emotionEmotion = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 40)];
     self.emotionEmotion.backgroundColor = [UIColor magentaColor];
@@ -114,7 +114,7 @@
     self.emotionPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, 150)];
 
     self.selectEmotion = [[UIButton alloc] initWithFrame: CGRectMake(0, 270, self.view.frame.size.width, 75)];
-    self.selectEmotion.backgroundColor = [UIColor greenColor];
+    self.selectEmotion.backgroundColor = [UIColor greenEmotionColor];
     [self.selectEmotion setTitle:@"Select Emotion" forState:UIControlStateNormal];
     [self.selectEmotion addTarget:self action:@selector(selectEmotionTapped:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -129,14 +129,14 @@
     [self.emotionSelectView bringSubviewToFront:self.selectEmotion];
 
     //View Controller Buttons
-    self.cancelButton = [[UIButton alloc] initWithFrame: CGRectMake((self.view.frame.size.width - 125), 50, 125, 30)];
-    self.cancelButton.backgroundColor = [UIColor redColor];
+    self.cancelButton = [[UIButton alloc] initWithFrame: CGRectMake((self.view.frame.size.width - 125), 60, 80, 80)];
+    self.cancelButton.backgroundColor = [UIColor redEmotionColor];
     [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     [self.cancelButton addTarget:self action:@selector(onCancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
 
     self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(-125, 50, 125, 30)];
-    self.backButton.backgroundColor = [UIColor yellowColor];
+    self.backButton.backgroundColor = [UIColor yellowEmotionColor];
     [self.backButton setTitle:@"Back" forState:UIControlStateNormal];
     [self.backButton addTarget:self action:@selector(backButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -161,6 +161,8 @@
     self.minimalNotification.delegate = self;
     self.emotionPicker.delegate = self;
     self.captionText.delegate = self;
+
+
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -351,6 +353,8 @@
     NSLog(@"pressed");
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel track:@"Add emotion"];
+
+    [self dismissViewControllerAnimated:YES completion:NULL];
 
 }
 
