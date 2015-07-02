@@ -67,7 +67,6 @@
     self.events = [NSArray new];
 
     self.userLocation = [LocationService sharedInstance].currentLocation;
-    NSLog(@"user location for feed: %@", self.userLocation);
     PFGeoPoint *userGeoPoint = [PFGeoPoint geoPointWithLatitude:self.userLocation.coordinate.latitude
                                                       longitude:self.userLocation.coordinate.longitude];
 
@@ -128,8 +127,8 @@
 - (void)shareOnTwitter {
     TWTRComposer *composer = [[TWTRComposer alloc] init];
 
-    [composer setText:@"just setting up my weebu"];
-    [composer setImage:[UIImage imageNamed:@"happy"]];
+    [composer setText:[NSString stringWithFormat:@"My average mood over the past 24 hours was %@.  via @WeebuApp_", self.emotion.name]];
+    [composer setImage:[UIImage imageNamed:self.emotion.imageString]];
 
     [composer showWithCompletion:^(TWTRComposerResult result) {
         if (result == TWTRComposerResultCancelled) {
@@ -185,6 +184,7 @@
 }
 
 #pragma mark - Das Algorithm
+
 - (void)calculatValues {
     //Date for 24 hours
     NSDate *date = [[NSDate date] dateByAddingTimeInterval:-24*60*60];
@@ -192,9 +192,6 @@
     int count = 0;
     NSNumber *pleasantSum = 0;
     NSNumber *activatedSum = 0;
-
-    NSLog(@"EVENTS COUNT: %lu", self.events.count);
-    NSLog(@"RADIUS: %@", [SettingsService sharedInstance].radius);
 
     //Only add recent events
     for (Event *event in self.events) {
@@ -210,13 +207,8 @@
         count = count + 1;
     }
 
-    NSLog(@"pleasantSum: %f", [pleasantSum floatValue]);
-    NSLog(@"activatedSum: %f", [activatedSum floatValue]);
     self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
     self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
-    NSLog(@"count: %i", count);
-    NSLog(@"pleasntValue: %f", [self.pleasantValue floatValue]);
-    NSLog(@"activatedValue: %f", [self.activatedValue floatValue]);
     [self findEmotion];
 }
 
@@ -229,16 +221,10 @@
             NSNumber *x1 = emotion.pleasantValue;
             NSNumber *y1 = emotion.activatedValue;
             NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
-            NSLog(@"%@ %@/%@", emotion.name, emotion.pleasantValue, emotion.activatedValue);
-            NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
             if ([newDistance floatValue] < [distance floatValue]) {
-                NSLog(@"ASSIGN");
                 self.emotion = emotion;
                 distance = newDistance;
-                NSLog(@"Distance: %f", [distance floatValue]);
             }
-            NSLog(@"EMOTION: %@", self.emotion);
-            NSLog(@"EMOTION name: %@", self.emotion.name);
         }
 
         //Current mood imageview
