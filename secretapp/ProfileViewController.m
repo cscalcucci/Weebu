@@ -124,16 +124,23 @@
 
     [composer setText:[NSString stringWithFormat:@"My average mood over the past 24 hours was %@.  via @WeebuApp_", self.emotion.name]];
     [composer setImage:[UIImage imageNamed:self.emotion.imageString]];
+    self.selectedImage = [UIImage imageNamed:self.emotion.imageString];
+
 
     [composer showWithCompletion:^(TWTRComposerResult result) {
         if (result == TWTRComposerResultCancelled) {
             NSLog(@"Tweet composition cancelled");
+            self.notificationType = [[NSString alloc] initWithFormat:@"error"];
         }
         else {
             NSLog(@"Sending Tweet!");
+            self.notificationType = [[NSString alloc] initWithFormat:@"success"];
         }
+        [self displayNotification];
+
     }];
 }
+
 
 #pragma mark - Tableviews
 
@@ -297,6 +304,61 @@
         }
     } else {
         return [NSString stringWithFormat:@"Time Traveller"];
+    }
+}
+
+#pragma mark - Notifications
+
+-(void)displayNotification {
+    [self setNotificationForType];
+
+    self.minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError title:self.notificationTitle subTitle:self.notificationMessage dismissalDelay:2.5 touchHandler:^{
+        [self.minimalNotification dismiss];
+    }];
+
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.minimalNotification];
+
+//    [self.view addSubview:self.minimalNotification];
+    self.minimalNotification.presentFromTop = YES;
+
+//    [self.tableView bringSubviewToFront:self.minimalNotification];
+
+    if ([self.notificationType isEqualToString:@"success"]) {
+
+        [self.minimalNotification setStyle:JFMinimalNotificationStyleSuccess animated:YES];
+        [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:self.selectedImage] animated:YES];
+
+    } else if ([self.notificationType isEqualToString:@"error"]) {
+        [self.minimalNotification setStyle:JFMinimalNotificationStyleError animated:YES];
+        [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"deathSD"]] animated:YES];
+    } else {
+        [self.minimalNotification setStyle:JFMinimalNotificationStyleWarning animated:YES];
+    }
+
+    UIFont* titleFont = [UIFont fontWithName:@"STHeitiK-Light" size:22];
+    [self.minimalNotification setTitleFont:titleFont];
+    UIFont* subTitleFont = [UIFont fontWithName:@"STHeitiK-Light" size:16];
+    [self.minimalNotification setSubTitleFont:subTitleFont];
+
+//    [self.minimalNotification show];
+    [self.minimalNotification presentFromTop];
+        [self.minimalNotification show];
+
+
+}
+
+-(void)setNotificationForType {
+    if ([self.notificationType isEqualToString:@"chance"]) {
+        self.notificationTitle = [NSString stringWithFormat:@"Watch out!"];
+        self.notificationMessage = [NSString stringWithFormat:@"We believe you MIGHT be %@!, but we're onto you!", self.self.emotion.name];
+
+    } else if ([self.notificationType isEqualToString:@"success"]) {
+        self.notificationTitle = [NSString stringWithFormat:@"Huzzah!"];
+        self.notificationMessage = [NSString stringWithFormat:@"You are now %@!", self.self.emotion.name];
+
+    } else if ([self.notificationType isEqualToString:@"error"]) {
+        self.notificationTitle = [NSString stringWithFormat:@"Oh No!"];
+        self.notificationMessage = [NSString stringWithFormat:@"You must not be very %@! Try uploading again.", self.emotion.name];
     }
 }
 
