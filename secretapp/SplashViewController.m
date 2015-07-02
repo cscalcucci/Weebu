@@ -16,8 +16,6 @@
     self.secondShape = [self createObjectWithImage:[UIImage imageNamed:@"sad"] andPositions:0 :0 :65 :65];
     self.thirdShape =  [self createObjectWithImage:[UIImage imageNamed:@"silly"] andPositions:85 :0 :65 :65];
 
-    [[LocationService sharedInstance] startUpdatingLocation];
-
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     [mixpanel createAlias:[NSString stringWithFormat:@"%@", [PFUser currentUser].username]
             forDistinctID:mixpanel.distinctId];
@@ -25,6 +23,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [[LocationService sharedInstance] startUpdatingLocation];
     [self performSelector:@selector(rotateImageView:) withObject:self.firstShape afterDelay:0];
     [self performSelector:@selector(rotateImageView:) withObject:self.secondShape afterDelay:0.2];
     [self performSelector:@selector(expandImageView:) withObject:self.thirdShape afterDelay:0.4];
