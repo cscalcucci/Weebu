@@ -47,14 +47,10 @@
     //bringing tableview in front of map
     [self.view bringSubviewToFront:self.tableView];
 
-    //buttons
-    self.logoutButton = [self createButtonWithTitle:@"logout" chooseColor:[UIColor redEmotionColor] andPosition:-100];
-    [self.logoutButton addTarget:self action:@selector(userLogout) forControlEvents:UIControlEventTouchUpInside];
-
-    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor greenEmotionColor] andPosition:0];
+    self.addEmotionButton = [self createButtonWithTitle:@"Add Emotion" chooseColor:[UIColor greenEmotionColor] andPosition:-75];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
-    self.shareButton = [self createButtonWithTitle:@"share" chooseColor:[UIColor blueEmotionColor] andPosition:100];
+    self.shareButton = [self createButtonWithTitle:@"Tweet Mood" chooseColor:[UIColor blueEmotionColor] andPosition:75];
     [self.shareButton addTarget:self action:@selector(shareOnTwitter) forControlEvents:UIControlEventTouchUpInside];
 
     //nav bar title
@@ -102,9 +98,9 @@
 #pragma mark - Floating button
 
 - (UIButton *)createButtonWithTitle:(NSString *)title chooseColor:(UIColor *)color andPosition:(int)position {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 65, 60)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 150, 60)];
     button.center = CGPointMake(self.view.center.x - position, self.view.frame.origin.y + 310);
-    button.layer.cornerRadius = 7.5;
+    button.layer.cornerRadius = 0;
     button.backgroundColor = color;
     button.layer.borderColor = button.titleLabel.textColor.CGColor;
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -116,11 +112,11 @@
 
 #pragma mark - Logout button
 
-- (void)userLogout {
-    NSLog(@"pressed");
-    [PFUser logOutInBackground];
-    [self performSegueWithIdentifier:@"UnwindToSplash" sender:self];
-}
+//- (void)userLogout {
+//    NSLog(@"pressed");
+//    [PFUser logOutInBackground];
+//    [self performSegueWithIdentifier:@"UnwindToSplash" sender:self];
+//}
 
 #pragma mark - Twitter share placeholder
 
