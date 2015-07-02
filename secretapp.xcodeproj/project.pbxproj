@@ -16,7 +16,6 @@
 		66941EEC1B41D2DB00193D46 /* NSInvocation+Constructors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE51B41D2DB00193D46 /* NSInvocation+Constructors.m */; };
 		66941EED1B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE71B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m */; };
 		66941EEE1B41D2DB00193D46 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EE91B41D2DB00193D46 /* UIView+Round.m */; };
-		66941EF41B43034400193D46 /* SingleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66941EF31B43034400193D46 /* SingleAnnotation.m */; };
 		669424211B44496000193D46 /* MapboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669424201B44496000193D46 /* MapboxViewController.m */; };
 		669424251B444C3600193D46 /* libMapbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 669424241B444C3600193D46 /* libMapbox.a */; };
 		669424601B444D2700193D46 /* Mapbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6694245F1B444D2700193D46 /* Mapbox.bundle */; };
@@ -277,8 +276,6 @@
 		66941EE71B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JFMinimalNotificationColors.m"; sourceTree = "<group>"; };
 		66941EE81B41D2DB00193D46 /* UIView+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Round.h"; sourceTree = "<group>"; };
 		66941EE91B41D2DB00193D46 /* UIView+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Round.m"; sourceTree = "<group>"; };
-		66941EF21B43034400193D46 /* SingleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleAnnotation.h; sourceTree = "<group>"; };
-		66941EF31B43034400193D46 /* SingleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleAnnotation.m; sourceTree = "<group>"; };
 		6694241F1B44496000193D46 /* MapboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapboxViewController.h; sourceTree = "<group>"; };
 		669424201B44496000193D46 /* MapboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapboxViewController.m; sourceTree = "<group>"; };
 		669424241B444C3600193D46 /* libMapbox.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMapbox.a; sourceTree = "<group>"; };
@@ -975,8 +972,6 @@
 			children = (
 				993F6A361B3EE2BA00CAF0D7 /* MapViewController.h */,
 				993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */,
-				66941EF21B43034400193D46 /* SingleAnnotation.h */,
-				66941EF31B43034400193D46 /* SingleAnnotation.m */,
 				66CFFBDC1B447072009DF9FA /* astronaut1.png */,
 				66CFFBDE1B44887D009DF9FA /* circle.png */,
 				6694241F1B44496000193D46 /* MapboxViewController.h */,
@@ -1596,7 +1591,6 @@
 				993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */,
 				99DE2CCF1B42205C00C3B902 /* MPTweak.m in Sources */,
 				7ECC23A51B41BE7C0049B47B /* SettingsViewController.m in Sources */,
-				66941EF41B43034400193D46 /* SingleAnnotation.m in Sources */,
 				99DE2CC11B42205C00C3B902 /* MPSequenceGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
