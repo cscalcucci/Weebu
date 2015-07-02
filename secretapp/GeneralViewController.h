@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <ParseUI/ParseUI.h>
+#import "FoursquareAPI.h"
 #include <math.h>
 
 #import "LocationService.h"
@@ -29,6 +30,9 @@
 @property NSNumber *pleasantValue;
 @property NSNumber *activatedValue;
 @property Emotion *emotion;
+
+@property NSURL *venueUrlCall;
+@property (nonatomic) NSArray *foursquareResults;
 
 @property (weak, nonatomic) IBOutlet PFImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *emotionLabel;

@@ -11,6 +11,8 @@
 
 @interface GeneralViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *zipLabel;
 @end
 
 @implementation GeneralViewController
@@ -30,6 +32,9 @@
     [self rotateImageView:self.colorWheel];
 
     self.userLocation = [LocationService sharedInstance].currentLocation;
+    self.venueUrlCall = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&oauth_token=N5Z3YJNLEWD4KIBIOB1C22YOPTPSJSL3NAEXVUMYGJC35FMP&v=20150617", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude]];
+    self.foursquareResults = [NSArray new];
+    [self retrieveFoursquareResults];
 
     self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
     [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -37,6 +42,22 @@
     [self.view bringSubviewToFront:self.emotionImageView];
 
     [self performSelector:@selector(expandImageView:) withObject:self.emotionImageView afterDelay:0.05];
+}
+
+- (void)retrieveFoursquareResults {
+    self.userLocation = [LocationService sharedInstance].currentLocation;
+    NSLog(@"LOCATION 1: %@", self.userLocation);
+    [FoursquareAPI retrieveFoursquareResults:self.venueUrlCall completion:^(NSArray *array) {
+        self.foursquareResults = array;
+        NSLog(@"Started call and got %@", array);
+        NSLog(@"LOCATION 2: %@", self.userLocation);
+        for (FoursquareAPI *item in self.foursquareResults) {
+            NSLog(@"VENUE NAME: %@", item.venueName);
+        }
+        FoursquareAPI *venue = self.foursquareResults.firstObject;
+        self.cityLabel.text = [NSString stringWithFormat:@"%@, %@", venue.city, venue.state];
+        self.zipLabel.text = venue.zipcode;
+    }];
 }
 
 #pragma mark - Emotion Calculation

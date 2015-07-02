@@ -52,20 +52,55 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-iq-DJx">
+                                <rect key="frame" x="203" y="91" width="195" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Nwc-eL-9yu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7g-N8-dG8">
+                                <rect key="frame" x="259" y="120" width="82" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="O2x-8I-Pyc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="current mood in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEc-TL-OUp">
+                                <rect key="frame" x="204" y="46" width="193" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="193" id="4V8-bs-x8u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mEc-TL-OUp" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="46" id="5RR-iX-9iC"/>
                             <constraint firstItem="ZQa-TV-Wbe" firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="68O-E7-io1"/>
                             <constraint firstItem="g9O-Mc-L6w" firstAttribute="top" secondItem="ZQa-TV-Wbe" secondAttribute="bottom" constant="-1" id="9Xx-lV-3sa"/>
                             <constraint firstItem="ZQa-TV-Wbe" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="CCM-1L-g7Q"/>
+                            <constraint firstItem="1u9-iq-DJx" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="91" id="ISy-J6-fyK"/>
                             <constraint firstItem="ZQa-TV-Wbe" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="136" id="Jka-cc-buJ"/>
+                            <constraint firstItem="i7g-N8-dG8" firstAttribute="top" secondItem="1u9-iq-DJx" secondAttribute="bottom" constant="8" id="PvV-8O-Rke"/>
+                            <constraint firstAttribute="centerX" secondItem="1u9-iq-DJx" secondAttribute="centerX" id="Xrm-Db-e1r"/>
+                            <constraint firstAttribute="centerX" secondItem="i7g-N8-dG8" secondAttribute="centerX" id="b6S-NA-iYE"/>
+                            <constraint firstAttribute="centerX" secondItem="mEc-TL-OUp" secondAttribute="centerX" id="dtK-Ae-cTC"/>
                             <constraint firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="uHU-KS-a4a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qke-2S-dzF"/>
                     <connections>
+                        <outlet property="cityLabel" destination="1u9-iq-DJx" id="JEI-6B-JIS"/>
                         <outlet property="emotionImageView" destination="ZQa-TV-Wbe" id="dxM-gh-70p"/>
                         <outlet property="emotionLabel" destination="g9O-Mc-L6w" id="vui-CI-MRn"/>
+                        <outlet property="zipLabel" destination="i7g-N8-dG8" id="PYg-ge-Rxn"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="GeneralToAdd" id="ky5-3i-ZYO"/>
                     </connections>
                 </viewController>
@@ -1008,7 +1043,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfe-TZ-0zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-567" y="3142.5"/>
+            <point key="canvasLocation" x="-618" y="3182.5"/>
         </scene>
     </scenes>
     <resources>
