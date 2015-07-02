@@ -159,10 +159,7 @@
         NSLog(@"EMOTION name: %@", self.emotion.name);
         }
 
-        /*Note: make this imageView programmatic and center it along with the color wheel*/
         self.emotionImageView.image = [UIImage imageNamed:self.emotion.imageStringWhite];
-//        self.emotionImageView.file = self.emotion.imageFileWhite;
-//        [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
         self.emotionLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:48];
         self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];

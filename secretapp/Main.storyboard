@@ -638,8 +638,6 @@
         <!--Settings Table View Controller-->
         <scene sceneID="9QJ-gE-Meq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1cI-Qy-F0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Xpf-5u-mSk" userLabel="Exit" sceneMemberID="exit"/>
                 <tableViewController id="Hy6-4F-GiL" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PVk-1O-1L4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
@@ -697,6 +695,8 @@
                         <segue destination="Xpf-5u-mSk" kind="unwind" identifier="SettingsToSplash" unwindAction="unwindToSplash:" id="Yiv-HJ-sAB"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1cI-Qy-F0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Xpf-5u-mSk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2351" y="1666"/>
         </scene>
