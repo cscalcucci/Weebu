@@ -166,7 +166,6 @@
         return nil;
 
     RMMarker *marker;
-
     if (annotation.isClusterAnnotation) {
         NSLog(@"I got cluster called");
 

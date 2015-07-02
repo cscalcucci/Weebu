@@ -45,6 +45,7 @@
 		7ECC239E1B3F146B0049B47B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239D1B3F146B0049B47B /* Event.m */; };
 		7ECC23A51B41BE7C0049B47B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */; };
 		7ECC23A91B41C2530049B47B /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A81B41C2530049B47B /* SettingsService.m */; };
+		7EF19D021B459C5F007145CA /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF19D011B459C5F007145CA /* SettingsTableViewController.m */; };
 		993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A0D1B3EE1DD00CAF0D7 /* main.m */; };
 		993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */; };
 		993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A121B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld */; };
@@ -368,6 +369,8 @@
 		7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7ECC23A71B41C2530049B47B /* SettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
 		7ECC23A81B41C2530049B47B /* SettingsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsService.m; sourceTree = "<group>"; };
+		7EF19D001B459C5F007145CA /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		7EF19D011B459C5F007145CA /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		993F6A081B3EE1DD00CAF0D7 /* secretapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = secretapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F6A0C1B3EE1DD00CAF0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		993F6A0D1B3EE1DD00CAF0D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -813,6 +816,8 @@
 			children = (
 				7ECC23A31B41BE7C0049B47B /* SettingsViewController.h */,
 				7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */,
+				7EF19D001B459C5F007145CA /* SettingsTableViewController.h */,
+				7EF19D011B459C5F007145CA /* SettingsTableViewController.m */,
 				99DE2D751B448BA800C3B902 /* ChangeRadiusViewController.h */,
 				99DE2D761B448BA800C3B902 /* ChangeRadiusViewController.m */,
 				99DE2D781B448BF700C3B902 /* UserVoiceViewController.h */,
@@ -1351,6 +1356,7 @@
 				TargetAttributes = {
 					993F6A071B3EE1DD00CAF0D7 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = YV35DK49MJ;
 					};
 					993F6A231B3EE1DD00CAF0D7 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1517,6 +1523,7 @@
 				99DE2C831B42205C00C3B902 /* MPABTestDesignerSnapshotResponseMessage.m in Sources */,
 				99DE2CA51B42205C00C3B902 /* MPEnumDescription.m in Sources */,
 				99DE2CBB1B42205C00C3B902 /* MPObjectSerializerContext.m in Sources */,
+				7EF19D021B459C5F007145CA /* SettingsTableViewController.m in Sources */,
 				99DE2CE11B42205C00C3B902 /* MPUITableViewBinding.m in Sources */,
 				66941ECD1B41987800193D46 /* FBQuadTreeNode.m in Sources */,
 				99DE2C931B42205C00C3B902 /* MPCGPointToNSDictionaryValueTransformer.m in Sources */,
@@ -1807,6 +1814,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/secretapp",
@@ -1821,6 +1830,7 @@
 				);
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1828,6 +1838,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/secretapp",
@@ -1846,6 +1858,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
