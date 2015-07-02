@@ -21,6 +21,7 @@
 		669424251B444C3600193D46 /* libMapbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 669424241B444C3600193D46 /* libMapbox.a */; };
 		669424601B444D2700193D46 /* Mapbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6694245F1B444D2700193D46 /* Mapbox.bundle */; };
 		66CFFBDD1B447072009DF9FA /* astronaut1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66CFFBDC1B447072009DF9FA /* astronaut1.png */; };
+		66CFFBDF1B44887D009DF9FA /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 66CFFBDE1B44887D009DF9FA /* circle.png */; };
 		7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23671B3EEF7F0049B47B /* SessionViewController.m */; };
 		7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC236A1B3EEF950049B47B /* LoginViewController.m */; };
 		7ECC23761B3EF5830049B47B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23701B3EF5830049B47B /* Bolts.framework */; };
@@ -241,7 +242,8 @@
 		99DE2D691B43820300C3B902 /* uv_idea@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D5E1B43820300C3B902 /* uv_idea@2x.png */; };
 		99DE2D6E1B44242600C3B902 /* StandardEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D6C1B44242600C3B902 /* StandardEventTableViewCell.m */; };
 		99DE2D6F1B44242600C3B902 /* StandardEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */; };
-		99DE2D741B44665400C3B902 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D731B44665400C3B902 /* SettingsTableViewController.m */; };
+		99DE2D771B448BA800C3B902 /* ChangeRadiusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D761B448BA800C3B902 /* ChangeRadiusViewController.m */; };
+		99DE2D7A1B448BF700C3B902 /* UserVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D791B448BF700C3B902 /* UserVoiceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,6 +339,7 @@
 		6694245E1B444D2700193D46 /* RMUserTrackingBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUserTrackingBarButtonItem.h; sourceTree = "<group>"; };
 		6694245F1B444D2700193D46 /* Mapbox.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mapbox.bundle; sourceTree = "<group>"; };
 		66CFFBDC1B447072009DF9FA /* astronaut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astronaut1.png; sourceTree = "<group>"; };
+		66CFFBDE1B44887D009DF9FA /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		7ECC23661B3EEF7F0049B47B /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		7ECC23671B3EEF7F0049B47B /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
 		7ECC23691B3EEF950049B47B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
@@ -601,8 +604,10 @@
 		99DE2D6B1B44242600C3B902 /* StandardEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardEventTableViewCell.h; sourceTree = "<group>"; };
 		99DE2D6C1B44242600C3B902 /* StandardEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardEventTableViewCell.m; sourceTree = "<group>"; };
 		99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardEventTableViewCell.xib; sourceTree = "<group>"; };
-		99DE2D721B44665400C3B902 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
-		99DE2D731B44665400C3B902 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		99DE2D751B448BA800C3B902 /* ChangeRadiusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeRadiusViewController.h; sourceTree = "<group>"; };
+		99DE2D761B448BA800C3B902 /* ChangeRadiusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeRadiusViewController.m; sourceTree = "<group>"; };
+		99DE2D781B448BF700C3B902 /* UserVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserVoiceViewController.h; sourceTree = "<group>"; };
+		99DE2D791B448BF700C3B902 /* UserVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserVoiceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -811,8 +816,10 @@
 			children = (
 				7ECC23A31B41BE7C0049B47B /* SettingsViewController.h */,
 				7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */,
-				99DE2D721B44665400C3B902 /* SettingsTableViewController.h */,
-				99DE2D731B44665400C3B902 /* SettingsTableViewController.m */,
+				99DE2D751B448BA800C3B902 /* ChangeRadiusViewController.h */,
+				99DE2D761B448BA800C3B902 /* ChangeRadiusViewController.m */,
+				99DE2D781B448BF700C3B902 /* UserVoiceViewController.h */,
+				99DE2D791B448BF700C3B902 /* UserVoiceViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -966,6 +973,7 @@
 				66941EF21B43034400193D46 /* SingleAnnotation.h */,
 				66941EF31B43034400193D46 /* SingleAnnotation.m */,
 				66CFFBDC1B447072009DF9FA /* astronaut1.png */,
+				66CFFBDE1B44887D009DF9FA /* circle.png */,
 				6694241F1B44496000193D46 /* MapboxViewController.h */,
 				669424201B44496000193D46 /* MapboxViewController.m */,
 			);
@@ -1419,6 +1427,7 @@
 				99DE2D691B43820300C3B902 /* uv_idea@2x.png in Resources */,
 				99DE2C6B1B42205C00C3B902 /* Media.xcassets in Resources */,
 				99DE2D641B43820300C3B902 /* uv_article.png in Resources */,
+				66CFFBDF1B44887D009DF9FA /* circle.png in Resources */,
 				99DE2D631B43820300C3B902 /* UserVoice.strings in Resources */,
 				99DE2D681B43820300C3B902 /* uv_idea.png in Resources */,
 				99DE2D6F1B44242600C3B902 /* StandardEventTableViewCell.xib in Resources */,
@@ -1483,7 +1492,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99DE2D741B44665400C3B902 /* SettingsTableViewController.m in Sources */,
 				99DE2CC91B42205C00C3B902 /* MPSurveyQuestion.m in Sources */,
 				66941EED1B41D2DB00193D46 /* UIColor+JFMinimalNotificationColors.m in Sources */,
 				66941EEA1B41D2DB00193D46 /* JFMinimalNotification.m in Sources */,
@@ -1499,6 +1507,7 @@
 				993F6A591B3EEF5300CAF0D7 /* FoursquareAPI.m in Sources */,
 				99DE2CCB1B42205C00C3B902 /* MPSurveyQuestionViewController.m in Sources */,
 				66941EEB1B41D2DB00193D46 /* JFMinimalNotificationArt.m in Sources */,
+				99DE2D771B448BA800C3B902 /* ChangeRadiusViewController.m in Sources */,
 				99DE2CE91B42205C00C3B902 /* NSInvocation+MPHelpers.m in Sources */,
 				99605BF21B41C50E00238EC8 /* TwitterInfoViewController.m in Sources */,
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
@@ -1549,6 +1558,7 @@
 				99DE2C8B1B42205C00C3B902 /* MPBOOLToNSNumberValueTransformer.m in Sources */,
 				993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */,
 				99DE2C851B42205C00C3B902 /* MPABTestDesignerTweakRequestMessage.m in Sources */,
+				99DE2D7A1B448BF700C3B902 /* UserVoiceViewController.m in Sources */,
 				66941EEC1B41D2DB00193D46 /* NSInvocation+Constructors.m in Sources */,
 				993F6A7B1B3F846700CAF0D7 /* EmotionBubble.m in Sources */,
 				993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */,

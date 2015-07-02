@@ -228,12 +228,12 @@
 }
 
 - (void)rotateImageView:(UIImageView *)shape {
-//    CABasicAnimation *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-//    fullRotation.fromValue = [NSNumber numberWithFloat:0];
-//    fullRotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
-//    fullRotation.duration = 10;
-//    fullRotation.repeatCount = 10;
-//    [shape.layer addAnimation:fullRotation forKey:@"360"];
+    CABasicAnimation *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    fullRotation.fromValue = [NSNumber numberWithFloat:0];
+    fullRotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
+    fullRotation.duration = 10;
+    fullRotation.repeatCount = 10;
+    [shape.layer addAnimation:fullRotation forKey:@"360"];
 }
 
 @end

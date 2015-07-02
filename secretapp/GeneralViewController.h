@@ -21,7 +21,7 @@
 
 @interface GeneralViewController : UIViewController
 
-@property UIButton *addEmotionButton;
+@property (weak, nonatomic) UIButton *addEmotionButton;
 @property CLLocation *userLocation;
 @property NSMutableArray *bubbles;
 @property PFUser *currentUser;
@@ -36,7 +36,7 @@
 
 @property (weak, nonatomic) IBOutlet PFImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *emotionLabel;
-@property UIImageView *colorWheel;
+@property (strong, nonatomic) UIImageView *colorWheel;
 
 @end
 

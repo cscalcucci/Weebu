@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewController.h
+//  UserVoiceViewController.h
 //  secretapp
 //
 //  Created by John McClelland on 7/1/15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsTableViewController : UITableViewController
+#import "UserVoice.h"
+
+@interface UserVoiceViewController : UIViewController
 
 @end
