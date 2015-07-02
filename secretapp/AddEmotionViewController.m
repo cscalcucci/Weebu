@@ -157,6 +157,8 @@
     self.imageView.image = [UIImage imageNamed:emotion.imageString];
 }
 
+
+
 - (void)onAddEmotionButtonPressed {
     NSLog(@"add emotion button pressed");
     Event *event = [Event objectWithClassName:@"Event"];
