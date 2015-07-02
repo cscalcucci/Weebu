@@ -44,8 +44,6 @@
     self.username.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
     [self.view addSubview:self.username];
 
-
-
     //bringing tableview in front of map
     [self.view bringSubviewToFront:self.tableView];
 
@@ -59,6 +57,8 @@
     self.shareButton = [self createButtonWithTitle:@"share" chooseColor:[UIColor blueEmotionColor] andPosition:100];
     [self.shareButton addTarget:self action:@selector(shareOnTwitter) forControlEvents:UIControlEventTouchUpInside];
 
+    //nav bar title
+    self.navigationItem.title = @"Profile";
 }
 
 - (void)viewDidAppear:(BOOL)animated {

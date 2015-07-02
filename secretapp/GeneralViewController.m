@@ -33,7 +33,7 @@
     [mapItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-map"] scaledToSize:CGSizeMake(34.2, 30)]];
 
     UITabBarItem *profileItem = [tabBar.items objectAtIndex:3];
-    [profileItem setImage:[self imageWithImage:[UIImage imageNamed:@"emotion5"] scaledToSize:CGSizeMake(30, 30)]];
+    [profileItem setImage:[self imageWithImage:[UIImage imageNamed:@"emotion4"] scaledToSize:CGSizeMake(30, 30)]];
 
     tabBar.tintColor = [UIColor blackColor];
 
