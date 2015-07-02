@@ -20,7 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.title = @"Current mood";
+    //Nav bar settings
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"BrandonGrotesque-Bold" size:21],
+      NSFontAttributeName, nil]];
 
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *tempItem = [tabBar.items objectAtIndex:0];
@@ -45,6 +49,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self loadEvents];
     [self rotateImageView:self.colorWheel];
+
+    //Blur
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    self.blurEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
+    self.blurEffectView.alpha = 0;
+
+    self.blurEffectView.frame = self.view.bounds;
+    [self.view addSubview:self.blurEffectView];
+
 
     //add imageView
     self.emotionImageView = [[PFImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
@@ -75,8 +88,8 @@
             NSLog(@"VENUE NAME: %@", item.venueName);
         }
         FoursquareAPI *venue = self.foursquareResults.firstObject;
-        self.cityLabel.text = [NSString stringWithFormat:@"%@, %@", venue.city, venue.state];
-        self.zipLabel.text = venue.zipcode;
+        self.navigationItem.title = [NSString stringWithFormat:@"%@, %@", venue.city, venue.state];
+        self.zipLabel.text = [NSString stringWithFormat:@"zipcode: %@",venue.zipcode];
     }];
 }
 
@@ -84,6 +97,7 @@
 
 - (void)loadEvents {
     self.userLocation = [LocationService sharedInstance].currentLocation;
+    self.blurEffectView = nil;
     NSLog(@"user location for feed: %@", self.userLocation);
     PFGeoPoint *userGeoPoint = [PFGeoPoint geoPointWithLatitude:self.userLocation.coordinate.latitude
                                                       longitude:self.userLocation.coordinate.longitude];
@@ -147,10 +161,11 @@
         }
 
         /*Note: make this imageView programmatic and center it along with the color wheel*/
-        self.emotionImageView.file = self.emotion.imageFileWhite;
-        [self.emotionImageView loadInBackground];
+        self.emotionImageView.image = [UIImage imageNamed:self.emotion.imageStringWhite];
+//        self.emotionImageView.file = self.emotion.imageFileWhite;
+//        [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
-        self.emotionLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
+        self.emotionLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:48];
 
         [self.view sendSubviewToBack:self.colorWheel];
     }];
@@ -195,7 +210,7 @@
     self.colorWheel = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1000, 1000)];
     self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];
     self.colorWheel.center = CGPointMake(self.view.center.x, self.view.center.y - 75);
-    self.colorWheel.alpha = 0.75;
+    self.colorWheel.alpha = 0.6;
     [self.view addSubview:self.colorWheel];
 }
 
@@ -254,7 +269,7 @@
     fullRotation.fromValue = [NSNumber numberWithFloat:0];
     fullRotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
     fullRotation.duration = 10;
-    fullRotation.repeatCount = 10;
+    fullRotation.repeatCount = 100;
     [shape.layer addAnimation:fullRotation forKey:@"360"];
 }
 
