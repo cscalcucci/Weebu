@@ -36,9 +36,6 @@
     self.centerMap = [self createCenterMapButton];
     [self.centerMap addTarget:self action:@selector(didTapCenterMapButton:) forControlEvents:UIControlEventTouchUpInside];
 
-    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
-    [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-
     //nav bar title
     self.navigationItem.title = @"Your area";
 }

@@ -30,13 +30,14 @@
 @property NSNumber *pleasantValue;
 @property NSNumber *activatedValue;
 @property Emotion *emotion;
+@property (nonatomic) UIVisualEffectView *blurEffectView;
 
 @property NSURL *venueUrlCall;
 @property (nonatomic) NSArray *foursquareResults;
 
-@property (strong, nonatomic) PFImageView *emotionImageView;
+@property (strong, nonatomic) UIImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *emotionLabel;
-@property (strong, nonatomic) UIImageView *colorWheel;
+@property (nonatomic) UIImageView *colorWheel;
 
 @end
 

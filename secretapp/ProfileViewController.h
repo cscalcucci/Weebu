@@ -20,11 +20,10 @@
 
 @interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 
-@property UIButton *addEmotionButton;
-@property UIButton *logoutButton;
-@property UIButton *shareButton;
-@property UILabel *username;
-@property UILabel *currentMoodLabel;
+@property (weak,nonatomic) UIButton *logoutButton;
+@property (weak,nonatomic) UIButton *shareButton;
+@property (nonatomic) UILabel *username;
+@property (nonatomic) UILabel *currentMoodLabel;
 @property UIVisualEffectView *blueEffectView;
 @property UIImageView *currentMood;
 

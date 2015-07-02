@@ -15,16 +15,6 @@
             <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
-            <string>BrandonGrotesque-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -40,32 +30,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Mc-L6w">
-                                <rect key="frame" x="132" y="399" width="336" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Mc-L6w">
+                                <rect key="frame" x="132" y="362" width="336" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="40u-db-b90"/>
-                                    <constraint firstAttribute="height" constant="38" id="j7u-br-g0R"/>
+                                    <constraint firstAttribute="height" constant="75" id="j7u-br-g0R"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="BrandonGrotesque-Bold" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7g-N8-dG8">
-                                <rect key="frame" x="259" y="80" width="82" height="26"/>
+                                <rect key="frame" x="217" y="445" width="167" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="rJV-bP-MaN"/>
-                                    <constraint firstAttribute="width" constant="82" id="vh7-vT-r9i"/>
+                                    <constraint firstAttribute="width" constant="167" id="1aN-9a-o7P"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-iq-DJx">
-                                <rect key="frame" x="203" y="14" width="195" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The current mood:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBB-Dc-K15">
+                                <rect key="frame" x="132" y="59" width="336" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Nwc-eL-9yu"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ZXv-Co-wlu"/>
-                                    <constraint firstAttribute="width" constant="195" id="jHR-hY-lTj"/>
+                                    <constraint firstAttribute="height" constant="75" id="3eg-86-zie"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="BrandonGrotesque-Black" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,25 +61,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="1u9-iq-DJx" secondAttribute="centerX" id="03f-5y-HeI"/>
-                            <constraint firstItem="i7g-N8-dG8" firstAttribute="top" secondItem="1u9-iq-DJx" secondAttribute="bottom" constant="16" id="Bp2-Fr-SHQ"/>
-                            <constraint firstItem="1u9-iq-DJx" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="14" id="ISy-J6-fyK"/>
-                            <constraint firstAttribute="centerX" secondItem="i7g-N8-dG8" secondAttribute="centerX" id="VOe-sj-DIz"/>
-                            <constraint firstAttribute="centerX" secondItem="1u9-iq-DJx" secondAttribute="centerX" id="Xrm-Db-e1r"/>
+                            <constraint firstItem="oBB-Dc-K15" firstAttribute="trailing" secondItem="g9O-Mc-L6w" secondAttribute="trailing" id="9MI-Td-Gpg"/>
+                            <constraint firstItem="i7g-N8-dG8" firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="M5O-PG-niV"/>
+                            <constraint firstItem="i7g-N8-dG8" firstAttribute="top" secondItem="g9O-Mc-L6w" secondAttribute="bottom" constant="8" symbolic="YES" id="NYC-h8-q75"/>
+                            <constraint firstItem="oBB-Dc-K15" firstAttribute="leading" secondItem="g9O-Mc-L6w" secondAttribute="leading" id="hk0-U4-9JZ"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="g9O-Mc-L6w" secondAttribute="bottom" constant="50" id="ogE-3m-OIc"/>
                             <constraint firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="uHU-KS-a4a"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="i7g-N8-dG8" secondAttribute="bottom" constant="16" id="wul-0V-0qb"/>
+                            <constraint firstItem="oBB-Dc-K15" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="59" id="xFh-yt-Eb2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qke-2S-dzF"/>
                     <connections>
-                        <outlet property="cityLabel" destination="1u9-iq-DJx" id="JEI-6B-JIS"/>
                         <outlet property="emotionLabel" destination="g9O-Mc-L6w" id="vui-CI-MRn"/>
                         <outlet property="zipLabel" destination="i7g-N8-dG8" id="PYg-ge-Rxn"/>
-                        <segue destination="qUT-Vp-n3A" kind="presentation" identifier="GeneralToAdd" id="ky5-3i-ZYO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1316" y="1654"/>
+            <point key="canvasLocation" x="-2006" y="1672"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="8ml-3J-SgX">
@@ -137,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ln7-kD-eg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1505" y="2486"/>
+            <point key="canvasLocation" x="-1319" y="2600"/>
         </scene>
         <!--Add Emotion View Controller-->
         <scene sceneID="0O1-fK-1Ca">
@@ -160,13 +147,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ld6-Wu-jVo"/>
                     <connections>
                         <outlet property="venuesContainer" destination="SJI-aZ-XWp" id="8ts-Vx-KRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0U-Lf-RLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="3239"/>
+            <point key="canvasLocation" x="-722" y="1666"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -184,7 +172,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" id="0wp-wE-yoQ" customClass="StandardEventTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" rowHeight="140" id="0wp-wE-yoQ" customClass="StandardEventTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0wp-wE-yoQ" id="nYx-we-j4a">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -210,12 +198,11 @@
                     <size key="freeformSize" width="600" height="800"/>
                     <connections>
                         <outlet property="tableView" destination="mrb-VQ-x15" id="ylW-re-gEx"/>
-                        <segue destination="qUT-Vp-n3A" kind="presentation" identifier="ListToAdd" id="Vyz-lu-Pmj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-630" y="1754"/>
+            <point key="canvasLocation" x="-1370" y="1754"/>
         </scene>
         <!--Mapbox View Controller-->
         <scene sceneID="Irk-MP-Waf">
@@ -231,13 +218,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="uaY-js-wDM"/>
-                    <connections>
-                        <segue destination="qUT-Vp-n3A" kind="presentation" identifier="MapToAdd" id="d06-p6-ZJe"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHS-dj-xgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="1654"/>
+            <point key="canvasLocation" x="8" y="1678"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="1fM-7Q-fMD">
@@ -524,8 +508,9 @@
                     <connections>
                         <segue destination="jbQ-Ta-JEX" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="nVd-mj-hhZ" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="1Af-P1-sJH" kind="relationship" relationship="viewControllers" id="KCX-mE-yUv"/>
-                        <segue destination="Qka-4f-Ndm" kind="relationship" relationship="viewControllers" id="73A-kb-bMl"/>
+                        <segue destination="JRk-dm-4cP" kind="relationship" relationship="viewControllers" id="Ktk-Qm-Kga"/>
+                        <segue destination="1Af-P1-sJH" kind="relationship" relationship="viewControllers" id="tRK-R7-ILu"/>
+                        <segue destination="Qka-4f-Ndm" kind="relationship" relationship="viewControllers" id="9LH-Bt-gPL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -551,7 +536,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsb-hS-2fx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1316" y="910"/>
+            <point key="canvasLocation" x="-2016" y="910"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Tw-vK-IdC">
@@ -572,7 +557,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Plb-ii-Onz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-630" y="910"/>
+            <point key="canvasLocation" x="-1384" y="928"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qGY-EA-K7c">
@@ -594,7 +579,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ujl-rf-SR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="910"/>
+            <point key="canvasLocation" x="-1" y="936"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="q48-Pi-c9l">
@@ -612,7 +597,7 @@
                                 <rect key="frame" x="0.0" y="340" width="600" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" rowHeight="80" id="WdB-Z7-8LM" customClass="StandardEventTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" rowHeight="140" id="WdB-Z7-8LM" customClass="StandardEventTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WdB-Z7-8LM" id="qHu-6Z-FX4">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -643,18 +628,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="FlI-dy-PTg" id="wpJ-mb-Yca"/>
-                        <segue destination="qUT-Vp-n3A" kind="presentation" identifier="ProfileToAdd" id="ddk-CO-uTG"/>
                         <segue destination="sK0-9A-oG9" kind="unwind" identifier="UnwindToSplash" unwindAction="unwindToSplash:" id="ikt-GB-S0n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Io-PX-Ez0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sK0-9A-oG9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="670" y="1654"/>
+            <point key="canvasLocation" x="742" y="1672"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="9QJ-gE-Meq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1cI-Qy-F0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Hy6-4F-GiL" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PVk-1O-1L4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
@@ -664,29 +649,12 @@
                         <sections>
                             <tableViewSection headerTitle="Settings" id="CWo-sz-l71">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="0" textLabel="jWI-ZZ-mef" style="IBUITableViewCellStyleDefault" id="Cd5-Sc-yef">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cd5-Sc-yef" id="VKc-PH-h5Q">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Change radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jWI-ZZ-mef">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="5PK-Mz-V3D" kind="show" id="81Y-kp-Jp7"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="1" textLabel="kkU-iZ-N3a" style="IBUITableViewCellStyleDefault" id="w71-Nk-Bje">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w71-Nk-Bje" id="kEK-pm-N8z">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Connect your Twitter account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kkU-iZ-N3a">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Change location radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kkU-iZ-N3a">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
                                                     <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
@@ -700,21 +668,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GDP-og-nzJ" id="Zij-ir-ikZ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Invite your contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3vp-et-NwY">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="3" textLabel="Gh9-sE-FSY" style="IBUITableViewCellStyleDefault" id="S6c-ht-7uq">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S6c-ht-7uq" id="Ijj-Rk-whx">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Change your password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gh9-sE-FSY">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Contact us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3vp-et-NwY">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
                                                     <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
@@ -739,126 +693,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Social" id="8v1-xS-fdz">
-                                <cells>
-                                    <tableViewCell tag="4" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="4" textLabel="3ZG-pK-yLD" style="IBUITableViewCellStyleDefault" id="sZD-x1-ULk">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sZD-x1-ULk" id="QhJ-Rb-2gu">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Rate us on the App Store" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ZG-pK-yLD">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell tag="5" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="5" textLabel="IJ0-4E-jg5" style="IBUITableViewCellStyleDefault" id="uvV-Zg-2f3">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uvV-Zg-2f3" id="Tjj-6X-qmB">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Follow us on Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IJ0-4E-jg5">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell tag="6" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="6" textLabel="fIx-mn-ta4" style="IBUITableViewCellStyleDefault" id="lN7-Yt-hOm">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lN7-Yt-hOm" id="rlQ-vW-Kpy">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Follow us on Instagram" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fIx-mn-ta4">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell tag="7" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="7" textLabel="8J5-dL-ZQZ" style="IBUITableViewCellStyleDefault" id="YU4-9l-nmJ">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YU4-9l-nmJ" id="Rpg-kI-Vol">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Friend us on SnapChat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8J5-dL-ZQZ">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell tag="8" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="8" textLabel="rbO-LL-jiu" style="IBUITableViewCellStyleDefault" id="3vr-BP-1fY">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3vr-BP-1fY" id="yPg-tz-dCi">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Friend us on Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rbO-LL-jiu">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Stuff" id="rbz-wC-rTv">
-                                <cells>
-                                    <tableViewCell tag="9" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="9" textLabel="RLG-24-8yV" style="IBUITableViewCellStyleDefault" id="0Ew-LV-dig">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ew-LV-dig" id="aOB-3n-rxT">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Contact us or give us feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RLG-24-8yV">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell tag="10" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="10" textLabel="mgo-ka-Jvb" style="IBUITableViewCellStyleDefault" id="plL-ie-PqS">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="plL-ie-PqS" id="Uhu-PT-4Yk">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Terms of service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mgo-ka-Jvb">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell tag="11" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="11" textLabel="MRQ-Md-kze" style="IBUITableViewCellStyleDefault" id="7R0-VK-NwW">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7R0-VK-NwW" id="iab-Y4-U2G">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Privacy policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MRQ-Md-kze">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                                                    <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Hy6-4F-GiL" id="owy-q6-AnX"/>
@@ -875,9 +709,8 @@
                         <outlet property="tableView" destination="PVk-1O-1L4" id="dzp-Uc-4gs"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1cI-Qy-F0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085" y="1654"/>
+            <point key="canvasLocation" x="2897" y="1654"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Qtd-u3-TeK">
@@ -888,14 +721,14 @@
                         <viewControllerLayoutGuide type="bottom" id="ceA-8E-Zk4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oxj-We-bo0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1X-e8-k8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="1254"/>
+            <point key="canvasLocation" x="3632" y="1254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0A3-aw-GMc">
@@ -917,7 +750,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRB-Iw-lNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="910"/>
+            <point key="canvasLocation" x="714" y="928"/>
         </scene>
         <!--Add Emotion Container View View Controller-->
         <scene sceneID="E9w-7f-DzV">
@@ -978,7 +811,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IJ-fA-heC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335" y="1654"/>
+            <point key="canvasLocation" x="1551" y="1666"/>
         </scene>
         <!--Add Emotion Container View View Controller-->
         <scene sceneID="uIP-k5-N04">
@@ -1020,7 +853,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfe-TZ-0zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-618" y="3182.5"/>
+            <point key="canvasLocation" x="-594" y="2317"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ICj-sJ-bOS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JRk-dm-4cP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="NqW-vL-g20">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UjE-dU-CLE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qUT-Vp-n3A" kind="relationship" relationship="rootViewController" id="dQA-iA-mXf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EzN-ob-cjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="936"/>
         </scene>
     </scenes>
     <resources>
@@ -1028,6 +882,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p9v-IF-eIb"/>
-        <segue reference="ky5-3i-ZYO"/>
     </inferredMetricsTieBreakers>
 </document>

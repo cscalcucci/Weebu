@@ -19,8 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self rotatingColorWheel];
 
-    self.navigationItem.title = @"Current mood";
+    //Nav bar settings
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"BrandonGrotesque-Bold" size:21],
+      NSFontAttributeName, nil]];
 
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *tempItem = [tabBar.items objectAtIndex:0];
@@ -29,22 +34,30 @@
     UITabBarItem *listItem = [tabBar.items objectAtIndex:1];
     [listItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-list"] scaledToSize:CGSizeMake(40.41, 30)]];
 
-    UITabBarItem *mapItem = [tabBar.items objectAtIndex:2];
+    UITabBarItem *addItem = [tabBar.items objectAtIndex:2];
+    [addItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-add"] scaledToSize:CGSizeMake(30, 30)]];
+
+    UITabBarItem *mapItem = [tabBar.items objectAtIndex:3];
     [mapItem setImage:[self imageWithImage:[UIImage imageNamed:@"icon-map"] scaledToSize:CGSizeMake(34.2, 30)]];
 
-    UITabBarItem *profileItem = [tabBar.items objectAtIndex:3];
+    UITabBarItem *profileItem = [tabBar.items objectAtIndex:4];
     [profileItem setImage:[self imageWithImage:[UIImage imageNamed:@"emotion4"] scaledToSize:CGSizeMake(30, 30)]];
 
     tabBar.tintColor = [UIColor blackColor];
-
-
-
-    [self rotatingColorWheel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self loadEvents];
     [self rotateImageView:self.colorWheel];
+
+    //Blur
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    self.blurEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
+    self.blurEffectView.alpha = 0;
+
+    self.blurEffectView.frame = self.view.bounds;
+    [self.view addSubview:self.blurEffectView];
+
 
     //add imageView
     self.emotionImageView = [[PFImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
@@ -56,8 +69,6 @@
     self.foursquareResults = [NSArray new];
     [self retrieveFoursquareResults];
 
-    self.addEmotionButton = [self createButtonWithTitle:@"add" chooseColor:[UIColor redColor] andPosition:50];
-    [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view bringSubviewToFront:self.emotionLabel];
     [self.view bringSubviewToFront:self.emotionImageView];
 
@@ -75,8 +86,8 @@
             NSLog(@"VENUE NAME: %@", item.venueName);
         }
         FoursquareAPI *venue = self.foursquareResults.firstObject;
-        self.cityLabel.text = [NSString stringWithFormat:@"%@, %@", venue.city, venue.state];
-        self.zipLabel.text = venue.zipcode;
+        self.navigationItem.title = [NSString stringWithFormat:@"%@, %@", venue.city, venue.state];
+        self.zipLabel.text = [NSString stringWithFormat:@"zipcode: %@",venue.zipcode];
     }];
 }
 
@@ -84,6 +95,7 @@
 
 - (void)loadEvents {
     self.userLocation = [LocationService sharedInstance].currentLocation;
+    self.blurEffectView = nil;
     NSLog(@"user location for feed: %@", self.userLocation);
     PFGeoPoint *userGeoPoint = [PFGeoPoint geoPointWithLatitude:self.userLocation.coordinate.latitude
                                                       longitude:self.userLocation.coordinate.longitude];
@@ -147,10 +159,12 @@
         }
 
         /*Note: make this imageView programmatic and center it along with the color wheel*/
-        self.emotionImageView.file = self.emotion.imageFileWhite;
-        [self.emotionImageView loadInBackground];
+        self.emotionImageView.image = [UIImage imageNamed:self.emotion.imageStringWhite];
+//        self.emotionImageView.file = self.emotion.imageFileWhite;
+//        [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
-        self.emotionLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
+        self.emotionLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:48];
+        self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];
 
         [self.view sendSubviewToBack:self.colorWheel];
     }];
@@ -175,30 +189,27 @@
 //create color from emotion
 - (UIColor*)createColorFromEmotion:(Emotion *)emotion {
     float a = emotion.pleasantValue.floatValue;
+    NSLog(@"Emotional pleasant value is %f", a);
     UIColor *color = [UIColor clearColor];
     if (0 < a <= 0.25) {
         color = [UIColor blueEmotionColor];
-    }
-    if (0.25 < a <= 0.5) {
+    } else if (0.25 < a <= 0.5) {
         color = [UIColor greenEmotionColor];
-    }
-    if (0.5 < a <= 0.75) {
+    } else if (0.5 < a <= 0.75) {
         color = [UIColor orangeEmotionColor];
-    }
-    if (0.75 < a <= 1.0) {
+    } else if (0.75 < a <= 1.0) {
         color = [UIColor redEmotionColor];
     }
+    NSLog(@"Emotional color is %@", color);
     return color;
 }
 
 - (void)rotatingColorWheel {
     self.colorWheel = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1000, 1000)];
-    self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];
     self.colorWheel.center = CGPointMake(self.view.center.x, self.view.center.y - 75);
-    self.colorWheel.alpha = 0.75;
+    self.colorWheel.alpha = 0.6;
     [self.view addSubview:self.colorWheel];
 }
-
 
 #pragma mark - Segue
 
@@ -250,12 +261,12 @@
 }
 
 - (void)rotateImageView:(UIImageView *)shape {
-//    CABasicAnimation *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-//    fullRotation.fromValue = [NSNumber numberWithFloat:0];
-//    fullRotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
-//    fullRotation.duration = 10;
-//    fullRotation.repeatCount = 10;
-//    [shape.layer addAnimation:fullRotation forKey:@"360"];
+    CABasicAnimation *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    fullRotation.fromValue = [NSNumber numberWithFloat:0];
+    fullRotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
+    fullRotation.duration = 10;
+    fullRotation.repeatCount = 100;
+    [shape.layer addAnimation:fullRotation forKey:@"360"];
 }
 
 //repeats, delegate when you have the time
