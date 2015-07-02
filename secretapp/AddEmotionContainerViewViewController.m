@@ -51,6 +51,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"selectedLocation" object:[self.foursquareResults objectAtIndex:indexPath.row]];
+    NSLog(@"My location was selected!");
     self.userLocation = [self.foursquareResults objectAtIndex:indexPath.row];
 }
 

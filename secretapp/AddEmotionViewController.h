@@ -27,6 +27,5 @@
 @property FoursquareAPI *selectedItem;
 @property BOOL didSelectVenue;
 
-@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end

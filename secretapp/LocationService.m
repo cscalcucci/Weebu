@@ -44,7 +44,6 @@
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray*)locations {
     for (CLLocation *location in locations) {
-        NSLog(@"%@", location);
         if (location.verticalAccuracy < 1000 && location.horizontalAccuracy < 1000) {
             [self.locationManager stopUpdatingLocation];
             self.currentLocation = location;

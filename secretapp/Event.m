@@ -15,6 +15,7 @@
 @dynamic emotionObject;
 @dynamic location;
 @dynamic venueName;
+@dynamic caption;
 
 + (void)load {
     [self registerSubclass];

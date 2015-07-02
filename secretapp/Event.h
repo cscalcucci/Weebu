@@ -20,6 +20,7 @@
 @property Emotion *emotionObject;
 @property PFGeoPoint *location;
 @property NSString *venueName;
+@property NSString *caption;
 
 
 @end
