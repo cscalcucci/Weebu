@@ -58,7 +58,6 @@
 
     self.navigationItem.title = @"Map";
 
-
     self.mapView.delegate = self;
 
     // Sets Map to View User Location
@@ -81,16 +80,6 @@
     [self.view bringSubviewToFront:self.mapView];
 
     [self letThereBeMKAnnotation];
-
-    RMAnnotation *annotation = [[RMAnnotation alloc]
-                                     initWithMapView:self.mapView
-                                     coordinate:self.mapView.centerCoordinate
-                                     andTitle:@"Hello, world!"];
-//    annotation.userInfo = @"training";
-
-
-    [self.mapView addAnnotation:annotation];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -130,8 +119,6 @@
 
                     default: annotation.subtitle = @"buzz"; NSLog(@"Buzzing"); break;
                 }
-
-
 
 //                annotation.userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
 //                                       self.emotion.imageString, @"imageString",

@@ -413,7 +413,7 @@
         [self.minimalNotification dismiss];
     }];
 
-    [self.view addSubview:self.minimalNotification];
+    [self.venueSelectView addSubview:self.minimalNotification];
 
     if ([self.notificationType isEqualToString:@"success"]) {
 

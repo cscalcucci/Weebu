@@ -18,7 +18,9 @@
 #import "StandardEventTableViewCell.h"
 #import "UIColor+CustomColors.h"
 
-@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
+#import "JFMinimalNotification.h"
+
+@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, JFMinimalNotificationDelegate>
 
 @property (weak,nonatomic) UIButton *logoutButton;
 @property (weak,nonatomic) UIButton *shareButton;
@@ -41,6 +43,13 @@
 @property NSMutableArray *recentEvents;
 @property PFUser *currentUser;
 @property UIRefreshControl *refreshControl;
+
+@property (nonatomic, strong) JFMinimalNotification* minimalNotification;
+@property NSString *notificationTitle;
+@property NSString *notificationMessage;
+@property NSString *notificationType;
+@property UIImage *selectedImage;
+
 
 -(void)refreshMyTableView:(UIControlEvents *) event;
 
