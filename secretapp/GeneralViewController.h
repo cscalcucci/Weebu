@@ -37,8 +37,7 @@
 
 @property (strong, nonatomic) UIImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *emotionLabel;
-@property (strong, nonatomic) UIImageView *colorWheel;
-@property (weak, nonatomic) UIColor *selectedEmotionColor;
+@property (nonatomic) UIImageView *colorWheel;
 
 @end
 

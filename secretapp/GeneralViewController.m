@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self rotatingColorWheel];
 
     //Nav bar settings
     [self.navigationController.navigationBar setTitleTextAttributes:
@@ -43,10 +44,6 @@
     [profileItem setImage:[self imageWithImage:[UIImage imageNamed:@"emotion4"] scaledToSize:CGSizeMake(30, 30)]];
 
     tabBar.tintColor = [UIColor blackColor];
-
-
-
-    [self rotatingColorWheel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -167,6 +164,7 @@
 //        [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
         self.emotionLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:48];
+        self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];
 
         [self.view sendSubviewToBack:self.colorWheel];
     }];
@@ -195,24 +193,19 @@
     UIColor *color = [UIColor clearColor];
     if (0 < a <= 0.25) {
         color = [UIColor blueEmotionColor];
-    }
-    if (0.25 < a <= 0.5) {
+    } else if (0.25 < a <= 0.5) {
         color = [UIColor greenEmotionColor];
-    }
-    if (0.5 < a <= 0.75) {
+    } else if (0.5 < a <= 0.75) {
         color = [UIColor orangeEmotionColor];
-    }
-    if (0.75 < a <= 1.0) {
+    } else if (0.75 < a <= 1.0) {
         color = [UIColor redEmotionColor];
     }
     NSLog(@"Emotional color is %@", color);
-    self.selectedEmotionColor = color;
     return color;
 }
 
 - (void)rotatingColorWheel {
     self.colorWheel = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1000, 1000)];
-    self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];
     self.colorWheel.center = CGPointMake(self.view.center.x, self.view.center.y - 75);
     self.colorWheel.alpha = 0.6;
     [self.view addSubview:self.colorWheel];
