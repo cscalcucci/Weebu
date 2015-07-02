@@ -178,7 +178,7 @@
 //        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:imageString]];
 //        if ([annotation.userInfo isEqualToString:@"fizz"]) {
 //            NSLog(@"I got called for emotion1");
-            marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion1.png"]];
+            marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion1white.png"]];
 //        }
 //        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
 
