@@ -8,7 +8,6 @@
 
 #import "GeneralViewController.h"
 
-
 @interface GeneralViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;

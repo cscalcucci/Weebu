@@ -25,9 +25,6 @@
 		7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC236A1B3EEF950049B47B /* LoginViewController.m */; };
 		7ECC23761B3EF5830049B47B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23701B3EF5830049B47B /* Bolts.framework */; };
 		7ECC23771B3EF5830049B47B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23711B3EF5830049B47B /* Parse.framework */; };
-		7ECC23781B3EF5830049B47B /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23721B3EF5830049B47B /* ParseCrashReporting.framework */; };
-		7ECC23791B3EF5830049B47B /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23731B3EF5830049B47B /* ParseFacebookUtils.framework */; };
-		7ECC237A1B3EF5830049B47B /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23741B3EF5830049B47B /* ParseFacebookUtilsV4.framework */; };
 		7ECC237B1B3EF5830049B47B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23751B3EF5830049B47B /* ParseUI.framework */; };
 		7ECC23801B3EF67A0049B47B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC237F1B3EF67A0049B47B /* AudioToolbox.framework */; };
 		7ECC23821B3EF6830049B47B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23811B3EF6830049B47B /* CFNetwork.framework */; };
@@ -244,6 +241,7 @@
 		99DE2D6F1B44242600C3B902 /* StandardEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2D6D1B44242600C3B902 /* StandardEventTableViewCell.xib */; };
 		99DE2D771B448BA800C3B902 /* ChangeRadiusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D761B448BA800C3B902 /* ChangeRadiusViewController.m */; };
 		99DE2D7A1B448BF700C3B902 /* UserVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D791B448BF700C3B902 /* UserVoiceViewController.m */; };
+		99ED6C661B45CCAC00CC4B98 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 99ED6C651B45CCAC00CC4B98 /* libstdc++.6.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,9 +342,6 @@
 		7ECC236A1B3EEF950049B47B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 		7ECC23701B3EF5830049B47B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7ECC23711B3EF5830049B47B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		7ECC23721B3EF5830049B47B /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		7ECC23731B3EF5830049B47B /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		7ECC23741B3EF5830049B47B /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		7ECC23751B3EF5830049B47B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		7ECC237F1B3EF67A0049B47B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7ECC23811B3EF6830049B47B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -608,6 +603,7 @@
 		99DE2D761B448BA800C3B902 /* ChangeRadiusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeRadiusViewController.m; sourceTree = "<group>"; };
 		99DE2D781B448BF700C3B902 /* UserVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserVoiceViewController.h; sourceTree = "<group>"; };
 		99DE2D791B448BF700C3B902 /* UserVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserVoiceViewController.m; sourceTree = "<group>"; };
+		99ED6C651B45CCAC00CC4B98 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -615,6 +611,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99ED6C661B45CCAC00CC4B98 /* libstdc++.6.dylib in Frameworks */,
 				669424251B444C3600193D46 /* libMapbox.a in Frameworks */,
 				99DE2CFE1B42231F00C3B902 /* libicucore.dylib in Frameworks */,
 				7ECC238A1B3EF6A90049B47B /* QuartzCore.framework in Frameworks */,
@@ -638,9 +635,6 @@
 				7ECC23801B3EF67A0049B47B /* AudioToolbox.framework in Frameworks */,
 				99605BE91B41B4CD00238EC8 /* TwitterKit.framework in Frameworks */,
 				7ECC23761B3EF5830049B47B /* Bolts.framework in Frameworks */,
-				7ECC23781B3EF5830049B47B /* ParseCrashReporting.framework in Frameworks */,
-				7ECC237A1B3EF5830049B47B /* ParseFacebookUtilsV4.framework in Frameworks */,
-				7ECC23791B3EF5830049B47B /* ParseFacebookUtils.framework in Frameworks */,
 				99605BEB1B41B4CD00238EC8 /* TwitterCore.framework in Frameworks */,
 				993F6A551B3EE87B00CAF0D7 /* Crashlytics.framework in Frameworks */,
 				7ECC23771B3EF5830049B47B /* Parse.framework in Frameworks */,
@@ -794,9 +788,6 @@
 			children = (
 				7ECC23701B3EF5830049B47B /* Bolts.framework */,
 				7ECC23711B3EF5830049B47B /* Parse.framework */,
-				7ECC23721B3EF5830049B47B /* ParseCrashReporting.framework */,
-				7ECC23731B3EF5830049B47B /* ParseFacebookUtils.framework */,
-				7ECC23741B3EF5830049B47B /* ParseFacebookUtilsV4.framework */,
 				7ECC23751B3EF5830049B47B /* ParseUI.framework */,
 			);
 			name = Parse;
@@ -829,6 +820,7 @@
 		993F69FF1B3EE1DD00CAF0D7 = {
 			isa = PBXGroup;
 			children = (
+				99ED6C651B45CCAC00CC4B98 /* libstdc++.6.dylib */,
 				993F6A0A1B3EE1DD00CAF0D7 /* secretapp */,
 				993F6A271B3EE1DD00CAF0D7 /* secretappTests */,
 				993F6A091B3EE1DD00CAF0D7 /* Products */,
@@ -1789,7 +1781,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: John McClelland (YV35DK49MJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: John McClelland (YV35DK49MJ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1804,6 +1797,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "64ed9930-64eb-4bf0-94bd-4be0863fb1a7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1821,6 +1815,7 @@
 					"$(PROJECT_DIR)/secretapp",
 				);
 				INFOPLIST_FILE = secretapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1828,6 +1823,8 @@
 					"$(PROJECT_DIR)/secretapp",
 					"$(PROJECT_DIR)/secretapp/MapBox/Proj4",
 				);
+				LLVM_LTO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1838,13 +1835,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: John McClelland (YV35DK49MJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: John McClelland (YV35DK49MJ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/secretapp",
 				);
 				INFOPLIST_FILE = secretapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1852,13 +1850,19 @@
 					"$(PROJECT_DIR)/secretapp",
 					"$(PROJECT_DIR)/secretapp/MapBox/Proj4",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				LLVM_LTO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-licucore",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "64ed9930-64eb-4bf0-94bd-4be0863fb1a7";
 			};
 			name = Release;
 		};
