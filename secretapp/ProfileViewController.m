@@ -24,9 +24,9 @@
     [self.view addSubview:self.mapView];
 
     //Blur
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
     self.blueEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
-    self.blueEffectView.alpha = 1.0;
+    self.blueEffectView.alpha = 0.9;
 
     self.blueEffectView.frame = self.view.bounds;
     [self.view addSubview:self.blueEffectView];
@@ -47,10 +47,8 @@
     //bringing tableview in front of map
     [self.view bringSubviewToFront:self.tableView];
 
-    self.addEmotionButton = [self createButtonWithTitle:@"Add Emotion" chooseColor:[UIColor greenEmotionColor] andPosition:-75];
-    [self.addEmotionButton addTarget:self action:@selector(onAddEmotionButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    self.shareButton = [self createButtonWithTitle:@"tweet your mood" chooseColor:[UIColor twitterBlueColor] andPosition:0];
 
-    self.shareButton = [self createButtonWithTitle:@"Tweet Mood" chooseColor:[UIColor blueEmotionColor] andPosition:75];
     [self.shareButton addTarget:self action:@selector(shareOnTwitter) forControlEvents:UIControlEventTouchUpInside];
 
     //nav bar title
@@ -98,11 +96,12 @@
 #pragma mark - Floating button
 
 - (UIButton *)createButtonWithTitle:(NSString *)title chooseColor:(UIColor *)color andPosition:(int)position {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 150, 60)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
     button.center = CGPointMake(self.view.center.x - position, self.view.frame.origin.y + 310);
     button.layer.cornerRadius = 0;
     button.backgroundColor = color;
     button.layer.borderColor = button.titleLabel.textColor.CGColor;
+    button.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Medium" size:24];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
 
@@ -143,8 +142,8 @@
 }
 
 - (StandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *objects=[[NSBundle mainBundle]loadNibNamed:@"StandardEventTableViewCell" owner:self options:nil];
-    StandardEventTableViewCell *cell =[objects objectAtIndex:0];
+    NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"StandardEventTableViewCell" owner:self options:nil];
+    StandardEventTableViewCell *cell = [objects objectAtIndex:0];
     Event *event = [self.events objectAtIndex:indexPath.row];
     Emotion *emotion = event.emotionObject;
     cell.emotionName.text = emotion.name;
@@ -157,9 +156,11 @@
     //Set time
     cell.timeAgo.text = [self relativeDate:event.createdAt];
 
-    //user info
-    PFUser *user = event.createdBy;
-    cell.user_name_here_filler.text = [NSString stringWithFormat:@"%@", user.email];
+    //Caption
+    if (!event.caption) {
+        cell.caption.text = @" ";
+    }
+    cell.caption.text = [NSString stringWithFormat:@"%@", event.caption];
 
     //distance calculation
     PFGeoPoint *parseUserLocation = [PFGeoPoint geoPointWithLocation:self.userLocation];
@@ -239,16 +240,6 @@
         self.currentMoodLabel.font = [UIFont fontWithName:@"BrandonGrotesque-MediumItalic" size:17];
         [self.view addSubview:self.currentMoodLabel];
     }];
-}
-
-
-
-#pragma mark - Segue
-
-- (void)onAddEmotionButtonPressed {
-    NSLog(@"pressed");
-    [self performSegueWithIdentifier:@"ProfileToAdd" sender:self];
-    
 }
 
 #pragma mark - Utility Methods

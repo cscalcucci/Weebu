@@ -31,6 +31,11 @@
     return [UIColor colorWithRed:74/255.0 green:144/255.0 blue:226/255.0 alpha:100];
 }
 
++ (UIColor *)twitterBlueColor {
+    return [UIColor colorWithRed:64/255.0 green:153/255.0 blue:255/255.0 alpha:100];
+}
+
+
 + (UIImage *)imageWithColor:(UIColor *)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);

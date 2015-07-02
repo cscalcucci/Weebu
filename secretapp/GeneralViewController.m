@@ -191,6 +191,7 @@
 //create color from emotion
 - (UIColor*)createColorFromEmotion:(Emotion *)emotion {
     float a = emotion.pleasantValue.floatValue;
+    NSLog(@"Emotional pleasant value is %f", a);
     UIColor *color = [UIColor clearColor];
     if (0 < a <= 0.25) {
         color = [UIColor blueEmotionColor];
@@ -204,6 +205,8 @@
     if (0.75 < a <= 1.0) {
         color = [UIColor redEmotionColor];
     }
+    NSLog(@"Emotional color is %@", color);
+    self.selectedEmotionColor = color;
     return color;
 }
 
@@ -214,7 +217,6 @@
     self.colorWheel.alpha = 0.6;
     [self.view addSubview:self.colorWheel];
 }
-
 
 #pragma mark - Segue
 

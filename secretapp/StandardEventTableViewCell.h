@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *emotionName;
 
 @property (weak, nonatomic) IBOutlet UILabel *timeAgo;
-@property (weak, nonatomic) IBOutlet UILabel *user_name_here_filler;
+@property (weak, nonatomic) IBOutlet UILabel *caption;
 @property (weak, nonatomic) IBOutlet UILabel *distanceAway;
 
 - (void)expandImageView:(UIImageView *)shape andActivatedValue:(Emotion *)emotion;

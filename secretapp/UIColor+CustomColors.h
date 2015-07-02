@@ -15,6 +15,7 @@
 + (UIColor *)yellowEmotionColor;
 + (UIColor *)greenEmotionColor;
 + (UIColor *)blueEmotionColor;
++ (UIColor *)twitterBlueColor;
 
 + (UIImage *)imageWithColor:(UIColor *)color;
 
