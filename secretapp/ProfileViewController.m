@@ -24,9 +24,9 @@
     [self.view addSubview:self.mapView];
 
     //Blur
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     self.blueEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
-    self.blueEffectView.alpha = 0.5;
+    self.blueEffectView.alpha = 1.0;
 
     self.blueEffectView.frame = self.view.bounds;
     [self.view addSubview:self.blueEffectView];
@@ -84,9 +84,6 @@
             self.events = events;
             [self.tableView reloadData];
             [self calculatValues];
-            //Current mood setting image to the lastest status update - should probably change it to mood in the last 24 hours
-
-
         }
     }];
 }
@@ -259,9 +256,6 @@
         self.currentMoodLabel.textAlignment = NSTextAlignmentCenter;
         self.currentMoodLabel.font = [UIFont fontWithName:@"BrandonGrotesque-MediumItalic" size:17];
         [self.view addSubview:self.currentMoodLabel];
-
-//        [self.emotionImageView loadInBackground];
-//        self.emotionLabel.text = self.emotion.name;
     }];
 }
 

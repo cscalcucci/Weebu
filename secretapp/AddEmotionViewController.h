@@ -19,9 +19,6 @@
 @interface AddEmotionViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedEmotionLabel;
-@property UIButton *cancelButton;
-@property UIButton *addVenue;
-@property UIButton *addEmotion;
 @property NSArray *emotions;
 @property long selectedTag;
 
