@@ -30,6 +30,9 @@
 @property Event *event;
 @property Emotion *emotion;
 
+@property NSNumber *pleasantValue;
+@property NSNumber *activatedValue;
+@property NSString *emotionImageString;
 
 @end
 
@@ -119,16 +122,23 @@
 
                 RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self.mapView coordinate:annoCoord andTitle:self.emotion.imageString];
 
+                switch (i) {
+                    case 0 ... 18: annotation.userInfo = @"fizz"; break;
+                    default: annotation.userInfo = @"buzz"; break;
+                }
 
-//                NSLog(@"%f latitude %f longitude", annotation.coordinate.latitude, annotation.coordinate.longitude);
 
 
-//            annotation.emotion = self.emotion.imageString;
+//                annotation.userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                                       self.emotion.imageString, @"imageString",
+//                                       self.emotion.pleasantValue, @"pleasantValue",
+//                                       self.emotion.activatedValue, @"activatedValue",
+//                                       nil];
+//                NSString *imageString = [[NSString alloc] initWithFormat:[annotation.userInfo objectForKey:@"imageString"]];
+//                NSLog(@"Imagestring %@", imageString);
+
                 [self.annotationArray addObject:annotation];
             }
-//            [self.mapView addAnnotations:(NSArray *)[self.annotationArray copy]];
-
-
             [[NSNotificationCenter defaultCenter] postNotificationName:@"callbackCompleted" object:nil];
         }
     }];
@@ -148,52 +158,69 @@
         return nil;
 
     RMMarker *marker;
-//    RMMapLayer *layer = nil;
-
     if (annotation.isClusterAnnotation) {
         NSLog(@"I got cluster called");
-//        UIImage *image = [UIImage imageNamed:@"emotion16.png"];
-        marker.opacity = 0.75;
 
-//        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion16.png"]];
-        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
+//        for (int i = 0; i < annotation.clusteredAnnotations.count; i++) {
+//            NSString *emotion = ((RMAnnotation*)annotation.clusteredAnnotations[i]).userInfo;
+////            NSString *emotion = annotation.userInfo;
+//            NSLog(@"Emotion Name %@", emotion);
+//        }
+//
+//        for (RMAnnotation *annotation in annotation.clusteredAnnotations) {
+//            NSString *emotion = annotation.userInfo;
+//            NSLog(@"Emotion Name %@", emotion);
+//        }
+
+//        NSString *imageString = [self calculateValuesForArray:annotation.clusteredAnnotations];
+
+//        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:imageString]];
+//        if ([annotation.userInfo isEqualToString:@"fizz"]) {
+//            NSLog(@"I got called for emotion1");
+            marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"emotion1white.png"]];
+//        }
+//        marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
 
 
         marker.bounds = CGRectMake(0, 0, 50, 50);
+        marker.opacity = 0.75;
+
 
         // change the size of the circle depending on the cluster's size
-        if ([annotation.clusteredAnnotations count] < 5) {
-            NSLog(@"Small");
-            marker.bounds = CGRectMake(0, 0, 50, 50);
-        } else if (([annotation.clusteredAnnotations count] > 5) && ([annotation.clusteredAnnotations count] < 10)) {
-            NSLog(@"Medium");
-            marker.bounds = CGRectMake(0, 0, 75, 75);
-        } else if (([annotation.clusteredAnnotations count] > 10)) {
-            NSLog(@"Large");
-            marker.bounds = CGRectMake(0, 0, 100, 100);
+        switch ([annotation.clusteredAnnotations count]) {
+            case 2: marker.bounds = CGRectMake(0, 0, 40, 40); break;
+            case 3: marker.bounds = CGRectMake(0, 0, 45, 45);  break;
+            case 4: marker.bounds = CGRectMake(0, 0, 48, 48);  break;
+            case 5: marker.bounds = CGRectMake(0, 0, 50, 50);  break;
+            case 6 ... 10: marker.bounds = CGRectMake(0, 0, 60, 60);  break;
+            case 11 ... 20: marker.bounds = CGRectMake(0, 0, 70, 70);  break;
+            case 21 ... 50: marker.bounds = CGRectMake(0, 0, 80, 80);  break;
+            default: marker.bounds = CGRectMake(0, 0, 100, 100);  break;
         }
+
         NSString *clusterLabelContent = [NSString stringWithFormat:@"%lu",
                                          (unsigned long)[annotation.clusteredAnnotations count]];
 
         CGRect labelSize = [clusterLabelContent boundingRectWithSize:
                             marker.label.frame.size
                                                              options:NSStringDrawingUsesLineFragmentOrigin attributes:@{
-                                                                                                                        NSFontAttributeName:[UIFont systemFontOfSize:15] }
+                                                                                                                        NSFontAttributeName:[UIFont systemFontOfSize:25]
+                                                                                                                        }
                                                              context:nil];
-        [marker setTextForegroundColor:[UIColor whiteColor]];
+        [marker setTextForegroundColor:[UIColor blueColor]];
 
-        UIFont *labelFont = [UIFont systemFontOfSize:15];
+        UIFont *labelFont = [UIFont systemFontOfSize:25];
 
         // get the layer's size
         CGSize layerSize = marker.frame.size;
 
         // calculate its position
-        CGPoint position = CGPointMake((layerSize.width - (labelSize.size.width + 4)) / 2,
-                                       (layerSize.height - (labelSize.size.height + 4)) / 2);
+        CGPoint position = CGPointMake((layerSize.width - (labelSize.size.width + 10)),
+                                       (layerSize.height) / 5);
 
         // set it all at once
         [marker changeLabelUsingText:clusterLabelContent position:position
-                                           font:labelFont foregroundColor:[UIColor whiteColor]
+                                           font:labelFont foregroundColor:[UIColor blueColor]
                                 backgroundColor:[UIColor clearColor]];
 
     } else {
@@ -230,6 +257,95 @@
     UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return resizedImage;
+}
+
+- (NSString *)calculateValuesForArray:(NSArray*)array {
+    int count = 0;
+    NSNumber *pleasantSum = 0;
+    NSNumber *activatedSum = 0;
+    NSString *imageString = [NSString new];
+    NSNumber *pleasantValue = [NSNumber new];
+    NSNumber *activatedValue = [NSNumber new];
+
+
+    for (int i = 0; i < array.count; i++) {
+
+        RMAnnotation *annotation = array[i];
+
+//        NSDictionary *emotion = [[NSDictionary alloc] initWithDictionary:(NSDictionary*)annotation.userInfo];
+
+        imageString = [[NSString alloc] initWithFormat:[annotation.userInfo objectForKey:@"imageString"]];
+
+//        NSNumber *pleasantValue = [NSNumber new];
+        pleasantValue = [annotation.userInfo objectForKey:@"pleasantValue"];
+//        NSNumber *activatedValue = [NSNumber new];
+        activatedValue = [annotation.userInfo objectForKey:@"activatedValue"];
+
+//        imageString = [emotion objectForKey:@"imageString"];
+//        pleasantValue = [emotion objectForKey:@"pleasantValue"];
+//        activatedValue = [emotion objectForKey:@"activatedValue"];
+
+        pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [pleasantValue floatValue])];
+        activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [activatedValue floatValue])];
+        count = count + 1;
+
+        NSLog(@"Emotion Name %@", imageString);
+        NSLog(@"Emotion Pleasant %@", pleasantValue);
+        NSLog(@"Emotion Activated %@", activatedValue);
+
+    }
+
+    self.pleasantValue = [NSNumber numberWithFloat:([pleasantSum floatValue]/count)];
+    self.activatedValue = [NSNumber numberWithFloat:([activatedSum floatValue]/count)];
+
+    NSLog(@"finding emotion");
+    __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
+
+    for (int i = 0; i < array.count; i++) {
+
+        RMAnnotation *annotation = array[i];
+
+        imageString = [[NSString alloc] initWithFormat:[annotation.userInfo objectForKey:@"imageString"]];
+
+//        NSNumber *pleasantValue = [NSNumber new];
+        pleasantValue = [annotation.userInfo objectForKey:@"pleasantValue"];
+//        NSNumber *activatedValue = [NSNumber new];
+        activatedValue = [annotation.userInfo objectForKey:@"activatedValue"];
+
+        NSNumber *x1 = pleasantValue;
+        NSNumber *y1 = activatedValue;
+
+        NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
+        NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
+        if ([newDistance floatValue] < [distance floatValue]) {
+            NSLog(@"ASSIGN");
+            self.emotionImageString = imageString;
+//            self.emotion = emotion;
+            distance = newDistance;
+        }
+        NSLog(@"Distance: %f", [distance floatValue]);
+    }
+    return self.emotionImageString;
+//    NSString *emotionString = [NSString stringWithString:[self findEmotion]];
+//    return emotionString;
+}
+
+- (NSString*)findEmotion {
+    NSLog(@"finding emotion");
+    __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
+    for (Emotion *emotion in self.emotionsArray) {
+        NSNumber *x1 = emotion.pleasantValue;
+        NSNumber *y1 = emotion.activatedValue;
+        NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
+        NSLog(@"distance/newDistance: %f/%f", [distance floatValue], [newDistance floatValue]);
+        if ([newDistance floatValue] < [distance floatValue]) {
+            NSLog(@"ASSIGN");
+            self.emotion = emotion;
+            distance = newDistance;
+        }
+        NSLog(@"Distance: %f", [distance floatValue]);
+    }
+    return self.emotion.imageString;
 }
 
 

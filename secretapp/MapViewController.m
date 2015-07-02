@@ -11,7 +11,6 @@
 #import "FBAnnotationCluster.h"
 #import "FBAnnotationClustering.h"
 #import "FBQuadTree.h"
-#import "SingleAnnotation.h"
 
 
 @interface MapViewController ()
@@ -19,6 +18,7 @@
 @property Event *event;
 @property Emotion *emotion;
 @property FBClusteringManager *clusteringManager;
+
 
 @end
 
@@ -74,9 +74,9 @@
             self.emotion = self.event.emotionObject;
             [self.emotionsArray addObject:self.emotion];
             [self.event setObject:[NSString stringWithFormat:@"%i", i] forKey:@"indexPath" ];
-            SingleAnnotation *annotation = [SingleAnnotation new];
-            annotation.coordinate = CLLocationCoordinate2DMake(self.event.location.latitude, self.event.location.longitude);
-            annotation.emotion = self.emotion.imageString;
+            MKAnnotationView *annotation = [MKAnnotationView new];
+//            annotation.coordinate = CLLocationCoordinate2DMake(self.event.location.latitude, self.event.location.longitude);
+//            annotation.emotion = self.emotion.imageString;
             [self.annotationArray addObject:annotation];
 //            [self.mapView addAnnotation:annotation];
         }
@@ -110,9 +110,9 @@
         image = [UIImage imageNamed:imageString];
         resizedImage = [self resizeView:image withSize:@"big"];
 
-    } else if ([annotation isKindOfClass:[SingleAnnotation class]]) {
+//    } else if ([annotation isKindOfClass:[SingleAnnotation class]]) {
 
-        NSString *imageString = ((SingleAnnotation*)annotation).emotion;
+//        NSString *imageString = ((MKAnnotationView*)annotation).emotion;
         image = [UIImage imageNamed:imageString];
         resizedImage = [self resizeView:image withSize:@"small"];
 
