@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -9,7 +9,6 @@
             <string>BrandonGrotesque-BoldItalic</string>
         </mutableArray>
         <mutableArray key="Brandon Grotesque Regular.ttf">
-            <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
         </mutableArray>
@@ -32,22 +31,12 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6F-ee-5ld">
-                        <rect key="frame" x="81" y="51" width="231" height="27"/>
+                        <rect key="frame" x="81" y="42" width="231" height="51"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="231" id="2pu-sQ-M9J"/>
-                            <constraint firstAttribute="height" constant="27" id="4eN-HA-HTs"/>
+                            <constraint firstAttribute="height" constant="51" id="o46-zx-Uv0"/>
+                            <constraint firstAttribute="width" constant="231" id="qav-ld-DCg"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlD-t1-uDv">
-                        <rect key="frame" x="81" y="13" width="45" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="45" id="4eV-1h-ACu"/>
-                            <constraint firstAttribute="height" constant="21" id="kuB-H3-h2T"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="BrandonGrotesque-Regular" pointSize="17"/>
-                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPj-MY-8uf">
@@ -61,32 +50,29 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="emotion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bv-9y-iKp">
-                        <rect key="frame" x="81" y="30" width="75" height="21"/>
+                        <rect key="frame" x="81" y="15" width="134" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="6FP-v5-pk6"/>
-                            <constraint firstAttribute="width" constant="75" id="Tpz-nZ-KIb"/>
+                            <constraint firstAttribute="height" constant="21" id="HUb-SG-A1j"/>
+                            <constraint firstAttribute="width" constant="134" id="rCf-Aa-B2Z"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="BrandonGrotesque-BoldItalic" family="BrandonGrotesque-BoldItalic" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="BrandonGrotesque-BoldItalic" family="BrandonGrotesque-BoldItalic" pointSize="22"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="u6F-ee-5ld" firstAttribute="top" secondItem="7bv-9y-iKp" secondAttribute="bottom" id="24K-an-Ilx"/>
                     <constraint firstItem="LPj-MY-8uf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="2dE-Ty-RfH"/>
+                    <constraint firstItem="u6F-ee-5ld" firstAttribute="top" secondItem="7bv-9y-iKp" secondAttribute="bottom" constant="6" id="Fk5-6d-OTC"/>
+                    <constraint firstItem="7bv-9y-iKp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="Git-sk-0dE"/>
                     <constraint firstItem="iV7-3K-BCV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="H04-CF-owt"/>
+                    <constraint firstItem="u6F-ee-5ld" firstAttribute="leading" secondItem="iV7-3K-BCV" secondAttribute="trailing" constant="13" id="IZC-5j-BVg"/>
                     <constraint firstItem="iV7-3K-BCV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="L71-Gh-O8M"/>
-                    <constraint firstItem="RlD-t1-uDv" firstAttribute="leading" secondItem="iV7-3K-BCV" secondAttribute="trailing" constant="13" id="QRG-PN-M8b"/>
                     <constraint firstAttribute="trailingMargin" secondItem="LPj-MY-8uf" secondAttribute="trailing" constant="10" id="XN1-n7-Aq9"/>
-                    <constraint firstItem="7bv-9y-iKp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="22" id="fk8-t9-hzJ"/>
-                    <constraint firstItem="u6F-ee-5ld" firstAttribute="leading" secondItem="iV7-3K-BCV" secondAttribute="trailing" constant="13" id="fqU-zz-Ptv"/>
-                    <constraint firstItem="RlD-t1-uDv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="jmx-fn-Lk0"/>
-                    <constraint firstItem="7bv-9y-iKp" firstAttribute="leading" secondItem="iV7-3K-BCV" secondAttribute="trailing" constant="13" id="oXU-kj-LXj"/>
+                    <constraint firstItem="7bv-9y-iKp" firstAttribute="leading" secondItem="iV7-3K-BCV" secondAttribute="trailing" constant="13" id="fbn-M4-KBM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="caption" destination="u6F-ee-5ld" id="rPG-Ma-MLQ"/>
-                <outlet property="distanceAway" destination="RlD-t1-uDv" id="g1J-3K-XIP"/>
                 <outlet property="emotionImageView" destination="iV7-3K-BCV" id="pf4-7y-Kjl"/>
                 <outlet property="emotionName" destination="7bv-9y-iKp" id="2ib-dr-dTP"/>
                 <outlet property="timeAgo" destination="LPj-MY-8uf" id="U9L-HA-Hdh"/>
