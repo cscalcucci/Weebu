@@ -148,7 +148,7 @@
         return nil;
 
     RMMarker *marker;
-    RMMapLayer *layer = nil;
+//    RMMapLayer *layer = nil;
 
     if (annotation.isClusterAnnotation) {
         NSLog(@"I got cluster called");

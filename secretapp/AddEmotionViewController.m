@@ -24,7 +24,7 @@
 @property (nonatomic) UIView *emotionSelectView;
 @property (nonatomic) UIButton *selectEmotion;
 @property (nonatomic) UIButton *emotionEmotion;
-@property (nonatomic) UIScrollView *scrollView;
+//@property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic) UIPickerView *emotionPicker;
 
 
@@ -61,7 +61,8 @@
     [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
         if (!error) {
             self.emotions = emotions;
-            [self createCarousel];
+//            [self createCarousel];
+
             [self.emotionPicker reloadAllComponents];
         }
     }];
@@ -73,27 +74,31 @@
     [self.view addGestureRecognizer:self.tap];
 
     //Select Venue View & Buttons
-    self.venueSelectView = [[UIView alloc] initWithFrame: CGRectMake(1000, (self.view.frame.size.height - 345), self.view.frame.size.width, 345)];
-
-    self.captionText = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 135)];
+    self.venueSelectView = [[UIView alloc] initWithFrame: CGRectMake(1000, (self.view.frame.size.height - 395), self.view.frame.size.width, 345)];
+    self.captionText = [[UITextField alloc] initWithFrame: CGRectMake(0, 50, self.view.frame.size.width, 135)];
     self.captionText.enablesReturnKeyAutomatically = YES;
-    self.captionText.placeholder = [NSString stringWithFormat:@"Enter Caption"];
+    self.captionText.placeholder = [NSString stringWithFormat:@"   enter caption"];
+    self.captionText.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
 
     self.venueEmotion = [[UIButton alloc] initWithFrame: CGRectMake(0, 135, self.view.frame.size.width, 40) ];
-    self.venueEmotion.backgroundColor = [UIColor magentaColor];
+    self.venueEmotion.backgroundColor = [UIColor clearColor];
     [self.venueEmotion setTitle:@"emotion" forState:UIControlStateNormal];
 
-
-    self.venuesButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 175, self.view.frame.size.width, 75) ];
-    self.venuesButton.backgroundColor = [UIColor blueColor];
-    [self.venuesButton setTitle:@"Add Location" forState:UIControlStateNormal];
+/*
+    self.venuesButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 195, 75, 75) ];
+    self.venuesButton.backgroundColor = [UIColor blueEmotionColor];
+    self.venuesButton.layer.cornerRadius = (75 / 2);
+    [self.venuesButton setTitle:@"venue" forState:UIControlStateNormal];
     [self.venuesButton addTarget:self action:@selector(onVenueButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+*/
 
-
-    self.confirmButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 250, self.view.frame.size.width, 95)];
-    self.confirmButton.backgroundColor = [UIColor greenColor];
-    [self.confirmButton setTitle:@"Confirm" forState:UIControlStateNormal];
+    self.confirmButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 270, self.view.frame.size.width, 75)];
+    self.confirmButton.backgroundColor = [UIColor greenEmotionColor];
+    [self.confirmButton setTitle:@"confirm" forState:UIControlStateNormal];
     [self.confirmButton addTarget:self action:@selector(confirmButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.confirmButton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
+    [self.confirmButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
 
 
     [self.view addSubview:self.venueSelectView];
@@ -106,16 +111,14 @@
     //Select Emotion View & Buttons
     self.emotionSelectView = [[UIView alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height - 395), self.view.frame.size.width, 395)];
 
-    self.emotionEmotion = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 40)];
-    self.emotionEmotion.backgroundColor = [UIColor magentaColor];
-    [self.emotionEmotion setTitle:@"emotion" forState:UIControlStateNormal];
-
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, 80)];
-    self.emotionPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, 150)];
+//    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, 80)];
+    self.emotionPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 75, self.view.frame.size.width, 150)];
 
     self.selectEmotion = [[UIButton alloc] initWithFrame: CGRectMake(0, 270, self.view.frame.size.width, 75)];
     self.selectEmotion.backgroundColor = [UIColor greenEmotionColor];
-    [self.selectEmotion setTitle:@"Select Emotion" forState:UIControlStateNormal];
+    self.selectEmotion.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
+    [self.selectEmotion setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.selectEmotion setTitle:@"select emotion" forState:UIControlStateNormal];
     [self.selectEmotion addTarget:self action:@selector(selectEmotionTapped:) forControlEvents:UIControlEventTouchUpInside];
 
     [self.view addSubview:self.emotionSelectView];
@@ -129,15 +132,21 @@
     [self.emotionSelectView bringSubviewToFront:self.selectEmotion];
 
     //View Controller Buttons
-    self.cancelButton = [[UIButton alloc] initWithFrame: CGRectMake((self.view.frame.size.width - 125), 60, 80, 80)];
-    self.cancelButton.backgroundColor = [UIColor redEmotionColor];
-    [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    self.cancelButton = [[UIButton alloc] initWithFrame: CGRectMake((self.view.frame.size.width - 80), 60, 80, 80)];
+    self.cancelButton.backgroundColor = [UIColor clearColor];
+    [self.cancelButton setTitle:@"Back" forState:UIControlStateNormal];
+    self.cancelButton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
+    [self.cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.cancelButton setTitle:@"x" forState:UIControlStateNormal];
     [self.cancelButton addTarget:self action:@selector(onCancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
 
-    self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(-125, 50, 125, 30)];
-    self.backButton.backgroundColor = [UIColor yellowEmotionColor];
-    [self.backButton setTitle:@"Back" forState:UIControlStateNormal];
+    self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(-80, 60, 80, 80)];
+
+    self.backButton.backgroundColor = [UIColor clearColor];
+    [self.backButton setTitle:@"back" forState:UIControlStateNormal];
+    self.backButton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
+    [self.backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.backButton addTarget:self action:@selector(backButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 
 
@@ -150,7 +159,9 @@
     float width = self.view.frame.size.width / 2;
     float height = width;
 
-    self.emotionImageView.frame = CGRectMake((width - (width / 2)), ((self.view.frame.size.height - self.venueSelectView.frame.size.height) - (height + ((height / 2) - 30))), width, height);
+//    self.emotionImageView.frame = CGRectMake((width - (width / 2)), ((self.view.frame.size.height - self.venueSelectView.frame.size.height) - (height + ((height / 2) - 30))), width, height);
+    self.emotionImageView.frame = CGRectMake(0, 0, width, height);
+    self.emotionImageView.center = CGPointMake(self.view.center.x, self.view.center.y - 100);
     [self.view addSubview:self.emotionImageView];
 
 
@@ -226,11 +237,8 @@
     [self selectVenue];
 }
 
-
-
-
 #pragma mark - Emotions Carousel
-
+/*
 -(void)createCarousel {
     int x = 0;
     CGRect frame;
@@ -263,7 +271,7 @@
     [self.emotionSelectView bringSubviewToFront:self.scrollView];
 
 }
-
+*/
 
 - (IBAction)onSelectEmotionPressed:(UIButton *)sender {
     self.selectedTag = sender.tag;
@@ -369,15 +377,15 @@
 
     if (self.emotionSelectView.hidden) {
         NSLog(@"Forward");
-        venueFrame = CGRectMake(0, (self.view.frame.size.height - 345), self.view.frame.size.width, 345);
-        emotionFrame = CGRectMake((0 - (self.view.frame.size.width)), (self.view.frame.size.height - 345), self.view.frame.size.width, 345);
-        backFrame = CGRectMake(0, 50, 125, 30);
+        venueFrame = CGRectMake(0, (self.view.frame.size.height - 395), self.view.frame.size.width, 345);
+        emotionFrame = CGRectMake((0 - (self.view.frame.size.width)), self.view.frame.size.height - 395, self.view.frame.size.width, 345);
+        backFrame = CGRectMake(0, 60, 80, 80);
 
     } else {
         NSLog(@"Backward");
-        venueFrame = CGRectMake(self.view.frame.size.width, (self.view.frame.size.height - 345), self.view.frame.size.width, 345);
-        emotionFrame = CGRectMake(0, (self.view.frame.size.height - 345), self.view.frame.size.width, 345);
-        backFrame = CGRectMake(-125, 50, 125, 30);
+        venueFrame = CGRectMake(self.view.frame.size.width, (self.view.frame.size.height - 395), self.view.frame.size.width, 345);
+        emotionFrame = CGRectMake(0, self.view.frame.size.height - 395, self.view.frame.size.width, 345);
+        backFrame = CGRectMake(-80, 60, 80, 80);
 
     }
 
@@ -443,5 +451,10 @@
         self.notificationMessage = [NSString stringWithFormat:@"You must not be very %@! Try uploading again.", self.selectedEmotion.name];
     }
 }
+
+#pragma mark - refactor stuff
+
+
+
 
 @end
