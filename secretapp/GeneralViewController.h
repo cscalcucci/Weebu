@@ -34,7 +34,7 @@
 @property NSURL *venueUrlCall;
 @property (nonatomic) NSArray *foursquareResults;
 
-@property (weak, nonatomic) IBOutlet PFImageView *emotionImageView;
+@property (strong, nonatomic) PFImageView *emotionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *emotionLabel;
 @property (strong, nonatomic) UIImageView *colorWheel;
 

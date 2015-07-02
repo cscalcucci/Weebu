@@ -38,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+
     [[NSNotificationCenter defaultCenter]
                     addObserver:self
                     selector:@selector(addAnnotations)
@@ -50,6 +51,9 @@
 
     self.mapView = [[RMMapView alloc] initWithFrame:self.view.bounds
                                             andTilesource:tileSource];
+
+    self.navigationItem.title = @"Map";
+
 
     self.mapView.delegate = self;
 
