@@ -17,9 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.tabBar.tintColor = [UIColor blackColor];
-    self.tabBar.backgroundColor = [UIColor whiteColor];
-    self.tabBarItem.image = [self imageWithImage:[UIImage imageNamed:@"deathSD"] scaledToSize:CGSizeMake(20, 20)];
+
+
+
+//    self.tabBar.tintColor = [UIColor blackColor];
+//    self.tabBar.backgroundColor = [UIColor whiteColor];
+//    self.tabBarItem.image = [self imageWithImage:[UIImage imageNamed:@"icon-temp"] scaledToSize:CGSizeMake(20, 20)];
 
 }
 

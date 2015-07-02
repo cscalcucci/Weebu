@@ -34,6 +34,10 @@
     self.settingsButton.title = @"";
     UIImage *image = [UIImage imageNamed:@"settings"];
     self.settingsButton.image = image;
+
+    //nav bar title
+    self.navigationItem.title = @"Recent emotions";
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -206,5 +210,6 @@
         return [NSString stringWithFormat:@"Time Traveller"];
     }
 }
+
 
 @end

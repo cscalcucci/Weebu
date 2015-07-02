@@ -36,10 +36,6 @@
     blankBar.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:blankBar];
 
-
-
-
-
     //Username
     self.username = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 25)];
     self.username.center = CGPointMake(self.view.frame.size.width / 2, 225);
@@ -47,8 +43,6 @@
     self.username.textAlignment = NSTextAlignmentCenter;
     self.username.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
     [self.view addSubview:self.username];
-
-
 
     //bringing tableview in front of map
     [self.view bringSubviewToFront:self.tableView];
@@ -63,6 +57,8 @@
     self.shareButton = [self createButtonWithTitle:@"share" chooseColor:[UIColor blueEmotionColor] andPosition:100];
     [self.shareButton addTarget:self action:@selector(shareOnTwitter) forControlEvents:UIControlEventTouchUpInside];
 
+    //nav bar title
+    self.navigationItem.title = @"Profile";
 }
 
 - (void)viewDidAppear:(BOOL)animated {

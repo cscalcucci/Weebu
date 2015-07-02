@@ -582,11 +582,13 @@
             </objects>
             <point key="canvasLocation" x="-305" y="26"/>
         </scene>
-        <!--General-->
+        <!--Navigation Controller-->
         <scene sceneID="Bkz-CK-S8O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jbQ-Ta-JEX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="General" image="deathSD" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" id="acW-dT-cKf">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kUJ-uo-InB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -601,11 +603,13 @@
             </objects>
             <point key="canvasLocation" x="-1316" y="910"/>
         </scene>
-        <!--List-->
+        <!--Navigation Controller-->
         <scene sceneID="4Tw-vK-IdC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nVd-mj-hhZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" image="deathSD" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" id="cPa-gy-q4n">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tWR-XF-Dvt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -620,11 +624,13 @@
             </objects>
             <point key="canvasLocation" x="-630" y="910"/>
         </scene>
-        <!--Map-->
+        <!--Navigation Controller-->
         <scene sceneID="qGY-EA-K7c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Af-P1-sJH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="deathSD" id="erX-4V-6A7"/>
+                    <tabBarItem key="tabBarItem" title="" id="erX-4V-6A7">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Isx-MA-mJA">
@@ -941,11 +947,13 @@
             </objects>
             <point key="canvasLocation" x="2820" y="1254"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="0A3-aw-GMc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qka-4f-Ndm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="twtr-icn-logo-white.png" id="brN-Ta-f1I"/>
+                    <tabBarItem key="tabBarItem" title="" id="brN-Ta-f1I">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RJx-FR-EZx">
@@ -1069,7 +1077,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="deathSD" width="35" height="35"/>
         <image name="settings" width="24" height="24"/>
         <image name="twtr-icn-logo-white.png" width="16" height="13"/>
     </resources>
