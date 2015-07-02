@@ -13,9 +13,11 @@
 
 @dynamic name;
 @dynamic imageFile;
+@dynamic imageFileWhite;
 @dynamic pleasantValue;
 @dynamic activatedValue;
 @dynamic imageString;
+@dynamic imageStringWhite;
 
 + (void)load {
     [self registerSubclass];

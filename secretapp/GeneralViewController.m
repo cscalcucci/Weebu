@@ -20,9 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.settingsButton.title = @"";
-    UIImage *image = [UIImage imageNamed:@"settings"];
-    self.settingsButton.image = image;
+    self.navigationItem.title = @"Current mood";
 
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *tempItem = [tabBar.items objectAtIndex:0];
@@ -47,6 +45,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self loadEvents];
     [self rotateImageView:self.colorWheel];
+
+    //add imageView
+    self.emotionImageView = [[PFImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    self.emotionImageView.center = CGPointMake(self.view.center.x, self.view.center.y - 100);
+    [self.view addSubview:self.emotionImageView];
 
     self.userLocation = [LocationService sharedInstance].currentLocation;
     self.venueUrlCall = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&oauth_token=N5Z3YJNLEWD4KIBIOB1C22YOPTPSJSL3NAEXVUMYGJC35FMP&v=20150617", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude]];
@@ -144,9 +147,12 @@
         }
 
         /*Note: make this imageView programmatic and center it along with the color wheel*/
-        self.emotionImageView.file = self.emotion.imageFile;
+        self.emotionImageView.file = self.emotion.imageFileWhite;
         [self.emotionImageView loadInBackground];
         self.emotionLabel.text = self.emotion.name;
+        self.emotionLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
+
+        [self.view sendSubviewToBack:self.colorWheel];
     }];
 }
 
@@ -188,8 +194,7 @@
 - (void)rotatingColorWheel {
     self.colorWheel = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1000, 1000)];
     self.colorWheel.image = [self imageNamed:@"colorWheel" withTintColor:[self createColorFromEmotion:self.emotion]];
-    self.colorWheel.center = CGPointMake(self.view.frame.size.width  / 2,
-                                        self.view.frame.size.height / 2);
+    self.colorWheel.center = CGPointMake(self.view.center.x, self.view.center.y - 75);
     self.colorWheel.alpha = 0.75;
     [self.view addSubview:self.colorWheel];
 }

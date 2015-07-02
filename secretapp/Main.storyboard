@@ -5,6 +5,9 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Brandon Grotesque Black.ttf">
+            <string>BrandonGrotesque-Black</string>
+        </mutableArray>
         <mutableArray key="Brandon Grotesque Bold.ttf">
             <string>BrandonGrotesque-Bold</string>
         </mutableArray>
@@ -37,69 +40,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZQa-TV-Wbe" customClass="PFImageView">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="qqf-3Y-CNh"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Mc-L6w">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Mc-L6w">
                                 <rect key="frame" x="132" y="399" width="336" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="40u-db-b90"/>
                                     <constraint firstAttribute="height" constant="38" id="j7u-br-g0R"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="BrandonGrotesque-Bold" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="BrandonGrotesque-Bold" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-iq-DJx">
-                                <rect key="frame" x="203" y="91" width="195" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7g-N8-dG8">
+                                <rect key="frame" x="259" y="80" width="82" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Nwc-eL-9yu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7g-N8-dG8">
-                                <rect key="frame" x="259" y="120" width="82" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="O2x-8I-Pyc"/>
+                                    <constraint firstAttribute="height" constant="26" id="rJV-bP-MaN"/>
+                                    <constraint firstAttribute="width" constant="82" id="vh7-vT-r9i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="current mood in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEc-TL-OUp">
-                                <rect key="frame" x="204" y="46" width="193" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-iq-DJx">
+                                <rect key="frame" x="203" y="35" width="195" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="193" id="4V8-bs-x8u"/>
+                                    <constraint firstAttribute="height" constant="29" id="Nwc-eL-9yu"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ZXv-Co-wlu"/>
+                                    <constraint firstAttribute="width" constant="195" id="jHR-hY-lTj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="BrandonGrotesque-Black" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mEc-TL-OUp" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="46" id="5RR-iX-9iC"/>
-                            <constraint firstItem="ZQa-TV-Wbe" firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="68O-E7-io1"/>
-                            <constraint firstItem="g9O-Mc-L6w" firstAttribute="top" secondItem="ZQa-TV-Wbe" secondAttribute="bottom" constant="-1" id="9Xx-lV-3sa"/>
-                            <constraint firstItem="ZQa-TV-Wbe" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="CCM-1L-g7Q"/>
-                            <constraint firstItem="1u9-iq-DJx" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="91" id="ISy-J6-fyK"/>
-                            <constraint firstItem="ZQa-TV-Wbe" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="136" id="Jka-cc-buJ"/>
-                            <constraint firstItem="i7g-N8-dG8" firstAttribute="top" secondItem="1u9-iq-DJx" secondAttribute="bottom" constant="8" id="PvV-8O-Rke"/>
+                            <constraint firstAttribute="centerX" secondItem="1u9-iq-DJx" secondAttribute="centerX" id="03f-5y-HeI"/>
+                            <constraint firstItem="i7g-N8-dG8" firstAttribute="top" secondItem="1u9-iq-DJx" secondAttribute="bottom" constant="16" id="Bp2-Fr-SHQ"/>
+                            <constraint firstItem="1u9-iq-DJx" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="35" id="ISy-J6-fyK"/>
+                            <constraint firstAttribute="centerX" secondItem="i7g-N8-dG8" secondAttribute="centerX" id="VOe-sj-DIz"/>
                             <constraint firstAttribute="centerX" secondItem="1u9-iq-DJx" secondAttribute="centerX" id="Xrm-Db-e1r"/>
-                            <constraint firstAttribute="centerX" secondItem="i7g-N8-dG8" secondAttribute="centerX" id="b6S-NA-iYE"/>
-                            <constraint firstAttribute="centerX" secondItem="mEc-TL-OUp" secondAttribute="centerX" id="dtK-Ae-cTC"/>
                             <constraint firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="uHU-KS-a4a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qke-2S-dzF"/>
                     <connections>
                         <outlet property="cityLabel" destination="1u9-iq-DJx" id="JEI-6B-JIS"/>
-                        <outlet property="emotionImageView" destination="ZQa-TV-Wbe" id="dxM-gh-70p"/>
                         <outlet property="emotionLabel" destination="g9O-Mc-L6w" id="vui-CI-MRn"/>
                         <outlet property="zipLabel" destination="i7g-N8-dG8" id="PYg-ge-Rxn"/>
                         <segue destination="qUT-Vp-n3A" kind="presentation" identifier="GeneralToAdd" id="ky5-3i-ZYO"/>
@@ -1069,19 +1054,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfe-TZ-0zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-618" y="3182.5"/>
-=======
-            <point key="canvasLocation" x="-623" y="3249.5"/>
->>>>>>> b8cc899853f7db247ec895d3f4fa9ec135fae8b9
         </scene>
     </scenes>
     <resources>
         <image name="settings" width="24" height="24"/>
-        <image name="twtr-icn-logo-white.png" width="16" height="13"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p9v-IF-eIb"/>
-        <segue reference="d06-p6-ZJe"/>
+        <segue reference="ky5-3i-ZYO"/>
     </inferredMetricsTieBreakers>
 </document>
