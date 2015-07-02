@@ -21,6 +21,7 @@
 		669424251B444C3600193D46 /* libMapbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 669424241B444C3600193D46 /* libMapbox.a */; };
 		669424601B444D2700193D46 /* Mapbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6694245F1B444D2700193D46 /* Mapbox.bundle */; };
 		66CFFBDD1B447072009DF9FA /* astronaut1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66CFFBDC1B447072009DF9FA /* astronaut1.png */; };
+		66CFFBDF1B44887D009DF9FA /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 66CFFBDE1B44887D009DF9FA /* circle.png */; };
 		7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23671B3EEF7F0049B47B /* SessionViewController.m */; };
 		7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC236A1B3EEF950049B47B /* LoginViewController.m */; };
 		7ECC23761B3EF5830049B47B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23701B3EF5830049B47B /* Bolts.framework */; };
@@ -338,6 +339,7 @@
 		6694245E1B444D2700193D46 /* RMUserTrackingBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUserTrackingBarButtonItem.h; sourceTree = "<group>"; };
 		6694245F1B444D2700193D46 /* Mapbox.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mapbox.bundle; sourceTree = "<group>"; };
 		66CFFBDC1B447072009DF9FA /* astronaut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astronaut1.png; sourceTree = "<group>"; };
+		66CFFBDE1B44887D009DF9FA /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		7ECC23661B3EEF7F0049B47B /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		7ECC23671B3EEF7F0049B47B /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
 		7ECC23691B3EEF950049B47B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
@@ -971,6 +973,7 @@
 				66941EF21B43034400193D46 /* SingleAnnotation.h */,
 				66941EF31B43034400193D46 /* SingleAnnotation.m */,
 				66CFFBDC1B447072009DF9FA /* astronaut1.png */,
+				66CFFBDE1B44887D009DF9FA /* circle.png */,
 				6694241F1B44496000193D46 /* MapboxViewController.h */,
 				669424201B44496000193D46 /* MapboxViewController.m */,
 			);
@@ -1424,6 +1427,7 @@
 				99DE2D691B43820300C3B902 /* uv_idea@2x.png in Resources */,
 				99DE2C6B1B42205C00C3B902 /* Media.xcassets in Resources */,
 				99DE2D641B43820300C3B902 /* uv_article.png in Resources */,
+				66CFFBDF1B44887D009DF9FA /* circle.png in Resources */,
 				99DE2D631B43820300C3B902 /* UserVoice.strings in Resources */,
 				99DE2D681B43820300C3B902 /* uv_idea.png in Resources */,
 				99DE2D6F1B44242600C3B902 /* StandardEventTableViewCell.xib in Resources */,
