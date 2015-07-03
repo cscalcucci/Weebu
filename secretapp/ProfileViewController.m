@@ -15,18 +15,12 @@
 
     //Map
     self.userLocation = [LocationService sharedInstance].currentLocation;
-    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 250)];
-    self.mapView.showsPointsOfInterest = NO;
-    self.mapView.showsBuildings = NO;
-    CLLocationCoordinate2D location = [self.userLocation coordinate];
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location, 5000, 5000);
-    [self.mapView setRegion:region animated:YES];
-    [self.view addSubview:self.mapView];
+    [self performSelector:@selector(loadMapDelayBugFix) withObject:nil afterDelay:0.1];
 
     //Blur
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
     self.blueEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
-    self.blueEffectView.alpha = 0.9;
+    self.blueEffectView.alpha = 0.75;
 
     self.blueEffectView.frame = self.view.bounds;
     [self.view addSubview:self.blueEffectView];
@@ -73,12 +67,23 @@
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
-            NSLog(@"total events: %lu", events.count);
+            NSLog(@"total events: %i", (int)events.count);
             self.events = events;
             [self.tableView reloadData];
             [self calculatValues];
         }
     }];
+}
+
+-(void)loadMapDelayBugFix {
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 250)];
+    self.mapView.showsPointsOfInterest = NO;
+    self.mapView.showsBuildings = NO;
+    CLLocationCoordinate2D location = [self.userLocation coordinate];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location, 5000, 5000);
+    [self.mapView setRegion:region animated:YES];
+    [self.view addSubview:self.mapView];
+    [self.view sendSubviewToBack:self.mapView];
 }
 
 -(void)refreshMyTableView:(UIControlEvents *) event {

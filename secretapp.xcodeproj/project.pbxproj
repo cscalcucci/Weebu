@@ -729,7 +729,6 @@
 		993F69FF1B3EE1DD00CAF0D7 = {
 			isa = PBXGroup;
 			children = (
-				99ED6C651B45CCAC00CC4B98 /* libstdc++.6.dylib */,
 				993F6A0A1B3EE1DD00CAF0D7 /* secretapp */,
 				993F6A271B3EE1DD00CAF0D7 /* secretappTests */,
 				993F6A091B3EE1DD00CAF0D7 /* Products */,
@@ -814,6 +813,7 @@
 		993F6A561B3EE8BE00CAF0D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99ED6C651B45CCAC00CC4B98 /* libstdc++.6.dylib */,
 				99DE2CFD1B42231F00C3B902 /* libicucore.dylib */,
 				99DE2CFB1B42217900C3B902 /* Accelerate.framework */,
 				99DE2CF91B42216F00C3B902 /* CoreTelephony.framework */,

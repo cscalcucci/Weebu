@@ -134,7 +134,7 @@
     //View Controller Buttons
     self.cancelButton = [[UIButton alloc] initWithFrame: CGRectMake((self.view.frame.size.width - 80), 60, 80, 80)];
     self.cancelButton.backgroundColor = [UIColor clearColor];
-    [self.cancelButton setTitle:@"Back" forState:UIControlStateNormal];
+    [self.cancelButton setTitle:@"< back" forState:UIControlStateNormal];
     self.cancelButton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     [self.cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.cancelButton setTitle:@"x" forState:UIControlStateNormal];
@@ -290,7 +290,6 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    NSLog(@"Emotions count: %lu", self.emotions.count);
     return self.emotions.count;
 }
 
@@ -300,7 +299,7 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.emotionImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"emotion%li",row]];
+    self.emotionImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"emotion%i",(int)row]];
     self.selectedTag = row;
 }
 
