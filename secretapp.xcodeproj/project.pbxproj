@@ -49,7 +49,6 @@
 		993F6A171B3EE1DD00CAF0D7 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */; };
 		993F6A1C1B3EE1DD00CAF0D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 993F6A1B1B3EE1DD00CAF0D7 /* Images.xcassets */; };
 		993F6A1F1B3EE1DD00CAF0D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F6A1D1B3EE1DD00CAF0D7 /* LaunchScreen.xib */; };
-		993F6A2B1B3EE1DD00CAF0D7 /* secretappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A2A1B3EE1DD00CAF0D7 /* secretappTests.m */; };
 		993F6A351B3EE26900CAF0D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993F6A341B3EE26900CAF0D7 /* Main.storyboard */; };
 		993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A371B3EE2BA00CAF0D7 /* MapViewController.m */; };
 		993F6A3B1B3EE2CB00CAF0D7 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A3A1B3EE2CB00CAF0D7 /* ListViewController.m */; };
@@ -83,147 +82,76 @@
 		99605BEF1B41B7CD00238EC8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99605BEE1B41B7CD00238EC8 /* Social.framework */; };
 		99605BF21B41C50E00238EC8 /* TwitterInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99605BF11B41C50E00238EC8 /* TwitterInfoViewController.m */; };
 		99DE2C671B42205C00C3B902 /* _MPTweakBindObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BEB1B42205C00C3B902 /* _MPTweakBindObserver.m */; };
-		99DE2C681B42205C00C3B902 /* _MPTweakBindObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BEB1B42205C00C3B902 /* _MPTweakBindObserver.m */; };
 		99DE2C691B42205C00C3B902 /* libMPCategoryHelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DE2BEC1B42205C00C3B902 /* libMPCategoryHelpers.a */; };
-		99DE2C6A1B42205C00C3B902 /* libMPCategoryHelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DE2BEC1B42205C00C3B902 /* libMPCategoryHelpers.a */; };
 		99DE2C6B1B42205C00C3B902 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2BED1B42205C00C3B902 /* Media.xcassets */; };
-		99DE2C6C1B42205C00C3B902 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2BED1B42205C00C3B902 /* Media.xcassets */; };
 		99DE2C6D1B42205C00C3B902 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BEF1B42205C00C3B902 /* Mixpanel.m */; };
-		99DE2C6E1B42205C00C3B902 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BEF1B42205C00C3B902 /* Mixpanel.m */; };
 		99DE2C6F1B42205C00C3B902 /* MPAbstractABTestDesignerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF11B42205C00C3B902 /* MPAbstractABTestDesignerMessage.m */; };
-		99DE2C701B42205C00C3B902 /* MPAbstractABTestDesignerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF11B42205C00C3B902 /* MPAbstractABTestDesignerMessage.m */; };
 		99DE2C711B42205C00C3B902 /* MPABTestDesignerChangeRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF31B42205C00C3B902 /* MPABTestDesignerChangeRequestMessage.m */; };
-		99DE2C721B42205C00C3B902 /* MPABTestDesignerChangeRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF31B42205C00C3B902 /* MPABTestDesignerChangeRequestMessage.m */; };
 		99DE2C731B42205C00C3B902 /* MPABTestDesignerChangeResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF51B42205C00C3B902 /* MPABTestDesignerChangeResponseMessage.m */; };
-		99DE2C741B42205C00C3B902 /* MPABTestDesignerChangeResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF51B42205C00C3B902 /* MPABTestDesignerChangeResponseMessage.m */; };
 		99DE2C751B42205C00C3B902 /* MPABTestDesignerClearRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF71B42205C00C3B902 /* MPABTestDesignerClearRequestMessage.m */; };
-		99DE2C761B42205C00C3B902 /* MPABTestDesignerClearRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF71B42205C00C3B902 /* MPABTestDesignerClearRequestMessage.m */; };
 		99DE2C771B42205C00C3B902 /* MPABTestDesignerClearResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF91B42205C00C3B902 /* MPABTestDesignerClearResponseMessage.m */; };
-		99DE2C781B42205C00C3B902 /* MPABTestDesignerClearResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BF91B42205C00C3B902 /* MPABTestDesignerClearResponseMessage.m */; };
 		99DE2C791B42205C00C3B902 /* MPABTestDesignerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BFB1B42205C00C3B902 /* MPABTestDesignerConnection.m */; };
-		99DE2C7A1B42205C00C3B902 /* MPABTestDesignerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BFB1B42205C00C3B902 /* MPABTestDesignerConnection.m */; };
 		99DE2C7B1B42205C00C3B902 /* MPABTestDesignerDeviceInfoRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BFD1B42205C00C3B902 /* MPABTestDesignerDeviceInfoRequestMessage.m */; };
-		99DE2C7C1B42205C00C3B902 /* MPABTestDesignerDeviceInfoRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BFD1B42205C00C3B902 /* MPABTestDesignerDeviceInfoRequestMessage.m */; };
 		99DE2C7D1B42205C00C3B902 /* MPABTestDesignerDeviceInfoResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BFF1B42205C00C3B902 /* MPABTestDesignerDeviceInfoResponseMessage.m */; };
-		99DE2C7E1B42205C00C3B902 /* MPABTestDesignerDeviceInfoResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BFF1B42205C00C3B902 /* MPABTestDesignerDeviceInfoResponseMessage.m */; };
 		99DE2C7F1B42205C00C3B902 /* MPABTestDesignerDisconnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C011B42205C00C3B902 /* MPABTestDesignerDisconnectMessage.m */; };
-		99DE2C801B42205C00C3B902 /* MPABTestDesignerDisconnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C011B42205C00C3B902 /* MPABTestDesignerDisconnectMessage.m */; };
 		99DE2C811B42205C00C3B902 /* MPABTestDesignerSnapshotRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C041B42205C00C3B902 /* MPABTestDesignerSnapshotRequestMessage.m */; };
-		99DE2C821B42205C00C3B902 /* MPABTestDesignerSnapshotRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C041B42205C00C3B902 /* MPABTestDesignerSnapshotRequestMessage.m */; };
 		99DE2C831B42205C00C3B902 /* MPABTestDesignerSnapshotResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C061B42205C00C3B902 /* MPABTestDesignerSnapshotResponseMessage.m */; };
-		99DE2C841B42205C00C3B902 /* MPABTestDesignerSnapshotResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C061B42205C00C3B902 /* MPABTestDesignerSnapshotResponseMessage.m */; };
 		99DE2C851B42205C00C3B902 /* MPABTestDesignerTweakRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C081B42205C00C3B902 /* MPABTestDesignerTweakRequestMessage.m */; };
-		99DE2C861B42205C00C3B902 /* MPABTestDesignerTweakRequestMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C081B42205C00C3B902 /* MPABTestDesignerTweakRequestMessage.m */; };
 		99DE2C871B42205C00C3B902 /* MPABTestDesignerTweakResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C0A1B42205C00C3B902 /* MPABTestDesignerTweakResponseMessage.m */; };
-		99DE2C881B42205C00C3B902 /* MPABTestDesignerTweakResponseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C0A1B42205C00C3B902 /* MPABTestDesignerTweakResponseMessage.m */; };
 		99DE2C891B42205C00C3B902 /* MPApplicationStateSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C0C1B42205C00C3B902 /* MPApplicationStateSerializer.m */; };
-		99DE2C8A1B42205C00C3B902 /* MPApplicationStateSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C0C1B42205C00C3B902 /* MPApplicationStateSerializer.m */; };
 		99DE2C8B1B42205C00C3B902 /* MPBOOLToNSNumberValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C0D1B42205C00C3B902 /* MPBOOLToNSNumberValueTransformer.m */; };
-		99DE2C8C1B42205C00C3B902 /* MPBOOLToNSNumberValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C0D1B42205C00C3B902 /* MPBOOLToNSNumberValueTransformer.m */; };
 		99DE2C8D1B42205C00C3B902 /* MPCATransform3DToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C0F1B42205C00C3B902 /* MPCATransform3DToNSDictionaryValueTransformer.m */; };
-		99DE2C8E1B42205C00C3B902 /* MPCATransform3DToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C0F1B42205C00C3B902 /* MPCATransform3DToNSDictionaryValueTransformer.m */; };
 		99DE2C8F1B42205C00C3B902 /* MPCGAffineTransformToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C101B42205C00C3B902 /* MPCGAffineTransformToNSDictionaryValueTransformer.m */; };
-		99DE2C901B42205C00C3B902 /* MPCGAffineTransformToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C101B42205C00C3B902 /* MPCGAffineTransformToNSDictionaryValueTransformer.m */; };
 		99DE2C911B42205C00C3B902 /* MPCGColorRefToNSStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C111B42205C00C3B902 /* MPCGColorRefToNSStringValueTransformer.m */; };
-		99DE2C921B42205C00C3B902 /* MPCGColorRefToNSStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C111B42205C00C3B902 /* MPCGColorRefToNSStringValueTransformer.m */; };
 		99DE2C931B42205C00C3B902 /* MPCGPointToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C121B42205C00C3B902 /* MPCGPointToNSDictionaryValueTransformer.m */; };
-		99DE2C941B42205C00C3B902 /* MPCGPointToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C121B42205C00C3B902 /* MPCGPointToNSDictionaryValueTransformer.m */; };
 		99DE2C951B42205C00C3B902 /* MPCGRectToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C131B42205C00C3B902 /* MPCGRectToNSDictionaryValueTransformer.m */; };
-		99DE2C961B42205C00C3B902 /* MPCGRectToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C131B42205C00C3B902 /* MPCGRectToNSDictionaryValueTransformer.m */; };
 		99DE2C971B42205C00C3B902 /* MPCGSizeToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C141B42205C00C3B902 /* MPCGSizeToNSDictionaryValueTransformer.m */; };
-		99DE2C981B42205C00C3B902 /* MPCGSizeToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C141B42205C00C3B902 /* MPCGSizeToNSDictionaryValueTransformer.m */; };
 		99DE2C991B42205C00C3B902 /* MPClassDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C161B42205C00C3B902 /* MPClassDescription.m */; };
-		99DE2C9A1B42205C00C3B902 /* MPClassDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C161B42205C00C3B902 /* MPClassDescription.m */; };
 		99DE2C9B1B42205C00C3B902 /* MPCloseBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C171B42205C00C3B902 /* MPCloseBtn.png */; };
-		99DE2C9C1B42205C00C3B902 /* MPCloseBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C171B42205C00C3B902 /* MPCloseBtn.png */; };
 		99DE2C9D1B42205C00C3B902 /* MPCloseBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C181B42205C00C3B902 /* MPCloseBtn@2x.png */; };
-		99DE2C9E1B42205C00C3B902 /* MPCloseBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C181B42205C00C3B902 /* MPCloseBtn@2x.png */; };
 		99DE2C9F1B42205C00C3B902 /* MPDesignerEventBindingRequestMesssage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C1A1B42205C00C3B902 /* MPDesignerEventBindingRequestMesssage.m */; };
-		99DE2CA01B42205C00C3B902 /* MPDesignerEventBindingRequestMesssage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C1A1B42205C00C3B902 /* MPDesignerEventBindingRequestMesssage.m */; };
 		99DE2CA11B42205C00C3B902 /* MPDesignerEventBindingResponseMesssage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C1B1B42205C00C3B902 /* MPDesignerEventBindingResponseMesssage.m */; };
-		99DE2CA21B42205C00C3B902 /* MPDesignerEventBindingResponseMesssage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C1B1B42205C00C3B902 /* MPDesignerEventBindingResponseMesssage.m */; };
 		99DE2CA31B42205C00C3B902 /* MPDesignerTrackMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C1D1B42205C00C3B902 /* MPDesignerTrackMessage.m */; };
-		99DE2CA41B42205C00C3B902 /* MPDesignerTrackMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C1D1B42205C00C3B902 /* MPDesignerTrackMessage.m */; };
 		99DE2CA51B42205C00C3B902 /* MPEnumDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C1F1B42205C00C3B902 /* MPEnumDescription.m */; };
-		99DE2CA61B42205C00C3B902 /* MPEnumDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C1F1B42205C00C3B902 /* MPEnumDescription.m */; };
 		99DE2CA71B42205C00C3B902 /* MPEventBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C211B42205C00C3B902 /* MPEventBinding.m */; };
-		99DE2CA81B42205C00C3B902 /* MPEventBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C211B42205C00C3B902 /* MPEventBinding.m */; };
 		99DE2CA91B42205C00C3B902 /* MPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C241B42205C00C3B902 /* MPNotification.m */; };
-		99DE2CAA1B42205C00C3B902 /* MPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C241B42205C00C3B902 /* MPNotification.m */; };
 		99DE2CAB1B42205C00C3B902 /* MPNotification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C251B42205C00C3B902 /* MPNotification.storyboard */; };
-		99DE2CAC1B42205C00C3B902 /* MPNotification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C251B42205C00C3B902 /* MPNotification.storyboard */; };
 		99DE2CAD1B42205C00C3B902 /* MPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C271B42205C00C3B902 /* MPNotificationViewController.m */; };
-		99DE2CAE1B42205C00C3B902 /* MPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C271B42205C00C3B902 /* MPNotificationViewController.m */; };
 		99DE2CAF1B42205C00C3B902 /* MPNSAttributedStringToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C281B42205C00C3B902 /* MPNSAttributedStringToNSDictionaryValueTransformer.m */; };
-		99DE2CB01B42205C00C3B902 /* MPNSAttributedStringToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C281B42205C00C3B902 /* MPNSAttributedStringToNSDictionaryValueTransformer.m */; };
 		99DE2CB11B42205C00C3B902 /* MPNSNumberToCGFloatValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C291B42205C00C3B902 /* MPNSNumberToCGFloatValueTransformer.m */; };
-		99DE2CB21B42205C00C3B902 /* MPNSNumberToCGFloatValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C291B42205C00C3B902 /* MPNSNumberToCGFloatValueTransformer.m */; };
 		99DE2CB31B42205C00C3B902 /* MPObjectIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C2C1B42205C00C3B902 /* MPObjectIdentityProvider.m */; };
-		99DE2CB41B42205C00C3B902 /* MPObjectIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C2C1B42205C00C3B902 /* MPObjectIdentityProvider.m */; };
 		99DE2CB51B42205C00C3B902 /* MPObjectSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C2E1B42205C00C3B902 /* MPObjectSelector.m */; };
-		99DE2CB61B42205C00C3B902 /* MPObjectSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C2E1B42205C00C3B902 /* MPObjectSelector.m */; };
 		99DE2CB71B42205C00C3B902 /* MPObjectSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C301B42205C00C3B902 /* MPObjectSerializer.m */; };
-		99DE2CB81B42205C00C3B902 /* MPObjectSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C301B42205C00C3B902 /* MPObjectSerializer.m */; };
 		99DE2CB91B42205C00C3B902 /* MPObjectSerializerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C321B42205C00C3B902 /* MPObjectSerializerConfig.m */; };
-		99DE2CBA1B42205C00C3B902 /* MPObjectSerializerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C321B42205C00C3B902 /* MPObjectSerializerConfig.m */; };
 		99DE2CBB1B42205C00C3B902 /* MPObjectSerializerContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C341B42205C00C3B902 /* MPObjectSerializerContext.m */; };
-		99DE2CBC1B42205C00C3B902 /* MPObjectSerializerContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C341B42205C00C3B902 /* MPObjectSerializerContext.m */; };
 		99DE2CBD1B42205C00C3B902 /* MPPassThroughValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C351B42205C00C3B902 /* MPPassThroughValueTransformer.m */; };
-		99DE2CBE1B42205C00C3B902 /* MPPassThroughValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C351B42205C00C3B902 /* MPPassThroughValueTransformer.m */; };
 		99DE2CBF1B42205C00C3B902 /* MPPropertyDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C371B42205C00C3B902 /* MPPropertyDescription.m */; };
-		99DE2CC01B42205C00C3B902 /* MPPropertyDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C371B42205C00C3B902 /* MPPropertyDescription.m */; };
 		99DE2CC11B42205C00C3B902 /* MPSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C391B42205C00C3B902 /* MPSequenceGenerator.m */; };
-		99DE2CC21B42205C00C3B902 /* MPSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C391B42205C00C3B902 /* MPSequenceGenerator.m */; };
 		99DE2CC31B42205C00C3B902 /* MPSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C3B1B42205C00C3B902 /* MPSurvey.m */; };
-		99DE2CC41B42205C00C3B902 /* MPSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C3B1B42205C00C3B902 /* MPSurvey.m */; };
 		99DE2CC51B42205C00C3B902 /* MPSurvey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C3C1B42205C00C3B902 /* MPSurvey.storyboard */; };
-		99DE2CC61B42205C00C3B902 /* MPSurvey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C3C1B42205C00C3B902 /* MPSurvey.storyboard */; };
 		99DE2CC71B42205C00C3B902 /* MPSurveyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C3E1B42205C00C3B902 /* MPSurveyNavigationController.m */; };
-		99DE2CC81B42205C00C3B902 /* MPSurveyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C3E1B42205C00C3B902 /* MPSurveyNavigationController.m */; };
 		99DE2CC91B42205C00C3B902 /* MPSurveyQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C401B42205C00C3B902 /* MPSurveyQuestion.m */; };
-		99DE2CCA1B42205C00C3B902 /* MPSurveyQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C401B42205C00C3B902 /* MPSurveyQuestion.m */; };
 		99DE2CCB1B42205C00C3B902 /* MPSurveyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C421B42205C00C3B902 /* MPSurveyQuestionViewController.m */; };
-		99DE2CCC1B42205C00C3B902 /* MPSurveyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C421B42205C00C3B902 /* MPSurveyQuestionViewController.m */; };
 		99DE2CCD1B42205C00C3B902 /* MPSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C441B42205C00C3B902 /* MPSwizzler.m */; };
-		99DE2CCE1B42205C00C3B902 /* MPSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C441B42205C00C3B902 /* MPSwizzler.m */; };
 		99DE2CCF1B42205C00C3B902 /* MPTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C461B42205C00C3B902 /* MPTweak.m */; };
-		99DE2CD01B42205C00C3B902 /* MPTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C461B42205C00C3B902 /* MPTweak.m */; };
 		99DE2CD11B42205C00C3B902 /* MPTweakInline.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C481B42205C00C3B902 /* MPTweakInline.m */; };
-		99DE2CD21B42205C00C3B902 /* MPTweakInline.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C481B42205C00C3B902 /* MPTweakInline.m */; };
 		99DE2CD31B42205C00C3B902 /* MPTweakStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C4B1B42205C00C3B902 /* MPTweakStore.m */; };
-		99DE2CD41B42205C00C3B902 /* MPTweakStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C4B1B42205C00C3B902 /* MPTweakStore.m */; };
 		99DE2CD51B42205C00C3B902 /* MPTypeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C4D1B42205C00C3B902 /* MPTypeDescription.m */; };
-		99DE2CD61B42205C00C3B902 /* MPTypeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C4D1B42205C00C3B902 /* MPTypeDescription.m */; };
 		99DE2CD71B42205C00C3B902 /* MPUIColorToNSStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C4E1B42205C00C3B902 /* MPUIColorToNSStringValueTransformer.m */; };
-		99DE2CD81B42205C00C3B902 /* MPUIColorToNSStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C4E1B42205C00C3B902 /* MPUIColorToNSStringValueTransformer.m */; };
 		99DE2CD91B42205C00C3B902 /* MPUIControlBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C501B42205C00C3B902 /* MPUIControlBinding.m */; };
-		99DE2CDA1B42205C00C3B902 /* MPUIControlBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C501B42205C00C3B902 /* MPUIControlBinding.m */; };
 		99DE2CDB1B42205C00C3B902 /* MPUIEdgeInsetsToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C511B42205C00C3B902 /* MPUIEdgeInsetsToNSDictionaryValueTransformer.m */; };
-		99DE2CDC1B42205C00C3B902 /* MPUIEdgeInsetsToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C511B42205C00C3B902 /* MPUIEdgeInsetsToNSDictionaryValueTransformer.m */; };
 		99DE2CDD1B42205C00C3B902 /* MPUIFontToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C521B42205C00C3B902 /* MPUIFontToNSDictionaryValueTransformer.m */; };
-		99DE2CDE1B42205C00C3B902 /* MPUIFontToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C521B42205C00C3B902 /* MPUIFontToNSDictionaryValueTransformer.m */; };
 		99DE2CDF1B42205C00C3B902 /* MPUIImageToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C531B42205C00C3B902 /* MPUIImageToNSDictionaryValueTransformer.m */; };
-		99DE2CE01B42205C00C3B902 /* MPUIImageToNSDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C531B42205C00C3B902 /* MPUIImageToNSDictionaryValueTransformer.m */; };
 		99DE2CE11B42205C00C3B902 /* MPUITableViewBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C551B42205C00C3B902 /* MPUITableViewBinding.m */; };
-		99DE2CE21B42205C00C3B902 /* MPUITableViewBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C551B42205C00C3B902 /* MPUITableViewBinding.m */; };
 		99DE2CE31B42205C00C3B902 /* MPVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C581B42205C00C3B902 /* MPVariant.m */; };
-		99DE2CE41B42205C00C3B902 /* MPVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C581B42205C00C3B902 /* MPVariant.m */; };
 		99DE2CE51B42205C00C3B902 /* MPWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C5A1B42205C00C3B902 /* MPWebSocket.m */; };
-		99DE2CE61B42205C00C3B902 /* MPWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C5A1B42205C00C3B902 /* MPWebSocket.m */; };
 		99DE2CE71B42205C00C3B902 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C5C1B42205C00C3B902 /* NSData+MPBase64.m */; };
-		99DE2CE81B42205C00C3B902 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C5C1B42205C00C3B902 /* NSData+MPBase64.m */; };
 		99DE2CE91B42205C00C3B902 /* NSInvocation+MPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C5E1B42205C00C3B902 /* NSInvocation+MPHelpers.m */; };
-		99DE2CEA1B42205C00C3B902 /* NSInvocation+MPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C5E1B42205C00C3B902 /* NSInvocation+MPHelpers.m */; };
 		99DE2CEB1B42205C00C3B902 /* snapshot_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C5F1B42205C00C3B902 /* snapshot_config.json */; };
-		99DE2CEC1B42205C00C3B902 /* snapshot_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C5F1B42205C00C3B902 /* snapshot_config.json */; };
 		99DE2CED1B42205C00C3B902 /* test_variant.json in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C601B42205C00C3B902 /* test_variant.json */; };
-		99DE2CEE1B42205C00C3B902 /* test_variant.json in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2C601B42205C00C3B902 /* test_variant.json */; };
 		99DE2CEF1B42205C00C3B902 /* UIColor+MPColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C621B42205C00C3B902 /* UIColor+MPColor.m */; };
-		99DE2CF01B42205C00C3B902 /* UIColor+MPColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C621B42205C00C3B902 /* UIColor+MPColor.m */; };
 		99DE2CF11B42205C00C3B902 /* UIImage+MPAverageColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C641B42205C00C3B902 /* UIImage+MPAverageColor.m */; };
-		99DE2CF21B42205C00C3B902 /* UIImage+MPAverageColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C641B42205C00C3B902 /* UIImage+MPAverageColor.m */; };
 		99DE2CF31B42205C00C3B902 /* UIImage+MPImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C661B42205C00C3B902 /* UIImage+MPImageEffects.m */; };
-		99DE2CF41B42205C00C3B902 /* UIImage+MPImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2C661B42205C00C3B902 /* UIImage+MPImageEffects.m */; };
 		99DE2CF61B42213E00C3B902 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DE2CF51B42213E00C3B902 /* UIKit.framework */; };
 		99DE2CF81B42215800C3B902 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DE2CF71B42215800C3B902 /* Foundation.framework */; };
 		99DE2CFA1B42216F00C3B902 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DE2CF91B42216F00C3B902 /* CoreTelephony.framework */; };
@@ -243,16 +171,6 @@
 		99DE2D7A1B448BF700C3B902 /* UserVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2D791B448BF700C3B902 /* UserVoiceViewController.m */; };
 		99ED6C661B45CCAC00CC4B98 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 99ED6C651B45CCAC00CC4B98 /* libstdc++.6.dylib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		993F6A251B3EE1DD00CAF0D7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 993F6A001B3EE1DD00CAF0D7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 993F6A071B3EE1DD00CAF0D7;
-			remoteInfo = secretapp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		66941EC11B41987800193D46 /* FBAnnotationCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAnnotationCluster.h; sourceTree = "<group>"; };
@@ -376,7 +294,6 @@
 		993F6A161B3EE1DD00CAF0D7 /* GeneralViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
 		993F6A1B1B3EE1DD00CAF0D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		993F6A1E1B3EE1DD00CAF0D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		993F6A241B3EE1DD00CAF0D7 /* secretappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = secretappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F6A291B3EE1DD00CAF0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		993F6A2A1B3EE1DD00CAF0D7 /* secretappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = secretappTests.m; sourceTree = "<group>"; };
 		993F6A341B3EE26900CAF0D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -643,14 +560,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		993F6A211B3EE1DD00CAF0D7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99DE2C6A1B42205C00C3B902 /* libMPCategoryHelpers.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -831,7 +740,6 @@
 			isa = PBXGroup;
 			children = (
 				993F6A081B3EE1DD00CAF0D7 /* secretapp.app */,
-				993F6A241B3EE1DD00CAF0D7 /* secretappTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1319,24 +1227,6 @@
 			productReference = 993F6A081B3EE1DD00CAF0D7 /* secretapp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		993F6A231B3EE1DD00CAF0D7 /* secretappTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 993F6A311B3EE1DD00CAF0D7 /* Build configuration list for PBXNativeTarget "secretappTests" */;
-			buildPhases = (
-				993F6A201B3EE1DD00CAF0D7 /* Sources */,
-				993F6A211B3EE1DD00CAF0D7 /* Frameworks */,
-				993F6A221B3EE1DD00CAF0D7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				993F6A261B3EE1DD00CAF0D7 /* PBXTargetDependency */,
-			);
-			name = secretappTests;
-			productName = secretappTests;
-			productReference = 993F6A241B3EE1DD00CAF0D7 /* secretappTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1348,11 +1238,7 @@
 				TargetAttributes = {
 					993F6A071B3EE1DD00CAF0D7 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = KQRP2QXFVV;
-					};
-					993F6A231B3EE1DD00CAF0D7 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 993F6A071B3EE1DD00CAF0D7;
+						DevelopmentTeam = YV35DK49MJ;
 					};
 				};
 			};
@@ -1401,7 +1287,6 @@
 			projectRoot = "";
 			targets = (
 				993F6A071B3EE1DD00CAF0D7 /* secretapp */,
-				993F6A231B3EE1DD00CAF0D7 /* secretappTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1445,20 +1330,6 @@
 				993F6A1F1B3EE1DD00CAF0D7 /* LaunchScreen.xib in Resources */,
 				99DE2CED1B42205C00C3B902 /* test_variant.json in Resources */,
 				993F6A1C1B3EE1DD00CAF0D7 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		993F6A221B3EE1DD00CAF0D7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99DE2CAC1B42205C00C3B902 /* MPNotification.storyboard in Resources */,
-				99DE2CEC1B42205C00C3B902 /* snapshot_config.json in Resources */,
-				99DE2C9E1B42205C00C3B902 /* MPCloseBtn@2x.png in Resources */,
-				99DE2C9C1B42205C00C3B902 /* MPCloseBtn.png in Resources */,
-				99DE2C6C1B42205C00C3B902 /* Media.xcassets in Resources */,
-				99DE2CEE1B42205C00C3B902 /* test_variant.json in Resources */,
-				99DE2CC61B42205C00C3B902 /* MPSurvey.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1588,86 +1459,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		993F6A201B3EE1DD00CAF0D7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99DE2C821B42205C00C3B902 /* MPABTestDesignerSnapshotRequestMessage.m in Sources */,
-				99DE2C681B42205C00C3B902 /* _MPTweakBindObserver.m in Sources */,
-				99DE2C881B42205C00C3B902 /* MPABTestDesignerTweakResponseMessage.m in Sources */,
-				99DE2C741B42205C00C3B902 /* MPABTestDesignerChangeResponseMessage.m in Sources */,
-				99DE2CB01B42205C00C3B902 /* MPNSAttributedStringToNSDictionaryValueTransformer.m in Sources */,
-				99DE2CE61B42205C00C3B902 /* MPWebSocket.m in Sources */,
-				99DE2CCA1B42205C00C3B902 /* MPSurveyQuestion.m in Sources */,
-				99DE2CA01B42205C00C3B902 /* MPDesignerEventBindingRequestMesssage.m in Sources */,
-				99DE2C8E1B42205C00C3B902 /* MPCATransform3DToNSDictionaryValueTransformer.m in Sources */,
-				99DE2CF21B42205C00C3B902 /* UIImage+MPAverageColor.m in Sources */,
-				99DE2C721B42205C00C3B902 /* MPABTestDesignerChangeRequestMessage.m in Sources */,
-				99DE2C8C1B42205C00C3B902 /* MPBOOLToNSNumberValueTransformer.m in Sources */,
-				99DE2CE41B42205C00C3B902 /* MPVariant.m in Sources */,
-				99DE2C761B42205C00C3B902 /* MPABTestDesignerClearRequestMessage.m in Sources */,
-				99DE2CD61B42205C00C3B902 /* MPTypeDescription.m in Sources */,
-				99DE2C6E1B42205C00C3B902 /* Mixpanel.m in Sources */,
-				99DE2CDE1B42205C00C3B902 /* MPUIFontToNSDictionaryValueTransformer.m in Sources */,
-				99DE2C961B42205C00C3B902 /* MPCGRectToNSDictionaryValueTransformer.m in Sources */,
-				99DE2CD01B42205C00C3B902 /* MPTweak.m in Sources */,
-				99DE2CA81B42205C00C3B902 /* MPEventBinding.m in Sources */,
-				99DE2C9A1B42205C00C3B902 /* MPClassDescription.m in Sources */,
-				99DE2CDC1B42205C00C3B902 /* MPUIEdgeInsetsToNSDictionaryValueTransformer.m in Sources */,
-				99DE2CB61B42205C00C3B902 /* MPObjectSelector.m in Sources */,
-				99DE2CB21B42205C00C3B902 /* MPNSNumberToCGFloatValueTransformer.m in Sources */,
-				99DE2C7E1B42205C00C3B902 /* MPABTestDesignerDeviceInfoResponseMessage.m in Sources */,
-				99DE2CA21B42205C00C3B902 /* MPDesignerEventBindingResponseMesssage.m in Sources */,
-				99DE2CE21B42205C00C3B902 /* MPUITableViewBinding.m in Sources */,
-				99DE2C861B42205C00C3B902 /* MPABTestDesignerTweakRequestMessage.m in Sources */,
-				99DE2C801B42205C00C3B902 /* MPABTestDesignerDisconnectMessage.m in Sources */,
-				99DE2CB81B42205C00C3B902 /* MPObjectSerializer.m in Sources */,
-				99DE2CAA1B42205C00C3B902 /* MPNotification.m in Sources */,
-				99DE2CF41B42205C00C3B902 /* UIImage+MPImageEffects.m in Sources */,
-				99DE2CD81B42205C00C3B902 /* MPUIColorToNSStringValueTransformer.m in Sources */,
-				99DE2C901B42205C00C3B902 /* MPCGAffineTransformToNSDictionaryValueTransformer.m in Sources */,
-				99DE2C941B42205C00C3B902 /* MPCGPointToNSDictionaryValueTransformer.m in Sources */,
-				99DE2CBC1B42205C00C3B902 /* MPObjectSerializerContext.m in Sources */,
-				99DE2C781B42205C00C3B902 /* MPABTestDesignerClearResponseMessage.m in Sources */,
-				99DE2CA41B42205C00C3B902 /* MPDesignerTrackMessage.m in Sources */,
-				99DE2C841B42205C00C3B902 /* MPABTestDesignerSnapshotResponseMessage.m in Sources */,
-				99DE2C921B42205C00C3B902 /* MPCGColorRefToNSStringValueTransformer.m in Sources */,
-				99DE2C7A1B42205C00C3B902 /* MPABTestDesignerConnection.m in Sources */,
-				99DE2C701B42205C00C3B902 /* MPAbstractABTestDesignerMessage.m in Sources */,
-				99DE2CE81B42205C00C3B902 /* NSData+MPBase64.m in Sources */,
-				99DE2CBE1B42205C00C3B902 /* MPPassThroughValueTransformer.m in Sources */,
-				99DE2CA61B42205C00C3B902 /* MPEnumDescription.m in Sources */,
-				99DE2CC21B42205C00C3B902 /* MPSequenceGenerator.m in Sources */,
-				99DE2CBA1B42205C00C3B902 /* MPObjectSerializerConfig.m in Sources */,
-				99DE2CD41B42205C00C3B902 /* MPTweakStore.m in Sources */,
-				99DE2CCC1B42205C00C3B902 /* MPSurveyQuestionViewController.m in Sources */,
-				99DE2C7C1B42205C00C3B902 /* MPABTestDesignerDeviceInfoRequestMessage.m in Sources */,
-				99DE2CE01B42205C00C3B902 /* MPUIImageToNSDictionaryValueTransformer.m in Sources */,
-				99DE2CB41B42205C00C3B902 /* MPObjectIdentityProvider.m in Sources */,
-				99DE2CAE1B42205C00C3B902 /* MPNotificationViewController.m in Sources */,
-				99DE2C8A1B42205C00C3B902 /* MPApplicationStateSerializer.m in Sources */,
-				993F6A2B1B3EE1DD00CAF0D7 /* secretappTests.m in Sources */,
-				99DE2CEA1B42205C00C3B902 /* NSInvocation+MPHelpers.m in Sources */,
-				99DE2CC81B42205C00C3B902 /* MPSurveyNavigationController.m in Sources */,
-				99DE2CC01B42205C00C3B902 /* MPPropertyDescription.m in Sources */,
-				99DE2CF01B42205C00C3B902 /* UIColor+MPColor.m in Sources */,
-				99DE2CDA1B42205C00C3B902 /* MPUIControlBinding.m in Sources */,
-				99DE2CC41B42205C00C3B902 /* MPSurvey.m in Sources */,
-				99DE2C981B42205C00C3B902 /* MPCGSizeToNSDictionaryValueTransformer.m in Sources */,
-				99DE2CCE1B42205C00C3B902 /* MPSwizzler.m in Sources */,
-				99DE2CD21B42205C00C3B902 /* MPTweakInline.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		993F6A261B3EE1DD00CAF0D7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 993F6A071B3EE1DD00CAF0D7 /* secretapp */;
-			targetProxy = 993F6A251B3EE1DD00CAF0D7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		993F6A1D1B3EE1DD00CAF0D7 /* LaunchScreen.xib */ = {
@@ -1835,8 +1627,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: John McClelland (YV35DK49MJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: John McClelland (YV35DK49MJ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/secretapp",
@@ -1862,59 +1654,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "64ed9930-64eb-4bf0-94bd-4be0863fb1a7";
-			};
-			name = Release;
-		};
-		993F6A321B3EE1DD00CAF0D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = secretappTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/secretapp/Mixpanel",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					XCTest,
-					"-licucore",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/secretapp.app/secretapp";
-			};
-			name = Debug;
-		};
-		993F6A331B3EE1DD00CAF0D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = secretappTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/secretapp/Mixpanel",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					XCTest,
-					"-licucore",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/secretapp.app/secretapp";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -1935,15 +1675,6 @@
 			buildConfigurations = (
 				993F6A2F1B3EE1DD00CAF0D7 /* Debug */,
 				993F6A301B3EE1DD00CAF0D7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		993F6A311B3EE1DD00CAF0D7 /* Build configuration list for PBXNativeTarget "secretappTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				993F6A321B3EE1DD00CAF0D7 /* Debug */,
-				993F6A331B3EE1DD00CAF0D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
