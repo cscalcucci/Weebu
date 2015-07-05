@@ -303,8 +303,8 @@
     self.selectedTag = row;
 }
 
-#pragma mark - Button actions
 
+#pragma mark - Button actions
 
 - (void)submitEmotion {
     NSLog(@"add emotion button pressed");
@@ -428,9 +428,9 @@
         [self performSelector:@selector(cancelEmotion) withObject:self afterDelay:2.0];
     }
 
-    UIFont* titleFont = [UIFont fontWithName:@"STHeitiK-Light" size:22];
+    UIFont* titleFont = [UIFont fontWithName:@"BrandonGrotesque-Black" size:22];
     [self.minimalNotification setTitleFont:titleFont];
-    UIFont* subTitleFont = [UIFont fontWithName:@"STHeitiK-Light" size:16];
+    UIFont* subTitleFont = [UIFont fontWithName:@"BrandonGrotesque-Medium" size:16];
     [self.minimalNotification setSubTitleFont:subTitleFont];
 
     [self.minimalNotification show];

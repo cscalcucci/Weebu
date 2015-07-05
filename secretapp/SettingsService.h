@@ -10,7 +10,7 @@
 
 @interface SettingsService : NSObject
 
-+(SettingsService *) sharedInstance;
++(SettingsService *)sharedInstance;
 
 @property (strong, nonatomic) NSNumber *radius;
 @property (strong, nonatomic) NSString *timeRange;
