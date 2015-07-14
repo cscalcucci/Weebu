@@ -418,14 +418,14 @@
 
         [self.minimalNotification setStyle:JFMinimalNotificationStyleSuccess animated:YES];
         [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:self.selectedImage] animated:YES];
-        [self performSelector:@selector(cancelEmotion) withObject:self afterDelay:2.0];
+        [self performSelector:@selector(exitToSplash) withObject:self afterDelay:2.0];
 
     } else if ([self.notificationType isEqualToString:@"error"]) {
         [self.minimalNotification setStyle:JFMinimalNotificationStyleError animated:YES];
         [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"deathSD"]] animated:YES];
     } else {
         [self.minimalNotification setStyle:JFMinimalNotificationStyleWarning animated:YES];
-        [self performSelector:@selector(cancelEmotion) withObject:self afterDelay:2.0];
+        [self performSelector:@selector(exitToSplash) withObject:self afterDelay:2.0];
     }
 
     UIFont* titleFont = [UIFont fontWithName:@"BrandonGrotesque-Black" size:22];
@@ -449,6 +449,10 @@
         self.notificationTitle = [NSString stringWithFormat:@"Oh No!"];
         self.notificationMessage = [NSString stringWithFormat:@"You must not be very %@! Try uploading again.", self.selectedEmotion.name];
     }
+}
+
+- (void)exitToSplash {
+    [self performSegueWithIdentifier:@"UnwindToSplashFromAdd" sender:self];
 }
 
 #pragma mark - refactor stuff

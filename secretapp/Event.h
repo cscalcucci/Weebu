@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
-#import "Emotion.h"
 #import <Parse/PFObject+Subclass.h>
+
+#import "Emotion.h"
+
 
 
 @interface Event : PFObject<PFSubclassing>

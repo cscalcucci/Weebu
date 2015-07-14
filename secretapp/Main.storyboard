@@ -153,9 +153,11 @@
                     <navigationItem key="navigationItem" id="ld6-Wu-jVo"/>
                     <connections>
                         <outlet property="venuesContainer" destination="SJI-aZ-XWp" id="8ts-Vx-KRB"/>
+                        <segue destination="wxD-Yn-uzP" kind="unwind" identifier="UnwindToSplashFromAdd" unwindAction="unwindToSplash:" id="Fd8-Un-SLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0U-Lf-RLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wxD-Yn-uzP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-722" y="1666"/>
         </scene>
