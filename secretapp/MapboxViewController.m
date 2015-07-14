@@ -34,14 +34,12 @@
 @property NSNumber *activatedValue;
 @property NSString *emotionImageString;
 
-
 @end
 
 @implementation MapboxViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
 
     [[NSNotificationCenter defaultCenter]
                     addObserver:self
@@ -113,20 +111,11 @@
                 RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self.mapView coordinate:annoCoord andTitle:self.emotion.imageString];
 
                 switch (i) {
-//                    case 0 ... 500: annotation.subtitle = @"fizz"; NSLog(@"Fizzing"); break;
-
                     case 0 ... 500: annotation.subtitle = self.emotion.imageString; NSLog(@"Fizzing"); break;
 
                     default: annotation.subtitle = @"buzz"; NSLog(@"Buzzing"); break;
                 }
 
-//                annotation.userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
-//                                       self.emotion.imageString, @"imageString",
-//                                       self.emotion.pleasantValue, @"pleasantValue",
-//                                       self.emotion.activatedValue, @"activatedValue",
-//                                       nil];
-//                NSString *imageString = [[NSString alloc] initWithFormat:[annotation.userInfo objectForKey:@"imageString"]];
-//                NSLog(@"Imagestring %@", imageString);
                 NSLog(@"%@", annotation.subtitle);
                 [self.annotationArray addObject:annotation];
             }
@@ -238,9 +227,6 @@
 
     return str;
 }
-
-
-
 
 - (NSString *)calculatValuesForArray:(NSArray *)events {
     int count = 0;
