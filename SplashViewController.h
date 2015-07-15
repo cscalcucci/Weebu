@@ -1,23 +1,27 @@
 //
 //  SplashViewController.h
-//  TheWalls
+//  OneNightInBangkok
 //
-//  Created by John McClelland on 6/14/15.
-//  Copyright (c) 2015 bjc. All rights reserved.
+//  Created by John McClelland on 7/5/15.
+//  Copyright (c) 2015 machine^n. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+#import "UIColor+CustomColors.h"
 #import "LocationService.h"
-#import "Mixpanel.h"
 
 @interface SplashViewController : UIViewController
 
+//UI
 @property PFUser *currentUser;
 
 @property UIImageView *firstShape;
 @property UIImageView *secondShape;
 @property UIImageView *thirdShape;
+
+//Data
+@property (nonatomic) NSArray *testArray;
 
 @end

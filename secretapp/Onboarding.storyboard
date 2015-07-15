@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GO0-Ei-4wb">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Session View Controller-->
+        <scene sceneID="kE3-Mb-F2i">
+            <objects>
+                <viewController id="wqL-tg-0Y3" customClass="SessionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="siM-fK-2dl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wie-af-o7G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NVp-Iz-NqO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="cC0-xu-pIV" kind="presentation" identifier="SessionToEmailSignup" id="yZX-4z-cpX"/>
+                        <segue destination="gmR-QO-faw" kind="presentation" identifier="SessionToProfileInformation" id="zf5-Ci-Tfk"/>
+                        <segue destination="Uzl-gK-Bhu" kind="showDetail" identifier="SessionToSuccessfulLogin" id="gFX-EV-bWl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RI9-9Z-RdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992" y="404"/>
+        </scene>
+        <!--Email Signup View Controller-->
+        <scene sceneID="Gex-pB-YVe">
+            <objects>
+                <viewController id="cC0-xu-pIV" customClass="EmailSignupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dt5-7w-XaG"/>
+                        <viewControllerLayoutGuide type="bottom" id="o69-nw-JV2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H8P-FP-0g9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="gmR-QO-faw" kind="presentation" identifier="EmailSignupToProfileInformation" id="MwW-3A-elH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqB-Zu-10I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="-631"/>
+        </scene>
+        <!--Successful Login View Controller-->
+        <scene sceneID="xxT-tQ-Xev">
+            <objects>
+                <viewController id="Uzl-gK-Bhu" customClass="SuccessfulLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bZJ-0p-WXe"/>
+                        <viewControllerLayoutGuide type="bottom" id="s77-E4-JMA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uRk-78-M9T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rYU-XG-rxa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jx2-Gd-wU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="741"/>
+        </scene>
+        <!--Profile Information View Controller-->
+        <scene sceneID="HzW-Yl-mk1">
+            <objects>
+                <viewController id="gmR-QO-faw" customClass="ProfileInformationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IXW-WR-e87"/>
+                        <viewControllerLayoutGuide type="bottom" id="hgE-bu-7Tk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dDC-G8-QEW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="Uzl-gK-Bhu" kind="showDetail" identifier="ProfileInformationToSuccessfulLogin" id="vgp-1n-ogy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gW1-hm-YXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="54"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="Elz-qJ-97J">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GO0-Ei-4wb" customClass="SplashViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RfD-AN-QxA"/>
+                        <viewControllerLayoutGuide type="bottom" id="mty-Lr-V4Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F7G-Uw-ftq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="wqL-tg-0Y3" kind="showDetail" identifier="SplashToSession" id="PZc-1k-5H1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lLv-Bk-poR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="404"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gFX-EV-bWl"/>
+        <segue reference="zf5-Ci-Tfk"/>
+    </inferredMetricsTieBreakers>
+</document>

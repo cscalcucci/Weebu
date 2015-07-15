@@ -21,8 +21,6 @@
 		669424601B444D2700193D46 /* Mapbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6694245F1B444D2700193D46 /* Mapbox.bundle */; };
 		66CFFBDD1B447072009DF9FA /* astronaut1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66CFFBDC1B447072009DF9FA /* astronaut1.png */; };
 		66CFFBDF1B44887D009DF9FA /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 66CFFBDE1B44887D009DF9FA /* circle.png */; };
-		7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23671B3EEF7F0049B47B /* SessionViewController.m */; };
-		7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC236A1B3EEF950049B47B /* LoginViewController.m */; };
 		7ECC23761B3EF5830049B47B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23701B3EF5830049B47B /* Bolts.framework */; };
 		7ECC23771B3EF5830049B47B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23711B3EF5830049B47B /* Parse.framework */; };
 		7ECC237B1B3EF5830049B47B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23751B3EF5830049B47B /* ParseUI.framework */; };
@@ -37,7 +35,6 @@
 		7ECC23901B3EF6C40049B47B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC238F1B3EF6C40049B47B /* SystemConfiguration.framework */; };
 		7ECC23921B3EF6D10049B47B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23911B3EF6D10049B47B /* libz.dylib */; };
 		7ECC23941B3EF6DD0049B47B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC23931B3EF6DD0049B47B /* libsqlite3.dylib */; };
-		7ECC23981B3EF8260049B47B /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23971B3EF8260049B47B /* SignupViewController.m */; };
 		7ECC239B1B3F137C0049B47B /* Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239A1B3F137C0049B47B /* Emotion.m */; };
 		7ECC239E1B3F146B0049B47B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC239D1B3F146B0049B47B /* Event.m */; };
 		7ECC23A51B41BE7C0049B47B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A41B41BE7C0049B47B /* SettingsViewController.m */; };
@@ -55,7 +52,6 @@
 		993F6A3E1B3EE2D600CAF0D7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A3D1B3EE2D600CAF0D7 /* ProfileViewController.m */; };
 		993F6A411B3EE3AC00CAF0D7 /* AddEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A401B3EE3AC00CAF0D7 /* AddEmotionViewController.m */; };
 		993F6A441B3EE46C00CAF0D7 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */; };
-		993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */; };
 		993F6A501B3EE5DA00CAF0D7 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */; };
 		993F6A541B3EE87B00CAF0D7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A521B3EE87B00CAF0D7 /* Fabric.framework */; };
 		993F6A551B3EE87B00CAF0D7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993F6A531B3EE87B00CAF0D7 /* Crashlytics.framework */; };
@@ -80,7 +76,13 @@
 		99605BEB1B41B4CD00238EC8 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99605BE81B41B4CD00238EC8 /* TwitterCore.framework */; };
 		99605BED1B41B7C600238EC8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99605BEC1B41B7C600238EC8 /* Accounts.framework */; };
 		99605BEF1B41B7CD00238EC8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99605BEE1B41B7CD00238EC8 /* Social.framework */; };
-		99605BF21B41C50E00238EC8 /* TwitterInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99605BF11B41C50E00238EC8 /* TwitterInfoViewController.m */; };
+		99639F901B56E876002282CA /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99639F8F1B56E876002282CA /* Onboarding.storyboard */; };
+		99639F931B56E8F8002282CA /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99639F911B56E8F8002282CA /* ABCIntroView.m */; };
+		99639F9C1B56E926002282CA /* SuccessfulLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99639F941B56E926002282CA /* SuccessfulLoginViewController.m */; };
+		99639F9D1B56E926002282CA /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99639F961B56E926002282CA /* SplashViewController.m */; };
+		99639F9E1B56E926002282CA /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99639F981B56E926002282CA /* SessionViewController.m */; };
+		99639F9F1B56E926002282CA /* ProfileInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99639F9A1B56E926002282CA /* ProfileInformationViewController.m */; };
+		99639FA21B56F049002282CA /* EmailSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99639FA01B56F049002282CA /* EmailSignupViewController.m */; };
 		99DE2C671B42205C00C3B902 /* _MPTweakBindObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DE2BEB1B42205C00C3B902 /* _MPTweakBindObserver.m */; };
 		99DE2C691B42205C00C3B902 /* libMPCategoryHelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DE2BEC1B42205C00C3B902 /* libMPCategoryHelpers.a */; };
 		99DE2C6B1B42205C00C3B902 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DE2BED1B42205C00C3B902 /* Media.xcassets */; };
@@ -254,10 +256,6 @@
 		6694245F1B444D2700193D46 /* Mapbox.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mapbox.bundle; sourceTree = "<group>"; };
 		66CFFBDC1B447072009DF9FA /* astronaut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astronaut1.png; sourceTree = "<group>"; };
 		66CFFBDE1B44887D009DF9FA /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
-		7ECC23661B3EEF7F0049B47B /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
-		7ECC23671B3EEF7F0049B47B /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
-		7ECC23691B3EEF950049B47B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
-		7ECC236A1B3EEF950049B47B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 		7ECC23701B3EF5830049B47B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7ECC23711B3EF5830049B47B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		7ECC23751B3EF5830049B47B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -272,8 +270,6 @@
 		7ECC238F1B3EF6C40049B47B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7ECC23911B3EF6D10049B47B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7ECC23931B3EF6DD0049B47B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		7ECC23961B3EF8260049B47B /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = ../SignupViewController.h; sourceTree = "<group>"; };
-		7ECC23971B3EF8260049B47B /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = ../SignupViewController.m; sourceTree = "<group>"; };
 		7ECC23991B3F137C0049B47B /* Emotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emotion.h; sourceTree = "<group>"; };
 		7ECC239A1B3F137C0049B47B /* Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emotion.m; sourceTree = "<group>"; };
 		7ECC239C1B3F146B0049B47B /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -307,8 +303,6 @@
 		993F6A401B3EE3AC00CAF0D7 /* AddEmotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmotionViewController.m; sourceTree = "<group>"; };
 		993F6A421B3EE46C00CAF0D7 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		993F6A431B3EE46C00CAF0D7 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
-		993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
-		993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		993F6A4D1B3EE5DA00CAF0D7 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColors.h"; sourceTree = "<group>"; };
 		993F6A4E1B3EE5DA00CAF0D7 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
 		993F6A521B3EE87B00CAF0D7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -338,8 +332,19 @@
 		99605BE81B41B4CD00238EC8 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		99605BEC1B41B7C600238EC8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		99605BEE1B41B7CD00238EC8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		99605BF01B41C50E00238EC8 /* TwitterInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterInfoViewController.h; sourceTree = "<group>"; };
-		99605BF11B41C50E00238EC8 /* TwitterInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterInfoViewController.m; sourceTree = "<group>"; };
+		99639F8F1B56E876002282CA /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		99639F911B56E8F8002282CA /* ABCIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABCIntroView.m; path = ../ABCIntroView.m; sourceTree = "<group>"; };
+		99639F921B56E8F8002282CA /* ABCIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABCIntroView.h; path = ../ABCIntroView.h; sourceTree = "<group>"; };
+		99639F941B56E926002282CA /* SuccessfulLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuccessfulLoginViewController.m; path = ../SuccessfulLoginViewController.m; sourceTree = "<group>"; };
+		99639F951B56E926002282CA /* SuccessfulLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuccessfulLoginViewController.h; path = ../SuccessfulLoginViewController.h; sourceTree = "<group>"; };
+		99639F961B56E926002282CA /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = ../SplashViewController.m; sourceTree = "<group>"; };
+		99639F971B56E926002282CA /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = ../SplashViewController.h; sourceTree = "<group>"; };
+		99639F981B56E926002282CA /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SessionViewController.m; path = ../SessionViewController.m; sourceTree = "<group>"; };
+		99639F991B56E926002282CA /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SessionViewController.h; path = ../SessionViewController.h; sourceTree = "<group>"; };
+		99639F9A1B56E926002282CA /* ProfileInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileInformationViewController.m; path = ../ProfileInformationViewController.m; sourceTree = "<group>"; };
+		99639F9B1B56E926002282CA /* ProfileInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileInformationViewController.h; path = ../ProfileInformationViewController.h; sourceTree = "<group>"; };
+		99639FA01B56F049002282CA /* EmailSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailSignupViewController.m; sourceTree = "<group>"; };
+		99639FA11B56F049002282CA /* EmailSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailSignupViewController.h; sourceTree = "<group>"; };
 		99DE2BEA1B42205C00C3B902 /* _MPTweakBindObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MPTweakBindObserver.h; sourceTree = "<group>"; };
 		99DE2BEB1B42205C00C3B902 /* _MPTweakBindObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MPTweakBindObserver.m; sourceTree = "<group>"; };
 		99DE2BEC1B42205C00C3B902 /* libMPCategoryHelpers.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMPCategoryHelpers.a; sourceTree = "<group>"; };
@@ -680,18 +685,6 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		7ECC236F1B3EEFBB0049B47B /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				99605BF31B41C51200238EC8 /* Twitter Info */,
-				993F6A6F1B3F612100CAF0D7 /* Splash */,
-				993F6A6D1B3F610900CAF0D7 /* Session */,
-				993F6A6E1B3F611A00CAF0D7 /* Login */,
-				993F6A6C1B3F610200CAF0D7 /* Signup */,
-			);
-			name = Onboarding;
-			sourceTree = "<group>";
-		};
 		7ECC23951B3EF7150049B47B /* Parse */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,7 +784,19 @@
 		993F6A461B3EE50E00CAF0D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7ECC236F1B3EEFBB0049B47B /* Onboarding */,
+				99639F8F1B56E876002282CA /* Onboarding.storyboard */,
+				99639F921B56E8F8002282CA /* ABCIntroView.h */,
+				99639F911B56E8F8002282CA /* ABCIntroView.m */,
+				99639F971B56E926002282CA /* SplashViewController.h */,
+				99639F961B56E926002282CA /* SplashViewController.m */,
+				99639F991B56E926002282CA /* SessionViewController.h */,
+				99639F981B56E926002282CA /* SessionViewController.m */,
+				99639FA11B56F049002282CA /* EmailSignupViewController.h */,
+				99639FA01B56F049002282CA /* EmailSignupViewController.m */,
+				99639F9B1B56E926002282CA /* ProfileInformationViewController.h */,
+				99639F9A1B56E926002282CA /* ProfileInformationViewController.m */,
+				99639F951B56E926002282CA /* SuccessfulLoginViewController.h */,
+				99639F941B56E926002282CA /* SuccessfulLoginViewController.m */,
 				993F6A661B3F0A2800CAF0D7 /* Tabs */,
 				993F6A681B3F0A4200CAF0D7 /* Emotion */,
 			);
@@ -889,42 +894,6 @@
 			name = "Tab Bar";
 			sourceTree = "<group>";
 		};
-		993F6A6C1B3F610200CAF0D7 /* Signup */ = {
-			isa = PBXGroup;
-			children = (
-				7ECC23961B3EF8260049B47B /* SignupViewController.h */,
-				7ECC23971B3EF8260049B47B /* SignupViewController.m */,
-			);
-			name = Signup;
-			sourceTree = "<group>";
-		};
-		993F6A6D1B3F610900CAF0D7 /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				7ECC23661B3EEF7F0049B47B /* SessionViewController.h */,
-				7ECC23671B3EEF7F0049B47B /* SessionViewController.m */,
-			);
-			name = Session;
-			sourceTree = "<group>";
-		};
-		993F6A6E1B3F611A00CAF0D7 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				7ECC23691B3EEF950049B47B /* LoginViewController.h */,
-				7ECC236A1B3EEF950049B47B /* LoginViewController.m */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		993F6A6F1B3F612100CAF0D7 /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				993F6A4B1B3EE5DA00CAF0D7 /* SplashViewController.h */,
-				993F6A4C1B3EE5DA00CAF0D7 /* SplashViewController.m */,
-			);
-			name = Splash;
-			sourceTree = "<group>";
-		};
 		993F6A721B3F6CF600CAF0D7 /* Profile View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1018,15 +987,6 @@
 				993F6B0E1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf */,
 			);
 			name = "Brandon Grotesque Font";
-			sourceTree = "<group>";
-		};
-		99605BF31B41C51200238EC8 /* Twitter Info */ = {
-			isa = PBXGroup;
-			children = (
-				99605BF01B41C50E00238EC8 /* TwitterInfoViewController.h */,
-				99605BF11B41C50E00238EC8 /* TwitterInfoViewController.m */,
-			);
-			name = "Twitter Info";
 			sourceTree = "<group>";
 		};
 		99DE2BE91B42205C00C3B902 /* Mixpanel */ = {
@@ -1307,6 +1267,7 @@
 				99DE2D641B43820300C3B902 /* uv_article.png in Resources */,
 				66CFFBDF1B44887D009DF9FA /* circle.png in Resources */,
 				99DE2D631B43820300C3B902 /* UserVoice.strings in Resources */,
+				99639F901B56E876002282CA /* Onboarding.storyboard in Resources */,
 				99DE2D681B43820300C3B902 /* uv_idea.png in Resources */,
 				99DE2D6F1B44242600C3B902 /* StandardEventTableViewCell.xib in Resources */,
 				99DE2D651B43820300C3B902 /* uv_article@2x.png in Resources */,
@@ -1373,13 +1334,12 @@
 				66941EEB1B41D2DB00193D46 /* JFMinimalNotificationArt.m in Sources */,
 				99DE2D771B448BA800C3B902 /* ChangeRadiusViewController.m in Sources */,
 				99DE2CE91B42205C00C3B902 /* NSInvocation+MPHelpers.m in Sources */,
-				99605BF21B41C50E00238EC8 /* TwitterInfoViewController.m in Sources */,
 				993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */,
 				99DE2CE31B42205C00C3B902 /* MPVariant.m in Sources */,
 				99DE2C891B42205C00C3B902 /* MPApplicationStateSerializer.m in Sources */,
 				99DE2C7F1B42205C00C3B902 /* MPABTestDesignerDisconnectMessage.m in Sources */,
-				7ECC236B1B3EEF950049B47B /* LoginViewController.m in Sources */,
 				99DE2C711B42205C00C3B902 /* MPABTestDesignerChangeRequestMessage.m in Sources */,
+				99639F9C1B56E926002282CA /* SuccessfulLoginViewController.m in Sources */,
 				99DE2CB91B42205C00C3B902 /* MPObjectSerializerConfig.m in Sources */,
 				99DE2CBF1B42205C00C3B902 /* MPPropertyDescription.m in Sources */,
 				99DE2CA11B42205C00C3B902 /* MPDesignerEventBindingResponseMesssage.m in Sources */,
@@ -1392,6 +1352,7 @@
 				99DE2C931B42205C00C3B902 /* MPCGPointToNSDictionaryValueTransformer.m in Sources */,
 				99DE2CF31B42205C00C3B902 /* UIImage+MPImageEffects.m in Sources */,
 				99DE2CA91B42205C00C3B902 /* MPNotification.m in Sources */,
+				99639F9E1B56E926002282CA /* SessionViewController.m in Sources */,
 				99DE2CDB1B42205C00C3B902 /* MPUIEdgeInsetsToNSDictionaryValueTransformer.m in Sources */,
 				993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */,
 				99DE2C9F1B42205C00C3B902 /* MPDesignerEventBindingRequestMesssage.m in Sources */,
@@ -1418,16 +1379,17 @@
 				66941ECC1B41987800193D46 /* FBQuadTree.m in Sources */,
 				99DE2C971B42205C00C3B902 /* MPCGSizeToNSDictionaryValueTransformer.m in Sources */,
 				993F6A381B3EE2BA00CAF0D7 /* MapViewController.m in Sources */,
-				7ECC23681B3EEF7F0049B47B /* SessionViewController.m in Sources */,
+				99639F9F1B56E926002282CA /* ProfileInformationViewController.m in Sources */,
 				99DE2C7D1B42205C00C3B902 /* MPABTestDesignerDeviceInfoResponseMessage.m in Sources */,
+				99639FA21B56F049002282CA /* EmailSignupViewController.m in Sources */,
 				99DE2C8B1B42205C00C3B902 /* MPBOOLToNSNumberValueTransformer.m in Sources */,
-				993F6A4F1B3EE5DA00CAF0D7 /* SplashViewController.m in Sources */,
 				99DE2C851B42205C00C3B902 /* MPABTestDesignerTweakRequestMessage.m in Sources */,
 				99DE2D7A1B448BF700C3B902 /* UserVoiceViewController.m in Sources */,
 				66941EEC1B41D2DB00193D46 /* NSInvocation+Constructors.m in Sources */,
 				993F6A7B1B3F846700CAF0D7 /* EmotionBubble.m in Sources */,
 				993F6A651B3EFA9900CAF0D7 /* LocationService.m in Sources */,
 				99DE2C671B42205C00C3B902 /* _MPTweakBindObserver.m in Sources */,
+				99639F931B56E8F8002282CA /* ABCIntroView.m in Sources */,
 				99DE2CEF1B42205C00C3B902 /* UIColor+MPColor.m in Sources */,
 				993F6A3E1B3EE2D600CAF0D7 /* ProfileViewController.m in Sources */,
 				99DE2CE51B42205C00C3B902 /* MPWebSocket.m in Sources */,
@@ -1440,9 +1402,9 @@
 				993F6A441B3EE46C00CAF0D7 /* TabBarViewController.m in Sources */,
 				993F6A501B3EE5DA00CAF0D7 /* UIColor+CustomColors.m in Sources */,
 				99DE2CB71B42205C00C3B902 /* MPObjectSerializer.m in Sources */,
-				7ECC23981B3EF8260049B47B /* SignupViewController.m in Sources */,
 				99DE2CD71B42205C00C3B902 /* MPUIColorToNSStringValueTransformer.m in Sources */,
 				99DE2C751B42205C00C3B902 /* MPABTestDesignerClearRequestMessage.m in Sources */,
+				99639F9D1B56E926002282CA /* SplashViewController.m in Sources */,
 				99DE2C911B42205C00C3B902 /* MPCGColorRefToNSStringValueTransformer.m in Sources */,
 				99DE2C8F1B42205C00C3B902 /* MPCGAffineTransformToNSDictionaryValueTransformer.m in Sources */,
 				99DE2C991B42205C00C3B902 /* MPClassDescription.m in Sources */,
