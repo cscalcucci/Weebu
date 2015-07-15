@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *caption;
 @property (weak, nonatomic) IBOutlet UILabel *distanceAway;
 
+- (IBAction)onReportButtonPressed:(id)sender;
 - (void)expandImageView:(UIImageView *)shape andActivatedValue:(Emotion *)emotion;
 
 @end

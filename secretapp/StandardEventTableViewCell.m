@@ -22,6 +22,10 @@
 
 #pragma mark - Animations
 
+- (IBAction)onReportButtonPressed:(id)sender {
+    //Remove post
+}
+
 - (void)expandImageView:(UIImageView *)shape andActivatedValue:(Emotion *)emotion {
     float a = 10;
     [UIView animateWithDuration:a

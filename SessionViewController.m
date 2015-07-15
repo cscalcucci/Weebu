@@ -31,6 +31,7 @@
     loginButton.layer.borderColor = [UIColor twitterBlueColor].CGColor;
     loginButton.layer.borderWidth =.5;
     loginButton.layer.cornerRadius = 15;
+    loginButton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:18];
     [loginButton setTitle:@"Login with Twitter" forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(parseTwitterLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
@@ -38,16 +39,17 @@
     //Email
     self.emailButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width*.1, self.view.frame.size.height*.85, self.view.frame.size.width*.8, 60)];
     self.emailButton.backgroundColor = [UIColor redEmotionColor];
-    self.emailButton.layer.borderColor = [UIColor twitterBlueColor].CGColor;
+    self.emailButton.layer.borderColor = [UIColor redEmotionColor].CGColor;
     self.emailButton.layer.borderWidth =.5;
     self.emailButton.layer.cornerRadius = 15;
+    self.emailButton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:18];
     [self.emailButton setTitle:@"Use my email" forState:UIControlStateNormal];
     [self.emailButton addTarget:self action:@selector(emailLoginActions) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.emailButton];
 
 
     //tests
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     testObject[@"foo"] = @"bar";
     [testObject saveInBackground];
@@ -57,7 +59,7 @@
     if (![defaults objectForKey:@"intro_screen_viewed"]) {
         self.introView = [[ABCIntroView alloc] initWithFrame:self.view.frame];
         self.introView.delegate = self;
-        self.introView.backgroundColor = [UIColor blackColor];
+        self.introView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:self.introView];
     }
 }
@@ -99,9 +101,9 @@
 #pragma mark - ABCIntroViewDelegate Methods
 
 -(void)onDoneButtonPressed{
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:@"YES"forKey:@"intro_screen_viewed"];
-        [defaults synchronize];
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        [defaults setObject:@"YES"forKey:@"intro_screen_viewed"];
+//        [defaults synchronize];
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.introView.alpha = 0;
     } completion:^(BOOL finished) {

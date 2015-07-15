@@ -20,12 +20,13 @@
 @end
 
 @implementation ABCIntroView
+//Turn UI variables into instance variables, contribute to open-sourced project
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-        self.largeFont = [UIFont fontWithName:@"Helvetica" size:30.0];
-        self.mediumFont = [UIFont fontWithName:@"Helvetica" size:18.0];
+        self.largeFont = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:30.0];
+        self.mediumFont = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:18.0];
 
         UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:self.frame];
         backgroundImageView.image = [UIImage imageNamed:@""];
@@ -36,7 +37,8 @@
         [self addSubview:self.scrollView];
         
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height*.8, self.frame.size.width, 10)];
-        self.pageControl.currentPageIndicatorTintColor = [UIColor yellowColor];
+        self.pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+        self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
         [self addSubview:self.pageControl];
     
         [self createViewOne];
@@ -50,8 +52,8 @@
         [self.doneButton setTintColor:[UIColor whiteColor]];
         [self.doneButton setTitle:@"Let's Go!" forState:UIControlStateNormal];
         [self.doneButton.titleLabel setFont:self.mediumFont];
-        self.doneButton.backgroundColor = [UIColor redColor];
-        self.doneButton.layer.borderColor = [UIColor redColor].CGColor;
+        self.doneButton.backgroundColor = [UIColor redEmotionColor];
+        self.doneButton.layer.borderColor = [UIColor redEmotionColor].CGColor;
         [self.doneButton addTarget:self action:@selector(onFinishedIntroButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         self.doneButton.layer.borderWidth =.5;
         self.doneButton.layer.cornerRadius = 15;
@@ -84,9 +86,9 @@
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height*.05, self.frame.size.width*.8, 60)];
     titleLabel.center = CGPointMake(self.center.x, self.frame.size.height*.1);
-    titleLabel.text = [NSString stringWithFormat:@"Welcome to ONIB"];
+    titleLabel.text = [NSString stringWithFormat:@"Welcome to Weebu"];
     titleLabel.font = self.largeFont;
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment =  NSTextAlignmentCenter;
     titleLabel.numberOfLines = 0;
     [view addSubview:titleLabel];
@@ -97,9 +99,9 @@
     [view addSubview:imageview];
     
     UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width*.1, self.frame.size.height*.7, self.frame.size.width*.8, 60)];
-    descriptionLabel.text = [NSString stringWithFormat:@"The desination for those who smoke."];
+    descriptionLabel.text = [NSString stringWithFormat:@"Anonymous emotion sharing"];
     descriptionLabel.font = self.mediumFont;
-    descriptionLabel.textColor = [UIColor whiteColor];
+    descriptionLabel.textColor = [UIColor blackColor];
     descriptionLabel.textAlignment =  NSTextAlignmentCenter;
     descriptionLabel.numberOfLines = 0;
     [descriptionLabel sizeToFit];
@@ -121,9 +123,9 @@
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height*.05, self.frame.size.width*.8, 60)];
     titleLabel.center = CGPointMake(self.center.x, self.frame.size.height*.1);
-    titleLabel.text = [NSString stringWithFormat:@"Search for dispensaries"];
+    titleLabel.text = [NSString stringWithFormat:@"Pick an emotion"];
     titleLabel.font = self.largeFont;
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment =  NSTextAlignmentCenter;
     titleLabel.numberOfLines = 0;
     [view addSubview:titleLabel];
@@ -134,9 +136,9 @@
     [view addSubview:imageview];
     
     UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width*.1, self.frame.size.height*.7, self.frame.size.width*.8, 60)];
-    descriptionLabel.text = [NSString stringWithFormat:@"On a map!"];
+    descriptionLabel.text = [NSString stringWithFormat:@"Tell us how you feel"];
     descriptionLabel.font = self.mediumFont;
-    descriptionLabel.textColor = [UIColor whiteColor];
+    descriptionLabel.textColor = [UIColor blackColor];
     descriptionLabel.textAlignment =  NSTextAlignmentCenter;
     descriptionLabel.numberOfLines = 0;
     [descriptionLabel sizeToFit];
@@ -159,9 +161,9 @@
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height*.05, self.frame.size.width*.8, 60)];
     titleLabel.center = CGPointMake(self.center.x, self.frame.size.height*.1);
-    titleLabel.text = [NSString stringWithFormat:@"Search for strains"];
+    titleLabel.text = [NSString stringWithFormat:@"Explore around you"];
     titleLabel.font = self.largeFont;
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment =  NSTextAlignmentCenter;
     titleLabel.numberOfLines = 0;
     [view addSubview:titleLabel];
@@ -176,9 +178,9 @@
     
     
     UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width*.1, self.frame.size.height*.7, self.frame.size.width*.8, 60)];
-    descriptionLabel.text = [NSString stringWithFormat:@"Find out who to get them from."];
+    descriptionLabel.text = [NSString stringWithFormat:@"See the mood of the community"];
     descriptionLabel.font = self.mediumFont;
-    descriptionLabel.textColor = [UIColor whiteColor];
+    descriptionLabel.textColor = [UIColor blackColor];
     descriptionLabel.textAlignment =  NSTextAlignmentCenter;
     descriptionLabel.numberOfLines = 0;
     [descriptionLabel sizeToFit];
@@ -202,9 +204,9 @@
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height*.05, self.frame.size.width*.8, 60)];
     titleLabel.center = CGPointMake(self.center.x, self.frame.size.height*.1);
-    titleLabel.text = [NSString stringWithFormat:@"Find what you're looking for"];
+    titleLabel.text = [NSString stringWithFormat:@"Share with friends"];
     titleLabel.font = self.largeFont;
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment =  NSTextAlignmentCenter;
     titleLabel.numberOfLines = 0;
     [view addSubview:titleLabel];
@@ -218,9 +220,9 @@
     [view addSubview:imageview];
     
     UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width*.1, self.frame.size.height*.7, self.frame.size.width*.8, 60)];
-    descriptionLabel.text = [NSString stringWithFormat:@"Dont compromise."];
+    descriptionLabel.text = [NSString stringWithFormat:@"Try it, it's fun!"];
     descriptionLabel.font = self.mediumFont;
-    descriptionLabel.textColor = [UIColor whiteColor];
+    descriptionLabel.textColor = [UIColor blackColor];
     descriptionLabel.textAlignment =  NSTextAlignmentCenter;
     descriptionLabel.numberOfLines = 0;
     [descriptionLabel sizeToFit];
