@@ -21,6 +21,7 @@
 
 @implementation ABCIntroView
 //Turn UI variables into instance variables, contribute to open-sourced project
+UIImageView *backgroundImageView;
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -28,10 +29,14 @@
         self.largeFont = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:30.0];
         self.mediumFont = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:18.0];
 
-        UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:self.frame];
-        backgroundImageView.image = [UIImage imageNamed:@""];
+        //Rotating hell
+        backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1750, 1750)];
+        backgroundImageView.center = CGPointMake(self.frame.size.width, self.frame.size.height);
+        backgroundImageView.image = [self imageNamed:@"colorWheel" withTintColor:[UIColor yellowEmotionColor]];
+        backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:backgroundImageView];
-        
+        [self performSelector:@selector(rotateImageView:) withObject:backgroundImageView afterDelay:0];
+
         self.scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
         self.scrollView.pagingEnabled = YES;
         [self addSubview:self.scrollView];
@@ -74,11 +79,48 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
     CGFloat pageWidth = CGRectGetWidth(self.bounds);
     CGFloat pageFraction = self.scrollView.contentOffset.x / pageWidth;
     self.pageControl.currentPage = roundf(pageFraction);
 }
+
+#pragma mark - Rotating colorwheel
+
+- (UIImage *)imageNamed:(NSString *) name withTintColor: (UIColor *) tintColor {
+
+    UIImage *baseImage = [UIImage imageNamed:name];
+    CGRect drawRect = CGRectMake(0, 0, baseImage.size.width, baseImage.size.height);
+
+    UIGraphicsBeginImageContextWithOptions(baseImage.size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0, baseImage.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+
+    // draw original image
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGContextDrawImage(context, drawRect, baseImage.CGImage);
+
+    // draw color atop
+    CGContextSetFillColorWithColor(context, tintColor.CGColor);
+    CGContextSetBlendMode(context, kCGBlendModeSourceAtop);
+    CGContextFillRect(context, drawRect);
+
+    UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return tintedImage;
+}
+
+- (void)rotateImageView:(UIImageView *)shape {
+    CABasicAnimation *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    fullRotation.fromValue = [NSNumber numberWithFloat:0];
+    fullRotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
+    fullRotation.duration = 20;
+    fullRotation.repeatCount = 100;
+    [shape.layer addAnimation:fullRotation forKey:@"360"];
+}
+
+#pragma mark - Scrollview views
 
 -(void)createViewOne{
     

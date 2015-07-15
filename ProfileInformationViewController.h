@@ -17,5 +17,7 @@
 @property UIButton *submitButton;
 @property UIButton *closeButton;
 @property (nonatomic) UITapGestureRecognizer *tap;
+@property UIImageView *backgroundImageView;
+
 
 @end

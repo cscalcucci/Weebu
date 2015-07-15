@@ -15,6 +15,8 @@
 
 @property ABCIntroView *introView;
 @property UIButton *emailButton;
+@property UIImageView *backgroundImageView;
+
 
 @end
 

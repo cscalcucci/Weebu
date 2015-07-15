@@ -23,6 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //Rotating hell
+    self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1750, 1750)];
+    self.backgroundImageView.center = CGPointMake(self.view.frame.size.width, self.view.frame.size.height);
+    self.backgroundImageView.image = [self imageNamed:@"colorWheel" withTintColor:[UIColor orangeEmotionColor]];
+    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:self.backgroundImageView];
+    [self performSelector:@selector(rotateImageView:) withObject:self.backgroundImageView afterDelay:0];
+
     //Twitter
     UIButton *loginButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width*.8, 60)];
     //Originally + 100
@@ -62,6 +70,42 @@
         self.introView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:self.introView];
     }
+}
+
+#pragma mark - Rotating colorwheel
+
+- (UIImage *)imageNamed:(NSString *) name withTintColor: (UIColor *) tintColor {
+
+    UIImage *baseImage = [UIImage imageNamed:name];
+    CGRect drawRect = CGRectMake(0, 0, baseImage.size.width, baseImage.size.height);
+
+    UIGraphicsBeginImageContextWithOptions(baseImage.size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0, baseImage.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+
+    // draw original image
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGContextDrawImage(context, drawRect, baseImage.CGImage);
+
+    // draw color atop
+    CGContextSetFillColorWithColor(context, tintColor.CGColor);
+    CGContextSetBlendMode(context, kCGBlendModeSourceAtop);
+    CGContextFillRect(context, drawRect);
+
+    UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return tintedImage;
+}
+
+- (void)rotateImageView:(UIImageView *)shape {
+    CABasicAnimation *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    fullRotation.fromValue = [NSNumber numberWithFloat:0];
+    fullRotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
+    fullRotation.duration = 20;
+    fullRotation.repeatCount = 100;
+    [shape.layer addAnimation:fullRotation forKey:@"360"];
 }
 
 #pragma mark - Twitter login

@@ -118,7 +118,7 @@
     int count = 0;
     NSNumber *pleasantSum = 0;
     NSNumber *activatedSum = 0;
-    NSLog(@"EVENTS COUNT: %li", self.events.count);
+    NSLog(@"EVENTS COUNT: %i", (int)self.events.count);
     NSLog(@"RADIUS: %@", [SettingsService sharedInstance].radius);
     for (Event *event in self.events) {
         Emotion *emotion = event.emotionObject;
@@ -233,12 +233,10 @@
 - (UIImage *)imageNamed:(NSString *) name withTintColor: (UIColor *) tintColor {
 
     UIImage *baseImage = [UIImage imageNamed:name];
-
     CGRect drawRect = CGRectMake(0, 0, baseImage.size.width, baseImage.size.height);
 
     UIGraphicsBeginImageContextWithOptions(baseImage.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
-
     CGContextTranslateCTM(context, 0, baseImage.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
 
