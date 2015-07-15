@@ -22,7 +22,7 @@
 - (id)init {
     self = [super init];
     if(self != nil) {
-        self.radius = [NSNumber numberWithInt:2];
+        self.radius = [NSNumber numberWithInt:5]; //5 miles
         self.timeRange = @"one day";
     }
     return self;

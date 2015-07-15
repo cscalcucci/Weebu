@@ -102,7 +102,7 @@
     
     PFQuery *eventsQuery = [PFQuery queryWithClassName:@"Event"];
     [eventsQuery whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:[[SettingsService sharedInstance].radius floatValue]];
-    NSDate *date = [[NSDate date] dateByAddingTimeInterval:-4*60*60];
+    NSDate *date = [[NSDate date] dateByAddingTimeInterval:-72*60*60]; //Time currently set to rolling 3 days, I think
     [eventsQuery whereKey:@"createdAt" greaterThan:date];
     [eventsQuery includeKey:@"emotionObject"];
     [eventsQuery orderByDescending:@"createdAt"];
@@ -118,7 +118,7 @@
     int count = 0;
     NSNumber *pleasantSum = 0;
     NSNumber *activatedSum = 0;
-    NSLog(@"EVENTS COUNT: %lu", self.events.count);
+    NSLog(@"EVENTS COUNT: %li", self.events.count);
     NSLog(@"RADIUS: %@", [SettingsService sharedInstance].radius);
     for (Event *event in self.events) {
         Emotion *emotion = event.emotionObject;
