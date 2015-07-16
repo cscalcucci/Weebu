@@ -15,6 +15,8 @@
 #import "UIColor+CustomColors.h"
 
 @interface SessionViewController () <ABCIntroViewDelegate>
+@property UIImage *chaserImage;
+@property UIImage *leaderImage;
 
 @end
 
@@ -158,10 +160,10 @@
 
 #pragma mark - Imageview stuff
 
-- (UIImageView *)addImageviewToView:(UIView *)view andEmotionImage:(NSString *)imageString andXPosition:(int)xPos andYPosition:(int)yPos andWidth:(int)width andHeight:(int)height {
+- (UIImageView *)addImageviewToView:(UIView *)view andEmotionImage:(UIImage *)image andXPosition:(int)xPos andYPosition:(int)yPos andWidth:(int)width andHeight:(int)height {
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(xPos, yPos, width, height)];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.image = [UIImage imageNamed:imageString];
+    imageView.image = image;
     [view addSubview:imageView];
     return imageView;
 }
@@ -182,32 +184,38 @@
 #pragma mark - Screen crossing animations
 
 - (void)crossTheScreenActions {
-    UIImageView *imageView = [self addImageviewToView:self.view andEmotionImage:@"emotion9white" andXPosition:-100 andYPosition:self.view.center.y andWidth:50 andHeight:50];
-    [self expandImageView:imageView];
-    [self animateVerticalMovemet:imageView];
-    [self aniamteCrossTheScreen:imageView];
+    int leaderYPos = self.view.center.y - 50;
+    self.leaderImage = [self flipImageWithImage:[UIImage imageNamed:@"emotion9white"]];
+    UIImageView *leaderImageView = [self addImageviewToView:self.view andEmotionImage:self.leaderImage andXPosition:-500 andYPosition:leaderYPos andWidth:50 andHeight:50];
+    [self expandImageView:leaderImageView];
+    [self animateCrossTheScreen:leaderImageView andDuration:5 andDelay:0 andXPosition:750 andYPosition:leaderYPos andWidth:50 anHeight:50 andImage:self.leaderImage];
+
+    for (int i = 1; i <= 20; i++) {
+        int randA = arc4random() % 100 - 500;
+        int randB = arc4random() % 100 + self.view.center.y - 100;
+        //flip image
+        self.chaserImage = [self flipImageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"emotion%iwhite", i]]];
+        UIImageView *chaserImageView = [self addImageviewToView:self.view andEmotionImage:self.chaserImage andXPosition: randA andYPosition:randB andWidth:50 andHeight:50];
+        [self expandImageView:chaserImageView];
+        [self animateCrossTheScreen:chaserImageView andDuration:5 andDelay:1 andXPosition:randA + 1000 andYPosition:randB andWidth:50 anHeight:50 andImage:self.chaserImage];
+    }
 }
 
-- (void)aniamteCrossTheScreen:(UIImageView *)shape {
-    [UIView animateWithDuration:5
-                          delay:1
-                        options:UIViewAnimationOptionRepeat | UIViewAnimationCurveEaseInOut | UIViewAnimationOptionAutoreverse
+- (void)animateCrossTheScreen:(UIImageView *)shape andDuration:(float)duration andDelay:(float)delay andXPosition:(int)xPos andYPosition:(int)yPos andWidth:(int)width anHeight:(int)height andImage:(UIImage *)image {
+    [UIView animateWithDuration:duration
+                          delay:delay
+                        options:UIViewAnimationOptionRepeat
                      animations:^{
-                         shape.frame = CGRectMake(500, self.view.center.y, 50, 50);
+                         shape.frame = CGRectMake(xPos, yPos, width, height);
                      } completion:^(BOOL finished) {
-//                         shape.frame = CGRectMake(0, 600, 50, 50);
                      }];
 }
 
-- (void)animateVerticalMovemet:(UIImageView *)shape {
-    [UIView animateWithDuration:2.5
-                          delay:1
-                        options:UIViewAnimationOptionRepeat | UIViewAnimationCurveEaseInOut | UIViewAnimationOptionAutoreverse
-                     animations:^{
-                         shape.frame = CGRectMake(shape.center.x, shape.center.y + 10, 50, 50);
-                     } completion:^(BOOL finished) {
-                         shape.frame = CGRectMake(shape.center.x, shape.center.y - 10, 50, 50);
-                     }];
+- (UIImage *)flipImageWithImage:(UIImage *)image {
+        UIImage *sourceImage = image;
+        UIImage *flippedImage = [UIImage imageWithCGImage:sourceImage.CGImage
+                                                    scale:sourceImage.scale orientation:UIImageOrientationUpMirrored];
+    return flippedImage;
 }
 
 @end
