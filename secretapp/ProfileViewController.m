@@ -47,6 +47,8 @@
 
     //nav bar title
     self.navigationItem.title = @"Profile";
+
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -238,7 +240,11 @@
         //Current mood imageview
         self.currentMood = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
         self.currentMood.center = CGPointMake(self.view.frame.size.width / 2, 150);
-        self.currentMood.image = [UIImage imageNamed:self.emotion.imageString];
+        if (self.emotion == nil) {
+            self.currentMood.image = [UIImage imageNamed:@"emotion10white"];
+        } else {
+            self.currentMood.image = [UIImage imageNamed:self.emotion.imageString];
+        }
         self.currentMood.layer.cornerRadius = 100 / 2;
         self.currentMood.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:self.currentMood];
@@ -323,16 +329,10 @@
 
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.minimalNotification];
 
-//    [self.view addSubview:self.minimalNotification];
     self.minimalNotification.presentFromTop = YES;
-
-//    [self.tableView bringSubviewToFront:self.minimalNotification];
-
     if ([self.notificationType isEqualToString:@"success"]) {
-
         [self.minimalNotification setStyle:JFMinimalNotificationStyleSuccess animated:YES];
         [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:self.selectedImage] animated:YES];
-
     } else if ([self.notificationType isEqualToString:@"error"]) {
         [self.minimalNotification setStyle:JFMinimalNotificationStyleError animated:YES];
         [self.minimalNotification setLeftAccessoryView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"deathSD"]] animated:YES];
@@ -345,11 +345,8 @@
     UIFont* subTitleFont = [UIFont fontWithName:@"STHeitiK-Light" size:16];
     [self.minimalNotification setSubTitleFont:subTitleFont];
 
-//    [self.minimalNotification show];
     [self.minimalNotification presentFromTop];
-        [self.minimalNotification show];
-
-
+    [self.minimalNotification show];
 }
 
 -(void)setNotificationForType {

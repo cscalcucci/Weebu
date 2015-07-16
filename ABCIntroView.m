@@ -11,6 +11,7 @@
 @interface ABCIntroView () <UIScrollViewDelegate>
 @property (strong, nonatomic)  UIScrollView *scrollView;
 @property (strong, nonatomic)  UIPageControl *pageControl;
+
 @property UIView *holeView;
 @property UIView *circleView;
 @property UIButton *doneButton;
@@ -151,7 +152,10 @@ UIImageView *backgroundImageView;
     
     CGPoint labelCenter = CGPointMake(self.center.x, self.frame.size.height*.7);
     descriptionLabel.center = labelCenter;
-    
+
+    UIImageView *displayImage = [self addImageviewToView:view andEmotionImage:@"emotion4white"];
+    [self performSelector:@selector(expandImageView:) withObject:displayImage afterDelay:0.05];
+
     self.scrollView.delegate = self;
     [self.scrollView addSubview:view];
 }
@@ -185,6 +189,14 @@ UIImageView *backgroundImageView;
     descriptionLabel.numberOfLines = 0;
     [descriptionLabel sizeToFit];
     [view addSubview:descriptionLabel];
+
+    for (int i = 1; i <= 20; i++) {
+        UIImageView *displayImage = [self addImageviewToView:view andEmotionImage:[NSString stringWithFormat:@"emotion%iwhite", i]];
+        int a = arc4random() % 51 + 50;
+        displayImage.frame = CGRectMake(0, 0, a, a);
+        displayImage.center = CGPointMake((arc4random() % 201) + 100, (arc4random() % 201) + 200);
+        [self performSelector:@selector(expandImageView:) withObject:displayImage afterDelay:arc4random_uniform(2)];
+    }
     
     CGPoint labelCenter = CGPointMake(self.center.x, self.frame.size.height*.7);
     descriptionLabel.center = labelCenter;
@@ -230,7 +242,10 @@ UIImageView *backgroundImageView;
     
     CGPoint labelCenter = CGPointMake(self.center.x, self.frame.size.height*.7);
     descriptionLabel.center = labelCenter;
-    
+
+    UIImageView *displayImage = [self addImageviewToView:view andEmotionImage:@"emotion2white"];
+    [self performSelector:@selector(expandImageView:) withObject:displayImage afterDelay:0.05];
+
     self.scrollView.delegate = self;
     [self.scrollView addSubview:view];
     
@@ -272,10 +287,52 @@ UIImageView *backgroundImageView;
     
     CGPoint labelCenter = CGPointMake(self.center.x, self.frame.size.height*.7);
     descriptionLabel.center = labelCenter;
-    
+
+    UIImage *sourceImage = [UIImage imageNamed:@"emotion2white"];
+    UIImage *flippedImage = [UIImage imageWithCGImage:sourceImage.CGImage
+                                                scale:sourceImage.scale orientation:UIImageOrientationUpMirrored];
+
+    UIImageView *displayImage1 = [self addImageviewToView:view andEmotionImage:@"emotion2white"];
+    displayImage1.image = flippedImage;
+    displayImage1.frame = CGRectMake(0, 0, 125, 125);
+    displayImage1.center = CGPointMake(view.frame.size.width / 4, self.center.y - 50);
+    [self performSelector:@selector(expandImageView:) withObject:displayImage1 afterDelay:0.05];
+
+
+    UIImageView *displayImage2 = [self addImageviewToView:view andEmotionImage:@"emotion4white"];
+    displayImage2.frame = CGRectMake(0, 0, 125, 125);
+    displayImage2.center = CGPointMake((view.frame.size.width / 4) * 3, self.center.y - 50);
+    [self performSelector:@selector(expandImageView:) withObject:displayImage2 afterDelay:0.25];
+
     self.scrollView.delegate = self;
     [self.scrollView addSubview:view];
     
+}
+
+#pragma mark - Imageview stuff
+
+- (UIImageView *)addImageviewToView:(UIView *)view andEmotionImage:(NSString *)imageString {
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 275, 275)];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.image = [UIImage imageNamed:imageString];
+    imageView.center = CGPointMake(self.center.x, self.center.y - 50);
+    [view addSubview:imageView];
+    return imageView;
+}
+
+
+
+- (void)expandImageView:(UIImageView *)shape {
+    [UIView animateWithDuration:2.0
+                          delay:2.0f
+                        options:UIViewAnimationOptionRepeat | UIViewAnimationCurveEaseInOut | UIViewAnimationOptionAutoreverse
+                     animations:^{
+                         shape.transform = CGAffineTransformMakeScale(1.1, 1.1);
+                     } completion:^(BOOL finished) {
+                         [UIView animateWithDuration:2.0 animations:^{
+                             shape.transform = CGAffineTransformMakeScale(1, 1);
+                         }];
+                     }];
 }
 
 @end

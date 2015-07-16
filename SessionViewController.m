@@ -72,6 +72,12 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    UIImageView *imageView = [self addImageviewToView:self.view andEmotionImage:@"emotion9white" andXPosition:-100 andYPosition:self.view.center.y andWidth:50 andHeight:50];
+    [self expandImageView:imageView];
+    [self crossTheScreen:imageView];
+}
+
 #pragma mark - Rotating colorwheel
 
 - (UIImage *)imageNamed:(NSString *) name withTintColor: (UIColor *) tintColor {
@@ -155,9 +161,38 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Imageview stuff
+
+- (UIImageView *)addImageviewToView:(UIView *)view andEmotionImage:(NSString *)imageString andXPosition:(int)xPos andYPosition:(int)yPos andWidth:(int)width andHeight:(int)height {
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.image = [UIImage imageNamed:imageString];
+    [view addSubview:imageView];
+    return imageView;
+}
+
+- (void)expandImageView:(UIImageView *)shape {
+    [UIView animateWithDuration:2.0
+                          delay:2.0f
+                        options:UIViewAnimationOptionRepeat | UIViewAnimationCurveEaseInOut | UIViewAnimationOptionAutoreverse
+                     animations:^{
+                         shape.transform = CGAffineTransformMakeScale(1.1, 1.1);
+                     } completion:^(BOOL finished) {
+                         [UIView animateWithDuration:2.0 animations:^{
+                             shape.transform = CGAffineTransformMakeScale(1, 1);
+                         }];
+                     }];
+}
+
+- (void)crossTheScreen:(UIImageView *)shape {
+    [UIView animateWithDuration:2
+                          delay:2
+                        options:UIViewAnimationOptionRepeat | UIViewAnimationCurveEaseInOut | UIViewAnimationOptionAutoreverse
+                     animations:^{
+                         shape.frame = CGRectMake(500, self.view.center.y, 50, 50);
+                     } completion:^(BOOL finished) {
+//                         shape.frame = CGRectMake(0, 600, 50, 50);
+                     }];
 }
 
 @end

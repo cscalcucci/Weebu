@@ -61,8 +61,6 @@
     [emotionsQuery findObjectsInBackgroundWithBlock:^(NSArray *emotions, NSError *error) {
         if (!error) {
             self.emotions = emotions;
-//            [self createCarousel];
-
             [self.emotionPicker reloadAllComponents];
         }
     }];
@@ -76,6 +74,7 @@
     //Select Venue View & Buttons
     self.venueSelectView = [[UIView alloc] initWithFrame: CGRectMake(1000, (self.view.frame.size.height - 395), self.view.frame.size.width, 345)];
     self.captionText = [[UITextField alloc] initWithFrame: CGRectMake(0, 50, self.view.frame.size.width, 135)];
+    self.captionText.textAlignment = NSTextAlignmentCenter;
     self.captionText.enablesReturnKeyAutomatically = YES;
     self.captionText.placeholder = [NSString stringWithFormat:@"   enter caption"];
     self.captionText.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
@@ -144,18 +143,17 @@
     self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(-80, 60, 80, 80)];
 
     self.backButton.backgroundColor = [UIColor clearColor];
-    [self.backButton setTitle:@"back" forState:UIControlStateNormal];
+    [self.backButton setTitle:@"< back" forState:UIControlStateNormal];
     self.backButton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     [self.backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.backButton addTarget:self action:@selector(backButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-
 
     [self.view addSubview:self.backButton];
     [self.view addSubview:self.cancelButton];
 //    self.backButton.hidden = YES;
 
     //Setup Image View
-    self.emotionImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"emotion10"]];
+    self.emotionImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"emotion0"]];
     float width = self.view.frame.size.width / 2;
     float height = width;
 
@@ -164,7 +162,6 @@
     self.emotionImageView.center = CGPointMake(self.view.center.x, self.view.center.y - 100);
     [self.view addSubview:self.emotionImageView];
 
-
     //Array with emotion objects
     self.emotions = [[NSArray alloc]init];
 
@@ -172,8 +169,6 @@
     self.minimalNotification.delegate = self;
     self.emotionPicker.delegate = self;
     self.captionText.delegate = self;
-
-
 }
 
 -(void)viewDidAppear:(BOOL)animated {
