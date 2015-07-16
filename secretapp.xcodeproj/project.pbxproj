@@ -784,19 +784,7 @@
 		993F6A461B3EE50E00CAF0D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				99639F8F1B56E876002282CA /* Onboarding.storyboard */,
-				99639F921B56E8F8002282CA /* ABCIntroView.h */,
-				99639F911B56E8F8002282CA /* ABCIntroView.m */,
-				99639F971B56E926002282CA /* SplashViewController.h */,
-				99639F961B56E926002282CA /* SplashViewController.m */,
-				99639F991B56E926002282CA /* SessionViewController.h */,
-				99639F981B56E926002282CA /* SessionViewController.m */,
-				99639FA11B56F049002282CA /* EmailSignupViewController.h */,
-				99639FA01B56F049002282CA /* EmailSignupViewController.m */,
-				99639F9B1B56E926002282CA /* ProfileInformationViewController.h */,
-				99639F9A1B56E926002282CA /* ProfileInformationViewController.m */,
-				99639F951B56E926002282CA /* SuccessfulLoginViewController.h */,
-				99639F941B56E926002282CA /* SuccessfulLoginViewController.m */,
+				99639FA31B58482B002282CA /* Onboarding */,
 				993F6A661B3F0A2800CAF0D7 /* Tabs */,
 				993F6A681B3F0A4200CAF0D7 /* Emotion */,
 			);
@@ -987,6 +975,26 @@
 				993F6B0E1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf */,
 			);
 			name = "Brandon Grotesque Font";
+			sourceTree = "<group>";
+		};
+		99639FA31B58482B002282CA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				99639F8F1B56E876002282CA /* Onboarding.storyboard */,
+				99639F921B56E8F8002282CA /* ABCIntroView.h */,
+				99639F911B56E8F8002282CA /* ABCIntroView.m */,
+				99639F971B56E926002282CA /* SplashViewController.h */,
+				99639F961B56E926002282CA /* SplashViewController.m */,
+				99639F991B56E926002282CA /* SessionViewController.h */,
+				99639F981B56E926002282CA /* SessionViewController.m */,
+				99639FA11B56F049002282CA /* EmailSignupViewController.h */,
+				99639FA01B56F049002282CA /* EmailSignupViewController.m */,
+				99639F9B1B56E926002282CA /* ProfileInformationViewController.h */,
+				99639F9A1B56E926002282CA /* ProfileInformationViewController.m */,
+				99639F951B56E926002282CA /* SuccessfulLoginViewController.h */,
+				99639F941B56E926002282CA /* SuccessfulLoginViewController.m */,
+			);
+			name = Onboarding;
 			sourceTree = "<group>";
 		};
 		99DE2BE91B42205C00C3B902 /* Mixpanel */ = {

@@ -64,10 +64,19 @@
     self.emotionImageView.center = CGPointMake(self.view.center.x, self.view.center.y - 100);
     [self.view addSubview:self.emotionImageView];
 
-    self.userLocation = [LocationService sharedInstance].currentLocation;
+    //Need location
+    if (!self.userLocation) {
+        [[LocationService sharedInstance] startUpdatingLocation];
+        self.userLocation = [LocationService sharedInstance].currentLocation;
+    } else {
+        self.userLocation = [LocationService sharedInstance].currentLocation;
+    }
+
+    //To grab location, zipcode
     self.venueUrlCall = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&oauth_token=N5Z3YJNLEWD4KIBIOB1C22YOPTPSJSL3NAEXVUMYGJC35FMP&v=20150617", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude]];
     self.foursquareResults = [NSArray new];
     [self retrieveFoursquareResults];
+
 
     [self.view bringSubviewToFront:self.emotionLabel];
     [self.view bringSubviewToFront:self.emotionImageView];

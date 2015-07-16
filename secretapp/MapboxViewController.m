@@ -53,10 +53,15 @@
 
     self.mapView = [[RMMapView alloc] initWithFrame:self.view.bounds
                                             andTilesource:tileSource];
+    self.mapView.delegate = self;
 
     self.navigationItem.title = @"Map";
+    //Nav bar settings
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"BrandonGrotesque-Bold" size:21],
+      NSFontAttributeName, nil]];
 
-    self.mapView.delegate = self;
 
     // Sets Map to View User Location
     self.mapView.showsUserLocation = YES;

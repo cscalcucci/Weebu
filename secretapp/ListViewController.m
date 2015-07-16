@@ -35,6 +35,11 @@
 
     //nav bar title
     self.navigationItem.title = @"Recent emotions";
+    //Nav bar settings
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"BrandonGrotesque-Bold" size:21],
+      NSFontAttributeName, nil]];
 
 }
 

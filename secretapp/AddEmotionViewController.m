@@ -169,6 +169,13 @@
     self.minimalNotification.delegate = self;
     self.emotionPicker.delegate = self;
     self.captionText.delegate = self;
+
+    //Nav bar settings
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"BrandonGrotesque-Bold" size:21],
+      NSFontAttributeName, nil]];
+    self.navigationItem.title = @"Add emotion";
 }
 
 -(void)viewDidAppear:(BOOL)animated {
