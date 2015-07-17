@@ -7,12 +7,9 @@
 //
 
 #import "WBMapboxViewController.h"
+
 #import "Mapbox.h"
-
 #import "LocationService.h"
-#import <CoreLocation/CoreLocation.h>
-
-#import <Parse/Parse.h>
 #import "Event.h"
 #import "Emotion.h"
 
@@ -45,17 +42,17 @@
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter]
-                    addObserver:self
-                    selector:@selector(addAnnotations)
-                    name:@"callbackCompleted"
-                    object:nil];
+     addObserver:self
+     selector:@selector(addAnnotations)
+     name:@"callbackCompleted"
+     object:nil];
 
     [[RMConfiguration sharedInstance] setAccessToken:@"pk.eyJ1Ijoiam1jY2xlbGxhbmQiLCJhIjoiYjJlODRhZmQ4YzIxMjE0MWI5ZjIzZWRlNzRmYTFmNTEifQ.tQHnUvqrGV-WpbSILryg6g"];
 
     RMMapboxSource *tileSource = [[RMMapboxSource alloc] initWithMapID:@"jmcclelland.b42eee4f"];
 
     self.mapView = [[RMMapView alloc] initWithFrame:self.view.bounds
-                                            andTilesource:tileSource];
+                                      andTilesource:tileSource];
     self.mapView.delegate = self;
 
     //Navigation bar
@@ -202,8 +199,8 @@
 
         // set it all at once
         [marker changeLabelUsingText:clusterLabelContent position:position
-                                           font:labelFont foregroundColor:[UIColor blueColor]
-                                backgroundColor:[UIColor clearColor]];
+                                font:labelFont foregroundColor:[UIColor blueColor]
+                     backgroundColor:[UIColor clearColor]];
 
     } else {
         NSLog(@"SINGLE CALLED");
@@ -263,18 +260,18 @@
 - (NSString*)findEmotion {
     NSString *foundImage = @"circle.png";
     __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
-        for (Emotion *emotion in self.emotionsArray) {
+    for (Emotion *emotion in self.emotionsArray) {
 
-            NSNumber *x1 = emotion.pleasantValue;
-            NSNumber *y1 = emotion.activatedValue;
-            NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
-            if ([newDistance floatValue] < [distance floatValue]) {
-                NSLog(@"ASSIGN");
-                self.emotion = emotion;
-                foundImage = emotion.imageStringWhite;
-                distance = newDistance;
-            }
+        NSNumber *x1 = emotion.pleasantValue;
+        NSNumber *y1 = emotion.activatedValue;
+        NSNumber *newDistance = [NSNumber numberWithFloat:sqrt(pow(([x1 floatValue]-[self.pleasantValue floatValue]), 2.0) + pow(([y1 floatValue]-[self.activatedValue floatValue]), 2.0))];
+        if ([newDistance floatValue] < [distance floatValue]) {
+            NSLog(@"ASSIGN");
+            self.emotion = emotion;
+            foundImage = emotion.imageStringWhite;
+            distance = newDistance;
         }
+    }
     return foundImage;
 }
 
