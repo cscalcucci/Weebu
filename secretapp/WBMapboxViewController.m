@@ -18,17 +18,21 @@
 
 @interface WBMapboxViewController () <RMMapViewDelegate>
 
+//Locations
 @property CLLocation *userLocation;
 @property RMMapView *mapView;
 
-@property NSMutableArray *annotationArray;
-@property NSMutableArray *emotionsArray;
-@property NSArray *eventsArray;
+//Arrays
+@property (strong, nonatomic) NSMutableArray *annotationsArray;
+@property (strong, nonatomic)NSMutableArray *emotionsArray;
+@property (nonatomic) NSArray *eventsArray;
 @property NSArray *annotations;
 
+//Model objects
 @property Event *event;
 @property Emotion *emotion;
 
+//Detailed information
 @property NSNumber *pleasantValue;
 @property NSNumber *activatedValue;
 @property NSString *emotionImageString;
@@ -39,10 +43,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //Allocate arrays way in advance
-    self.annotationArray = [[NSMutableArray alloc] init];
-    self.emotionsArray = [[NSMutableArray alloc] init];
 
     [[NSNotificationCenter defaultCenter]
                     addObserver:self
@@ -58,13 +58,12 @@
                                             andTilesource:tileSource];
     self.mapView.delegate = self;
 
+    //Navigation bar
     self.navigationItem.title = @"Map";
-    //Nav bar settings
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIFont fontWithName:@"BrandonGrotesque-Bold" size:21],
       NSFontAttributeName, nil]];
-
 
     // Sets Map to View User Location
     self.mapView.showsUserLocation = YES;
@@ -81,10 +80,8 @@
 
     // center the map to the coordinates
     [self.mapView setZoom:11 atCoordinate:self.userLocation.coordinate animated:YES];
-
     [self.view addSubview:self.mapView];
     [self.view bringSubviewToFront:self.mapView];
-
     [self letThereBeMKAnnotation];
 }
 
@@ -101,45 +98,55 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
             NSLog(@"DID RUN QUERY");
+
+            //Allocate arrays way in advance
+            self.annotationsArray = [NSMutableArray new];
+            self.emotionsArray = [NSMutableArray new];
+
             self.eventsArray = [[NSArray alloc]initWithArray:events];
             for (int i; i < self.eventsArray.count; i++) {
+                NSLog(@"DID RUN FOR LOOP");
                 self.event = self.eventsArray[i];
                 self.emotion = self.event.emotionObject;
                 NSLog(@"EMOTION: %@", self.emotion.imageString);
                 [self.emotionsArray addObject:self.emotion];
                 [self.event setObject:[NSString stringWithFormat:@"%i", i] forKey:@"indexPath" ];
 
+                //Create coordinates
                 CLLocationCoordinate2D annoCoord = CLLocationCoordinate2DMake(self.event.location.latitude, self.event.location.longitude);
-
                 NSLog(@"%f LATITUDE %f LONGITUDE", annoCoord.latitude, annoCoord.longitude);
 
+                //Create custom annotation, add to annotation array
                 RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self.mapView coordinate:annoCoord andTitle:self.emotion.imageString];
                 switch (i) {
                     case 0 ... 500: annotation.subtitle = self.emotion.imageString; NSLog(@"FIZZ"); break;
                     default: annotation.subtitle = @"buzz"; NSLog(@"BUZZ"); break;
                 }
                 NSLog(@"%@", annotation.subtitle);
-                [self.annotationArray addObject:annotation];
+                [self.annotationsArray addObject:annotation];
             }
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"callbackCompleted" object:nil];
         } else {
             NSLog(@"ERROR: %@", error);
         }
+        //Post to notification center
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"callbackCompleted" object:nil];
+
+        //Test logging to determine functionality
         NSLog(@"EVENTS COUNT: %lu", (unsigned long)self.eventsArray.count);
-        NSLog(@"ANNOTATIONS COUNT: %lu", (unsigned long)self.annotationArray.count);
+        NSLog(@"ANNOTATIONS COUNT: %lu", (unsigned long)self.annotationsArray.count);
         NSLog(@"EMOTIONS COUNT: %lu", (unsigned long)self.emotionsArray.count);
     }];
 }
 
-
 -(void)addAnnotations {
     NSLog(@"ADD ANNOTATIONS CALLED");
-//    NSArray *annotations = [self.annotationArray copy];
-    for (RMAnnotation *a in self.annotationArray) {
+    for (RMAnnotation *a in self.annotationsArray) {
         NSLog(@"==> %@", a.subtitle);
         [self.mapView addAnnotation:a];
     }
-//    [self.mapView addAnnotations:self.annotationArray];
+    NSLog(@"EVENTS COUNT: %lu", (unsigned long)self.eventsArray.count);
+    NSLog(@"ANNOTATIONS COUNT: %lu", (unsigned long)self.annotationsArray.count);
+    NSLog(@"EMOTIONS COUNT: %lu", (unsigned long)self.emotionsArray.count);
 }
 
 

@@ -85,7 +85,7 @@
         messageLabel.textColor = [UIColor blackColor];
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = NSTextAlignmentCenter;
-//        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
         [messageLabel sizeToFit];
         self.tableView.backgroundView = messageLabel;
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -99,7 +99,7 @@
 
 -(WBStandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"StandardEventTableViewCell" owner:self options:nil];
+    NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"WBStandardEventTableViewCell" owner:self options:nil];
     WBStandardEventTableViewCell *cell =[objects objectAtIndex:0];
     Event *event = [self.events objectAtIndex:indexPath.row];
     Emotion *emotion = event.emotionObject;
