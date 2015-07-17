@@ -746,7 +746,6 @@
 				993F6A4A1B3EE54C00CAF0D7 /* Models */,
 				993F6A461B3EE50E00CAF0D7 /* Controllers */,
 				993F6A1B1B3EE1DD00CAF0D7 /* Images.xcassets */,
-				993F6A341B3EE26900CAF0D7 /* Main.storyboard */,
 				993F6A1D1B3EE1DD00CAF0D7 /* LaunchScreen.xib */,
 				993F6A121B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld */,
 				993F6A0B1B3EE1DD00CAF0D7 /* Supporting Files */,
@@ -838,6 +837,7 @@
 		993F6A661B3F0A2800CAF0D7 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				993F6A341B3EE26900CAF0D7 /* Main.storyboard */,
 				99DE2D711B44338D00C3B902 /* Standard TableViewCell */,
 				993F6A6B1B3F60F800CAF0D7 /* Tab Bar */,
 				993F6A7C1B3F847600CAF0D7 /* General View */,

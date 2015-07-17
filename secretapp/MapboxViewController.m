@@ -26,7 +26,6 @@
 @property NSArray *eventsArray;
 @property NSArray *annotations;
 
-
 @property Event *event;
 @property Emotion *emotion;
 
@@ -40,6 +39,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    //Allocate arrays way in advance
+    self.annotationArray = [[NSMutableArray alloc] init];
+    self.emotionsArray = [[NSMutableArray alloc] init];
 
     [[NSNotificationCenter defaultCenter]
                     addObserver:self
@@ -82,11 +85,10 @@
     [self.view addSubview:self.mapView];
     [self.view bringSubviewToFront:self.mapView];
 
-//    [self letThereBeMKAnnotation];
+    [self letThereBeMKAnnotation];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self letThereBeMKAnnotation];
     self.userLocation = [LocationService sharedInstance].currentLocation;
     [[LocationService sharedInstance] startUpdatingLocation];
     [self.mapView setZoom:11 atCoordinate:self.userLocation.coordinate animated:YES];
@@ -99,10 +101,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
             NSLog(@"DID RUN QUERY");
-            self.annotationArray = [[NSMutableArray alloc] init];
-            self.emotionsArray = [[NSMutableArray alloc] init];
             self.eventsArray = [[NSArray alloc]initWithArray:events];
-
             for (int i; i < self.eventsArray.count; i++) {
                 self.event = self.eventsArray[i];
                 self.emotion = self.event.emotionObject;
@@ -115,7 +114,6 @@
                 NSLog(@"%f LATITUDE %f LONGITUDE", annoCoord.latitude, annoCoord.longitude);
 
                 RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self.mapView coordinate:annoCoord andTitle:self.emotion.imageString];
-
                 switch (i) {
                     case 0 ... 500: annotation.subtitle = self.emotion.imageString; NSLog(@"FIZZ"); break;
                     default: annotation.subtitle = @"buzz"; NSLog(@"BUZZ"); break;
@@ -130,7 +128,6 @@
         NSLog(@"EVENTS COUNT: %lu", (unsigned long)self.eventsArray.count);
         NSLog(@"ANNOTATIONS COUNT: %lu", (unsigned long)self.annotationArray.count);
         NSLog(@"EMOTIONS COUNT: %lu", (unsigned long)self.emotionsArray.count);
-
     }];
 }
 

@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Mc-L6w">
-                                <rect key="frame" x="132" y="362" width="336" height="75"/>
+                                <rect key="frame" x="132" y="341" width="336" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="40u-db-b90"/>
                                     <constraint firstAttribute="height" constant="75" id="j7u-br-g0R"/>
@@ -39,8 +39,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7g-N8-dG8">
-                                <rect key="frame" x="217" y="445" width="167" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7g-N8-dG8">
+                                <rect key="frame" x="217" y="434" width="167" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="167" id="1aN-9a-o7P"/>
                                 </constraints>
@@ -62,11 +62,11 @@
                         <constraints>
                             <constraint firstItem="oBB-Dc-K15" firstAttribute="trailing" secondItem="g9O-Mc-L6w" secondAttribute="trailing" id="9MI-Td-Gpg"/>
                             <constraint firstItem="i7g-N8-dG8" firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="M5O-PG-niV"/>
-                            <constraint firstItem="i7g-N8-dG8" firstAttribute="top" secondItem="g9O-Mc-L6w" secondAttribute="bottom" constant="8" symbolic="YES" id="NYC-h8-q75"/>
+                            <constraint firstItem="i7g-N8-dG8" firstAttribute="top" secondItem="g9O-Mc-L6w" secondAttribute="bottom" constant="18" id="NYC-h8-q75"/>
                             <constraint firstItem="oBB-Dc-K15" firstAttribute="leading" secondItem="g9O-Mc-L6w" secondAttribute="leading" id="hk0-U4-9JZ"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="g9O-Mc-L6w" secondAttribute="bottom" constant="50" id="ogE-3m-OIc"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="g9O-Mc-L6w" secondAttribute="bottom" constant="71" id="ogE-3m-OIc"/>
                             <constraint firstAttribute="centerX" secondItem="g9O-Mc-L6w" secondAttribute="centerX" id="uHU-KS-a4a"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="i7g-N8-dG8" secondAttribute="bottom" constant="16" id="wul-0V-0qb"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="i7g-N8-dG8" secondAttribute="bottom" constant="27" id="wul-0V-0qb"/>
                             <constraint firstItem="oBB-Dc-K15" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="59" id="xFh-yt-Eb2"/>
                         </constraints>
                     </view>
@@ -222,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHS-dj-xgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8" y="1678"/>
+            <point key="canvasLocation" x="-1" y="1666"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -363,7 +363,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Io-PX-Ez0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sK0-9A-oG9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="742" y="1672"/>
+            <point key="canvasLocation" x="714" y="1666"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="9QJ-gE-Meq">
@@ -493,7 +493,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fo-oG-toT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5Nc-nH-XTW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="722" y="3239"/>
+            <point key="canvasLocation" x="714" y="2629"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Hu-cj-lqY">
@@ -511,7 +511,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IJ-fA-heC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1551" y="1666"/>
+            <point key="canvasLocation" x="1553" y="1678"/>
         </scene>
         <!--Add Emotion Container View View Controller-->
         <scene sceneID="uIP-k5-N04">

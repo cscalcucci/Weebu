@@ -106,6 +106,11 @@
 #pragma mark - Submit actions
 
 - (void)submitButtonActions {
+    if (self.usernameTextField.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nope." message:@"You need to enter a username." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     [self userSignup];
 }
 
