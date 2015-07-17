@@ -57,6 +57,14 @@
     [self.emailButton addTarget:self action:@selector(emailLoginActions) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.emailButton];
 
+    //Weebu label
+    UILabel *mainLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 100)];
+    mainLabel.center = CGPointMake(self.view.center.x, 100);
+    mainLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Black" size:60];
+    mainLabel.textAlignment = NSTextAlignmentCenter;
+    mainLabel.text = @"Weebu";
+    [mainLabel setTintColor:[UIColor blackColor]];
+    [self.view addSubview:mainLabel];
 
     //tests
     self.view.backgroundColor = [UIColor whiteColor];

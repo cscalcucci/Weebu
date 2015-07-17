@@ -192,11 +192,16 @@ UIImageView *backgroundImageView;
 
     for (int i = 1; i <= 20; i++) {
         UIImageView *displayImage = [self addImageviewToView:view andEmotionImage:[NSString stringWithFormat:@"emotion%iwhite", i]];
-        int a = arc4random() % 51 + 50;
+        int a = arc4random() % 26 + 50;
         displayImage.frame = CGRectMake(0, 0, a, a);
         displayImage.center = CGPointMake((arc4random() % 201) + 100, (arc4random() % 201) + 200);
         [self performSelector:@selector(expandImageView:) withObject:displayImage afterDelay:arc4random_uniform(2)];
     }
+
+    UIImageView *marqueeImage = [self addImageviewToView:view andEmotionImage:@"emotion4white"];
+    marqueeImage.frame = CGRectMake(0, 0, 100, 100);
+    marqueeImage.center = CGPointMake(self.center.x, self.center.y - 50);
+    [self performSelector:@selector(expandImageView:) withObject:marqueeImage afterDelay:0];
     
     CGPoint labelCenter = CGPointMake(self.center.x, self.frame.size.height*.7);
     descriptionLabel.center = labelCenter;

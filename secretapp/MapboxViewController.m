@@ -47,9 +47,9 @@
                     name:@"callbackCompleted"
                     object:nil];
 
-    [[RMConfiguration sharedInstance] setAccessToken:@"pk.eyJ1IjoiY3NjYWxjdWNjaSIsImEiOiIyODNmNmFiYTkzZjdlMmMxNWE1MGI4OGEyNmE5MjM3MSJ9.V31zh5rC9gR6B3ec2Wm3vQ"];
+    [[RMConfiguration sharedInstance] setAccessToken:@"pk.eyJ1Ijoiam1jY2xlbGxhbmQiLCJhIjoiYjJlODRhZmQ4YzIxMjE0MWI5ZjIzZWRlNzRmYTFmNTEifQ.tQHnUvqrGV-WpbSILryg6g"];
 
-    RMMapboxSource *tileSource = [[RMMapboxSource alloc] initWithMapID:@"cscalcucci.mjji8h23"];
+    RMMapboxSource *tileSource = [[RMMapboxSource alloc] initWithMapID:@"jmcclelland.b42eee4f"];
 
     self.mapView = [[RMMapView alloc] initWithFrame:self.view.bounds
                                             andTilesource:tileSource];
@@ -82,10 +82,11 @@
     [self.view addSubview:self.mapView];
     [self.view bringSubviewToFront:self.mapView];
 
-    [self letThereBeMKAnnotation];
+//    [self letThereBeMKAnnotation];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [self letThereBeMKAnnotation];
     self.userLocation = [LocationService sharedInstance].currentLocation;
     [[LocationService sharedInstance] startUpdatingLocation];
     [self.mapView setZoom:11 atCoordinate:self.userLocation.coordinate animated:YES];
@@ -97,7 +98,7 @@
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
-            NSLog(@"Did Run Query");
+            NSLog(@"DID RUN QUERY");
             self.annotationArray = [[NSMutableArray alloc] init];
             self.emotionsArray = [[NSMutableArray alloc] init];
             self.eventsArray = [[NSArray alloc]initWithArray:events];
@@ -105,33 +106,37 @@
             for (int i; i < self.eventsArray.count; i++) {
                 self.event = self.eventsArray[i];
                 self.emotion = self.event.emotionObject;
-                NSLog(@"Emotion %@", self.emotion.imageString);
+                NSLog(@"EMOTION: %@", self.emotion.imageString);
                 [self.emotionsArray addObject:self.emotion];
                 [self.event setObject:[NSString stringWithFormat:@"%i", i] forKey:@"indexPath" ];
 
                 CLLocationCoordinate2D annoCoord = CLLocationCoordinate2DMake(self.event.location.latitude, self.event.location.longitude);
 
-                NSLog(@"%f latitude %f longitude", annoCoord.latitude, annoCoord.longitude);
+                NSLog(@"%f LATITUDE %f LONGITUDE", annoCoord.latitude, annoCoord.longitude);
 
                 RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self.mapView coordinate:annoCoord andTitle:self.emotion.imageString];
 
                 switch (i) {
-                    case 0 ... 500: annotation.subtitle = self.emotion.imageString; NSLog(@"Fizzing"); break;
-
-                    default: annotation.subtitle = @"buzz"; NSLog(@"Buzzing"); break;
+                    case 0 ... 500: annotation.subtitle = self.emotion.imageString; NSLog(@"FIZZ"); break;
+                    default: annotation.subtitle = @"buzz"; NSLog(@"BUZZ"); break;
                 }
-
                 NSLog(@"%@", annotation.subtitle);
                 [self.annotationArray addObject:annotation];
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"callbackCompleted" object:nil];
+        } else {
+            NSLog(@"ERROR: %@", error);
         }
+        NSLog(@"EVENTS COUNT: %lu", (unsigned long)self.eventsArray.count);
+        NSLog(@"ANNOTATIONS COUNT: %lu", (unsigned long)self.annotationArray.count);
+        NSLog(@"EMOTIONS COUNT: %lu", (unsigned long)self.emotionsArray.count);
+
     }];
 }
 
 
 -(void)addAnnotations {
-    NSLog(@"I got called to add annotations!");
+    NSLog(@"ADD ANNOTATIONS CALLED");
 //    NSArray *annotations = [self.annotationArray copy];
     for (RMAnnotation *a in self.annotationArray) {
         NSLog(@"==> %@", a.subtitle);
@@ -148,19 +153,16 @@
 
     RMMarker *marker;
     if (annotation.isClusterAnnotation) {
-        NSLog(@"I got cluster called");
+        NSLog(@"CLUSTER CALLED");
 
         marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"circle.png"]];
 
         if ([self annotationSubTitle:annotation.clusteredAnnotations] != nil) {
-
             NSString *imageString = [self annotationSubTitle:annotation.clusteredAnnotations];
             marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:imageString]];
         }
-
         marker.bounds = CGRectMake(0, 0, 50, 50);
         marker.opacity = 0.75;
-
 
         // change the size of the circle depending on the cluster's size
         switch ([annotation.clusteredAnnotations count]) {
@@ -200,12 +202,12 @@
                                 backgroundColor:[UIColor clearColor]];
 
     } else {
-        NSLog(@"I got single called");
+        NSLog(@"SINGLE CALLED");
 
         if (annotation.subtitle != nil) {
             for (Emotion *emotion in self.emotionsArray) {
                 if (emotion.imageString == annotation.subtitle) {
-                    marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:emotion.imageString]];
+                    marker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:emotion.imageStringWhite]];
                 }
             }
         } else {
@@ -229,7 +231,6 @@
     }
 
     str = [self calculatValuesForArray:average];
-
     return str;
 }
 
@@ -245,7 +246,6 @@
                 foundEmote = emotion;
             }
         }
-
         pleasantSum = [NSNumber numberWithFloat:([pleasantSum floatValue] + [foundEmote.pleasantValue floatValue])];
         activatedSum = [NSNumber numberWithFloat:([activatedSum floatValue] + [foundEmote.activatedValue floatValue])];
         count = count + 1;
@@ -257,9 +257,7 @@
 }
 
 - (NSString*)findEmotion {
-
     NSString *foundImage = @"circle.png";
-
     __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
         for (Emotion *emotion in self.emotionsArray) {
 
@@ -273,9 +271,7 @@
                 distance = newDistance;
             }
         }
-
     return foundImage;
 }
-
 
 @end
