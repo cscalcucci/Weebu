@@ -15,7 +15,7 @@
 #import "LocationService.h"
 #import "SettingsService.h"
 #import "Event.h"
-#import "StandardEventTableViewCell.h"
+#import "WBStandardEventTableViewCell.h"
 #import "UIColor+CustomColors.h"
 
 #import "JFMinimalNotification.h"

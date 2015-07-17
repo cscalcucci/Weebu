@@ -20,7 +20,7 @@
         <!--General View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="GeneralViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="WBGeneralViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -83,7 +83,7 @@
         <!--Settings View Controller-->
         <scene sceneID="8ml-3J-SgX">
             <objects>
-                <viewController id="lbd-rs-xql" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController id="lbd-rs-xql" customClass="WBSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QJF-ei-Lze"/>
                         <viewControllerLayoutGuide type="bottom" id="big-8N-GKK"/>
@@ -160,7 +160,7 @@
         <!--List View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="ListViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="WBListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -173,7 +173,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" rowHeight="140" id="0wp-wE-yoQ" customClass="StandardEventTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" rowHeight="140" id="0wp-wE-yoQ" customClass="WBStandardEventTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0wp-wE-yoQ" id="nYx-we-j4a">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -208,7 +208,7 @@
         <!--Mapbox View Controller-->
         <scene sceneID="Irk-MP-Waf">
             <objects>
-                <viewController id="V1A-dl-eQN" customClass="MapboxViewController" sceneMemberID="viewController">
+                <viewController id="V1A-dl-eQN" customClass="WBMapboxViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7DD-Xd-3F2"/>
                         <viewControllerLayoutGuide type="bottom" id="eKl-5T-j8b"/>
@@ -227,7 +227,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="TabBarViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="WBTabBarViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -326,7 +326,7 @@
                                 <rect key="frame" x="0.0" y="340" width="600" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" rowHeight="140" id="WdB-Z7-8LM" customClass="StandardEventTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandardEventCell" rowHeight="140" id="WdB-Z7-8LM" customClass="WBStandardEventTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WdB-Z7-8LM" id="qHu-6Z-FX4">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -368,7 +368,7 @@
         <!--Settings Table View Controller-->
         <scene sceneID="9QJ-gE-Meq">
             <objects>
-                <tableViewController id="Hy6-4F-GiL" customClass="SettingsTableViewController" sceneMemberID="viewController">
+                <tableViewController id="Hy6-4F-GiL" customClass="WBSettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PVk-1O-1L4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

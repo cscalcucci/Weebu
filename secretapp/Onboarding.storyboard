@@ -7,7 +7,7 @@
         <!--Session View Controller-->
         <scene sceneID="kE3-Mb-F2i">
             <objects>
-                <viewController id="wqL-tg-0Y3" customClass="SessionViewController" sceneMemberID="viewController">
+                <viewController id="wqL-tg-0Y3" customClass="WBSessionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="siM-fK-2dl"/>
                         <viewControllerLayoutGuide type="bottom" id="Wie-af-o7G"/>
@@ -30,7 +30,7 @@
         <!--Email Signup View Controller-->
         <scene sceneID="Gex-pB-YVe">
             <objects>
-                <viewController id="cC0-xu-pIV" customClass="EmailSignupViewController" sceneMemberID="viewController">
+                <viewController id="cC0-xu-pIV" customClass="WBEmailSignupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dt5-7w-XaG"/>
                         <viewControllerLayoutGuide type="bottom" id="o69-nw-JV2"/>
@@ -51,7 +51,7 @@
         <!--Successful Login View Controller-->
         <scene sceneID="xxT-tQ-Xev">
             <objects>
-                <viewController id="Uzl-gK-Bhu" customClass="SuccessfulLoginViewController" sceneMemberID="viewController">
+                <viewController id="Uzl-gK-Bhu" customClass="WBSuccessfulLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bZJ-0p-WXe"/>
                         <viewControllerLayoutGuide type="bottom" id="s77-E4-JMA"/>
@@ -70,7 +70,7 @@
         <!--Profile Information View Controller-->
         <scene sceneID="HzW-Yl-mk1">
             <objects>
-                <viewController id="gmR-QO-faw" customClass="ProfileInformationViewController" sceneMemberID="viewController">
+                <viewController id="gmR-QO-faw" customClass="WBProfileInformationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IXW-WR-e87"/>
                         <viewControllerLayoutGuide type="bottom" id="hgE-bu-7Tk"/>
@@ -91,7 +91,7 @@
         <!--Splash View Controller-->
         <scene sceneID="Elz-qJ-97J">
             <objects>
-                <viewController storyboardIdentifier="SplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GO0-Ei-4wb" customClass="SplashViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GO0-Ei-4wb" customClass="WBSplashViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RfD-AN-QxA"/>
                         <viewControllerLayoutGuide type="bottom" id="mty-Lr-V4Z"/>

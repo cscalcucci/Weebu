@@ -158,9 +158,9 @@
     return self.events.count;
 }
 
-- (StandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (WBStandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"StandardEventTableViewCell" owner:self options:nil];
-    StandardEventTableViewCell *cell = [objects objectAtIndex:0];
+    WBStandardEventTableViewCell *cell = [objects objectAtIndex:0];
     Event *event = [self.events objectAtIndex:indexPath.row];
     Emotion *emotion = event.emotionObject;
     cell.emotionName.text = emotion.name;
