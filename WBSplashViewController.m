@@ -64,7 +64,7 @@ NSMutableURLRequest *request;
                      completion:^(BOOL finished){
                          [UIView animateWithDuration:0.4 animations:^{
                              shape.transform = CGAffineTransformMakeScale(1, 1);
-                             [self performSelector:@selector(checkUserThenSegue) withObject:self afterDelay:2];
+                             [self performSelector:@selector(checkUserThenSegue) withObject:self afterDelay:1];
                          }];
                      }];
 }

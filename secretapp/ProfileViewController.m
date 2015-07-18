@@ -159,40 +159,43 @@
 }
 
 - (WBStandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"StandardEventTableViewCell" owner:self options:nil];
+    NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"WBStandardEventTableViewCell" owner:self options:nil];
     WBStandardEventTableViewCell *cell = [objects objectAtIndex:0];
-    Event *event = [self.events objectAtIndex:indexPath.row];
-    Emotion *emotion = event.emotionObject;
-    cell.emotionName.text = emotion.name;
-    NSString *imageString = emotion.imageString;
 
-    //Set image
-    cell.emotionImageView.image = [UIImage imageNamed:imageString];
-    [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
-
-    //Set time
-    cell.timeAgo.text = [self relativeDate:event.createdAt];
-
-    //Caption
-    if (event.caption) {
-        cell.caption.text = [NSString stringWithFormat:@"%@", event.caption];
-    }
-
-    //distance calculation
-    PFGeoPoint *parseUserLocation = [PFGeoPoint geoPointWithLocation:self.userLocation];
-    NSString *distanceLabel = [NSString new];
-    double distance = [parseUserLocation distanceInKilometersTo:event.location];
-    if (distance < 0.1) {
-        distanceLabel = [NSString stringWithFormat:@"%im", (int)(distance * 1000)];
-        NSLog(@"%@", distanceLabel);
-    } else if (distance < 1.0) {
-        distanceLabel = [NSString stringWithFormat:@"%.1fm", distance * 1000];
-        NSLog(@"%@", distanceLabel);
+    if (self.events.count == 0) {
+        cell.emotionName.text = @"Add an emotion";
     } else {
-        distanceLabel = [NSString stringWithFormat:@"%.1fmi",distance / 0.621371192];
-    }
-    cell.distanceAway.text = distanceLabel;
+        Event *event = [self.events objectAtIndex:indexPath.row];
+        Emotion *emotion = event.emotionObject;
+        cell.emotionName.text = emotion.name;
+        NSString *imageString = emotion.imageString;
 
+        //Set image
+        cell.emotionImageView.image = [UIImage imageNamed:imageString];
+        [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
+
+        //Set time
+        cell.timeAgo.text = [self relativeDate:event.createdAt];
+        //Caption
+        if (event.caption) {
+            cell.caption.text = [NSString stringWithFormat:@"%@", event.caption];
+        }
+
+        //distance calculation
+        PFGeoPoint *parseUserLocation = [PFGeoPoint geoPointWithLocation:self.userLocation];
+        NSString *distanceLabel = [NSString new];
+        double distance = [parseUserLocation distanceInKilometersTo:event.location];
+        if (distance < 0.1) {
+            distanceLabel = [NSString stringWithFormat:@"%im", (int)(distance * 1000)];
+            NSLog(@"%@", distanceLabel);
+        } else if (distance < 1.0) {
+            distanceLabel = [NSString stringWithFormat:@"%.1fm", distance * 1000];
+            NSLog(@"%@", distanceLabel);
+        } else {
+            distanceLabel = [NSString stringWithFormat:@"%.1fmi",distance / 0.621371192];
+        }
+        cell.distanceAway.text = distanceLabel;
+    }
     return cell;
 }
 

@@ -155,8 +155,18 @@
 - (void)onAddEmotionButtonPressed {
     NSLog(@"pressed");
     [self performSegueWithIdentifier:@"ListToAdd" sender:self];
-
 }
+
+//-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"WBDetailEmotionViewController" owner:self options:nil];
+//    UINib *nib = [objects objectAtIndex:0];
+//
+//
+//
+//    UIViewController *viewController = [nib instantiateWithOwner:@"WBDetailEmotionViewController" options:nil];
+//    [self presentViewController:viewController animated:NO completion:NULL];
+//    return indexPath;
+//}
 
 #pragma mark - Utility Methods
 - (NSString *)relativeDate:(NSDate *)dateCreated {

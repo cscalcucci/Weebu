@@ -163,7 +163,7 @@
     } completion:^(BOOL finished) {
         [self.introView removeFromSuperview];
     }];
-    [self crossTheScreenActions];
+    [self crossTheScreenActions1];
 }
 
 #pragma mark - Imageview stuff
@@ -191,7 +191,7 @@
 
 #pragma mark - Screen crossing animations
 
-- (void)crossTheScreenActions {
+- (void)crossTheScreenActions1 {
     int leaderYPos = self.view.center.y - 50;
     self.leaderImage = [self flipImageWithImage:[UIImage imageNamed:@"emotion9white"]];
     UIImageView *leaderImageView = [self addImageviewToView:self.view andEmotionImage:self.leaderImage andXPosition:-500 andYPosition:leaderYPos andWidth:50 andHeight:50];
@@ -206,6 +206,25 @@
         UIImageView *chaserImageView = [self addImageviewToView:self.view andEmotionImage:self.chaserImage andXPosition: randA andYPosition:randB andWidth:50 andHeight:50];
         [self expandImageView:chaserImageView];
         [self animateCrossTheScreen:chaserImageView andDuration:5 andDelay:1 andXPosition:randA + 1000 andYPosition:randB andWidth:50 anHeight:50 andImage:self.chaserImage];
+    }
+//    [self crossTheScreenActions2];
+}
+
+- (void)crossTheScreenActions2 {
+    int leaderYPos = self.view.center.y - 50;
+    self.leaderImage = [UIImage imageNamed:@"emotion9white"];
+    UIImageView *leaderImageView = [self addImageviewToView:self.view andEmotionImage:self.leaderImage andXPosition:self.view.frame.size.width + 500 andYPosition:leaderYPos andWidth:50 andHeight:50];
+    [self expandImageView:leaderImageView];
+    [self animateCrossTheScreen:leaderImageView andDuration:5 andDelay:5 andXPosition:-100 andYPosition:leaderYPos andWidth:50 anHeight:50 andImage:self.leaderImage];
+
+    for (int i = 1; i <= 20; i++) {
+        int randA = arc4random() % 100 + self.view.frame.size.width + 500;
+        int randB = arc4random() % 100 + self.view.center.y - 100;
+        //flip image
+        self.chaserImage = [UIImage imageNamed:[NSString stringWithFormat:@"emotion%iwhite", i]];
+        UIImageView *chaserImageView = [self addImageviewToView:self.view andEmotionImage:self.chaserImage andXPosition: randA andYPosition:randB andWidth:50 andHeight:50];
+        [self expandImageView:chaserImageView];
+        [self animateCrossTheScreen:chaserImageView andDuration:5 andDelay:6 andXPosition:randA - 1500 andYPosition:randB andWidth:50 anHeight:50 andImage:self.chaserImage];
     }
 }
 

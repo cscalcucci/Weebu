@@ -101,8 +101,14 @@
             self.emotionsArray = [NSMutableArray new];
 
             self.eventsArray = [[NSArray alloc]initWithArray:events];
+            for (Event *event in self.eventsArray) {
+                NSLog(@"DID RUN OBJ C FOR LOOP");
+                NSLog(@"WTF THIS EMOTION: %@", event.emotionObject.name);
+            }
+
+            //WTF FOR LOOP ISN'T WORKING UNLESS YOU HAVE ANOTHER FOR LOOP TO KEEP IT COMPANY
             for (int i; i < self.eventsArray.count; i++) {
-                NSLog(@"DID RUN FOR LOOP");
+                NSLog(@"DID RUN C FOR LOOP");
                 self.event = self.eventsArray[i];
                 self.emotion = self.event.emotionObject;
                 NSLog(@"EMOTION: %@", self.emotion.imageString);
@@ -115,6 +121,7 @@
 
                 //Create custom annotation, add to annotation array
                 RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self.mapView coordinate:annoCoord andTitle:self.emotion.imageString];
+                NSLog(@"ANNOTATION TITLE: %@", annotation.title);
                 switch (i) {
                     case 0 ... 500: annotation.subtitle = self.emotion.imageString; NSLog(@"FIZZ"); break;
                     default: annotation.subtitle = @"buzz"; NSLog(@"BUZZ"); break;
@@ -139,6 +146,7 @@
     NSLog(@"ADD ANNOTATIONS CALLED");
     for (RMAnnotation *a in self.annotationsArray) {
         NSLog(@"==> %@", a.subtitle);
+        NSLog(@"ANNOTATION TITLE IN METHOD: %@", a.title);
         [self.mapView addAnnotation:a];
     }
     NSLog(@"EVENTS COUNT: %lu", (unsigned long)self.eventsArray.count);
