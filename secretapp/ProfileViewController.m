@@ -161,6 +161,7 @@
 - (WBStandardEventTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"WBStandardEventTableViewCell" owner:self options:nil];
     WBStandardEventTableViewCell *cell = [objects objectAtIndex:0];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     if (self.events.count == 0) {
         cell.emotionName.text = @"Add an emotion";
@@ -174,9 +175,8 @@
         cell.emotionImageView.image = [UIImage imageNamed:imageString];
         [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
 
-        //Set time
+        //Set Time & Caption
         cell.timeAgo.text = [self relativeDate:event.createdAt];
-        //Caption
         if (event.caption) {
             cell.caption.text = [NSString stringWithFormat:@"%@", event.caption];
         }

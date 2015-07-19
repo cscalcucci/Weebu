@@ -9,15 +9,7 @@
 #import "WBListViewController.h"
 #import "Emotion.h"
 #import "Event.h"
-//#import "EventTableViewCell.h"
 #import "WBStandardEventTableViewCell.h"
-
-@interface WBListViewController ()
-@property PFUser *currentUser;
-@property NSArray *events;
-@property NSArray *emotions;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
-@end
 
 @implementation WBListViewController
 
@@ -26,16 +18,15 @@
 
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshMyTableView:)
-             forControlEvents:UIControlEventValueChanged];
+                  forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 
     self.settingsButton.title = @"";
     UIImage *image = [UIImage imageNamed:@"settings"];
     self.settingsButton.image = image;
 
-    //nav bar title
+    //Navigation bar
     self.navigationItem.title = @"Recent emotions";
-    //Nav bar settings
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIFont fontWithName:@"BrandonGrotesque-Bold" size:21],
@@ -43,9 +34,17 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.detailEmotionView removeFromSuperview];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
+    //Initialize the arrays
     self.emotions = [[NSArray alloc]init];
     self.events = [NSArray new];
+
+    //Instantiate the detail view
+    [self createDetailEmotionViewInBackground];
 
     self.userLocation = [LocationService sharedInstance].currentLocation;
     NSLog(@"user location for feed: %@", self.userLocation);
@@ -59,7 +58,7 @@
     [eventsQuery orderByDescending:@"createdAt"];
     [eventsQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
         if (!error) {
-            NSLog(@"total events: %lu", events.count);
+            NSLog(@"total events: %lu", (unsigned long)events.count);
             self.events = events;
             [self.tableView reloadData];
         }
@@ -101,14 +100,15 @@
 
     NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"WBStandardEventTableViewCell" owner:self options:nil];
     WBStandardEventTableViewCell *cell =[objects objectAtIndex:0];
+
     Event *event = [self.events objectAtIndex:indexPath.row];
     Emotion *emotion = event.emotionObject;
-    cell.emotionName.text = emotion.name;
-    NSString *imageString = emotion.imageString;
 
-    cell.emotionImageView.image = [UIImage imageNamed:imageString];
-    [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.emotionName.text = emotion.name;
+    cell.emotionImageView.image = [UIImage imageNamed:emotion.imageString];
     cell.timeAgo.text = [self relativeDate:event.createdAt];
+    [cell expandImageView:cell.emotionImageView andActivatedValue:emotion];
 
     //Caption
     if (event.caption) {
@@ -129,10 +129,8 @@
         distanceLabel = [NSString stringWithFormat:@"%.1fmi",distance / 0.621371192];
     }
     cell.distanceAway.text = distanceLabel;
-
     return cell;
 }
-
 
 #pragma mark - Floating button
 
@@ -157,18 +155,36 @@
     [self performSegueWithIdentifier:@"ListToAdd" sender:self];
 }
 
-//-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSArray *objects = [[NSBundle mainBundle]loadNibNamed:@"WBDetailEmotionViewController" owner:self options:nil];
-//    UINib *nib = [objects objectAtIndex:0];
-//
-//
-//
-//    UIViewController *viewController = [nib instantiateWithOwner:@"WBDetailEmotionViewController" options:nil];
-//    [self presentViewController:viewController animated:NO completion:NULL];
-//    return indexPath;
-//}
+#pragma mark - Detail Emotion
+
+- (void)createDetailEmotionViewInBackground {
+    self.detailEmotionView = [[WBDetailEmotionView alloc] initWithFrame:self.view.frame];
+    self.detailEmotionView.delegate = self;
+    self.detailEmotionView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.detailEmotionView];
+    [self.view sendSubviewToBack:self.detailEmotionView];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Event *event = [Event new];
+    event = [self.events objectAtIndex:indexPath.row];
+
+    self.detailEmotionView.selectedEvent = event;
+    [self.detailEmotionView addDetailEmotionWindow:self];
+    [self.view bringSubviewToFront:self.detailEmotionView];
+
+
+    NSLog(@"DETAIL EVENT: %@", self.detailEmotionView.selectedEvent);
+    NSLog(@"INDEX PATH: %@", indexPath);
+}
+
+- (void)dismissDetailEmotionViewActions {
+    [self.detailEmotionView removeFromSuperview];
+    [self createDetailEmotionViewInBackground];
+}
 
 #pragma mark - Utility Methods
+
 - (NSString *)relativeDate:(NSDate *)dateCreated {
     NSCalendarUnit units = NSCalendarUnitSecond |
     NSCalendarUnitMinute | NSCalendarUnitHour |

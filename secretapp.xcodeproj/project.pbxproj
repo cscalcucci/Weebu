@@ -40,8 +40,7 @@
 		7ECC23A51B41BE7C0049B47B /* WBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A41B41BE7C0049B47B /* WBSettingsViewController.m */; };
 		7ECC23A91B41C2530049B47B /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC23A81B41C2530049B47B /* SettingsService.m */; };
 		7EF19D021B459C5F007145CA /* WBSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF19D011B459C5F007145CA /* WBSettingsTableViewController.m */; };
-		99223CF01B5B0F6100C74022 /* WBDetailEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99223CEE1B5B0F6100C74022 /* WBDetailEmotionViewController.m */; };
-		99223CF11B5B0F6100C74022 /* WBDetailEmotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99223CEF1B5B0F6100C74022 /* WBDetailEmotionViewController.xib */; };
+		99223CF51B5B2A9000C74022 /* WBDetailEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99223CF41B5B2A9000C74022 /* WBDetailEmotionView.m */; };
 		993F6A0E1B3EE1DD00CAF0D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A0D1B3EE1DD00CAF0D7 /* main.m */; };
 		993F6A111B3EE1DD00CAF0D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A101B3EE1DD00CAF0D7 /* AppDelegate.m */; };
 		993F6A141B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 993F6A121B3EE1DD00CAF0D7 /* secretapp.xcdatamodeld */; };
@@ -281,9 +280,8 @@
 		7ECC23A81B41C2530049B47B /* SettingsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsService.m; sourceTree = "<group>"; };
 		7EF19D001B459C5F007145CA /* WBSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSettingsTableViewController.h; sourceTree = "<group>"; };
 		7EF19D011B459C5F007145CA /* WBSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSettingsTableViewController.m; sourceTree = "<group>"; };
-		99223CED1B5B0F6100C74022 /* WBDetailEmotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDetailEmotionViewController.h; sourceTree = "<group>"; };
-		99223CEE1B5B0F6100C74022 /* WBDetailEmotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDetailEmotionViewController.m; sourceTree = "<group>"; };
-		99223CEF1B5B0F6100C74022 /* WBDetailEmotionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBDetailEmotionViewController.xib; sourceTree = "<group>"; };
+		99223CF31B5B2A9000C74022 /* WBDetailEmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDetailEmotionView.h; sourceTree = "<group>"; };
+		99223CF41B5B2A9000C74022 /* WBDetailEmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDetailEmotionView.m; sourceTree = "<group>"; };
 		993F6A081B3EE1DD00CAF0D7 /* secretapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = secretapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F6A0C1B3EE1DD00CAF0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		993F6A0D1B3EE1DD00CAF0D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -720,9 +718,8 @@
 		99223CF21B5B0F7000C74022 /* WBDetailEmotionView */ = {
 			isa = PBXGroup;
 			children = (
-				99223CED1B5B0F6100C74022 /* WBDetailEmotionViewController.h */,
-				99223CEE1B5B0F6100C74022 /* WBDetailEmotionViewController.m */,
-				99223CEF1B5B0F6100C74022 /* WBDetailEmotionViewController.xib */,
+				99223CF31B5B2A9000C74022 /* WBDetailEmotionView.h */,
+				99223CF41B5B2A9000C74022 /* WBDetailEmotionView.m */,
 			);
 			name = WBDetailEmotionView;
 			sourceTree = "<group>";
@@ -850,9 +847,9 @@
 				993F6A6B1B3F60F800CAF0D7 /* WBTabBarView */,
 				993F6A7C1B3F847600CAF0D7 /* WBGeneralView */,
 				7ECC23A21B3F1C270049B47B /* WBListView */,
+				99223CF21B5B0F7000C74022 /* WBDetailEmotionView */,
 				9999119C1B595EC5003E6C4D /* WBMapView */,
 				7ECC23A61B41BE950049B47B /* WBSettingsView */,
-				99223CF21B5B0F7000C74022 /* WBDetailEmotionView */,
 				993F6A721B3F6CF600CAF0D7 /* Profile View */,
 			);
 			name = Tabs;
@@ -1380,7 +1377,6 @@
 				66CFFBDD1B447072009DF9FA /* astronaut1.png in Resources */,
 				993F6B161B40D5E100CAF0D7 /* Brandon Grotesque Medium Italic.ttf in Resources */,
 				99605BEA1B41B4CD00238EC8 /* TwitterKitResources.bundle in Resources */,
-				99223CF11B5B0F6100C74022 /* WBDetailEmotionViewController.xib in Resources */,
 				993F6B1A1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf in Resources */,
 				993F6B151B40D5E100CAF0D7 /* Brandon Grotesque Light.ttf in Resources */,
 				993F6B121B40D5E100CAF0D7 /* Brandon Grotesque Bold.ttf in Resources */,
@@ -1440,7 +1436,6 @@
 				99DE2C7F1B42205C00C3B902 /* MPABTestDesignerDisconnectMessage.m in Sources */,
 				99DE2C711B42205C00C3B902 /* MPABTestDesignerChangeRequestMessage.m in Sources */,
 				99639F9C1B56E926002282CA /* WBSuccessfulLoginViewController.m in Sources */,
-				99223CF01B5B0F6100C74022 /* WBDetailEmotionViewController.m in Sources */,
 				99DE2CB91B42205C00C3B902 /* MPObjectSerializerConfig.m in Sources */,
 				99DE2CBF1B42205C00C3B902 /* MPPropertyDescription.m in Sources */,
 				99DE2CA11B42205C00C3B902 /* MPDesignerEventBindingResponseMesssage.m in Sources */,
@@ -1475,6 +1470,7 @@
 				99DE2CB11B42205C00C3B902 /* MPNSNumberToCGFloatValueTransformer.m in Sources */,
 				993F6A3B1B3EE2CB00CAF0D7 /* WBListViewController.m in Sources */,
 				99DE2CD11B42205C00C3B902 /* MPTweakInline.m in Sources */,
+				99223CF51B5B2A9000C74022 /* WBDetailEmotionView.m in Sources */,
 				99DE2CBD1B42205C00C3B902 /* MPPassThroughValueTransformer.m in Sources */,
 				7ECC23A91B41C2530049B47B /* SettingsService.m in Sources */,
 				66941ECC1B41987800193D46 /* FBQuadTree.m in Sources */,
