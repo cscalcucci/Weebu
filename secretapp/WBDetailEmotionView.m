@@ -101,8 +101,7 @@
 
     //Date & User
     NSString *timeLabel = [[NSString alloc] initWithString:[self relativeDate:self.selectedEvent.createdAt]];
-    PFUser *user = [PFUser currentUser];
-
+    PFUser *user = self.selectedEvent.createdBy;
 
     UITextView *hilariousText = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, view.frame.size.width * 0.9, view.frame.size.height / 3)];
     hilariousText.text = [NSString stringWithFormat:@"About %@ ago, %@ was feeling %@.  This took place %@ from where you are.", timeLabel, user.username, emotion.name, distanceLabel];
