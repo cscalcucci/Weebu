@@ -26,7 +26,14 @@
     self.usernameTextField.delegate = self;
     self.usernameTextField.backgroundColor = [UIColor whiteColor];
     self.usernameTextField.center = CGPointMake(self.view.center.x, self.view.center.y + 90);
-    self.usernameTextField.placeholder = @"Pick a username";
+
+    //Use Twitter username as placeholder if avail
+    NSString *twitterUsername = [PFTwitterUtils twitter].screenName;
+    if (!twitterUsername) {
+        self.usernameTextField.placeholder = @"Pick a username";
+    } else {
+        self.usernameTextField.text = twitterUsername;
+    }
     self.usernameTextField.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.usernameTextField];
 
