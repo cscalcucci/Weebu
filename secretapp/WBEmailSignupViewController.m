@@ -108,7 +108,6 @@
 #pragma mark - Submission stuff
 
 - (void)submitButtonActions {
-    [self userSignup];
     [self validationTests];
 }
 
@@ -130,6 +129,20 @@
         [alert show];
         return;
     }
+
+
+#warning Need to do more validation on this piece.
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"email" equalTo:self.emailTextField.text];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        if(number > 0) {
+            NSLog(@"YES!");
+            [self segueToTabBarController];
+        } else {
+            [self userSignup];
+        }
+    }];
+
 }
 
 -(void)userSignup {
@@ -145,6 +158,12 @@
             [self performSegueWithIdentifier:@"EmailSignupToProfileInformation" sender:self];
         }
     }];
+}
+
+- (void)segueToTabBarController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    [self presentViewController:viewController animated:NO completion:NULL];
 }
 
 -(void)dismissKeyboard {
