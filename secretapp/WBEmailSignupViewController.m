@@ -60,6 +60,10 @@
     [self.closeButton addTarget:self action:@selector(closeActions) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.closeButton];
 
+#warning Do this!
+    //Add login butont that segues to a loginview controller
+    //Use the PFUser login with username function
+//    [PFUser logInWithUsername:self.emailTextField.text password:self.passwordTextField.text];
 
     //Tap
     self.tap = [[UITapGestureRecognizer alloc]
@@ -130,8 +134,8 @@
         return;
     }
 
+    //warning need more validation here, specifically cloud code to do a lookup on user
 
-#warning Need to do more validation on this piece.
     PFQuery *query = [PFUser query];
     [query whereKey:@"email" equalTo:self.emailTextField.text];
     [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {

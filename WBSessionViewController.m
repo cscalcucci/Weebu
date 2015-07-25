@@ -155,9 +155,9 @@
 #pragma mark - ABCIntroViewDelegate Methods
 
 -(void)onDoneButtonPressed{
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        [defaults setObject:@"YES"forKey:@"intro_screen_viewed"];
-//        [defaults synchronize];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"YES"forKey:@"intro_screen_viewed"];
+    [defaults synchronize];
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.introView.alpha = 0;
     } completion:^(BOOL finished) {
