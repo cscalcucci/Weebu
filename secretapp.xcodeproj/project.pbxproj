@@ -71,6 +71,7 @@
 		993F6B181B40D5E100CAF0D7 /* Brandon Grotesque Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B0C1B40D5E100CAF0D7 /* Brandon Grotesque Regular.ttf */; };
 		993F6B191B40D5E100CAF0D7 /* Brandon Grotesque Thin Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B0D1B40D5E100CAF0D7 /* Brandon Grotesque Thin Italic.ttf */; };
 		993F6B1A1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 993F6B0E1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf */; };
+		995F4B211B6666D800C6EAE9 /* WBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995F4B201B6666D800C6EAE9 /* WBLoginViewController.m */; };
 		99605BE91B41B4CD00238EC8 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99605BE61B41B4CD00238EC8 /* TwitterKit.framework */; };
 		99605BEA1B41B4CD00238EC8 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99605BE71B41B4CD00238EC8 /* TwitterKitResources.bundle */; };
 		99605BEB1B41B4CD00238EC8 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99605BE81B41B4CD00238EC8 /* TwitterCore.framework */; };
@@ -327,6 +328,8 @@
 		993F6B0C1B40D5E100CAF0D7 /* Brandon Grotesque Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Regular.ttf"; sourceTree = "<group>"; };
 		993F6B0D1B40D5E100CAF0D7 /* Brandon Grotesque Thin Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Thin Italic.ttf"; sourceTree = "<group>"; };
 		993F6B0E1B40D5E100CAF0D7 /* Brandon Grotesque Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brandon Grotesque Thin.ttf"; sourceTree = "<group>"; };
+		995F4B1F1B6666D800C6EAE9 /* WBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLoginViewController.h; sourceTree = "<group>"; };
+		995F4B201B6666D800C6EAE9 /* WBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLoginViewController.m; sourceTree = "<group>"; };
 		99605BE61B41B4CD00238EC8 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		99605BE71B41B4CD00238EC8 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
 		99605BE81B41B4CD00238EC8 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
@@ -970,6 +973,15 @@
 			name = "Brandon Grotesque Font";
 			sourceTree = "<group>";
 		};
+		995F4B221B6666DE00C6EAE9 /* WBLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				995F4B1F1B6666D800C6EAE9 /* WBLoginViewController.h */,
+				995F4B201B6666D800C6EAE9 /* WBLoginViewController.m */,
+			);
+			name = WBLoginViewController;
+			sourceTree = "<group>";
+		};
 		99639FA31B58482B002282CA /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,6 +991,7 @@
 				999911981B595DB8003E6C4D /* WBSessionView */,
 				999911991B595DC3003E6C4D /* WBEmailView */,
 				9999119A1B595DCC003E6C4D /* WBProfileInformationView */,
+				995F4B221B6666DE00C6EAE9 /* WBLoginViewController */,
 				9999119B1B595DD9003E6C4D /* WBSuccessfulLoginView */,
 			);
 			name = Onboarding;
@@ -1506,6 +1519,7 @@
 				99DE2C991B42205C00C3B902 /* MPClassDescription.m in Sources */,
 				99DE2CAD1B42205C00C3B902 /* MPNotificationViewController.m in Sources */,
 				99DE2CD31B42205C00C3B902 /* MPTweakStore.m in Sources */,
+				995F4B211B6666D800C6EAE9 /* WBLoginViewController.m in Sources */,
 				99DE2CAF1B42205C00C3B902 /* MPNSAttributedStringToNSDictionaryValueTransformer.m in Sources */,
 				99DE2C771B42205C00C3B902 /* MPABTestDesignerClearResponseMessage.m in Sources */,
 				99DE2CB31B42205C00C3B902 /* MPObjectIdentityProvider.m in Sources */,

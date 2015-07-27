@@ -47,7 +47,7 @@
     [self.view addSubview:loginButton];
 
     //Email
-    self.emailButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width*.1, self.view.frame.size.height*.85, self.view.frame.size.width*.8, 60)];
+    self.emailButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width*.1, self.view.frame.size.height*.825, self.view.frame.size.width*.8, 60)];
     self.emailButton.backgroundColor = [UIColor redEmotionColor];
     self.emailButton.layer.borderColor = [UIColor redEmotionColor].CGColor;
     self.emailButton.layer.borderWidth =.5;
@@ -56,6 +56,16 @@
     [self.emailButton setTitle:@"Use my email" forState:UIControlStateNormal];
     [self.emailButton addTarget:self action:@selector(emailLoginActions) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.emailButton];
+
+    //Login button
+    UIButton *loginWithUsername = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 300, 50)];
+    loginWithUsername.center = CGPointMake(self.emailButton.center.x, self.emailButton.center.y + 60);
+    loginWithUsername.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:18];
+    [loginWithUsername setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [loginWithUsername setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+    [loginWithUsername setTitle:@"Already have a username?  Login here." forState:UIControlStateNormal];
+    [loginWithUsername addTarget:self action:@selector(usernameLoginActions)forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginWithUsername];
 
     //Weebu label
     UILabel *mainLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 100)];
@@ -150,6 +160,13 @@
 //test
 - (void)testLogLocation {
     NSLog(@"%@", [LocationService sharedInstance].currentLocation);
+}
+
+#pragma mark - Username login
+
+- (void)usernameLoginActions {
+    WBLoginViewController *viewController = [WBLoginViewController new];
+    [self presentViewController:viewController animated:YES completion:NULL];
 }
 
 #pragma mark - ABCIntroViewDelegate Methods

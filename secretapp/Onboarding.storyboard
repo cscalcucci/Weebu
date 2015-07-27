@@ -21,6 +21,7 @@
                         <segue destination="cC0-xu-pIV" kind="presentation" identifier="SessionToEmailSignup" id="yZX-4z-cpX"/>
                         <segue destination="gmR-QO-faw" kind="presentation" identifier="SessionToProfileInformation" id="zf5-Ci-Tfk"/>
                         <segue destination="Uzl-gK-Bhu" kind="showDetail" identifier="SessionToSuccessfulLogin" id="gFX-EV-bWl"/>
+                        <segue destination="eM0-Ty-w58" kind="presentation" id="CbY-nh-Taf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RI9-9Z-RdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,6 +48,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqB-Zu-10I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1772" y="-631"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Tx3-A9-vbo">
+            <objects>
+                <viewController storyboardIdentifier="WBLoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eM0-Ty-w58" customClass="WBLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LQn-56-eJ0"/>
+                        <viewControllerLayoutGuide type="bottom" id="iCH-YZ-PoE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NBe-5g-phw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="Uzl-gK-Bhu" kind="show" identifier="LoginToSuccess" id="KdW-Q0-g57"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DD6-eW-a4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992" y="1105"/>
         </scene>
         <!--Successful Login View Controller-->
         <scene sceneID="xxT-tQ-Xev">
@@ -111,7 +133,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gFX-EV-bWl"/>
         <segue reference="zf5-Ci-Tfk"/>
+        <segue reference="KdW-Q0-g57"/>
     </inferredMetricsTieBreakers>
 </document>

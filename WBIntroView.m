@@ -54,7 +54,7 @@ UIImageView *backgroundImageView;
         
         
         //Done Button
-        self.doneButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width*.1, self.frame.size.height*.85, self.frame.size.width*.8, 60)];
+        self.doneButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width*.1, self.frame.size.height*.825, self.frame.size.width*.8, 60)];
         [self.doneButton setTintColor:[UIColor whiteColor]];
         [self.doneButton setTitle:@"Let's Go!" forState:UIControlStateNormal];
         [self.doneButton.titleLabel setFont:self.mediumFont];

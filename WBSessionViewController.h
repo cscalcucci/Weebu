@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "WBIntroView.h"
+#import "WBLoginViewController.h"
 //#import "LocationService.h"
 
 @interface WBSessionViewController : UIViewController 
