@@ -413,7 +413,6 @@
     self.minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError title:self.notificationTitle subTitle:self.notificationMessage dismissalDelay:2.5 touchHandler:^{
         [self.minimalNotification dismiss];
     }];
-
     [self.venueSelectView addSubview:self.minimalNotification];
 
     if ([self.notificationType isEqualToString:@"success"]) {
@@ -434,7 +433,6 @@
     [self.minimalNotification setTitleFont:titleFont];
     UIFont* subTitleFont = [UIFont fontWithName:@"BrandonGrotesque-Medium" size:16];
     [self.minimalNotification setSubTitleFont:subTitleFont];
-
     [self.minimalNotification show];
 }
 
@@ -444,8 +442,8 @@
         self.notificationMessage = [NSString stringWithFormat:@"We believe you MIGHT be %@!, but we're onto you!", self.selectedEmotion.name];
 
     } else if ([self.notificationType isEqualToString:@"success"]) {
-        self.notificationTitle = [NSString stringWithFormat:@"Huzzah!"];
-        self.notificationMessage = [NSString stringWithFormat:@"You are now %@!", self.selectedEmotion.name];
+        self.notificationTitle = [NSString stringWithFormat:@"Thanks for sharing"];
+        self.notificationMessage = [NSString stringWithFormat:@"You've let the world know you're %@", self.selectedEmotion.name];
 
     } else if ([self.notificationType isEqualToString:@"error"]) {
         self.notificationTitle = [NSString stringWithFormat:@"Oh No!"];
