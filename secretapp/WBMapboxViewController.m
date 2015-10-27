@@ -132,17 +132,14 @@
         } else {
             NSLog(@"ERROR: %@", error);
         }
-        //Post to notification center
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"callbackCompleted" object:nil];
 
-        //Test logging to determine functionality
-        NSLog(@"EVENTS COUNT: %lu", (unsigned long)self.eventsArray.count);
-        NSLog(@"ANNOTATIONS COUNT: %lu", (unsigned long)self.annotationsArray.count);
-        NSLog(@"EMOTIONS COUNT: %lu", (unsigned long)self.emotionsArray.count);
     }];
 }
 
 -(void)addAnnotations {
+
     NSLog(@"ADD ANNOTATIONS CALLED");
     for (RMAnnotation *a in self.annotationsArray) {
         NSLog(@"==> %@", a.subtitle);
@@ -155,8 +152,7 @@
 }
 
 
--(RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation
-{
+-(RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation {
     if (annotation.isUserLocationAnnotation)
         return nil;
 
@@ -266,6 +262,7 @@
 }
 
 - (NSString*)findEmotion {
+
     NSString *foundImage = @"circle.png";
     __block NSNumber *distance = [[NSNumber alloc]initWithFloat:100];
     for (Emotion *emotion in self.emotionsArray) {
